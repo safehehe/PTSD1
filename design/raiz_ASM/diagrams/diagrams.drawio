@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="2DKu7rJiEFvRP1uLp7hM" name="Page-1">
-        <mxGraphModel dx="1048" dy="784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#169976" math="0" shadow="0">
+        <mxGraphModel dx="364" dy="74" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#169976" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -9,8 +9,8 @@
                         <mxPoint x="210" y="160" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2" value="&lt;font color=&quot;#67f018&quot;&gt;START&lt;br&gt;&lt;/font&gt;in RR&lt;br&gt;A = RR&lt;br&gt;Q = 0&lt;br&gt;AUX = 0&lt;br&gt;N = n&lt;br&gt;R = 0" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="140" y="30" width="140" height="120" as="geometry"/>
+                <mxCell id="2" value="&lt;font color=&quot;#67f018&quot;&gt;START&lt;br&gt;&lt;/font&gt;in RR&lt;br&gt;[15:0]A = RR&lt;br&gt;[15:0]Q = 0&lt;br&gt;[15:0]AUX = X&lt;br&gt;[15:0]N = n&lt;br&gt;[15:0]R = 0" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="29" width="140" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -194,10 +194,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="70" value="S2" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="70" value="S2" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="990" y="180" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="S3" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="72" value="S3" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="990" y="160" width="60" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="75" value="RR&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#F0F0F0;" parent="1" vertex="1">
@@ -212,13 +212,13 @@
                 <mxCell id="59" value="A" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=0;right=2;bottom=0;top=1;type=none;leftAnchor=left;leftRot=0;type_size=30;pinSnap=10;type_loc=topRight;rightRot=180;topArr=RR%3Ain;rightArr=LOAD%3Ain,SHIFT%3Ain;" parent="76" vertex="1">
                     <mxGeometry x="140" width="140" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="77" value="S1" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;direction=west;" parent="1" vertex="1">
+                <mxCell id="77" value="S1" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;direction=west;" parent="1" vertex="1">
                     <mxGeometry x="1570" y="200" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="78" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="78" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="990" y="200" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;flipH=1;" parent="1" vertex="1">
+                <mxCell id="79" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;flipH=1;" parent="1" vertex="1">
                     <mxGeometry x="1570" y="170" width="60" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="83" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=130;exitDy=50;exitPerimeter=0;strokeColor=default;fontColor=#F0F0F0;endArrow=blockThin;endFill=0;" parent="1" source="80" edge="1">
@@ -226,19 +226,19 @@
                         <mxPoint x="1320" y="530.0555555555555" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="80" value="N" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=3;right=1;bottom=0;top=0;fontColor=#F0F0F0;rightRot=180;leftArr=RST%3Ain,ADD%3Ain,CLK%3Aclk;rightArr=K%3Aout;topRot=0;type=none;" parent="1" vertex="1">
+                <mxCell id="80" value="N" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=3;right=1;bottom=0;top=0;fontColor=default;rightRot=180;leftArr=RST%3Ain,ADD%3Ain,CLK%3Aclk;rightArr=K%3Aout;topRot=0;type=none;" parent="1" vertex="1">
                     <mxGeometry x="1150" y="480" width="120" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="81" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="81" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="1080" y="490" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="82" value="S3" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="82" value="S3" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="1080" y="510" width="60" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="84" value="K" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#F0F0F0;" parent="1" vertex="1">
                     <mxGeometry x="1300" y="520" width="50" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="85" value="RST" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;direction=south;" parent="1" vertex="1">
+                <mxCell id="85" value="S2" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;direction=south;" parent="1" vertex="1">
                     <mxGeometry x="1335" y="80" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="86" value="" style="endArrow=blockThin;html=1;strokeColor=default;fontColor=#F0F0F0;exitX=2.4;exitY=0.469;exitDx=0;exitDy=0;exitPerimeter=0;endFill=0;" parent="1" source="62" edge="1">
@@ -256,7 +256,7 @@
                         <mxPoint x="1379.42" y="295" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="89" value="S1" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=#F0F0F0;" parent="1" vertex="1">
+                <mxCell id="89" value="S1" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=input;drawPins=0;left=0;right=1;bottom=0;top=0;fontColor=default;" parent="1" vertex="1">
                     <mxGeometry x="990" y="350" width="60" height="20" as="geometry"/>
                 </mxCell>
             </root>

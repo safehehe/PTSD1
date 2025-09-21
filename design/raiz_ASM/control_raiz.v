@@ -32,15 +32,15 @@ module control_raiz (
     if (rst) state = START;
     else begin
       case (state)
-        START : begin
-          state =  in_init ? STEP : START;
+        START: begin
+          state = in_init ? STEP : START;
         end
-        STEP : state = CHECK;
-        CHECK : begin
+        STEP: state = CHECK;
+        CHECK: begin
           state = in_Z ? OPERATE : ITERATE;
         end
-        OPERATE : state = ITERATE;
-        ITERATE : begin
+        OPERATE: state = ITERATE;
+        ITERATE: begin
           state = in_K ? DONE : STEP;
         end
         default: state = START;

@@ -1,2 +1,2 @@
-# Diagrama
-![](diagrams.drawio.svg "Diagrama")
+# Diagramas
+![diagramas](./diagrams/diagrams.svg)
