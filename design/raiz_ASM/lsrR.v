@@ -12,7 +12,7 @@ module lsrR (
   output reg [15:0] out_R;
 
   always @(negedge clk) begin
-    if (rst) out_R = 32'b0;
+    if (rst) out_R = 16'b0;
     else begin
       if (shift) out_R = out_R << 1;
       else begin

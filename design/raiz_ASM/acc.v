@@ -7,11 +7,8 @@ module acc (
   input rst;
   input clk;
   input add;
-  output out_k;
+  output reg out_K;
   reg [15:0] N;
-  reg tmp;
-  initial tmp = 0;
-  assign out_k = tmp;
 
   always @(negedge clk) begin
     if (rst) N = 16'd16;
@@ -23,5 +20,5 @@ module acc (
     end
   end
 
-  always @(*) out_k = N == 0;
+  always @(*) out_K = N == 0;
 endmodule

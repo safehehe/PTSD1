@@ -20,7 +20,7 @@ module lsrQA (
       out_Q = 15'b0;
       reg_A = in_RR;
     end else begin
-      if (shift) {out_Q, reg_A} = {out_Q, reg_A} << 2;
+      if (shift) {out_Q, reg_A} = ({out_Q, reg_A} << 2);
       else begin
         if (add) out_Q = out_Q + (~in_AUX + 1);
         else begin
