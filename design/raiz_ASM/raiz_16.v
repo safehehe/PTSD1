@@ -5,7 +5,7 @@ module raiz_16 (
     in_RR,
     out_Q,
     out_R,
-    out_done
+    out_DONE
 );
   input rst;
   input clk;
@@ -14,7 +14,7 @@ module raiz_16 (
 
   output [15:0] out_R;
   output [15:0] out_Q;
-  output out_done;
+  output out_DONE;
 
   wire w_S1;
   wire w_S2;
@@ -73,7 +73,7 @@ module raiz_16 (
       .out_S3  (w_S3),
       .out_S4  (w_S4),
       .out_RST (w_RST),
-      .out_DONE(out_done)
+      .out_DONE(out_DONE)
   );
 
 endmodule
