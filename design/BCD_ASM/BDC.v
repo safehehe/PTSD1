@@ -1,4 +1,4 @@
-module BCD(
+module BCD (
     clk,
     rst,
     init,
@@ -6,13 +6,13 @@ module BCD(
     out_UND,
     out_DEC,
     out_CEN,
-    out_DONE  
+    out_DONE
 );
-input rst;
-input clk;
-input init;
-input in_BIN;
+  input rst;
+  input clk;
+  input init;
+  input in_BIN;
 
-    
-endmodule //BCD
+
+endmodule  //BCD
 
