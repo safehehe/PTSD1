@@ -17,7 +17,7 @@ module raiz_16_TB;
       .in_RR   (RR),
       .out_R   (result),
       .out_Q   (leftover),
-      .out_done(done)
+      .out_DONE(done)
   );
 
   parameter PERIOD = 20;
@@ -41,7 +41,7 @@ module raiz_16_TB;
     clk = 0;
     //rst = 1;
     start = 0;
-    RR = 16'h0010;
+    RR = 16'h0310;
   end
   initial begin //Process for clk
     #OFFSET;

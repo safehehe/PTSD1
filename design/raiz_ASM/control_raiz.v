@@ -2,7 +2,7 @@ module control_raiz (
     clk,
     rst,
     in_init,
-    in_Z,
+    in_Q,
     in_K,
     out_S1,
     out_S2,
@@ -14,7 +14,7 @@ module control_raiz (
   input clk;
   input rst;
   input in_init;
-  input in_Z;
+  input [15:0]in_Q;
   input in_K;
   output reg out_S1;
   output reg out_S2;
@@ -41,7 +41,7 @@ module control_raiz (
         end
         STEP1:   state = CHECK;
         CHECK: begin
-          state = in_Z ? OPERATE : ITERATE;
+          state = in_Q[15] ? ITERATE : OPERATE;
         end
         OPERATE: state = ITERATE;
         ITERATE: begin
