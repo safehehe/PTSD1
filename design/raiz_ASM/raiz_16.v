@@ -20,9 +20,9 @@ module raiz_16 (
   wire w_S2;
   wire w_S3;
   wire w_S4;
-  wire w_Z;
   wire w_K;
   wire w_RST;
+  wire [15:0] w_Q;
   wire [15:0] w_AUX;
 
   lsrR lsrR (
@@ -43,7 +43,7 @@ module raiz_16 (
   comp comp (
       .in_AUX(w_AUX),
       .in_Q  (out_Q),
-      .z     (w_Z)
+      .out_Q (w_Q)
   );
 
   lsrQA lsrQA (
@@ -51,7 +51,7 @@ module raiz_16 (
       .load  (rst),
       .shift (w_S1),
       .add   (w_S2),
-      .in_AUX(w_AUX),
+      .in_Q (w_Q),
       .in_RR (in_RR),
       .out_Q (out_Q)
   );
@@ -66,7 +66,7 @@ module raiz_16 (
       .clk     (clk),
       .rst     (rst),
       .in_init (init),
-      .in_Z    (w_Z),
+      .in_Q    (w_Q),
       .in_K    (w_K),
       .out_S1  (w_S1),
       .out_S2  (w_S2),
