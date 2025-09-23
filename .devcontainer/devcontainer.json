@@ -2,9 +2,7 @@
   "name" : "Iverlog y Digital IDE",
   "image": "mcr.microsoft.com/devcontainers/base:bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/apt-get:1":{
-      "packages":["iverilog"]
-    }
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations":{
     "vscode" : {
