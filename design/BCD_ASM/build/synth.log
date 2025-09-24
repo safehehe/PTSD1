@@ -1,53 +1,37 @@
 
  /----------------------------------------------------------------------------\
- |                                                                            |
  |  yosys -- Yosys Open SYnthesis Suite                                       |
- |                                                                            |
- |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
- |                                                                            |
- |  Permission to use, copy, modify, and/or distribute this software for any  |
- |  purpose with or without fee is hereby granted, provided that the above    |
- |  copyright notice and this permission notice appear in all copies.         |
- |                                                                            |
- |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
- |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
- |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
- |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
- |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
- |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
- |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
- |                                                                            |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
  \----------------------------------------------------------------------------/
+ Yosys 0.54 (git sha1 db72ec3bd, g++ 15.1.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -O3)
 
- Yosys 0.33+6 (git sha1 41b34a193, x86_64-conda-linux-gnu-cc 11.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/root/conda-eda/conda-eda/workdir/conda-env/conda-bld/yosys_1694128612374/work=/usr/local/src/conda/yosys-0.33_7_g41b34a193 -fdebug-prefix-map=/home/daniel-puentes/miniconda3/envs/digital=/usr/local/src/conda-prefix -fPIC -Os -fno-merge-constants)
+-- Parsing `acc.v' using frontend ` -vlog2k' --
 
-
--- Parsing `control_BCD.v' using frontend ` -vlog2k' --
-
-1. Executing Verilog-2005 frontend: control_BCD.v
-Parsing Verilog input from `control_BCD.v' to AST representation.
-Storing AST representation for module `$abstract\control_BCD'.
-Successfully finished Verilog frontend.
-
--- Parsing `sum.v' using frontend ` -vlog2k' --
-
-2. Executing Verilog-2005 frontend: sum.v
-Parsing Verilog input from `sum.v' to AST representation.
-Storing AST representation for module `$abstract\sum'.
-Successfully finished Verilog frontend.
-
--- Parsing `lsr_CEN_DEC_UND_BIN.v' using frontend ` -vlog2k' --
-
-3. Executing Verilog-2005 frontend: lsr_CEN_DEC_UND_BIN.v
-Parsing Verilog input from `lsr_CEN_DEC_UND_BIN.v' to AST representation.
-Storing AST representation for module `$abstract\lsr_CEN_DEC_UND_BIN'.
+1. Executing Verilog-2005 frontend: acc.v
+Parsing Verilog input from `acc.v' to AST representation.
+Storing AST representation for module `$abstract\acc'.
 Successfully finished Verilog frontend.
 
 -- Parsing `BCD.v' using frontend ` -vlog2k' --
 
-4. Executing Verilog-2005 frontend: BCD.v
+2. Executing Verilog-2005 frontend: BCD.v
 Parsing Verilog input from `BCD.v' to AST representation.
 Storing AST representation for module `$abstract\BCD'.
+Successfully finished Verilog frontend.
+
+-- Parsing `control_BCD.v' using frontend ` -vlog2k' --
+
+3. Executing Verilog-2005 frontend: control_BCD.v
+Parsing Verilog input from `control_BCD.v' to AST representation.
+Storing AST representation for module `$abstract\control_BCD'.
+Successfully finished Verilog frontend.
+
+-- Parsing `lsr_CEN_DEC_UND_BIN.v' using frontend ` -vlog2k' --
+
+4. Executing Verilog-2005 frontend: lsr_CEN_DEC_UND_BIN.v
+Parsing Verilog input from `lsr_CEN_DEC_UND_BIN.v' to AST representation.
+Storing AST representation for module `$abstract\lsr_CEN_DEC_UND_BIN'.
 Successfully finished Verilog frontend.
 
 -- Parsing `mux.v' using frontend ` -vlog2k' --
@@ -57,19 +41,19 @@ Parsing Verilog input from `mux.v' to AST representation.
 Storing AST representation for module `$abstract\mux'.
 Successfully finished Verilog frontend.
 
--- Parsing `acc.v' using frontend ` -vlog2k' --
+-- Parsing `sum.v' using frontend ` -vlog2k' --
 
-6. Executing Verilog-2005 frontend: acc.v
-Parsing Verilog input from `acc.v' to AST representation.
-Storing AST representation for module `$abstract\acc'.
+6. Executing Verilog-2005 frontend: sum.v
+Parsing Verilog input from `sum.v' to AST representation.
+Storing AST representation for module `$abstract\sum'.
 Successfully finished Verilog frontend.
 
 -- Running command `synth_ecp5 -top BCD -json build/BCD.json ; fsm ; write_verilog -attr2comment build/BCD_synth.v ' --
 
 7. Executing SYNTH_ECP5 pass.
 
-7.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v' to AST representation.
+7.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/cells_sim.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/cells_sim.v' to AST representation.
 Generating RTLIL representation for module `\LUT4'.
 Generating RTLIL representation for module `\$__ABC9_LUT5'.
 Generating RTLIL representation for module `\$__ABC9_LUT6'.
@@ -121,8 +105,8 @@ Generating RTLIL representation for module `\ILVDS'.
 Generating RTLIL representation for module `\OLVDS'.
 Successfully finished Verilog frontend.
 
-7.2. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_bb.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_bb.v' to AST representation.
+7.2. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/cells_bb.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/cells_bb.v' to AST representation.
 Generating RTLIL representation for module `\MULT18X18D'.
 Generating RTLIL representation for module `\ALU54B'.
 Generating RTLIL representation for module `\EHXPLLL'.
@@ -199,59 +183,40 @@ Used module:     \acc
 Used module:     \sum
 Used module:     \mux
 Used module:     \lsr_CEN_DEC_UND_BIN
-Removing unused module `$abstract\acc'.
-Removing unused module `$abstract\mux'.
-Removing unused module `$abstract\BCD'.
-Removing unused module `$abstract\lsr_CEN_DEC_UND_BIN'.
 Removing unused module `$abstract\sum'.
+Removing unused module `$abstract\mux'.
+Removing unused module `$abstract\lsr_CEN_DEC_UND_BIN'.
 Removing unused module `$abstract\control_BCD'.
+Removing unused module `$abstract\BCD'.
+Removing unused module `$abstract\acc'.
 Removed 6 unused modules.
 
 7.5. Executing PROC pass (convert processes to netlists).
 
 7.5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:213$117'.
-Cleaned up 1 empty switch.
+Cleaned up 0 empty switches.
 
 7.5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:350$224 in module TRELLIS_FF.
-Marked 1 switch rules as full_case in process $proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176 in module DPR16X4C.
-Marked 1 switch rules as full_case in process $proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118 in module TRELLIS_DPR16X4.
 Marked 4 switch rules as full_case in process $proc$lsr_CEN_DEC_UND_BIN.v:26$238 in module lsr_CEN_DEC_UND_BIN.
 Marked 2 switch rules as full_case in process $proc$acc.v:13$230 in module acc.
-Marked 1 switch rules as full_case in process $proc$control_BCD.v:72$229 in module control_BCD.
+Marked 1 switch rules as full_case in process $proc$control_BCD.v:71$229 in module control_BCD.
 Removed 1 dead cases from process $proc$control_BCD.v:46$226 in module control_BCD.
 Marked 3 switch rules as full_case in process $proc$control_BCD.v:46$226 in module control_BCD.
 Removed a total of 1 dead cases.
 
 7.5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 0 redundant assignments.
-Promoted 58 assignments to connections.
+Promoted 16 assignments to connections.
 
 7.5.4. Executing PROC_INIT pass (extract init attributes).
-Found init rule in `\TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$225'.
-  Set init value: \Q = 1'0
 
 7.5.5. Executing PROC_ARST pass (detect async resets in processes).
 
 7.5.6. Executing PROC_ROM pass (convert switches to ROMs).
 Converted 0 switches.
+<suppressed ~10 debug messages>
 
 7.5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$225'.
-Creating decoders for process `\TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:350$224'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-Creating decoders for process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176'.
-     1/3: $1$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_EN[3:0]$182
-     2/3: $1$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_DATA[3:0]$181
-     3/3: $1$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_ADDR[3:0]$180
-Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118'.
-     1/3: $1$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_EN[3:0]$124
-     2/3: $1$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_DATA[3:0]$123
-     3/3: $1$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_ADDR[3:0]$122
-Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:213$117'.
 Creating decoders for process `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
      1/13: $3\out_DEC[3:0]
      2/13: $3\reg_BIN[8:0]
@@ -272,7 +237,7 @@ Creating decoders for process `\acc.$proc$acc.v:23$232'.
 Creating decoders for process `\acc.$proc$acc.v:13$230'.
      1/2: $2\N[3:0]
      2/2: $1\N[3:0]
-Creating decoders for process `\control_BCD.$proc$control_BCD.v:72$229'.
+Creating decoders for process `\control_BCD.$proc$control_BCD.v:71$229'.
      1/7: $1\out_DONE[0:0]
      2/7: $1\out_S5[0:0]
      3/7: $1\out_S4[0:0]
@@ -289,121 +254,31 @@ Creating decoders for process `\control_BCD.$proc$control_BCD.v:46$226'.
 No latch inferred for signal `\mux.\out' from process `\mux.$proc$mux.v:8$236'.
 No latch inferred for signal `\sum.\out' from process `\sum.$proc$sum.v:10$234'.
 No latch inferred for signal `\acc.\out_K' from process `\acc.$proc$acc.v:23$232'.
-Latch inferred for signal `\control_BCD.\out_DONE' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$513
-Latch inferred for signal `\control_BCD.\out_S1' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$572
-Latch inferred for signal `\control_BCD.\out_S2' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$631
-Latch inferred for signal `\control_BCD.\out_S3' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$690
-Latch inferred for signal `\control_BCD.\out_S4' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$749
-Latch inferred for signal `\control_BCD.\out_S5' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$808
-Latch inferred for signal `\control_BCD.\out_RST' from process `\control_BCD.$proc$control_BCD.v:72$229': $auto$proc_dlatch.cc:427:proc_dlatch$867
+Latch inferred for signal `\control_BCD.\out_DONE' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$490
+Latch inferred for signal `\control_BCD.\out_S1' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$549
+Latch inferred for signal `\control_BCD.\out_S2' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$608
+Latch inferred for signal `\control_BCD.\out_S3' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$667
+Latch inferred for signal `\control_BCD.\out_S4' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$726
+Latch inferred for signal `\control_BCD.\out_S5' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$785
+Latch inferred for signal `\control_BCD.\out_RST' from process `\control_BCD.$proc$control_BCD.v:71$229': $auto$proc_dlatch.cc:432:proc_dlatch$844
 
 7.5.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\TRELLIS_FF.\Q' using process `\TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:350$224'.
-  created $dff cell `$procdff$868' with positive edge clock.
-Creating register for signal `\DPR16X4C.\i' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$160_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$161_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$162_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$163_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$164_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$165_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$166_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$167_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$168_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$169_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$170_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$171_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$172_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$173_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:281$174_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_ADDR' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$869' with positive edge clock.
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_DATA' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$870' with positive edge clock.
-Creating register for signal `\DPR16X4C.$memwr$\ram$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:287$175_EN' using process `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176'.
-  created $dff cell `$procdff$871' with positive edge clock.
-Creating register for signal `\TRELLIS_DPR16X4.\i' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$100_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$101_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$102_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$103_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$104_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$105_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$106_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$107_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$108_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$109_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$110_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$111_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$112_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$113_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$114_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:207$115_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-  created direct connection (no actual register cell created).
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_ADDR' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$872' with positive edge clock.
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_DATA' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$873' with positive edge clock.
-Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:223$116_EN' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118'.
-  created $dff cell `$procdff$874' with positive edge clock.
-Creating register for signal `\TRELLIS_DPR16X4.\muxwre' using process `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:213$117'.
-  created direct connection (no actual register cell created).
 Creating register for signal `\lsr_CEN_DEC_UND_BIN.\out_UND' using process `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
-  created $dff cell `$procdff$875' with negative edge clock.
+  created $dff cell `$procdff$845' with negative edge clock.
 Creating register for signal `\lsr_CEN_DEC_UND_BIN.\out_DEC' using process `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
-  created $dff cell `$procdff$876' with negative edge clock.
+  created $dff cell `$procdff$846' with negative edge clock.
 Creating register for signal `\lsr_CEN_DEC_UND_BIN.\out_CEN' using process `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
-  created $dff cell `$procdff$877' with negative edge clock.
+  created $dff cell `$procdff$847' with negative edge clock.
 Creating register for signal `\lsr_CEN_DEC_UND_BIN.\reg_BIN' using process `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
-  created $dff cell `$procdff$878' with negative edge clock.
+  created $dff cell `$procdff$848' with negative edge clock.
 Creating register for signal `\acc.\N' using process `\acc.$proc$acc.v:13$230'.
-  created $dff cell `$procdff$879' with negative edge clock.
+  created $dff cell `$procdff$849' with negative edge clock.
 Creating register for signal `\control_BCD.\state' using process `\control_BCD.$proc$control_BCD.v:46$226'.
-  created $dff cell `$procdff$880' with positive edge clock.
+  created $dff cell `$procdff$850' with positive edge clock.
 
 7.5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 7.5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$225'.
-Found and cleaned up 2 empty switches in `\TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:350$224'.
-Removing empty process `TRELLIS_FF.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:350$224'.
-Removing empty process `DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$199'.
-Found and cleaned up 1 empty switch in `\DPR16X4C.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:285$176'.
-Removing empty process `TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:0$142'.
-Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:221$118'.
-Removing empty process `TRELLIS_DPR16X4.$proc$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_sim.v:213$117'.
 Found and cleaned up 4 empty switches in `\lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
 Removing empty process `lsr_CEN_DEC_UND_BIN.$proc$lsr_CEN_DEC_UND_BIN.v:26$238'.
 Removing empty process `mux.$proc$mux.v:8$236'.
@@ -411,18 +286,21 @@ Removing empty process `sum.$proc$sum.v:10$234'.
 Removing empty process `acc.$proc$acc.v:23$232'.
 Found and cleaned up 2 empty switches in `\acc.$proc$acc.v:13$230'.
 Removing empty process `acc.$proc$acc.v:13$230'.
-Found and cleaned up 1 empty switch in `\control_BCD.$proc$control_BCD.v:72$229'.
-Removing empty process `control_BCD.$proc$control_BCD.v:72$229'.
+Found and cleaned up 1 empty switch in `\control_BCD.$proc$control_BCD.v:71$229'.
+Removing empty process `control_BCD.$proc$control_BCD.v:71$229'.
 Found and cleaned up 3 empty switches in `\control_BCD.$proc$control_BCD.v:46$226'.
 Removing empty process `control_BCD.$proc$control_BCD.v:46$226'.
-Cleaned up 14 empty switches.
+Cleaned up 10 empty switches.
 
 7.5.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lsr_CEN_DEC_UND_BIN.
+<suppressed ~1 debug messages>
 Optimizing module mux.
 Optimizing module sum.
 Optimizing module acc.
+<suppressed ~1 debug messages>
 Optimizing module control_BCD.
+<suppressed ~93 debug messages>
 Optimizing module BCD.
 
 7.6. Executing FLATTEN pass (flatten design).
@@ -431,6 +309,7 @@ Deleting now unused module mux.
 Deleting now unused module sum.
 Deleting now unused module acc.
 Deleting now unused module control_BCD.
+<suppressed ~7 debug messages>
 
 7.7. Executing TRIBUF pass.
 
@@ -442,6 +321,7 @@ Optimizing module BCD.
 7.10. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 7 unused cells and 163 unused wires.
+<suppressed ~8 debug messages>
 
 7.11. Executing CHECK pass (checking for obvious problems).
 Checking module BCD...
@@ -454,6 +334,7 @@ Optimizing module BCD.
 
 7.12.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\BCD'.
+<suppressed ~495 debug messages>
 Removed a total of 165 cells.
 
 7.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
@@ -461,40 +342,42 @@ Running muxtree optimizer on module \BCD..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-    dead port 1/2 on $mux $flatten\acc.$procmux$345.
-    dead port 2/2 on $mux $flatten\control_BCD.$procmux$436.
-    dead port 1/2 on $mux $flatten\control_BCD.$procmux$439.
-    dead port 1/2 on $mux $flatten\control_BCD.$procmux$450.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$267.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$270.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$275.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$278.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$283.
+    dead port 1/2 on $mux $flatten\acc.$procmux$322.
+    dead port 2/2 on $mux $flatten\control_BCD.$procmux$413.
+    dead port 1/2 on $mux $flatten\control_BCD.$procmux$416.
+    dead port 1/2 on $mux $flatten\control_BCD.$procmux$427.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$244.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$247.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$252.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$255.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$260.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$263.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$268.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$271.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$277.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$280.
     dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$286.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$291.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$294.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$300.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$303.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$309.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$315.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$321.
-    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$327.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$292.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$298.
+    dead port 1/2 on $mux $flatten\lsr_CEN_DEC_UND_BIN.$procmux$304.
 Removed 18 multiplexer ports.
+<suppressed ~15 debug messages>
 
 7.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$406: $auto$opt_reduce.cc:134:opt_pmux$882
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$362: $flatten\control_BCD.$procmux$354_CMP
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$417: $auto$opt_reduce.cc:134:opt_pmux$884
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$373: $auto$opt_reduce.cc:134:opt_pmux$886
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$384: $auto$opt_reduce.cc:134:opt_pmux$888
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$395: $auto$opt_reduce.cc:134:opt_pmux$890
-    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$351: $flatten\control_BCD.$procmux$352_CMP
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$383: $auto$opt_reduce.cc:137:opt_pmux$859
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$339: $flatten\control_BCD.$procmux$331_CMP
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$394: $auto$opt_reduce.cc:137:opt_pmux$861
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$350: $auto$opt_reduce.cc:137:opt_pmux$863
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$361: $auto$opt_reduce.cc:137:opt_pmux$865
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$372: $auto$opt_reduce.cc:137:opt_pmux$867
+    New ctrl vector for $pmux cell $flatten\control_BCD.$procmux$328: $flatten\control_BCD.$procmux$329_CMP
   Optimizing cells in module \BCD.
 Performed a total of 7 changes.
 
 7.12.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\BCD'.
+<suppressed ~6 debug messages>
 Removed a total of 2 cells.
 
 7.12.6. Executing OPT_DFF pass (perform DFF optimizations).
@@ -502,6 +385,7 @@ Removed a total of 2 cells.
 7.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 0 unused cells and 182 unused wires.
+<suppressed ~1 debug messages>
 
 7.12.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
@@ -514,6 +398,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
 
 7.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -540,46 +425,46 @@ Found FSM state register BCD.control_BCD.state.
 
 7.13.2. Executing FSM_EXTRACT pass (extracting FSM from design).
 Extracting FSM `\control_BCD.state' from module `\BCD'.
-  found $dff cell for state register: $flatten\control_BCD.$procdff$880
+  found $dff cell for state register: $flatten\control_BCD.$procdff$850
   root of input selection tree: $flatten\control_BCD.$0\state[3:0]
   found reset state: 4'0000 (guessed from mux tree)
   found ctrl input: \rst
-  found ctrl input: $flatten\control_BCD.$procmux$353_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$354_CMP
-  found ctrl input: $auto$opt_reduce.cc:134:opt_pmux$890
-  found ctrl input: $flatten\control_BCD.$procmux$358_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$359_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$360_CMP
-  found state code: 4'0000
+  found ctrl input: $flatten\control_BCD.$procmux$330_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$331_CMP
+  found ctrl input: $auto$opt_reduce.cc:137:opt_pmux$867
+  found ctrl input: $flatten\control_BCD.$procmux$335_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$336_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$337_CMP
   found state code: 4'1000
   found ctrl input: \control_BCD.in_K
   found state code: 4'0001
   found state code: 4'0111
   found state code: 4'0110
-  found ctrl input: $flatten\control_BCD.$procmux$432_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$433_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$434_CMP
-  found ctrl input: $flatten\control_BCD.$procmux$435_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$409_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$410_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$411_CMP
+  found ctrl input: $flatten\control_BCD.$procmux$412_CMP
   found state code: 4'0101
   found state code: 4'0100
   found state code: 4'0011
   found state code: 4'0010
   found ctrl input: \init
-  found ctrl output: $flatten\control_BCD.$procmux$360_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$359_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$358_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$357_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$356_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$355_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$354_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$353_CMP
-  found ctrl output: $flatten\control_BCD.$procmux$352_CMP
-  ctrl inputs: { \control_BCD.in_K $flatten\control_BCD.$procmux$432_CMP $flatten\control_BCD.$procmux$433_CMP $flatten\control_BCD.$procmux$434_CMP $flatten\control_BCD.$procmux$435_CMP $auto$opt_reduce.cc:134:opt_pmux$890 \rst \init }
-  ctrl outputs: { $flatten\control_BCD.$0\state[3:0] $flatten\control_BCD.$procmux$352_CMP $flatten\control_BCD.$procmux$353_CMP $flatten\control_BCD.$procmux$354_CMP $flatten\control_BCD.$procmux$355_CMP $flatten\control_BCD.$procmux$356_CMP $flatten\control_BCD.$procmux$357_CMP $flatten\control_BCD.$procmux$358_CMP $flatten\control_BCD.$procmux$359_CMP $flatten\control_BCD.$procmux$360_CMP }
+  found state code: 4'0000
+  found ctrl output: $flatten\control_BCD.$procmux$337_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$336_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$335_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$334_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$333_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$332_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$331_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$330_CMP
+  found ctrl output: $flatten\control_BCD.$procmux$329_CMP
+  ctrl inputs: { \control_BCD.in_K $flatten\control_BCD.$procmux$409_CMP $flatten\control_BCD.$procmux$410_CMP $flatten\control_BCD.$procmux$411_CMP $flatten\control_BCD.$procmux$412_CMP $auto$opt_reduce.cc:137:opt_pmux$867 \rst \init }
+  ctrl outputs: { $flatten\control_BCD.$0\state[3:0] $flatten\control_BCD.$procmux$329_CMP $flatten\control_BCD.$procmux$330_CMP $flatten\control_BCD.$procmux$331_CMP $flatten\control_BCD.$procmux$332_CMP $flatten\control_BCD.$procmux$333_CMP $flatten\control_BCD.$procmux$334_CMP $flatten\control_BCD.$procmux$335_CMP $flatten\control_BCD.$procmux$336_CMP $flatten\control_BCD.$procmux$337_CMP }
   transition:     4'0000 8'------00 ->     4'0000 13'0000000000001
   transition:     4'0000 8'------01 ->     4'0001 13'0001000000001
   transition:     4'0000 8'------1- ->     4'0000 13'0000000000001
-  transition:     4'1000 8'------0- ->     4'0000 13'0000100000000
+  transition:     4'1000 8'------0- ->     4'1000 13'1000100000000
   transition:     4'1000 8'------1- ->     4'0000 13'0000100000000
   transition:     4'0100 8'------0- ->     4'0110 13'0110000010000
   transition:     4'0100 8'------1- ->     4'0000 13'0000000010000
@@ -602,24 +487,23 @@ Extracting FSM `\control_BCD.state' from module `\BCD'.
   transition:     4'0111 8'------1- ->     4'0000 13'0000010000000
 
 7.13.3. Executing FSM_OPT pass (simple optimizations of FSMs).
-Optimizing FSM `$fsm$\control_BCD.state$891' from module `\BCD'.
-  Merging pattern 8'------0- and 8'------1- from group (1 0 13'0000100000000).
-  Merging pattern 8'------1- and 8'------0- from group (1 0 13'0000100000000).
-  Removing unused input signal $auto$opt_reduce.cc:134:opt_pmux$890.
+Optimizing FSM `$fsm$\control_BCD.state$868' from module `\BCD'.
+  Removing unused input signal $auto$opt_reduce.cc:137:opt_pmux$867.
 
 7.13.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 15 unused cells and 15 unused wires.
+<suppressed ~16 debug messages>
 
 7.13.5. Executing FSM_OPT pass (simple optimizations of FSMs).
-Optimizing FSM `$fsm$\control_BCD.state$891' from module `\BCD'.
+Optimizing FSM `$fsm$\control_BCD.state$868' from module `\BCD'.
   Removing unused output signal $flatten\control_BCD.$0\state[3:0] [0].
   Removing unused output signal $flatten\control_BCD.$0\state[3:0] [1].
   Removing unused output signal $flatten\control_BCD.$0\state[3:0] [2].
   Removing unused output signal $flatten\control_BCD.$0\state[3:0] [3].
 
 7.13.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
-Recoding FSM `$fsm$\control_BCD.state$891' from module `\BCD' using `auto' encoding:
+Recoding FSM `$fsm$\control_BCD.state$868' from module `\BCD' using `auto' encoding:
   mapping auto encoding to `one-hot` for this FSM.
   0000 -> --------1
   1000 -> -------1-
@@ -633,10 +517,10 @@ Recoding FSM `$fsm$\control_BCD.state$891' from module `\BCD' using `auto' encod
 
 7.13.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
 
-FSM `$fsm$\control_BCD.state$891' from module `BCD':
+FSM `$fsm$\control_BCD.state$868' from module `BCD':
 -------------------------------------
 
-  Information on FSM $fsm$\control_BCD.state$891 (\control_BCD.state):
+  Information on FSM $fsm$\control_BCD.state$868 (\control_BCD.state):
 
   Number of input signals:    7
   Number of output signals:   9
@@ -645,22 +529,22 @@ FSM `$fsm$\control_BCD.state$891' from module `BCD':
   Input signals:
     0: \init
     1: \rst
-    2: $flatten\control_BCD.$procmux$435_CMP
-    3: $flatten\control_BCD.$procmux$434_CMP
-    4: $flatten\control_BCD.$procmux$433_CMP
-    5: $flatten\control_BCD.$procmux$432_CMP
+    2: $flatten\control_BCD.$procmux$412_CMP
+    3: $flatten\control_BCD.$procmux$411_CMP
+    4: $flatten\control_BCD.$procmux$410_CMP
+    5: $flatten\control_BCD.$procmux$409_CMP
     6: \control_BCD.in_K
 
   Output signals:
-    0: $flatten\control_BCD.$procmux$360_CMP
-    1: $flatten\control_BCD.$procmux$359_CMP
-    2: $flatten\control_BCD.$procmux$358_CMP
-    3: $flatten\control_BCD.$procmux$357_CMP
-    4: $flatten\control_BCD.$procmux$356_CMP
-    5: $flatten\control_BCD.$procmux$355_CMP
-    6: $flatten\control_BCD.$procmux$354_CMP
-    7: $flatten\control_BCD.$procmux$353_CMP
-    8: $flatten\control_BCD.$procmux$352_CMP
+    0: $flatten\control_BCD.$procmux$337_CMP
+    1: $flatten\control_BCD.$procmux$336_CMP
+    2: $flatten\control_BCD.$procmux$335_CMP
+    3: $flatten\control_BCD.$procmux$334_CMP
+    4: $flatten\control_BCD.$procmux$333_CMP
+    5: $flatten\control_BCD.$procmux$332_CMP
+    6: $flatten\control_BCD.$procmux$331_CMP
+    7: $flatten\control_BCD.$procmux$330_CMP
+    8: $flatten\control_BCD.$procmux$329_CMP
 
   State encoding:
     0: 9'--------1  <RESET STATE>
@@ -677,38 +561,41 @@ FSM `$fsm$\control_BCD.state$891' from module `BCD':
       0:     0 7'-----00   ->     0 9'000000001
       1:     0 7'-----1-   ->     0 9'000000001
       2:     0 7'-----01   ->     5 9'000000001
-      3:     1 7'-------   ->     0 9'100000000
-      4:     2 7'-----1-   ->     0 9'000010000
-      5:     2 7'-----0-   ->     4 9'000010000
-      6:     3 7'-----1-   ->     0 9'000000100
-      7:     3 7'--1--0-   ->     2 9'000000100
-      8:     3 7'----10-   ->     4 9'000000100
-      9:     3 7'-1---0-   ->     6 9'000000100
-     10:     3 7'---1-0-   ->     7 9'000000100
-     11:     4 7'-----1-   ->     0 9'001000000
-     12:     4 7'0----0-   ->     5 9'001000000
-     13:     4 7'1----0-   ->     8 9'001000000
-     14:     5 7'-----1-   ->     0 9'000000010
-     15:     5 7'-----0-   ->     3 9'000000010
-     16:     6 7'-----1-   ->     0 9'000100000
-     17:     6 7'-----0-   ->     4 9'000100000
-     18:     7 7'-----1-   ->     0 9'000001000
-     19:     7 7'-----0-   ->     4 9'000001000
-     20:     8 7'-----1-   ->     0 9'010000000
-     21:     8 7'-----0-   ->     1 9'010000000
+      3:     1 7'-----1-   ->     0 9'100000000
+      4:     1 7'-----0-   ->     1 9'100000000
+      5:     2 7'-----1-   ->     0 9'000010000
+      6:     2 7'-----0-   ->     4 9'000010000
+      7:     3 7'-----1-   ->     0 9'000000100
+      8:     3 7'--1--0-   ->     2 9'000000100
+      9:     3 7'----10-   ->     4 9'000000100
+     10:     3 7'-1---0-   ->     6 9'000000100
+     11:     3 7'---1-0-   ->     7 9'000000100
+     12:     4 7'-----1-   ->     0 9'001000000
+     13:     4 7'0----0-   ->     5 9'001000000
+     14:     4 7'1----0-   ->     8 9'001000000
+     15:     5 7'-----1-   ->     0 9'000000010
+     16:     5 7'-----0-   ->     3 9'000000010
+     17:     6 7'-----1-   ->     0 9'000100000
+     18:     6 7'-----0-   ->     4 9'000100000
+     19:     7 7'-----1-   ->     0 9'000001000
+     20:     7 7'-----0-   ->     4 9'000001000
+     21:     8 7'-----1-   ->     0 9'010000000
+     22:     8 7'-----0-   ->     1 9'010000000
 
 -------------------------------------
 
 7.13.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
-Mapping FSM `$fsm$\control_BCD.state$891' from module `\BCD'.
+Mapping FSM `$fsm$\control_BCD.state$868' from module `\BCD'.
 
 7.14. Executing OPT pass (performing simple optimizations).
 
 7.14.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
+<suppressed ~6 debug messages>
 
 7.14.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\BCD'.
+<suppressed ~9 debug messages>
 Removed a total of 3 cells.
 
 7.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
@@ -717,6 +604,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
 
 7.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -727,22 +615,24 @@ Finding identical cells in module `\BCD'.
 Removed a total of 0 cells.
 
 7.14.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding EN signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$878 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0], Q = \lsr_CEN_DEC_UND_BIN.reg_BIN).
-Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$877 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_CEN[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_CEN, rval = 4'0000).
-Adding EN signal on $auto$ff.cc:266:slice$960 ($sdff) from module BCD (D = { \lsr_CEN_DEC_UND_BIN.out_CEN [2:0] \lsr_CEN_DEC_UND_BIN.out_DEC [3] }, Q = \lsr_CEN_DEC_UND_BIN.out_CEN).
-Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$876 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_DEC, rval = 4'0000).
-Adding EN signal on $auto$ff.cc:266:slice$962 ($sdff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_DEC).
-Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$875 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_UND, rval = 4'0000).
-Adding EN signal on $auto$ff.cc:266:slice$966 ($sdff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_UND).
-Adding SRST signal on $flatten\acc.$procdff$879 ($dff) from module BCD (D = $flatten\acc.$2\N[3:0], Q = \acc.N, rval = 4'1000).
-Adding EN signal on $auto$ff.cc:266:slice$970 ($sdff) from module BCD (D = $flatten\acc.$sub$acc.v:16$231_Y [3:0], Q = \acc.N).
+Adding EN signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$848 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0], Q = \lsr_CEN_DEC_UND_BIN.reg_BIN).
+Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$847 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_CEN[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_CEN, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$939 ($sdff) from module BCD (D = { \lsr_CEN_DEC_UND_BIN.out_CEN [2:0] \lsr_CEN_DEC_UND_BIN.out_DEC [3] }, Q = \lsr_CEN_DEC_UND_BIN.out_CEN).
+Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$846 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_DEC, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$941 ($sdff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_DEC).
+Adding SRST signal on $flatten\lsr_CEN_DEC_UND_BIN.$procdff$845 ($dff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_UND, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:266:slice$945 ($sdff) from module BCD (D = $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0], Q = \lsr_CEN_DEC_UND_BIN.out_UND).
+Adding SRST signal on $flatten\acc.$procdff$849 ($dff) from module BCD (D = $flatten\acc.$2\N[3:0], Q = \acc.N, rval = 4'1000).
+Adding EN signal on $auto$ff.cc:266:slice$949 ($sdff) from module BCD (D = $flatten\acc.$sub$acc.v:16$231_Y [3:0], Q = \acc.N).
 
 7.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 6 unused cells and 22 unused wires.
+<suppressed ~7 debug messages>
 
 7.14.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
+<suppressed ~3 debug messages>
 
 7.14.9. Rerunning OPT passes. (Maybe there is more to do..)
 
@@ -752,6 +642,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
 
 7.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -774,8 +665,8 @@ Optimizing module BCD.
 7.15. Executing WREDUCE pass (reducing word size of cells).
 Removed top 31 bits (of 32) from port B of cell BCD.$flatten\acc.$sub$acc.v:16$231 ($sub).
 Removed top 28 bits (of 32) from port Y of cell BCD.$flatten\acc.$sub$acc.v:16$231 ($sub).
-Removed top 1 bits (of 2) from port B of cell BCD.$auto$fsm_map.cc:77:implement_pattern_cache$937 ($eq).
-Removed top 1 bits (of 2) from port B of cell BCD.$flatten\control_BCD.$procmux$433_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell BCD.$auto$fsm_map.cc:77:implement_pattern_cache$916 ($eq).
+Removed top 1 bits (of 2) from port B of cell BCD.$flatten\control_BCD.$procmux$410_CMP0 ($eq).
 Removed top 28 bits (of 32) from wire BCD.$flatten\acc.$sub$acc.v:16$231_Y.
 
 7.16. Executing PEEPOPT pass (run peephole optimizers).
@@ -783,18 +674,20 @@ Removed top 28 bits (of 32) from wire BCD.$flatten\acc.$sub$acc.v:16$231_Y.
 7.17. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 7.18. Executing SHARE pass (SAT-based resource sharing).
 
 7.19. Executing TECHMAP pass (map to technology primitives).
 
-7.19.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/cmp2lut.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/cmp2lut.v' to AST representation.
+7.19.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/usr/bin/../share/yosys/cmp2lut.v' to AST representation.
 Generating RTLIL representation for module `\_90_lut_cmp_'.
 Successfully finished Verilog frontend.
 
 7.19.2. Continuing TECHMAP pass.
 No more expansions possible.
+<suppressed ~6 debug messages>
 
 7.20. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
@@ -804,19 +697,20 @@ Finding unused cells or wires in module \BCD..
 
 7.22. Executing TECHMAP pass (map to technology primitives).
 
-7.22.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/mul2dsp.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/mul2dsp.v' to AST representation.
+7.22.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/usr/bin/../share/yosys/mul2dsp.v' to AST representation.
 Generating RTLIL representation for module `\_80_mul'.
 Generating RTLIL representation for module `\_90_soft_mul'.
 Successfully finished Verilog frontend.
 
-7.22.2. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/dsp_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/dsp_map.v' to AST representation.
+7.22.2. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/dsp_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/dsp_map.v' to AST representation.
 Generating RTLIL representation for module `\$__MUL18X18'.
 Successfully finished Verilog frontend.
 
 7.22.3. Continuing TECHMAP pass.
 No more expansions possible.
+<suppressed ~5 debug messages>
 
 7.23. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module BCD:
@@ -826,9 +720,9 @@ Extracting $alu and $macc cells in module BCD:
   creating $alu model for $macc $flatten\sum_UND.$add$sum.v:10$235.
   creating $alu model for $macc $flatten\sum_DEC.$add$sum.v:10$235.
   creating $alu model for $macc $flatten\acc.$sub$acc.v:16$231.
-  creating $alu cell for $flatten\acc.$sub$acc.v:16$231: $auto$alumacc.cc:485:replace_alu$974
-  creating $alu cell for $flatten\sum_DEC.$add$sum.v:10$235: $auto$alumacc.cc:485:replace_alu$977
-  creating $alu cell for $flatten\sum_UND.$add$sum.v:10$235: $auto$alumacc.cc:485:replace_alu$980
+  creating $alu cell for $flatten\acc.$sub$acc.v:16$231: $auto$alumacc.cc:495:replace_alu$953
+  creating $alu cell for $flatten\sum_DEC.$add$sum.v:10$235: $auto$alumacc.cc:495:replace_alu$956
+  creating $alu cell for $flatten\sum_UND.$add$sum.v:10$235: $auto$alumacc.cc:495:replace_alu$959
   created 3 $alu and 0 $macc cells.
 
 7.24. Executing OPT pass (performing simple optimizations).
@@ -846,6 +740,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
 
 7.24.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -899,24 +794,26 @@ Finding unused cells or wires in module \BCD..
 
 7.28. Executing TECHMAP pass (map to technology primitives).
 
-7.28.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/lutrams_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/lutrams_map.v' to AST representation.
+7.28.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/lutrams_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/lutrams_map.v' to AST representation.
 Generating RTLIL representation for module `\$__TRELLIS_DPR16X4_'.
 Successfully finished Verilog frontend.
 
-7.28.2. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/brams_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/brams_map.v' to AST representation.
+7.28.2. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/brams_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/brams_map.v' to AST representation.
 Generating RTLIL representation for module `\$__ECP5_DP16KD_'.
 Generating RTLIL representation for module `\$__ECP5_PDPW16KD_'.
 Successfully finished Verilog frontend.
 
 7.28.3. Continuing TECHMAP pass.
 No more expansions possible.
+<suppressed ~5 debug messages>
 
 7.29. Executing OPT pass (performing simple optimizations).
 
 7.29.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
+<suppressed ~9 debug messages>
 
 7.29.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\BCD'.
@@ -927,6 +824,7 @@ Removed a total of 0 cells.
 7.29.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
 
 7.29.5. Finished fast OPT passes.
 
@@ -947,6 +845,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
 
 7.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -962,7 +861,7 @@ Finding identical cells in module `\BCD'.
 Removed a total of 0 cells.
 
 7.31.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $auto$ff.cc:266:slice$957 ($dffe) from module BCD (D = \in_BIN [0], Q = \lsr_CEN_DEC_UND_BIN.reg_BIN [0], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:266:slice$936 ($dffe) from module BCD (D = \in_BIN [0], Q = \lsr_CEN_DEC_UND_BIN.reg_BIN [0], rval = 1'0).
 
 7.31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
@@ -978,6 +877,7 @@ Running muxtree optimizer on module \BCD..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
 
 7.31.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \BCD.
@@ -999,8 +899,8 @@ Optimizing module BCD.
 
 7.32. Executing TECHMAP pass (map to technology primitives).
 
-7.32.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/techmap.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/techmap.v' to AST representation.
+7.32.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -1010,7 +910,7 @@ Generating RTLIL representation for module `\_90_simplemap_registers'.
 Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
 Generating RTLIL representation for module `\_90_shift_shiftx'.
 Generating RTLIL representation for module `\_90_fa'.
-Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
 Generating RTLIL representation for module `\_90_alu'.
 Generating RTLIL representation for module `\_90_macc'.
 Generating RTLIL representation for module `\_90_alumacc'.
@@ -1027,8 +927,8 @@ Generating RTLIL representation for module `\_90_demux'.
 Generating RTLIL representation for module `\_90_lut'.
 Successfully finished Verilog frontend.
 
-7.32.2. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/arith_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/arith_map.v' to AST representation.
+7.32.2. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/arith_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/arith_map.v' to AST representation.
 Generating RTLIL representation for module `\_80_ecp5_alu'.
 Successfully finished Verilog frontend.
 
@@ -1041,32 +941,36 @@ Using extmapper simplemap for cells of type $reduce_bool.
 Using extmapper simplemap for cells of type $logic_not.
 Using extmapper simplemap for cells of type $and.
 Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $dff.
 Using extmapper simplemap for cells of type $dffe.
 Using extmapper simplemap for cells of type $sdffce.
 Using template $paramod$8742280fdebca84e1c87f2a86ed84f62d558f4cc\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $dlatch.
-Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $pos.
-Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
 Using extmapper simplemap for cells of type $xor.
 Using extmapper simplemap for cells of type $or.
 No more expansions possible.
+<suppressed ~387 debug messages>
 
 7.33. Executing OPT pass (performing simple optimizations).
 
 7.33.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
+<suppressed ~81 debug messages>
 
 7.33.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\BCD'.
-Removed a total of 3 cells.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
 
 7.33.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 7.33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
-Removed 18 unused cells and 141 unused wires.
+Removed 20 unused cells and 142 unused wires.
+<suppressed ~21 debug messages>
 
 7.33.5. Finished fast OPT passes.
 
@@ -1077,8 +981,8 @@ Finding unused cells or wires in module \BCD..
 
 7.36. Executing TECHMAP pass (map to technology primitives).
 
-7.36.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
+7.36.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DFF_N_'.
 Generating RTLIL representation for module `\$_DFF_P_'.
 Generating RTLIL representation for module `\$_DFFE_NN_'.
@@ -1152,10 +1056,11 @@ Successfully finished Verilog frontend.
 
 7.36.2. Continuing TECHMAP pass.
 Using template \$_SDFFE_NP0P_ for cells of type $_SDFFE_NP0P_.
-Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFF_P_.
 Using template $paramod\$_DFFE_NP_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFFE_NP_.
+Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFF_P_.
 Using template \$_SDFFE_NP1P_ for cells of type $_SDFFE_NP1P_.
 No more expansions possible.
+<suppressed ~127 debug messages>
 
 7.37. Executing OPT_EXPR pass (perform const folding).
 Optimizing module BCD.
@@ -1170,11 +1075,12 @@ Handling GSR in BCD.
 7.41. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \BCD..
 Removed 0 unused cells and 178 unused wires.
+<suppressed ~1 debug messages>
 
 7.42. Executing TECHMAP pass (map to technology primitives).
 
-7.42.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/latches_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/latches_map.v' to AST representation.
+7.42.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/latches_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/latches_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DLATCH_N_'.
 Generating RTLIL representation for module `\$_DLATCH_P_'.
 Successfully finished Verilog frontend.
@@ -1182,13 +1088,18 @@ Successfully finished Verilog frontend.
 7.42.2. Continuing TECHMAP pass.
 
 7.42.3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
-Mapping \$_DLATCH_N_.$ternary$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/latches_map.v:4$1650 ($mux).
-Mapping \$_DLATCH_N_.$logic_not$/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/latches_map.v:4$1649 ($logic_not).
+Mapping \$_DLATCH_N_.$ternary$/usr/bin/../share/yosys/ecp5/latches_map.v:4$1629 ($mux).
+Mapping \$_DLATCH_N_.$logic_not$/usr/bin/../share/yosys/ecp5/latches_map.v:4$1628 ($logic_not).
+<suppressed ~4 debug messages>
 
 7.42.4. Executing OPT pass (performing simple optimizations).
 
 7.42.4.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module \$_DLATCH_N_.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
+<suppressed ~1 debug messages>
 
 7.42.4.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\$_DLATCH_N_'.
@@ -1213,9 +1124,12 @@ Removed a total of 0 cells.
 7.42.4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \$_DLATCH_N_..
 Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
 
 7.42.4.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module \$_DLATCH_N_.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
 
 7.42.4.9. Rerunning OPT passes. (Maybe there is more to do..)
 
@@ -1240,95 +1154,206 @@ Finding unused cells or wires in module \$_DLATCH_N_..
 
 7.42.4.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module \$_DLATCH_N_.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
+Couldn't topologically sort cells, optimizing module \$_DLATCH_N_ may take a longer time.
 
 7.42.4.16. Finished OPT passes. (There is nothing left to do.)
 Using template \$_DLATCH_N_ for cells of type $_DLATCH_N_.
 No more expansions possible.
+<suppressed ~7 debug messages>
 
-7.43. Executing ABC pass (technology mapping using ABC).
+7.43. Executing ABC9 pass.
 
-7.43.1. Extracting gate netlist of module `\BCD' to `<abc-temp-dir>/input.blif'..
-Breaking loop using new signal $abcloop$1655: \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0] [3]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0] [2]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0] [1]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0] [0]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0] [3]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0] [2]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0] [1]
-                                              \control_BCD.out_S1 -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0] [0]
-                                              \control_BCD.out_S1 -> $auto$opt_dff.cc:194:make_patterns_logic$968
-                                              \control_BCD.out_S1 -> $auto$opt_dff.cc:194:make_patterns_logic$964
-                                              \control_BCD.out_S1 -> $auto$opt_dff.cc:194:make_patterns_logic$958
-                                              \control_BCD.out_S1 -> \control_BCD.out_S1
-Breaking loop using new signal $abcloop$1656: \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [8]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [7]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [6]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [5]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [4]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [3]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [2]
-                                              \control_BCD.out_RST -> $flatten\lsr_CEN_DEC_UND_BIN.$0\reg_BIN[8:0] [1]
-                                              \control_BCD.out_RST -> $auto$opt_dff.cc:194:make_patterns_logic$958
-                                              \control_BCD.out_RST -> \control_BCD.out_RST
-                                              \control_BCD.out_RST -> $auto$rtlil.cc:2619:OrnotGate$1612
-Breaking loop using new signal $abcloop$1657: \control_BCD.in_sum_DEC [3] -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_DEC[3:0] [3]
-                                              \control_BCD.in_sum_DEC [3] -> $auto$rtlil.cc:2611:NotGate$1594
-                                              \control_BCD.in_sum_DEC [3] -> $auto$rtlil.cc:2611:NotGate$1608
-                                              \control_BCD.in_sum_DEC [3] -> $auto$rtlil.cc:2611:NotGate$1586
-Breaking loop using new signal $abcloop$1658: \control_BCD.in_sum_UND [3] -> $flatten\lsr_CEN_DEC_UND_BIN.$2\out_UND[3:0] [3]
-                                              \control_BCD.in_sum_UND [3] -> $auto$rtlil.cc:2611:NotGate$1608
-                                              \control_BCD.in_sum_UND [3] -> $auto$rtlil.cc:2611:NotGate$1606
-                                              \control_BCD.in_sum_UND [3] -> $auto$rtlil.cc:2611:NotGate$1584
-Breaking loop using new signal $abcloop$1659: \control_BCD.out_S2 -> \sum_DEC.B [3]
-                                              \control_BCD.out_S2 -> \control_BCD.out_S2
-Breaking loop using new signal $abcloop$1660: \control_BCD.out_S3 -> $auto$opt_dff.cc:194:make_patterns_logic$968
-                                              \control_BCD.out_S3 -> \control_BCD.out_S3
-Breaking loop using new signal $abcloop$1661: \control_BCD.out_S4 -> $auto$opt_dff.cc:194:make_patterns_logic$964
-                                              \control_BCD.out_S4 -> \control_BCD.out_S4
-Breaking loop using new signal $abcloop$1662: \control_BCD.out_DONE -> \control_BCD.out_DONE
-Breaking loop using new signal $abcloop$1663: \control_BCD.out_S5 -> \control_BCD.out_S5
-Extracted 130 gates and 179 wires to a netlist network with 49 inputs and 42 outputs.
+7.43.1. Executing ABC9_OPS pass (helper functions for ABC9).
 
-7.43.1.1. Executing ABC.
-Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+7.43.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.3. Executing SCC pass (detecting logic loops).
+Found an SCC: $techmap$auto$ff.cc:266:slice$1377.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1372.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1367.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1360.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1359.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1358.$auto$simplemap.cc:275:simplemap_mux$1631
+Found an SCC: $techmap$auto$ff.cc:266:slice$1357.$auto$simplemap.cc:275:simplemap_mux$1631
+Found 7 SCCs in module BCD.
+Found 7 SCCs.
+
+7.43.4. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.5. Executing TECHMAP pass (map to technology primitives).
+
+7.43.5.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+7.43.5.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~161 debug messages>
+
+7.43.6. Executing OPT pass (performing simple optimizations).
+
+7.43.6.1. Executing OPT_EXPR pass (perform const folding).
+
+7.43.6.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+7.43.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+7.43.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+7.43.6.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+7.43.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.43.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+7.43.6.8. Executing OPT_EXPR pass (perform const folding).
+
+7.43.6.9. Finished OPT passes. (There is nothing left to do.)
+
+7.43.7. Executing TECHMAP pass (map to technology primitives).
+
+7.43.7.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/abc9_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/abc9_map.v' to AST representation.
+Successfully finished Verilog frontend.
+
+7.43.7.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~2 debug messages>
+
+7.43.8. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/abc9_model.v
+Parsing Verilog input from `/usr/bin/../share/yosys/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+7.43.9. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.10. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.11. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+7.43.12. Executing AIGMAP pass (map logic to AIG).
+Module BCD: replaced 72 cells with 389 new cells, skipped 100 cells.
+  replaced 4 cell types:
+      37 $_OR_
+      11 $_XOR_
+       1 $_ORNOT_
+      23 $_MUX_
+  not replaced 5 cell types:
+       7 $scopeinfo
+      33 $_NOT_
+      25 $_AND_
+      34 TRELLIS_FF
+       1 $__ABC9_SCC_BREAKER
+
+7.43.12.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.12.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+7.43.12.3. Executing XAIGER backend.
+<suppressed ~5 debug messages>
+Extracted 165 AND gates and 549 wires from module `BCD' to a netlist network with 53 inputs and 60 outputs.
+
+7.43.12.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+7.43.12.5. Executing ABC9.
+Running ABC command: "abc" -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
-ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
-ABC: + strash 
-ABC: + &get -n 
-ABC: + &fraig -x 
-ABC: + &put 
-ABC: + scorr 
-ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
-ABC: + dc2 
-ABC: + dretime 
-ABC: + strash 
-ABC: + dch -f 
-ABC: + if 
-ABC: + mfs2 
-ABC: + dress <abc-temp-dir>/input.blif 
-ABC: Total number of equiv classes                =      48.
-ABC: Participating nodes from both networks       =      96.
-ABC: Participating nodes from the first network   =      47. (  94.00 % of nodes)
-ABC: Participating nodes from the second network  =      49. (  98.00 % of nodes)
-ABC: Node pairs (any polarity)                    =      47. (  94.00 % of names can be moved)
-ABC: Node pairs (same polarity)                   =      43. (  86.00 % of names can be moved)
-ABC: Total runtime =     0.02 sec
-ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: + read_lut <abc-temp-dir>/input.lut 
+ABC: + read_box <abc-temp-dir>/input.box 
+ABC: + &read <abc-temp-dir>/input.xaig 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =     53/     60  and =     158  lev =   10 (3.15)  mem = 0.00 MB  box = 0  bb = 0
+ABC: + &scorr 
+ABC: Warning: The network is combinational.
+ABC: + &sweep 
+ABC: + &dc2 
+ABC: + &dch -f 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =     53/     60  and =     179  lev =    7 (2.48)  mem = 0.00 MB  ch =   19  box = 0  bb = 0
+ABC: + &if -W 300 -v 
+ABC: K = 7. Memory (bytes): Truth =    0. Cut =   60. Obj =  140. Set =  636. CutMin = no
+ABC: Node =     179.  Ch =    19.  Total mem =    0.04 MB. Peak cut mem =    0.01 MB.
+ABC: P:  Del = 1500.00.  Ar =     110.0.  Edge =      188.  Cut =     1197.  T =     0.00 sec
+ABC: P:  Del = 1500.00.  Ar =     110.0.  Edge =      188.  Cut =     1197.  T =     0.00 sec
+ABC: P:  Del = 1500.00.  Ar =      91.0.  Edge =      181.  Cut =     1580.  T =     0.00 sec
+ABC: F:  Del = 1500.00.  Ar =      61.0.  Edge =      169.  Cut =     1074.  T =     0.00 sec
+ABC: A:  Del = 1500.00.  Ar =      60.0.  Edge =      162.  Cut =      914.  T =     0.00 sec
+ABC: A:  Del = 1500.00.  Ar =      60.0.  Edge =      162.  Cut =      979.  T =     0.00 sec
+ABC: Total time =     0.00 sec
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &mfs 
+ABC: Timing manager is given but there is no GIA of boxes.
+ABC: Error: Abc_FrameUpdateGia(): Tranformation has failed.
+ABC: + &ps -l 
+ABC: <abc-temp-dir>/input : i/o =     53/     60  and =     158  lev =    7 (2.48)  mem = 0.00 MB  box = 0  bb = 0
+ABC: Mapping (K=7)  :  lut =     49  edge =     162  lev =    3 (1.03)  mem = 0.00 MB
+ABC: LUT = 49 : 2=11 22.4 %  3=19 38.8 %  4=14 28.6 %  5=4 8.2 %  6=0 0.0 %  7=1 2.0 %  Ave = 3.31
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + time 
+ABC: elapse: 0.01 seconds, total: 0.01 seconds
 
-7.43.1.2. Re-integrating ABC results.
-ABC RESULTS:              $lut cells:       49
-ABC RESULTS:        internal signals:       88
-ABC RESULTS:           input signals:       49
-ABC RESULTS:          output signals:       42
+7.43.12.6. Executing AIGER frontend.
+<suppressed ~234 debug messages>
+Removed 218 unused cells and 339 unused wires.
+
+7.43.12.7. Executing ABC9_OPS pass (helper functions for ABC9).
+ABC RESULTS:              $lut cells:       50
+ABC RESULTS:           input signals:       15
+ABC RESULTS:          output signals:       31
 Removing temp directory.
-Removed 0 unused cells and 184 unused wires.
+
+7.43.13. Executing TECHMAP pass (map to technology primitives).
+
+7.43.13.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/abc9_unmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `\$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `\$__ABC9_SCC_BREAKER'.
+Successfully finished Verilog frontend.
+
+7.43.13.2. Continuing TECHMAP pass.
+Using template $paramod\$__ABC9_SCC_BREAKER\WIDTH=32'00000000000000000000000000000111 for cells of type $__ABC9_SCC_BREAKER.
+No more expansions possible.
+<suppressed ~17 debug messages>
+Removed 26 unused cells and 632 unused wires.
 
 7.44. Executing TECHMAP pass (map to technology primitives).
 
-7.44.1. Executing Verilog-2005 frontend: /home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v
-Parsing Verilog input from `/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
+7.44.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/usr/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DFF_N_'.
 Generating RTLIL representation for module `\$_DFF_P_'.
 Generating RTLIL representation for module `\$_DFFE_NN_'.
@@ -1402,48 +1427,57 @@ Generating RTLIL representation for module `\$lut'.
 Successfully finished Verilog frontend.
 
 7.44.2. Continuing TECHMAP pass.
-Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
-Using template $paramod$baa88887c4630803f83ac99e16ebe1294bd45a7a\$lut for cells of type $lut.
-Using template $paramod$94f2d733b43f39f337f25610d448ce1c402d6a3c\$lut for cells of type $lut.
-Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
-Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$b1680225cc6a5792caa95f54b8b3218fae21705d\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
-Using template $paramod$6470a3bba4e3c394b8c88e7d0098cbcf5da13de3\$lut for cells of type $lut.
+Using template $paramod$cbb2dfe31d344d3326d567c2ed5a4b2a29f63219\$lut for cells of type $lut.
+Using template $paramod$ea01c267d60de3df2a073e256dd58614b0b52c59\$lut for cells of type $lut.
+Using template $paramod$807879a3131a8b0aaab3c98c43e29d8c35c04cfd\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000001 for cells of type $lut.
+Using template $paramod$d19d07c38250c910f5161797d96f345ed4878f0d\$lut for cells of type $lut.
+Using template $paramod$5e9374f44a27c3f8a1c38af244ec43ceb4fb8d4f\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$c28a8b7ce0535d090c4cfb52e9c74affd52b110c\$lut for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11001001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101001 for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101100 for cells of type $lut.
-Using template $paramod$bd3b0c017c4e1e0fc1bb96628ef563ac7e728f68\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100001 for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11000101 for cells of type $lut.
-Using template $paramod$b431bfd938e35871dd0b7668e1503c7e8b9d491c\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11001010 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10111000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11011100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10100011 for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
-Using template $paramod$7614968db5bb082ee538195c00594779836d04ec\$lut for cells of type $lut.
-Using template $paramod$ad823946862e656cf7f96d606b18b8f972dc6d6c\$lut for cells of type $lut.
-Using template $paramod$99e8e978b22ef71f0dc5bc15b07fc355d272684f\$lut for cells of type $lut.
-Using template $paramod$8d5273be6d4e381fb086b65222b8fc0ea5ac2206\$lut for cells of type $lut.
+Using template $paramod$014ce5c9d49c1e2b1bb5c7a5de23affd07b369e7\$lut for cells of type $lut.
+Using template $paramod$8e44661def013b6bf9fe6f8b049ef2c838d749f9\$lut for cells of type $lut.
+Using template $paramod$ba318f6d3458908ac57d56e5fa81a962ff2ab52b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$d9e869de4ea8677851dc452d380224cee441f821\$lut for cells of type $lut.
 Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
-Using template $paramod$287fc40df277be5303029e92cf8599a6aab4ddf0\$lut for cells of type $lut.
+Using template $paramod$efeca4666b3b9466a770067008e289ba2c43bb53\$lut for cells of type $lut.
+Using template $paramod$7bcf5f70986487920c848507d659d29b9546545c\$lut for cells of type $lut.
 No more expansions possible.
+<suppressed ~499 debug messages>
 
 7.45. Executing OPT_LUT_INS pass (discard unused LUT inputs).
 Optimizing LUTs in BCD.
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1676.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1685.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1665.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1683.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1669.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1671.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1674.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
-  Optimizing lut $abc$1654$auto$blifparse.cc:525:parse_blif$1673.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
-Removed 0 unused cells and 100 unused wires.
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$2541$lut$auto$fsm_map.cc:170:map_fsm$879[5].genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $auto$abc9_ops.cc:1549:reintegrate$2551.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$2541$lut$aiger2540$95.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+Removed 0 unused cells and 103 unused wires.
 
 7.46. Executing AUTONAME pass.
-Renamed 484 objects in module BCD (12 iterations).
+Renamed 883 objects in module BCD (21 iterations).
+<suppressed ~150 debug messages>
 
 7.47. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `BCD'. Setting top module to BCD.
 
 7.47.1. Analyzing design hierarchy..
 Top module:  \BCD
@@ -1456,16 +1490,20 @@ Removed 0 unused modules.
 
 === BCD ===
 
-   Number of wires:                112
-   Number of wire bits:            236
-   Number of public wires:         112
-   Number of public wire bits:     236
+   Number of wires:                 93
+   Number of wire bits:            217
+   Number of public wires:          93
+   Number of public wire bits:     217
+   Number of ports:                  8
+   Number of port bits:             25
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                103
-     LUT4                           59
-     PFUMX                          10
+   Number of cells:                113
+     $scopeinfo                      7
+     L6MUX21                         3
+     LUT4                           61
+     PFUMX                           8
      TRELLIS_FF                     34
 
 7.49. Executing CHECK pass (checking for obvious problems).
@@ -1500,6 +1538,6 @@ Finding unused cells or wires in module \BCD..
 9.2. Executing DEMUXMAP pass.
 Dumping module `\BCD'.
 
-End of script. Logfile hash: 47e8a235c2, CPU: user 1.11s system 0.04s, MEM: 29.25 MB peak
-Yosys 0.33+6 (git sha1 41b34a193, x86_64-conda-linux-gnu-cc 11.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/root/conda-eda/conda-eda/workdir/conda-env/conda-bld/yosys_1694128612374/work=/usr/local/src/conda/yosys-0.33_7_g41b34a193 -fdebug-prefix-map=/home/daniel-puentes/miniconda3/envs/digital=/usr/local/src/conda-prefix -fPIC -Os -fno-merge-constants)
-Time spent: 38% 25x read_verilog (0 sec), 12% 1x abc (0 sec), ...
+End of script. Logfile hash: a25fb0c8be, CPU: user 0.44s system 0.02s, MEM: 46.41 MB peak
+Yosys 0.54 (git sha1 db72ec3bd, g++ 15.1.1 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -ffile-prefix-map=/build/yosys/src=/usr/src/debug/yosys -fPIC -O3)
+Time spent: 38% 30x read_verilog (0 sec), 10% 1x abc9_exe (0 sec), ...

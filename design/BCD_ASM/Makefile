@@ -49,7 +49,6 @@ $(SIMPLE_SIM_DIR) :
 	mkdir -p $(SIMPLE_SIM_DIR)
 $(POST_SYNTH_SIM_DIR) :
 	mkdir -p $(POST_SYNTH_SIM_DIR)
-$(POST)
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)
 clean :
