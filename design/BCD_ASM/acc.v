@@ -11,7 +11,7 @@ module acc (
   reg [3:0] N;
 
   always @(negedge clk) begin
-    if (rst) N = 4'b1000;
+    if (rst) N = 4'h8;
     else begin
       if (add) N = N - 1;
       else begin

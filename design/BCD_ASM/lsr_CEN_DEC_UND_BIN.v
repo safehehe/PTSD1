@@ -16,13 +16,13 @@ module lsr_CEN_DEC_UND_BIN (
   input shift;
   input load_UND;
   input load_DEC;
-  input [7:0] in_BIN;
+  input [8:0] in_BIN;
   input [3:0] in_UND;
   input [3:0] in_DEC;
   output reg [3:0] out_UND;
   output reg [3:0] out_DEC;
   output reg [3:0] out_CEN;
-  reg [3:0] reg_BIN;
+  reg [8:0] reg_BIN;
   always @(negedge clk) begin
     if (load_BIN) begin
       reg_BIN = in_BIN;
