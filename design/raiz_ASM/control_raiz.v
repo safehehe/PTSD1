@@ -14,7 +14,7 @@ module control_raiz (
   input clk;
   input rst;
   input in_init;
-  input [15:0]in_Q;
+  input [15:0] in_Q;
   input in_K;
   output reg out_S1;
   output reg out_S2;

@@ -39,7 +39,7 @@ module raiz_16_TB;
   end
   initial begin //Initialize inputs
     clk = 0;
-    //rst = 1;
+    rst = 1;
     start = 0;
     RR = 16'h0310;
   end

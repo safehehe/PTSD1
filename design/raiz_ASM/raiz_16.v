@@ -42,18 +42,18 @@ module raiz_16 (
 
   comp comp (
       .in_AUX(w_AUX),
-      .in_Q  (out_Q),
-      .out_Q (w_Q)
+      .in_Q(out_Q),
+      .out_comp_Q(w_Q)
   );
 
   lsrQA lsrQA (
-      .clk   (clk),
-      .load  (rst),
-      .shift (w_S1),
-      .add   (w_S2),
+      .clk  (clk),
+      .load (rst),
+      .shift(w_S1),
+      .add  (w_S2),
       .in_Q (w_Q),
-      .in_RR (in_RR),
-      .out_Q (out_Q)
+      .in_RR(in_RR),
+      .out_Q(out_Q)
   );
 
   acc acc (
