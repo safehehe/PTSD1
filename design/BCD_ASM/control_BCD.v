@@ -64,7 +64,6 @@ module control_BCD (
         LOAD_UND, LOAD_DEC, LOAD_ALL: state = ITERATE;
         ITERATE: state = in_K ? LAST_SHIFT : SHIFT;
         LAST_SHIFT: state = DONE;
-        default: state = START;
       endcase
     end
   end

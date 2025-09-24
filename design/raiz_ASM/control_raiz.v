@@ -48,7 +48,6 @@ module control_raiz (
           state = in_K ? DONE : STEP2;
         end
         STEP2:   state = STEP1;
-        default: state = START;
       endcase
     end
   end

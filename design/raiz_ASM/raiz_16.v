@@ -27,7 +27,7 @@ module raiz_16 (
 
   lsrR lsrR (
       .clk  (clk),
-      .rst  (rst),
+      .rst  (w_RST),
       .shift(w_S4),
       .lsb  (w_S2),
       .out_R(out_R)
@@ -48,7 +48,7 @@ module raiz_16 (
 
   lsrQA lsrQA (
       .clk  (clk),
-      .load (rst),
+      .load (w_RST),
       .shift(w_S1),
       .add  (w_S2),
       .in_Q (w_Q),
@@ -57,7 +57,7 @@ module raiz_16 (
   );
 
   acc acc (
-      .rst  (rst),
+      .rst  (w_RST),
       .clk  (clk),
       .add  (w_S3),
       .out_K(w_K)
