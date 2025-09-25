@@ -164,9 +164,6 @@ module control_BCD (
       START: state_name = "START";
       SHIFT: state_name = "SHIFT";
       CHECK_NEG: state_name = "CHECK_NEG";
-      PRE_LOAD_UND: state_name = "PRE_LOAD_UND";
-      PRE_LOAD_DEC: state_name = "PRE_LOAD_DEC";
-      PRE_LOAD_ALL: state_name = "PRE_LOAD_ALL";
       LOAD_UND: state_name = "LOAD_UND";
       LOAD_DEC: state_name = "LOAD_DEC";
       LOAD_ALL: state_name = "LOAD_ALL";

@@ -22,15 +22,15 @@ module control_raiz (
   output reg out_S4;
   output reg out_RST;
   output reg out_DONE;
-  parameter START = 3'b000;
-  parameter STEP1 = 3'b001;
-  parameter CHECK = 3'b010;
-  parameter OPERATE = 3'b011;
-  parameter ITERATE = 3'b100;
-  parameter DONE = 3'b101;
-  parameter STEP2 = 3'b110;
+  parameter START   = 4'b0000;
+  parameter STEP1   = 4'b0001;
+  parameter CHECK   = 4'b0010;
+  parameter OPERATE = 4'b0011;
+  parameter ITERATE = 4'b0100;
+  parameter DONE    = 4'b0101;
+  parameter STEP2   = 4'b0110;
 
-  reg [2:0] state;
+  reg [3:0] state;
 
   always @(posedge clk) begin
     if (rst) state = START;
@@ -126,13 +126,13 @@ module control_raiz (
   reg [8*40:1] state_name;
   always @(*) begin
     case (state)
-      START: state_name = "START";
-      STEP1: state_name = "STEP1";
-      CHECK: state_name = "CHECK";
-      OPERATE: state_name = "OPERATE";
-      ITERATE: state_name = "ITERATE";
-      STEP2: state_name = "STEP2";
-      DONE: state_name = "DONE";
+      START:   state_name    = "START";
+      STEP1:   state_name    = "STEP1";
+      CHECK:   state_name    = "CHECK";
+      OPERATE: state_name    = "OPERATE";
+      ITERATE: state_name    = "ITERATE";
+      STEP2:   state_name    = "STEP2";
+      DONE:    state_name    = "DONE";
     endcase
 
   end
