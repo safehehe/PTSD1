@@ -5,7 +5,7 @@ SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 POST_ROUTE_SIM_DIR = $(SIM_DIR)/post_route
 TESTBENCH_DIR = test_benches
-ICE40_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
+ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 
 
@@ -38,14 +38,14 @@ build/$(TOP).json : $(BUILD_DIR)
 
 
 sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
-	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ICE40_SIM_CELLS)
-#	iverilog -o $@_PS.vpp                       -s $(TOP)_TB $(TARGET)_TB.v                  $(TOP)_synth.v              $(ICE40_SIM_CELLS) 
+	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
+#	iverilog -o $@_PS.vpp                       -s $(TOP)_TB $(TARGET)_TB.v                  $(TOP)_synth.v              $(ECP5_SIM_CELLS) 
 
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd &
 re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
-	iverilog -g2012 -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ICE40_SIM_CELLS)
+	iverilog -g2012 -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 

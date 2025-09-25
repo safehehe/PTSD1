@@ -1220,7 +1220,7 @@ ABC: Participating nodes from the first network   =      61. (  96.83 % of nodes
 ABC: Participating nodes from the second network  =      63. ( 100.00 % of nodes)
 ABC: Node pairs (any polarity)                    =      61. (  96.83 % of names can be moved)
 ABC: Node pairs (same polarity)                   =      57. (  90.48 % of names can be moved)
-ABC: Total runtime =     0.02 sec
+ABC: Total runtime =     0.03 sec
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 8.43.1.2. Re-integrating ABC results.
@@ -1389,6 +1389,6 @@ Finding unused cells or wires in module \raiz_16..
 10.2. Executing DEMUXMAP pass.
 Dumping module `\raiz_16'.
 
-End of script. Logfile hash: 252b2b9ae7, CPU: user 0.92s system 0.03s, MEM: 25.25 MB peak
+End of script. Logfile hash: b35ba1bc87, CPU: user 0.98s system 0.04s, MEM: 25.45 MB peak
 Yosys 0.33+6 (git sha1 41b34a193, x86_64-conda-linux-gnu-cc 11.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/root/conda-eda/conda-eda/workdir/conda-env/conda-bld/yosys_1694128612374/work=/usr/local/src/conda/yosys-0.33_7_g41b34a193 -fdebug-prefix-map=/home/daniel-puentes/miniconda3/envs/digital=/usr/local/src/conda-prefix -fPIC -Os -fno-merge-constants)
-Time spent: 44% 27x read_verilog (0 sec), 14% 1x abc (0 sec), ...
+Time spent: 41% 27x read_verilog (0 sec), 14% 1x abc (0 sec), ...
