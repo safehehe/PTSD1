@@ -6308,8 +6308,8 @@
             "Z": "output"
           },
           "connections": {
-            "A": [ 18 ],
-            "B": [ 19 ],
+            "A": [ 19 ],
+            "B": [ 18 ],
             "C": [ 20 ],
             "D": [ 21 ],
             "Z": [ 37 ]
@@ -6333,8 +6333,8 @@
             "Z": "output"
           },
           "connections": {
-            "A": [ 18 ],
-            "B": [ 19 ],
+            "A": [ 19 ],
+            "B": [ 18 ],
             "C": [ 20 ],
             "D": [ 21 ],
             "Z": [ 38 ]
@@ -6478,9 +6478,9 @@
           },
           "connections": {
             "A": [ 44 ],
-            "B": [ 45 ],
+            "B": [ 46 ],
             "C": [ 50 ],
-            "D": [ 46 ],
+            "D": [ 45 ],
             "Z": [ 47 ]
           }
         },
@@ -7361,11 +7361,11 @@
           "hide_name": 0,
           "type": "LUT4",
           "parameters": {
-            "INIT": "0000111100000000"
+            "INIT": "0000000011111100"
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:119.33-120.56"
+            "src": "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:124.33-125.56"
           },
           "port_directions": {
             "A": "input",
@@ -7376,9 +7376,9 @@
           },
           "connections": {
             "A": [ "0" ],
-            "B": [ "0" ],
-            "C": [ 3 ],
-            "D": [ 52 ],
+            "B": [ 85 ],
+            "C": [ 52 ],
+            "D": [ 3 ],
             "Z": [ 84 ]
           }
         },
@@ -7434,15 +7434,15 @@
             "Z": [ 72 ]
           }
         },
-        "init_LUT4_A": {
+        "init_LUT4_B": {
           "hide_name": 0,
           "type": "LUT4",
           "parameters": {
-            "INIT": "1111111111110100"
+            "INIT": "1111111100110000"
           },
           "attributes": {
             "module_not_derived": "00000000000000000000000000000001",
-            "src": "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:128.32-129.56"
+            "src": "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:124.33-125.56"
           },
           "port_directions": {
             "A": "input",
@@ -7452,10 +7452,10 @@
             "Z": "output"
           },
           "connections": {
-            "A": [ 4 ],
-            "B": [ 44 ],
-            "C": [ 3 ],
-            "D": [ 85 ],
+            "A": [ "0" ],
+            "B": [ 4 ],
+            "C": [ 44 ],
+            "D": [ 3 ],
             "Z": [ 86 ]
           }
         },
@@ -8879,7 +8879,7 @@
         },
         "control_BCD.out_S1_PFUMX_Z_C0": {
           "hide_name": 0,
-          "bits": [ 44, 45, 50, 46, 49 ],
+          "bits": [ 44, 46, 50, 45, 49 ],
           "attributes": {
             "force_downto": "00000000000000000000000000000001",
             "src": "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:108.23-108.24"

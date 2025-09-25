@@ -402,8 +402,8 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
   LUT4 #(
     .INIT(16'h1fe0)
   ) \control_BCD.in_sum_DEC_PFUMX_Z_ALUT_LUT4_Z  (
-    .A(\lsr_CEN_DEC_UND_BIN.out_DEC [0]),
-    .B(\lsr_CEN_DEC_UND_BIN.out_DEC [1]),
+    .A(\lsr_CEN_DEC_UND_BIN.out_DEC [1]),
+    .B(\lsr_CEN_DEC_UND_BIN.out_DEC [0]),
     .C(\lsr_CEN_DEC_UND_BIN.out_DEC [2]),
     .D(\lsr_CEN_DEC_UND_BIN.out_DEC [3]),
     .Z(\control_BCD.in_sum_DEC_PFUMX_Z_ALUT )
@@ -413,8 +413,8 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
   LUT4 #(
     .INIT(16'he01f)
   ) \control_BCD.in_sum_DEC_PFUMX_Z_BLUT_LUT4_Z  (
-    .A(\lsr_CEN_DEC_UND_BIN.out_DEC [0]),
-    .B(\lsr_CEN_DEC_UND_BIN.out_DEC [1]),
+    .A(\lsr_CEN_DEC_UND_BIN.out_DEC [1]),
+    .B(\lsr_CEN_DEC_UND_BIN.out_DEC [0]),
     .C(\lsr_CEN_DEC_UND_BIN.out_DEC [2]),
     .D(\lsr_CEN_DEC_UND_BIN.out_DEC [3]),
     .Z(\control_BCD.in_sum_DEC_PFUMX_Z_BLUT )
@@ -474,9 +474,9 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
     .INIT(16'h4000)
   ) \control_BCD.out_S1_PFUMX_Z_ALUT_LUT4_Z  (
     .A(\control_BCD.state [0]),
-    .B(out_DONE_LUT4_C_B[3]),
+    .B(out_DONE_LUT4_C_B[1]),
     .C(\control_BCD.out_S1 ),
-    .D(out_DONE_LUT4_C_B[1]),
+    .D(out_DONE_LUT4_C_B[3]),
     .Z(\control_BCD.out_S1_PFUMX_Z_ALUT )
   );
   /* module_not_derived = 32'd1 */
@@ -871,14 +871,14 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
     .Q(\control_BCD.state [1])
   );
   /* module_not_derived = 32'd1 */
-  /* src = "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:119.33-120.56" */
+  /* src = "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:124.33-125.56" */
   LUT4 #(
-    .INIT(16'h0f00)
+    .INIT(16'h00fc)
   ) \control_BCD.state_TRELLIS_FF_Q_7_DI_LUT4_Z  (
     .A(1'h0),
-    .B(1'h0),
-    .C(rst),
-    .D(\control_BCD.state [8]),
+    .B(\control_BCD.state [1]),
+    .C(\control_BCD.state [8]),
+    .D(rst),
     .Z(\control_BCD.state_TRELLIS_FF_Q_7_DI )
   );
   /* module_not_derived = 32'd1 */
@@ -907,14 +907,14 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
     .Z(\control_BCD.state_TRELLIS_FF_Q_DI )
   );
   /* module_not_derived = 32'd1 */
-  /* src = "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:128.32-129.56" */
+  /* src = "/home/daniel-puentes/miniconda3/envs/digital/bin/../share/yosys/ecp5/cells_map.v:124.33-125.56" */
   LUT4 #(
-    .INIT(16'hfff4)
-  ) init_LUT4_A (
-    .A(init),
-    .B(\control_BCD.state [0]),
-    .C(rst),
-    .D(\control_BCD.state [1]),
+    .INIT(16'hff30)
+  ) init_LUT4_B (
+    .A(1'h0),
+    .B(init),
+    .C(\control_BCD.state [0]),
+    .D(rst),
     .Z(\control_BCD.state_TRELLIS_FF_Q_8_DI )
   );
   /* module_not_derived = 32'd1 */
@@ -1534,7 +1534,7 @@ module BCD(clk, rst, init, in_BIN, out_UND, out_DEC, out_CEN, out_DONE);
   assign \control_BCD.clk  = clk;
   assign \control_BCD.in_init  = init;
   assign \control_BCD.out_DONE  = out_DONE;
-  assign \control_BCD.out_S1_PFUMX_Z_C0 [3:0] = { out_DONE_LUT4_C_B[1], \control_BCD.out_S1 , out_DONE_LUT4_C_B[3], \control_BCD.state [0] };
+  assign \control_BCD.out_S1_PFUMX_Z_C0 [3:0] = { out_DONE_LUT4_C_B[3], \control_BCD.out_S1 , out_DONE_LUT4_C_B[1], \control_BCD.state [0] };
   assign \control_BCD.out_S2_PFUMX_Z_C0 [3:0] = { out_DONE_LUT4_C_B[1], \control_BCD.out_S2 , \control_BCD.state [4], \control_BCD.state [0] };
   assign \control_BCD.out_S4_PFUMX_Z_C0 [3:0] = { out_DONE_LUT4_C_B[1], \control_BCD.out_S4 , out_DONE_LUT4_C_B[3], \control_BCD.state [0] };
   assign \control_BCD.rst  = rst;
