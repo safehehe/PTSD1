@@ -5,11 +5,11 @@ module control_BCD (
     in_K,
     in_sum_UND,
     in_sum_DEC,
-    out_S1,
-    out_S2,
-    out_S3,
-    out_S4,
-    out_S5,
+    out_SHIFT,
+    out_SELECT_MUX,
+    out_LOAD_UND,
+    out_LOAD_DEC,
+    out_ACC,
     out_RST,
     out_DONE
 );
@@ -19,11 +19,11 @@ module control_BCD (
   input in_K;
   input [3:0] in_sum_UND;
   input [3:0] in_sum_DEC;
-  output reg out_S1;
-  output reg out_S2;
-  output reg out_S3;
-  output reg out_S4;
-  output reg out_S5;
+  output reg out_SHIFT;
+  output reg out_SELECT_MUX;
+  output reg out_LOAD_UND;
+  output reg out_LOAD_DEC;
+  output reg out_ACC;
   output reg out_RST;
   output reg out_DONE;
 
@@ -43,11 +43,18 @@ module control_BCD (
   parameter GE_NEG_ALL = 2'b00;  //MSB:DEC, LBS:UND
   parameter GE_NEG_NONE = 2'b11;
 
+  reg [3:0] timer_done;
+
   always @(posedge clk) begin
-    if (rst) state = START;
-    else begin
+    if (rst) begin
+      state = START;
+      timer_done = 4'd10;
+    end else begin
       case (state)
-        START: state = in_init ? SHIFT : START;
+        START: begin
+          state = in_init ? SHIFT : START;
+          timer_done = 4'd10;
+        end
         SHIFT: begin
           state = CHECK_NEG;
         end
@@ -64,6 +71,14 @@ module control_BCD (
         LOAD_UND, LOAD_DEC, LOAD_ALL: state = ITERATE;
         ITERATE: state = in_K ? LAST_SHIFT : SHIFT;
         LAST_SHIFT: state = DONE;
+        DONE: begin
+          if (timer_done == 0) begin
+            state = START;
+          end else begin
+            timer_done = timer_done - 1;
+            state = DONE;
+          end
+        end
       endcase
     end
   end
@@ -71,84 +86,84 @@ module control_BCD (
   always @(*) begin
     case (state)
       START: begin
-        out_RST  = 1;
-        out_S1   = 0;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 1;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 0;
       end
       SHIFT: begin
-        out_RST  = 0;
-        out_S1   = 1;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 1;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 0;
       end
       CHECK_NEG: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 0;
       end
       LOAD_UND: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 1;
-        out_S3   = 1;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 1;
+        out_LOAD_UND = 1;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 0;
       end
       LOAD_DEC: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 1;
-        out_S3   = 0;
-        out_S4   = 1;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 1;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 1;
+        out_ACC = 0;
         out_DONE = 0;
       end
       LOAD_ALL: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 1;
-        out_S3   = 1;
-        out_S4   = 1;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 1;
+        out_LOAD_UND = 1;
+        out_LOAD_DEC = 1;
+        out_ACC = 0;
         out_DONE = 0;
       end
       ITERATE: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 1;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 1;
         out_DONE = 0;
       end
       LAST_SHIFT: begin
-        out_RST  = 0;
-        out_S1   = 1;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 1;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 0;
       end
       DONE: begin
-        out_RST  = 0;
-        out_S1   = 0;
-        out_S2   = 0;
-        out_S3   = 0;
-        out_S4   = 0;
-        out_S5   = 0;
+        out_RST = 0;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
         out_DONE = 1;
       end
     endcase

@@ -12,12 +12,7 @@ module acc (
 
   always @(negedge clk) begin
     if (rst) N = 16'd16;
-    else begin
-      if (add) N = N - 2;
-      else begin
-        N = N;
-      end
-    end
+    if (add) N = N - 2; else N = N;
   end
 
   always @(*) out_K = N == 0;

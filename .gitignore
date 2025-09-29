@@ -1,2 +1,3 @@
 *.vvp
 build/
+*.vcd

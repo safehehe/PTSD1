@@ -1,4 +1,4 @@
-module BCD (
+module BIN_TO_BCD (
     clk,
     rst,
     init,
@@ -16,11 +16,11 @@ module BCD (
   output [3:0] out_DEC;
   output [3:0] out_CEN;
   output out_DONE;
-  wire w_S1;
-  wire w_S2;
-  wire w_S3;
-  wire w_S4;
-  wire w_S5;
+  wire w_SHIFT;
+  wire w_SELECT_MUX;
+  wire w_LOAD_UND;
+  wire w_LOAD_DEC;
+  wire w_ACC;
   wire w_RST;
   wire w_K;
   wire [3:0] w_sum_UND;
@@ -32,9 +32,9 @@ module BCD (
   lsr_CEN_DEC_UND_BIN lsr_CEN_DEC_UND_BIN (
       .clk     (clk),
       .load_BIN(w_RST),
-      .shift   (w_S1),
-      .load_UND(w_S3),
-      .load_DEC(w_S4),
+      .shift   (w_SHIFT),
+      .load_UND(w_LOAD_UND),
+      .load_DEC(w_LOAD_DEC),
       .in_BIN  (in_BIN),
       .in_UND  (w_sum_UND),
       .in_DEC  (w_sum_DEC),
@@ -44,11 +44,11 @@ module BCD (
   );
 
   mux mux_UND (
-      .SELECT(w_S2),
+      .SELECT(w_SELECT_MUX),
       .out   (w_mux_UND)
   );
   mux mux_DEV (
-      .SELECT(w_S2),
+      .SELECT(w_SELECT_MUX),
       .out   (w_mux_DEC)
   );
 
@@ -66,24 +66,24 @@ module BCD (
   acc acc (
       .rst  (w_RST),
       .clk  (clk),
-      .add  (w_S5),
+      .add  (w_ACC),
       .out_K(w_K)
   );
 
   control_BCD control_BCD (
-      .clk       (clk),
-      .rst       (rst),
-      .in_init   (init),
-      .in_K      (w_K),
-      .in_sum_UND(w_sum_UND),
-      .in_sum_DEC(w_sum_DEC),
-      .out_S1    (w_S1),
-      .out_S2    (w_S2),
-      .out_S3    (w_S3),
-      .out_S4    (w_S4),
-      .out_S5    (w_S5),
-      .out_RST   (w_RST),
-      .out_DONE  (out_DONE)
+      .clk           (clk),
+      .rst           (rst),
+      .in_init       (init),
+      .in_K          (w_K),
+      .in_sum_UND    (w_sum_UND),
+      .in_sum_DEC    (w_sum_DEC),
+      .out_SHIFT     (w_SHIFT),
+      .out_SELECT_MUX(w_SELECT_MUX),
+      .out_LOAD_UND  (w_LOAD_UND),
+      .out_LOAD_DEC  (w_LOAD_DEC),
+      .out_ACC       (w_ACC),
+      .out_RST       (w_RST),
+      .out_DONE      (out_DONE)
   );
 
 
