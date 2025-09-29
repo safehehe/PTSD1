@@ -1,4 +1,4 @@
-DESIGN = div
+DESIGN = div_16
 BUILD_DIR = build
 SIM_DIR = simulation
 SIMPLE_SIM_DIR = $(SIM_DIR)/simple
@@ -15,14 +15,12 @@ OBJS = $(wildcard *.v)
 
 all : simple_sim
 
-simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y lanza GTKwave
-	rm -f $(SIMPLE_SIM_DIR)/*.vcd
+simple_sim : $(SIMPLE_SIM_DIR) clean #Crea la carpeta, los archivos de simulación y lanza GTKwave
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
 	gtkwave $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vcd &
-re_simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta y los archivos de simulación
-	rm -f $(SIMPLE_SIM_DIR)/*.vcd
+re_simple_sim : $(SIMPLE_SIM_DIR) clean #Crea la carpeta y los archivos de simulación
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
@@ -32,15 +30,15 @@ build/$(TOP).json : $(BUILD_DIR)
 #	yosys -v3 -l synth.log -p 'synth_ecp5              -top $(TOP) -json $(TOP).json;              write_verilog -attr2comment $(TOP)_synth.v' $(OBJS)
 
 
-sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
+sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR) clean
 	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 #	iverilog -o $@_PS.vpp                       -s $(TOP)_TB $(TARGET)_TB.v                  $(TOP)_synth.v              $(ECP5_SIM_CELLS) 
 
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd &
-re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
-	iverilog -g2012 -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
+re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR) clean
+	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 
@@ -49,7 +47,6 @@ $(SIMPLE_SIM_DIR) :
 	mkdir -p $(SIMPLE_SIM_DIR)
 $(POST_SYNTH_SIM_DIR) :
 	mkdir -p $(POST_SYNTH_SIM_DIR)
-$(POST)
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)
 clean :
