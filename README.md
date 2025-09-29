@@ -1,2 +1,2 @@
 # PTSD1
-Proyecto Transversal Sistemas Digitales 1
+Proyecto Transversal de Sistemas Digitales 1
