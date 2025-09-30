@@ -27,26 +27,26 @@ module peripheral_mult (
   always @(*) begin
     if (cs) begin
       case (addr)
-        5'h01:   s = 5'b00001;  // A
-        5'h02:   s = 5'b00010;  // B
-        5'h04:   s = 5'b00100;  // init
-        5'h08:   s = 5'b01000;  // result
-        5'h10:   s = 5'b10000;  // done
-        default: s = 5'b00000;
+        5'h01:   reg_s = 5'b00001;  // A
+        5'h02:   reg_s = 5'b00010;  // B
+        5'h04:   reg_s = 5'b00100;  // init
+        5'h08:   reg_s = 5'b01000;  // result
+        5'h10:   reg_s = 5'b10000;  // done
+        default: reg_s = 5'b00000;
       endcase
-    end else s = 5'b00000;
+    end else reg_s = 5'b00000;
   end
 
   always @(posedge clk) begin
     if (rst) begin
-      reg_init  = 0;
+      reg_init = 0;
       reg_A = 0;
       reg_B = 0;
     end else begin
       if (cs && wr) begin
-        reg_A = s[0] ? d_in : reg_A;  //Write Registers
-        reg_B = s[1] ? d_in : reg_B;  //Write Registers
-        reg_init  = s[2] ? {31'b0, d_in[0]} : reg_init;
+        reg_A = reg_s[0] ? d_in : reg_A;  //Write Registers
+        reg_B = reg_s[1] ? d_in : reg_B;  //Write Registers
+        reg_init = reg_s[2] ? {31'b0, d_in[0]} : reg_init;
       end
     end
   end
@@ -54,10 +54,10 @@ module peripheral_mult (
   always @(posedge clk) begin
     if (rst) d_out = 0;
     else if (cs & rd) begin
-      case (s[4:3])
-        2'b01: d_out = w_result;
-        2'b10: d_out = {31'b0, w_done};
-        default:  d_out = 32'z;
+      case (reg_s[4:3])
+        2'b01:   d_out = w_result;
+        2'b10:   d_out = {31'b0, w_done};
+        default: d_out = 32'bz;
       endcase
     end
   end
