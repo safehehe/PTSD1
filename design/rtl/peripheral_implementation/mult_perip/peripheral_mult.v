@@ -29,7 +29,7 @@ module peripheral_mult (
   always @(*) begin  //------address_decoder------------------------------
     if (cs) begin
       case (addr)
-        5'h04:   s = 5'b00001;  // A 
+        5'h04:   s = 5'b00001;  // A
         5'h08:   s = 5'b00010;  // B
         5'h0C:   s = 5'b00100;  // init
         5'h10:   s = 5'b01000;  // result
