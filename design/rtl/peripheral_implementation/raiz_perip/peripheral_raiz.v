@@ -1,6 +1,6 @@
 module peripheral_raiz (
     clk,
-    reset,
+    rst,
     d_in,
     cs,
     addr,
@@ -10,13 +10,13 @@ module peripheral_raiz (
 );
 
   input clk;
-  input reset;
+  input rst;
   input [15:0] d_in;
   input cs;
   input [4:0] addr;
   input rd;
   input wr;
-  output reg [31:0] d_out;
+  output reg [15:0] d_out;
 
   //-------------------------------inputs-------------------------------
   reg [4:0] s; 
@@ -24,8 +24,8 @@ module peripheral_raiz (
   reg init;
 
   //-------------------------------outputs-------------------------------------
-  wire [31:0] out_R;  
-  wire [31:0] out_Q;
+  wire [15:0] out_R;  
+  wire [15:0] out_Q;
   wire done;
 
 
@@ -47,13 +47,13 @@ module peripheral_raiz (
 
   always @(posedge clk) begin  //-------------------- escritura de registros 
 
-    if (reset) begin
+    if (rst) begin
       init  = 0;
       in_RR = 0;
     end else begin
       if (cs && wr) begin
         in_RR = s[0] ? d_in    : in_RR; //Write Registers
-        init  = s[2] ? d_in[0] : init;
+        init  = s[1] ? d_in[0] : init;
       end
     end
 
@@ -61,7 +61,7 @@ module peripheral_raiz (
 
 
   always @(posedge clk) begin  //-----------------------mux_4 :  multiplexa salidas del periferico
-    if (reset) d_out = 0;
+    if (rst) d_out = 0;
     else if (cs) begin
       case (s[4:0])
         5'b00100: d_out = out_R;
@@ -74,14 +74,14 @@ module peripheral_raiz (
 
 
 
-  raiz raiz1 (
-      .reset(reset),
+  raiz_16 raiz1 (
+      .rst(rst),
       .clk(clk),
       .init(init),
-      .done(done),
-      .result(out_R),
-      .resto(out_Q),
-      .op_RR(in_RR)
+      .out_DONE(done),
+      .out_R(out_R),
+      .out_Q(out_Q),
+      .in_RR(in_RR)
   );
 
 endmodule
