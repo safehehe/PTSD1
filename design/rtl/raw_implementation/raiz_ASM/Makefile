@@ -13,8 +13,6 @@ ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 TOP = raiz_16
 TARGET = raiz_16
 OBJS = $(wildcard *.v)
-SIM_OBJS = ../../verilog_model/sky130_fd_sc_hd.v
-SIM_OBJS += ../../verilog_model/primitives.v
 
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
@@ -56,5 +54,6 @@ $(POST_SYNTH_SIM_DIR) :
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)
 clean :
-	rm -rf $(SIM_DIR)
+	find $(SIMPLE_SIM_DIR) -depth -mindepth 1 ! -name "*.gtkw" -delete
+	find $(POST_SYNTH_SIM_DIR) -depth -mindepth 1 ! -name "*.gtkw" -delete
 	rm -rf $(BUILD_DIR)

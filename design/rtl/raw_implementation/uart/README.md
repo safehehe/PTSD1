@@ -1,0 +1,1 @@
+## Tomado de https://github.com/cicamargoba/digital_UN/blob/main/femtoRV/basic/rtl/cores/uart/uart.v
