@@ -1,5 +1,5 @@
 module SOC (
-    input       clk,     // system clock 
+    input       clk,     // system clock
     input       resetn,  // reset button
     output wire LEDS,    // system LEDs
     input       RXD,     // UART receive
@@ -35,7 +35,7 @@ module SOC (
       .mem_wmask({4{cs[0]}} & mem_wmask)
   );
   wire [31:0] uart_dout;
-  wire [31:0] gpio_dout;
+  wire [31:0] raiz_dout;
   wire [31:0] mult_dout;
   wire [31:0] div_dout;
   wire [31:0] bin2bcd_dout;
@@ -61,7 +61,7 @@ module SOC (
 
   peripheral_mult mult1 (
       .clk(clk),
-      .reset(!resetn),
+      .rst(!resetn),
       .d_in(mem_wdata[15:0]),
       .cs(cs[3]),
       .addr(mem_addr[4:0]),
@@ -72,7 +72,7 @@ module SOC (
 
   peripheral_div div1 (
       .clk(clk),
-      .reset(!resetn),
+      .rst(!resetn),
       .d_in(mem_wdata[15:0]),
       .cs(cs[2]),
       .addr(mem_addr[4:0]),
@@ -81,9 +81,19 @@ module SOC (
       .d_out(div_dout)
   );
 
+  peripheral_raiz raiz1 (
+      .clk  (clk),
+      .rst  (!resetn),
+      .d_in (mem_wdata[15:0]),
+      .cs   (cs[4]),
+      .addr (mem_addr[4:0]),
+      .rd   (rd),
+      .wr   (wr),
+      .d_out(raiz_dout)
+  );
 
   /*
-   peripheral_dpram dpram_p0( 
+   peripheral_dpram dpram_p0(
       .clk(clk),
       .reset(!resetn),
       .d_in(mem_wdata[15:0]),
@@ -102,7 +112,7 @@ module SOC (
   always @* begin
     case (mem_addr[31:16])  // direcciones - chip_select
       16'h0040: cs = 7'b0100000;  //uart
-      16'h0041: cs = 7'b0010000;  //gpio
+      16'h0041: cs = 7'b0010000;  //raiz
       16'h0042: cs = 7'b0001000;  //mult
       16'h0043: cs = 7'b0000100;  //div
       16'h0044: cs = 7'b0000010;  //bin_to_bcd
@@ -116,14 +126,14 @@ module SOC (
     case (cs)
       7'b1000000: mem_rdata = dpram_dout;
       7'b0100000: mem_rdata = uart_dout;
-      7'b0010000: mem_rdata = gpio_dout;
+      7'b0010000: mem_rdata = raiz_dout;
       7'b0001000: mem_rdata = mult_dout;
       7'b0000100: mem_rdata = div_dout;
       7'b0000010: mem_rdata = bin2bcd_dout;
       7'b0000001: mem_rdata = RAM_rdata;
     endcase
   end
-  // ============== MUX ========================  // 
+  // ============== MUX ========================  //
 
 `ifdef BENCH
   always @(posedge clk) begin
