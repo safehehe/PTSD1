@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `define SIMULATION
 
-module BCD_TB;
+module BIN_TO_BCD_TB;
 
   reg clk;
   reg rst;
@@ -12,7 +12,7 @@ module BCD_TB;
   wire [3:0] CEN;
   wire done;
 
-  BCD uut (
+  BIN_TO_BCD uut (
       .rst     (rst),
       .clk     (clk),
       .init    (start),
@@ -40,41 +40,41 @@ module BCD_TB;
       ->reset_done_trigger;
     end
   end
-  initial begin //Initialize inputs
-    clk = 0;
+  initial begin  //Initialize inputs
+    clk   = 0;
     //rst = 1;
     start = 0;
-    BIN = 9'b111111111;
+    BIN   = 9'b111111111;
   end
-  initial begin //Process for clk
+  initial begin  //Process for clk
     #OFFSET;
     forever begin
       clk = 1'b0;
       #(PERIOD - (PERIOD * DUTY_CYCLE)) clk = 1'b1;
-      #(PERIOD*DUTY_CYCLE);
+      #(PERIOD * DUTY_CYCLE);
     end
   end
 
   initial begin
-    #10 -> reset_trigger;
-    @ (reset_done_trigger);
-    @ (posedge clk);
+    #10->reset_trigger;
+    @(reset_done_trigger);
+    @(posedge clk);
     start = 0;
-    @ (posedge clk);
+    @(posedge clk);
     start = 1;
 
     repeat (2) @(posedge clk);
     start = 0;
 
-    for (i = 0;i<17; i=i+1) begin
-      @ (posedge clk);
+    for (i = 0; i < 17; i = i + 1) begin
+      @(posedge clk);
     end
   end
 
   initial begin : TEST_CASE
-    $dumpfile("BCD_TB.vcd");
+    $dumpfile("BIN_TO_BCD_TB.vcd");
     $dumpvars(-1, uut);
-    #((PERIOD*DUTY_CYCLE)*120) $finish;
+    #((PERIOD * DUTY_CYCLE) * 120) $finish;
   end
 
 endmodule

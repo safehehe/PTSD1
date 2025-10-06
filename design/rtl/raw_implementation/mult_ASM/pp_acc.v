@@ -1,8 +1,8 @@
-module acc (clk , A, add, rst, pp);
+module pp_acc (clk , A, add, rst, pp);
   input clk;
   input [31:0] A;
   input add;
-  input rst; 
+  input rst;
   output reg [31:0] pp;
 
 initial pp = 0;

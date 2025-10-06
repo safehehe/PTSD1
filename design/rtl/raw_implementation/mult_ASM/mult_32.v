@@ -43,7 +43,7 @@ module mult_32 (
       .B(w_B),
       .z(w_z)
   );
-  acc acc0 (
+  pp_acc pp_acc0 (
       .clk(clk),
       .A  (w_A),
       .add(w_add),

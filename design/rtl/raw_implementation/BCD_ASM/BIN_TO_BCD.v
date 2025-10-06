@@ -43,30 +43,48 @@ module BIN_TO_BCD (
       .out_CEN (out_CEN)
   );
 
-  mux mux_UND (
-      .SELECT(w_SELECT_MUX),
-      .out   (w_mux_UND)
-  );
-  mux mux_DEV (
-      .SELECT(w_SELECT_MUX),
-      .out   (w_mux_DEC)
+  multiplexor2x1 #(
+      .IN_WIDTH(4)
+  ) mux_UND (
+      .IN1    (4'b0011),
+      .IN0    (4'b1011),
+      .SELECT (w_SELECT_MUX),
+      .MUX_OUT(w_mux_UND)
   );
 
-  sum sum_UND (
+  multiplexor2x1 #(
+      .IN_WIDTH(4)
+  ) mux_DEC (
+      .IN1    (4'b0011),
+      .IN0    (4'b1011),
+      .SELECT (w_SELECT_MUX),
+      .MUX_OUT(w_mux_DEC)
+  );
+
+  sumador #(
+      .N_BITS(4)
+  ) sum_UND (
       .A  (out_UND),
       .B  (w_mux_UND),
-      .out(w_sum_UND)
-  );
-  sum sum_DEC (
-      .A  (out_DEC),
-      .B  (w_mux_DEC),
-      .out(w_sum_DEC)
+      .out_SUM(w_sum_UND)
   );
 
-  acc acc (
-      .rst  (w_RST),
+  sumador #(
+      .N_BITS(4)
+  ) sum_DEC (
+      .A(out_DEC),
+      .B(w_mux_DEC),
+      .out_SUM(w_sum_DEC)
+  );
+
+  acumulador_restando #(
+      .REG_WIDTH (4),
+      .RST_VALUE (8),
+      .LESS_VALUE(1)
+  ) acc (
+      .rst  (rst),
       .clk  (clk),
-      .add  (w_ACC),
+      .less (w_ACC),
       .out_K(w_K)
   );
 

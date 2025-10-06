@@ -40,10 +40,13 @@ module raiz_16 (
       .out_AUX(w_AUX)
   );
 
-  comp comp (
-      .in_AUX(w_AUX),
-      .in_Q(out_Q),
-      .out_comp_Q(w_Q)
+  sumador #(
+      .N_BITS(16),
+      .CP2(1)
+  ) comp (
+      .A(out_Q),
+      .B(w_AUX),
+      .out_SUM(w_Q)
   );
 
   lsrQA lsrQA (
@@ -55,25 +58,28 @@ module raiz_16 (
       .in_RR(in_RR),
       .out_Q(out_Q)
   );
-
-  acc acc (
-      .rst  (w_RST),
+  acumulador_restando #(
+      .REG_WIDTH (5),
+      .RST_VALUE (16),
+      .LESS_VALUE(2)
+  ) acc (
+      .rst  (rst),
       .clk  (clk),
-      .add  (w_CONT),
+      .less (w_CONT),
       .out_K(w_K)
   );
   control_raiz control_raiz (
-      .clk     (clk),
-      .rst     (rst),
-      .in_init (init),
-      .in_Q    (w_Q),
-      .in_K    (w_K),
-      .out_SHIFTQ  (w_SHIFTQ),
-      .out_ADD  (w_ADD),
+      .clk       (clk),
+      .rst       (rst),
+      .in_init   (init),
+      .in_Q      (w_Q),
+      .in_K      (w_K),
+      .out_SHIFTQ(w_SHIFTQ),
+      .out_ADD   (w_ADD),
       .out_CONT  (w_CONT),
-      .out_SHIFTR  (w_SHIFTR),
-      .out_RST (w_RST),
-      .out_DONE(out_DONE)
+      .out_SHIFTR(w_SHIFTR),
+      .out_RST   (w_RST),
+      .out_DONE  (out_DONE)
   );
 
 endmodule

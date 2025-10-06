@@ -5,11 +5,12 @@ SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 POST_ROUTE_SIM_DIR = $(SIM_DIR)/post_route
 TESTBENCH_DIR = test_benches
+BUILDING_BLOCKS_DIR = ../building_blocks
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 TOP = div_16
 TARGET = div_16
-OBJS = $(wildcard *.v)
+OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 
