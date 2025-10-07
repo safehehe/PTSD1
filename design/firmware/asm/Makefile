@@ -17,7 +17,7 @@ OBJECTS = $(wildcard $(BUILD_DIR)/*.o) #Incluye todos los archivos en el directo
 LINKER_SCRIPT = $(BUILD_DIR)/bram.ld
 
 
-TOOLCHAIN_DIR = ../../../toolchain #El toolchain debe estar en la raiz de el repositorio
+TOOLCHAIN_DIR = ../../../toolchain#El toolchain debe estar en la raiz de el repositorio
 CROSS   = $(TOOLCHAIN_DIR)/bin/riscv32-unknown-elf
 CC      = $(CROSS)-gcc
 AS      = $(CROSS)-as
@@ -33,11 +33,11 @@ all:$(MEMORY_DIR)/firmware.hex
 #-------------Compilación
 $(BUILD_DIR)/%.o: %.S
 	mkdir -p $(BUILD_DIR)
-	$(AS) $(AFLAGS) -c $< -o $<@
+	$(AS) $(AFLAGS) -c $< -o $@
 
 #-------------Link
 $(BUILD_DIR)/firmware.elf : $(OBJECTS) $(LINKER_SCRIPT)
-	$(LD) $(LDFLAGS) -T $< -m elf32lriscv -nostdlib -Map $(BUILD_DIR)/firmware.map -N -o $@ $(OBJECS)
+	$(LD) $(LDFLAGS) -T $< -m elf32lriscv -nostdlib -Map $(BUILD_DIR)/firmware.map -N -o $@ $(OBJECTS)
 	chmod -x $@
 
 $(BUILD_DIR)/firmware.lst : $(BUILD_DIR)/firmware.elf
@@ -59,18 +59,18 @@ $(MEMORY_DIR)/firmware.hex: $(BUILD_DIR)/firmware.elf $(BUILD_DIR)/firmware.lst 
 #-------------bram.ld
 $(LINKER_SCRIPT):
 	@mkdir -p $(BUILD_DIR)
-	@echo "MEMORY {"                         >  bram.ld
-	@echo "   BRAM (RWX) : ORIGIN = 0x0000, LENGTH = 0x4000  /* 6kB RAM */" >> bram.ld
-	@echo "}"                                >> bram.ld
-	@echo "SECTIONS"                         >> bram.ld
-	@echo "{"                                >> bram.ld
-	@echo "    everything :"                 >> bram.ld
-	@echo "    {"                            >> bram.ld
-	@echo "        . = ALIGN(4);"            >> bram.ld
-	@echo "        $(TOP)(.text)"          >> bram.ld
-	@echo "        *(.*)"                    >> bram.ld
-	@echo "    } >BRAM"                      >> bram.ld
-	@echo "}"                                >> bram.ld
+	@echo "MEMORY {"                         >  $@
+	@echo "   BRAM (RWX) : ORIGIN = 0x0000, LENGTH = 0x4000  /* 6kB RAM */" >> $@
+	@echo "}"                                >> $@
+	@echo "SECTIONS"                         >> $@
+	@echo "{"                                >> $@
+	@echo "    everything :"                 >> $@
+	@echo "    {"                            >> $@
+	@echo "        . = ALIGN(4);"            >> $@
+	@echo "        *$(TOP)(.text)"           >> $@
+	@echo "        *(.*)"                    >> $@
+	@echo "    } >BRAM"                      >> $@
+	@echo "}"                                >> $@
 
 clean:
 	rm -rf $(BUILD_DIR) $(MEMORY_DIR)
