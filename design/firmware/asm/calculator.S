@@ -71,7 +71,7 @@ divide:
 	call div_hw
 
 print_res:		
-	call bin_to_bcd
+	call bcd_hw
 	j    loopM
 putstring:
 	addi sp,sp,-4 # save ra on the stack
