@@ -57,7 +57,6 @@ loopM:
 	call putstring
 	
 
-
 	mv   a1,t0
 	mv   a0,a2
 		
@@ -68,18 +67,15 @@ loopM:
 	j    print_res
 divide:
 #	call div
-	call div_hw
-	
+	call div_hw	
 sqrt:
 	call sqrt_hw
-
 	
 bcd:
 	call bcd_hw
-
 	
 print_res:		
-	call bin_to_bcd
+	call bcd
 	j    loopM
 putstring:
 	addi sp,sp,-4 # save ra on the stack
