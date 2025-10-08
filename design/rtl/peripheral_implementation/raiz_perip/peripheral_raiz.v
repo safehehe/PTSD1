@@ -19,12 +19,12 @@ module peripheral_raiz (
   output reg [15:0] d_out;
 
   //-------------------------------inputs-------------------------------
-  reg [4:0] s; 
-  reg [15:0] in_RR;  
+  reg [4:0] select_reg;
+  reg [15:0] in_RR;
   reg init;
 
   //-------------------------------outputs-------------------------------------
-  wire [15:0] out_R;  
+  wire [15:0] out_R;
   wire [15:0] out_Q;
   wire done;
 
@@ -32,14 +32,14 @@ module peripheral_raiz (
   always @(*) begin  //------address_decoder------------------------------
     if (cs) begin
       case (addr)
-        5'h04:   s = 5'b00001;  // in_RR 
-        5'h08:   s = 5'b00010;  // init
-        5'h0C:   s = 5'b00100;  // out_R
-        5'h10:   s = 5'b01000;  // out_Q
-        5'h14:   s = 5'b10000;  // done
-        default: s = 5'b00000;
+        5'h04:   select_reg = 5'b00001;  // in_RR
+        5'h08:   select_reg = 5'b00010;  // init
+        5'h0C:   select_reg = 5'b00100;  // out_R
+        5'h10:   select_reg = 5'b01000;  // out_Q
+        5'h14:   select_reg = 5'b10000;  // done
+        default: select_reg = 5'b00000;
       endcase
-    end else s = 5'b00000;
+    end else select_reg = 5'b00000;
   end  //------------------address_decoder--------------------------------
 
 
@@ -52,8 +52,8 @@ module peripheral_raiz (
       in_RR = 0;
     end else begin
       if (cs && wr) begin
-        in_RR = s[0] ? d_in    : in_RR; //Write Registers
-        init  = s[1] ? d_in[0] : init;
+        in_RR = select_reg[0] ? d_in : in_RR;  //Write Registers
+        init  = select_reg[1] ? d_in[0] : init;
       end
     end
 
@@ -63,7 +63,7 @@ module peripheral_raiz (
   always @(posedge clk) begin  //-----------------------mux_4 :  multiplexa salidas del periferico
     if (rst) d_out = 0;
     else if (cs) begin
-      case (s[4:0])
+      case (select_reg[4:0])
         5'b00100: d_out = out_R;
         5'b01000: d_out = out_Q;
         5'b10000: d_out = {31'b0, done};

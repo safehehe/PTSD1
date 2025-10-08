@@ -39,7 +39,7 @@ module peripheral_raiz_TB;
     forever begin
       @(negedge clk);
       rst = 1;
-      @(negedge clk);
+      repeat(2) @(negedge clk);
       rst = 0;
       #(PERIOD * 4);
       //Ingreso RR
@@ -63,12 +63,12 @@ module peripheral_raiz_TB;
       cs = 0;
       rd = 0;
       wr = 0;
-      #(PERIOD * 3);
+      #(PERIOD * 35);
       //Leo done
       cs   = 1;
       rd   = 1;
       wr   = 0;
-      addr = 16'h0010;
+      addr = 16'h0014;
       #(PERIOD);
       cs = 0;
       rd = 0;
@@ -78,17 +78,17 @@ module peripheral_raiz_TB;
       cs   = 1;
       rd   = 1;
       wr   = 0;
-      addr = 16'h0004;
+      addr = 16'h000C;
       #(PERIOD);
       cs = 0;
       rd = 0;
       wr = 0;
-      #(PERIOD * 20);
+      #(PERIOD);
       //Leo Q
       cs   = 1;
       rd   = 1;
       wr   = 0;
-      addr = 16'h0008;
+      addr = 16'h0010;
       #(PERIOD);
       cs = 0;
       rd = 0;
@@ -100,7 +100,7 @@ module peripheral_raiz_TB;
   initial begin : TEST_CASE
   $dumpfile("peripheral_raiz_TB.vcd");
   $dumpvars(-1,peripheral_raiz_TB);
-  #(PERIOD*50) $finish;
+  #(PERIOD*70) $finish;
   end
 
 endmodule

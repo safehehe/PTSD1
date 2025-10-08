@@ -7,10 +7,11 @@ POST_ROUTE_SIM_DIR = $(SIM_DIR)/post_route
 TESTBENCH_DIR = test_benches
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 OBJS_DIR = ../../raw_implementation/raiz_ASM
+BUILDING_BLOCKS_DIR = ../../raw_implementation/building_blocks
 
 TOP = peripheral_raiz
 TARGET = peripheral_raiz
-OBJS = $(wildcard *.v) $(wildcard $(OBJS_DIR)/*.v)
+OBJS = $(wildcard *.v) $(wildcard $(OBJS_DIR)/*.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 
@@ -37,7 +38,7 @@ sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
-	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd &
+	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd $(SIMPLE_SIM_DIR)/signals.gtkw &
 re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
@@ -51,5 +52,6 @@ $(POST_SYNTH_SIM_DIR) :
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)
 clean :
-	rm -rf $(SIM_DIR)
+	find $(SIMPLE_SIM_DIR) -depth -mindepth 1 ! -name "*.gtkw" -delete
+	find $(POST_SYNTH_SIM_DIR) -depth -mindepth 1 ! -name "*.gtkw" -delete
 	rm -rf $(BUILD_DIR)
