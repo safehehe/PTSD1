@@ -1,0 +1,25 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Wed Oct  8 00:37:22 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/raw_implementation/BCD_TO_7SEG_ASM/simulation/simple/BCD_TO_7SEG_TB.vcd"
+[dumpfile_mtime] "Wed Oct  8 00:36:12 2025"
+[dumpfile_size] 2198
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/raw_implementation/BCD_TO_7SEG_ASM/simulation/simple/signals.gtkw"
+[timestart] 700
+[size] 1592 845
+[pos] -1 -1
+*-13.632050 12500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BCD_TO_7SEG_TB.
+[sst_width] 290
+[signals_width] 202
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+BCD_TO_7SEG_TB.clk
+BCD_TO_7SEG_TB.in_BCD[3:0]
+BCD_TO_7SEG_TB.out_7SEG[7:0]
+@820
+BCD_TO_7SEG_TB.seg_name[79:0]
+[pattern_trace] 1
+[pattern_trace] 0
