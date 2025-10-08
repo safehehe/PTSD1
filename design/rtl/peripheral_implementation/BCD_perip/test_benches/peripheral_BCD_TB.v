@@ -38,7 +38,7 @@ module peripheral_BCD_TB;
     forever begin
       @(negedge clk);
       rst = 1;
-      @(negedge clk);
+      repeat(2) @(negedge clk);
       rst = 0;
       #(PERIOD * 4);
       //Ingreso BIN

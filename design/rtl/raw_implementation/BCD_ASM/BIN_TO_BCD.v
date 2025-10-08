@@ -104,8 +104,4 @@ module BIN_TO_BCD (
       .out_DONE      (out_DONE)
   );
 
-
-
-
 endmodule
-
