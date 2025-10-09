@@ -64,14 +64,22 @@ loopM:
 	li   t0, '*'
 	bne  t0, a3, divide
 #	call mult
-	call mult_hw
+	call sqrt_hw
 	j    print_res
 divide:
 #	call div
 	call div_hw
+	
+sqrt:
+	call sqrt_hw
 
-print_res:		
+	
+bcd:
 	call bcd_hw
+
+	
+print_res:		
+	call bin_to_bcd
 	j    loopM
 putstring:
 	addi sp,sp,-4 # save ra on the stack
