@@ -17,31 +17,31 @@ module div_16 (
   output done;
 
 
-  wire INIT, SH, LDA;
+  wire w_INIT, w_SH, w_LDA;
 
-  wire MSB;
+  wire w_MSB;
   wire [15:0] Result_Sub;
   wire [15:0] Reg_A;
 
-  wire DEC, z, DV0;
+  wire w_DEC, w_z, w_DV0;
 
 
   lsr_div lsr_d (
       .clk(clk),
-      .rst(INIT),
+      .rst(w_INIT),
       .DV_in(A),
       .IN_A(Result_Sub),
-      .INIT(INIT),
-      .SH(SH),
-      .LDA(LDA),
+      .INIT(w_INIT),
+      .SH(w_SH),
+      .LDA(w_LDA),
       .A(Reg_A),
-      .DV0(DV0),
+      .DV0(w_DV0),
       .OUT_R(Result)
   );
   subtractor sb (
       .in_A(Reg_A),
       .in_B(B),
-      .MSB(MSB),
+      .MSB(w_MSB),
       .Result(Result_Sub)
   );
 
@@ -50,24 +50,24 @@ module div_16 (
     .RST_VALUE(16),
     .LESS_VALUE(1)
   ) ctr_vd (
-      .rst  (INIT),
+      .rst  (w_INIT),
       .clk  (clk),
-      .less (less),
-      .out_K(z)
+      .less (w_DEC),
+      .out_K(w_z)
   );
 
   control_div ctl_dv (
       .clk(clk),
       .rst(rst),
       .init_in(init_in),
-      .MSB(MSB),
-      .z(z),
-      .INIT(INIT),
-      .SH(SH),
-      .DEC(DEC),
-      .LDA(LDA),
+      .MSB(w_MSB),
+      .z(w_z),
+      .INIT(w_INIT),
+      .SH(w_SH),
+      .DEC(w_DEC),
+      .LDA(w_LDA),
       .DONE(done),
-      .DV0(DV0)
+      .DV0(w_DV0)
   );
 
 

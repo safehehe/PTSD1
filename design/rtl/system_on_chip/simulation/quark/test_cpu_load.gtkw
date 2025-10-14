@@ -1,0 +1,347 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Tue Oct 14 13:09:59 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/system_on_chip/simulation/quark/quark_TB.vcd"
+[dumpfile_mtime] "Tue Oct 14 13:05:23 2025"
+[dumpfile_size] 104595713
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/system_on_chip/simulation/quark/test_cpu_load.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -27 -25
+*-21.452211 8340000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] quark_TB.
+[treeopen] quark_TB.uut.
+[treeopen] quark_TB.uut.CPU.
+[treeopen] quark_TB.uut.div1.
+[treeopen] quark_TB.uut.mult1.
+[treeopen] quark_TB.uut.per_uart.
+[sst_width] 387
+[signals_width] 257
+[sst_expanded] 1
+[sst_vpaned_height] 388
+@28
+quark_TB.uut.resetn
+@c00028
+quark_TB.uut.LEDS
+@1401200
+-group_end
+@22
+[color] 6
+quark_TB.uut.CPU.PC[23:0]
+quark_TB.uut.CPU.state[3:0]
+@28
+quark_TB.uut.CPU.mem_rstrb
+@c00022
+[color] 3
+quark_TB.uut.CPU.writeBackData[31:0]
+@28
+[color] 3
+(0)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(1)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(2)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(3)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(4)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(5)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(6)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(7)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(8)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(9)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(10)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(11)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(12)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(13)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(14)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(15)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(16)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(17)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(18)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(19)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(20)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(21)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(22)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(23)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(24)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(25)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(26)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(27)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(28)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(29)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(30)quark_TB.uut.CPU.writeBackData[31:0]
+[color] 3
+(31)quark_TB.uut.CPU.writeBackData[31:0]
+@1401200
+-group_end
+@28
+[color] 3
+quark_TB.uut.CPU.writeBack
+@22
+[color] 3
+quark_TB.uut.CPU.rdId[4:0]
+quark_TB.uut.CPU.rs1[31:0]
+quark_TB.uut.CPU.rs2[31:0]
+@c00022
+[color] 5
+quark_TB.uut.CPU.mem_addr[31:0]
+@28
+[color] 5
+(0)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(1)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(2)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(3)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(4)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(5)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(6)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(7)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(8)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(9)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(10)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(11)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(12)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(13)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(14)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(15)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(16)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(17)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(18)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(19)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(20)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(21)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(22)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(23)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(24)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(25)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(26)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(27)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(28)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(29)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(30)quark_TB.uut.CPU.mem_addr[31:0]
+[color] 5
+(31)quark_TB.uut.CPU.mem_addr[31:0]
+@1401200
+-group_end
+@22
+[color] 5
+quark_TB.uut.CPU.mem_rdata[31:0]
+[color] 5
+quark_TB.uut.CPU.mem_wmask[3:0]
+[color] 5
+quark_TB.uut.CPU.mem_wdata[31:0]
+quark_TB.uut.CPU.aluIn1[31:0]
+quark_TB.uut.CPU.aluIn2[31:0]
+quark_TB.uut.CPU.aluOut[31:0]
+@28
+[color] 3
+quark_TB.uut.RXD
+@29
+[color] 3
+quark_TB.uut.TXD
+@820
+[color] 3
+quark_TB.uut.per_uart.uart0.tx_data[7:0]
+@28
+quark_TB.uut.per_uart.cs
+@22
+quark_TB.uut.cs[6:0]
+quark_TB.uut.per_uart.d_in[31:0]
+@28
+quark_TB.uut.per_uart.uart0.tx_wr
+quark_TB.uut.per_uart.tx_busy
+quark_TB.uut.per_uart.rd
+quark_TB.uut.per_uart.wr
+quark_TB.uut.per_uart.rx_avail
+@22
+quark_TB.uut.per_uart.rx_data[7:0]
+@200
+-
+-REGISTER BANK
+@22
+[color] 2
+quark_TB.uut.CPU.\registerFile[0][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[1][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[2][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[3][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[4][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[5][31:0]
+@c00022
+[color] 2
+quark_TB.uut.CPU.\registerFile[6][31:0]
+@28
+[color] 2
+(0)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(1)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(2)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(3)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(4)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(5)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(6)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(7)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(8)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(9)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(10)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(11)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(12)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(13)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(14)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(15)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(16)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(17)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(18)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(19)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(20)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(21)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(22)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(23)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(24)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(25)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(26)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(27)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(28)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(29)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(30)quark_TB.uut.CPU.\registerFile[6][31:0]
+[color] 2
+(31)quark_TB.uut.CPU.\registerFile[6][31:0]
+@1401200
+-group_end
+@22
+[color] 2
+quark_TB.uut.CPU.\registerFile[7][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[8][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[9][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[10][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[11][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[12][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[13][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[14][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[15][31:0]
+[color] 2
+quark_TB.uut.CPU.\registerFile[16][31:0]
+@200
+-
+@20000
+-
+@22
+quark_TB.uut.RAM.\MEM[1024][31:0]
+quark_TB.uut.RAM.\MEM[1023][31:0]
+quark_TB.uut.RAM.\MEM[1022][31:0]
+quark_TB.uut.RAM.\MEM[1021][31:0]
+quark_TB.uut.RAM.\MEM[1020][31:0]
+@200
+-MULTIPLIER
+@22
+quark_TB.uut.mult1.addr[4:0]
+@28
+quark_TB.uut.mult1.cs
+quark_TB.uut.mult1.rd
+quark_TB.uut.mult1.wr
+quark_TB.uut.LEDS
+quark_TB.uut.div1.cs
+@20000
+-
+@28
+quark_TB.uut.div1.rd
+[pattern_trace] 1
+[pattern_trace] 0
