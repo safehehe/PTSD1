@@ -92,6 +92,17 @@ module SOC (
       .d_out(raiz_dout)
   );
 
+  peripheral_BCD bcd1 (
+      .clk  (clk),
+      .rst  (!resetn),
+      .d_in (mem_wdata[15:0]),
+      .cs   (cs[2]),
+      .addr (mem_addr[4:0]),
+      .rd   (rd),
+      .wr   (wr),
+      .d_out(bin2bcd_dout)
+  );
+
   /*
    peripheral_dpram dpram_p0(
       .clk(clk),
