@@ -22,21 +22,24 @@ module control_raiz (
   output reg out_SHIFTR;
   output reg out_RST;
   output reg out_DONE;
-  parameter START   = 4'b0000;
-  parameter STEP1   = 4'b0001;
-  parameter CHECK   = 4'b0010;
+  parameter START = 4'b0000;
+  parameter STEP1 = 4'b0001;
+  parameter CHECK = 4'b0010;
   parameter OPERATE = 4'b0011;
   parameter ITERATE = 4'b0100;
-  parameter DONE    = 4'b0101;
-  parameter STEP2   = 4'b0110;
+  parameter DONE = 4'b0101;
+  parameter STEP2 = 4'b0110;
 
   reg [3:0] state;
-
+  reg [3:0] timer_done;
   always @(posedge clk) begin
-    if (rst) state = START;
-    else begin
+    if (rst) begin
+      state = START;
+      timer_done = 4'd10;
+    end else begin
       case (state)
         START: begin
+          timer_done = 4'd10;
           state = in_init ? STEP1 : START;
         end
         STEP1:   state = CHECK;
@@ -48,6 +51,13 @@ module control_raiz (
           state = in_K ? DONE : STEP2;
         end
         STEP2:   state = STEP1;
+        DONE: begin
+          if (timer_done == 0) state = START;
+          else begin
+            timer_done = timer_done - 1;
+            state = DONE;
+          end
+        end
       endcase
     end
   end
@@ -55,67 +65,67 @@ module control_raiz (
   always @(*) begin
     case (state)
       START: begin
-        out_RST  = 1;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 1;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
       STEP1: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 1;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 0;
+        out_SHIFTQ = 1;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
       CHECK: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 0;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
       OPERATE: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 0;
-        out_ADD   = 1;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 0;
+        out_SHIFTQ = 0;
+        out_ADD = 1;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
       ITERATE: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 1;
-        out_SHIFTR   = 0;
+        out_RST = 0;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 1;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
       STEP2: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 1;
+        out_RST = 0;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 1;
         out_DONE = 0;
       end
       DONE: begin
-        out_RST  = 0;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 0;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 1;
       end
       default: begin
-        out_RST  = 1;
-        out_SHIFTQ   = 0;
-        out_ADD   = 0;
-        out_CONT   = 0;
-        out_SHIFTR   = 0;
+        out_RST = 1;
+        out_SHIFTQ = 0;
+        out_ADD = 0;
+        out_CONT = 0;
+        out_SHIFTR = 0;
         out_DONE = 0;
       end
     endcase

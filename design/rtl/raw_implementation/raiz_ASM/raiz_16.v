@@ -63,7 +63,7 @@ module raiz_16 (
       .RST_VALUE (16),
       .LESS_VALUE(2)
   ) acc (
-      .rst  (rst),
+      .rst  (w_RST),
       .clk  (clk),
       .less (w_CONT),
       .out_K(w_K)

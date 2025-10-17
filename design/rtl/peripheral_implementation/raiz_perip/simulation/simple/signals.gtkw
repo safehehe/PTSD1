@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Wed Oct  8 06:17:14 2025
+[*] Wed Oct 15 06:36:36 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/raiz_perip/simulation/simple/peripheral_raiz_TB.vcd"
-[dumpfile_mtime] "Wed Oct  8 06:16:23 2025"
-[dumpfile_size] 8703
+[dumpfile_mtime] "Wed Oct 15 06:32:16 2025"
+[dumpfile_size] 9837
 [savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/raiz_perip/simulation/simple/signals.gtkw"
-[timestart] 159800
-[size] 1592 845
+[timestart] 288100
+[size] 819 397
 [pos] -1 -1
-*-17.546139 1088000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.546139 1160300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] peripheral_raiz_TB.
 [treeopen] peripheral_raiz_TB.uut.
 [treeopen] peripheral_raiz_TB.uut.raiz1.
-[sst_width] 43
+[sst_width] 290
 [signals_width] 229
-[sst_expanded] 0
-[sst_vpaned_height] 242
+[sst_expanded] 1
+[sst_vpaned_height] 86
 @28
 peripheral_raiz_TB.uut.clk
 peripheral_raiz_TB.uut.rst
@@ -58,7 +58,7 @@ peripheral_raiz_TB.uut.d_in[15:0]
 peripheral_raiz_TB.uut.d_out[15:0]
 @200
 -Iteración
-@24
+@25
 peripheral_raiz_TB.uut.raiz1.acc.N[4:0]
 @200
 -Estado

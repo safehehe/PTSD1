@@ -52,7 +52,7 @@ module peripheral_BCD_TB;
       rd = 0;
       wr = 0;
       #(PERIOD * 3);
-      //Ingreso init
+      //Ingreso init (1)
       cs   = 1;
       rd   = 0;
       wr   = 1;
@@ -63,7 +63,7 @@ module peripheral_BCD_TB;
       rd = 0;
       wr = 0;
       #(PERIOD * 3);
-      //Ingreso init
+      //Ingreso init(0)
       cs   = 1;
       rd   = 0;
       wr   = 1;

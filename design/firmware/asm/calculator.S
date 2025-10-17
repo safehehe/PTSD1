@@ -62,15 +62,16 @@ loopM:
 		
 	li   t0, '*'
 	bne  t0, a3, divide
-#	call mult
-	call sqrt_hw
+	call mult
+#	call sqrt
 	j    print_res
 divide:
 #	call div
 	call div_hw	
 sqrt:
 	call sqrt_hw
-	
+#mult:
+#	call mult_hw
 bcd:
 	call bcd_hw
 	
@@ -81,12 +82,14 @@ putstring:
 	addi sp,sp,-4 # save ra on the stack
 	sw ra,0(sp)   # (need to do that for functions that call functions)
 	mv t2,a0	
-.L1:    lbu a0,0(t2)
+.L1:
+	lbu a0,0(t2)
 	beqz a0,.L2
 	call putchar
 	addi t2,t2,1	
 	j .L1
-.L2:    lw ra,0(sp)  # restore ra
+.L2:    
+	lw ra,0(sp)  # restore ra
 	addi sp,sp,4 # restore sp
 	ret	
 

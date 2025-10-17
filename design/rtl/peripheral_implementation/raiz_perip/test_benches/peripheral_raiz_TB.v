@@ -53,7 +53,7 @@ module peripheral_raiz_TB;
       rd = 0;
       wr = 0;
       #(PERIOD * 3);
-      //Ingreso init
+      //Ingreso init(1)
       cs   = 1;
       rd   = 0;
       wr   = 1;
@@ -63,6 +63,18 @@ module peripheral_raiz_TB;
       cs = 0;
       rd = 0;
       wr = 0;
+      #(PERIOD * 3);
+      //Ingreso init(0)
+      cs   = 1;
+      rd   = 0;
+      wr   = 1;
+      d_in = 16'h0000;
+      addr = 16'h0008;
+      #(PERIOD);
+      cs = 0;
+      rd = 0;
+      wr = 0;
+      //Espero
       #(PERIOD * 35);
       //Leo done
       cs   = 1;
