@@ -38,7 +38,7 @@ sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
-	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd &
+	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/signals.gtkw &
 re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp

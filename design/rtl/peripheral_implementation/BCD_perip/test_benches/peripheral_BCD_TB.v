@@ -45,7 +45,7 @@ module peripheral_BCD_TB;
       cs   = 1;
       rd   = 0;
       wr   = 1;
-      d_in = 16'h01FF;
+      d_in = 16'h0141;//d32
       addr = 16'h0004;
       #(PERIOD);
       cs = 0;
@@ -74,7 +74,7 @@ module peripheral_BCD_TB;
       rd = 0;
       wr = 0;
       //Espero
-      #(PERIOD * 23);
+      #(PERIOD * 25);
       //Leo done
       cs   = 1;
       rd   = 1;

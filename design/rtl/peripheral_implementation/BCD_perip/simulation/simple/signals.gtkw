@@ -1,0 +1,72 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Sat Oct 18 22:21:36 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/simple/peripheral_BCD_TB.vcd"
+[dumpfile_mtime] "Sat Oct 18 22:21:33 2025"
+[dumpfile_size] 9867
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/simple/signals.gtkw"
+[timestart] 691200
+[size] 858 487
+[pos] -1 -1
+*-17.009373 870000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] peripheral_BCD_TB.
+[treeopen] peripheral_BCD_TB.uut.
+[treeopen] peripheral_BCD_TB.uut.bcd1.
+[sst_width] 43
+[signals_width] 323
+[sst_expanded] 0
+[sst_vpaned_height] 306
+@28
+peripheral_BCD_TB.clk
+peripheral_BCD_TB.uut.rst
+@200
+-Direcciones
+@22
+peripheral_BCD_TB.uut.addr[4:0]
+@28
+peripheral_BCD_TB.uut.cs
+@200
+-Entradas
+@28
+peripheral_BCD_TB.uut.wr
+@22
+peripheral_BCD_TB.uut.d_in[15:0]
+@c00024
+peripheral_BCD_TB.uut.in_BIN[8:0]
+@28
+(0)peripheral_BCD_TB.uut.in_BIN[8:0]
+(1)peripheral_BCD_TB.uut.in_BIN[8:0]
+(2)peripheral_BCD_TB.uut.in_BIN[8:0]
+(3)peripheral_BCD_TB.uut.in_BIN[8:0]
+(4)peripheral_BCD_TB.uut.in_BIN[8:0]
+(5)peripheral_BCD_TB.uut.in_BIN[8:0]
+(6)peripheral_BCD_TB.uut.in_BIN[8:0]
+(7)peripheral_BCD_TB.uut.in_BIN[8:0]
+(8)peripheral_BCD_TB.uut.in_BIN[8:0]
+@1401200
+-group_end
+@28
+peripheral_BCD_TB.uut.init
+@200
+-Salidas
+@28
+peripheral_BCD_TB.uut.rd
+@23
+peripheral_BCD_TB.uut.d_out[31:0]
+@24
+peripheral_BCD_TB.uut.out_CEN[31:0]
+peripheral_BCD_TB.uut.out_DEC[31:0]
+peripheral_BCD_TB.uut.out_UND[31:0]
+@28
+peripheral_BCD_TB.uut.bcd1.out_DONE
+@200
+-
+-
+-Estado
+@820
+peripheral_BCD_TB.uut.bcd1.control_BCD.state_name[320:1]
+@24
+peripheral_BCD_TB.uut.bcd1.control_BCD.timer_done[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

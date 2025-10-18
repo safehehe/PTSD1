@@ -14,7 +14,7 @@ module acumulador_restando #(
   output out_K;
   reg [REG_WIDTH-1:0] N;
 
-  always @(negedge clk, posedge rst) begin
+  always @(negedge clk) begin
     if (rst) N = RST_VALUE;
     if (less) N = N - LESS_VALUE; else N = N;
   end

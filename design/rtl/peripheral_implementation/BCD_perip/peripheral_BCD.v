@@ -27,7 +27,7 @@ module peripheral_BCD (
   wire [31:0] out_UND;
   wire [31:0] out_DEC;
   wire [31:0] out_CEN;
-  wire done;
+  wire out_done;
 
   //--------------------------address_decoder---------------------------
   always @(*) begin
@@ -44,8 +44,7 @@ module peripheral_BCD (
     end else select = 6'b000000;
   end
 
-  always @(posedge clk) begin  //-------------------- escritura de registros 
-
+  always @(posedge clk) begin  //-------------------- escritura de registros
     if (rst) begin
       init   = 0;
       in_BIN = 0;
@@ -60,11 +59,11 @@ module peripheral_BCD (
   always @(posedge clk) begin  //-----------------------mux_4 :  multiplexa salidas del periferico
     if (rst) d_out = 0;
     else if (cs) begin
-      case (select[4:0])
-        6'b000100: d_out = out_UND;
-        6'b001000: d_out = out_DEC;
-        6'b010000: d_out = out_CEN;
-        6'b100000: d_out = {31'b0, done};
+      case (select[5:2])
+        4'b0001: d_out = out_UND;
+        4'b0010: d_out = out_DEC;
+        4'b0100: d_out = out_CEN;
+        4'b1000: d_out = {31'b0, out_done};
       endcase
     end
   end
@@ -73,7 +72,7 @@ module peripheral_BCD (
       .rst(rst),
       .clk(clk),
       .init(init),
-      .out_DONE(done),
+      .out_DONE(out_done),
       .out_UND(out_UND),
       .out_DEC(out_DEC),
       .out_CEN(out_CEN),
