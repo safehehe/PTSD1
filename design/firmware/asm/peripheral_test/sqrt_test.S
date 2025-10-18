@@ -54,7 +54,7 @@ test_loop:
     bne a1, s3, test_failed_error # Si Resto Obtenido != Resto Esperado, ir a error
     
     # Si pasa ambas verificaciones
-    li a2, 1           # a2 = 1 (Prueba CORRECTA)
+    li a2, 0xF1           # a2 = F1 (Prueba CORRECTA)
     j test_next_case   # Saltar a la preparación del siguiente caso
     
 test_failed_error:
