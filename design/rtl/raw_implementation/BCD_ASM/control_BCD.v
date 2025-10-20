@@ -36,24 +36,25 @@ module control_BCD (
   parameter ITERATE = 4'b0110;
   parameter LAST_SHIFT = 4'b0111;
   parameter DONE = 4'b1000;
-  reg [3:0] state;
+  reg [4:0] state;
 
   parameter GE_NEG_UND = 2'b10;  //Negate Great Equal  UND 0 if UND>=5
   parameter GE_NEG_DEC = 2'b01;  //Negate Great Equal  DEC 0 if UND>=5
   parameter GE_NEG_ALL = 2'b00;  //MSB:DEC, LBS:UND
   parameter GE_NEG_NONE = 2'b11;
-
-  reg [3:0] timer_done;
+  
+  parameter ST_TIMER_DONE = 5'd20; //Setup Time Done
+  reg [4:0] timer_done;
 
   always @(posedge clk) begin
     if (rst) begin
       state = START;
-      timer_done = 4'd10;
+      timer_done = ST_TIMER_DONE;
     end else begin
       case (state)
         START: begin
           state = in_init ? SHIFT : START;
-          timer_done = 4'd10;
+          timer_done = ST_TIMER_DONE;
         end
         SHIFT: begin
           state = CHECK_NEG;

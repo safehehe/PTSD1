@@ -1,0 +1,64 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Mon Oct 20 00:38:48 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/raiz_perip/simulation/post_synth/peripheral_raiz_TB.vcd"
+[dumpfile_mtime] "Mon Oct 20 00:29:19 2025"
+[dumpfile_size] 288386
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/raiz_perip/simulation/post_synth/signals.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -27 -24
+*-17.546139 1110000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] peripheral_raiz_TB.
+[treeopen] peripheral_raiz_TB.uut.
+[treeopen] peripheral_raiz_TB.uut.raiz1.
+[sst_width] 290
+[signals_width] 290
+[sst_expanded] 1
+[sst_vpaned_height] 471
+@28
+peripheral_raiz_TB.uut.clk
+peripheral_raiz_TB.uut.rst
+@200
+-Direcciones
+@22
+peripheral_raiz_TB.uut.addr[4:0]
+@28
+peripheral_raiz_TB.uut.cs
+@200
+-Entradas
+@c00024
+peripheral_raiz_TB.uut.d_in[15:0]
+@28
+(0)peripheral_raiz_TB.uut.d_in[15:0]
+(1)peripheral_raiz_TB.uut.d_in[15:0]
+(2)peripheral_raiz_TB.uut.d_in[15:0]
+(3)peripheral_raiz_TB.uut.d_in[15:0]
+(4)peripheral_raiz_TB.uut.d_in[15:0]
+(5)peripheral_raiz_TB.uut.d_in[15:0]
+(6)peripheral_raiz_TB.uut.d_in[15:0]
+(7)peripheral_raiz_TB.uut.d_in[15:0]
+(8)peripheral_raiz_TB.uut.d_in[15:0]
+(9)peripheral_raiz_TB.uut.d_in[15:0]
+(10)peripheral_raiz_TB.uut.d_in[15:0]
+(11)peripheral_raiz_TB.uut.d_in[15:0]
+(12)peripheral_raiz_TB.uut.d_in[15:0]
+(13)peripheral_raiz_TB.uut.d_in[15:0]
+(14)peripheral_raiz_TB.uut.d_in[15:0]
+(15)peripheral_raiz_TB.uut.d_in[15:0]
+@1401204
+-group_end
+@24
+peripheral_raiz_TB.uut.\raiz1.in_RR[15:0]
+@200
+-Salidas
+@24
+peripheral_raiz_TB.uut.d_out[15:0]
+@22
+peripheral_raiz_TB.uut.\raiz1.lsrR.out_R[15:0]
+peripheral_raiz_TB.uut.\raiz1.lsrQA.out_Q[15:0]
+@28
+peripheral_raiz_TB.uut.\raiz1.out_DONE
+[pattern_trace] 1
+[pattern_trace] 0
