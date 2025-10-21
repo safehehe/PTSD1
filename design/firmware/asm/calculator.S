@@ -63,7 +63,7 @@ loopM:
 	li   t0, '*'
 #	bne  t0, a3, divide
 #	call mult
-#	call sqrt
+	call sqrt
 	j    print_res
 divide:
 #	call div
