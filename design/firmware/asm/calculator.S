@@ -61,8 +61,8 @@ loopM:
 	mv   a0,a2
 		
 	li   t0, '*'
-	bne  t0, a3, divide
-	call mult
+#	bne  t0, a3, divide
+#	call mult
 #	call sqrt
 	j    print_res
 divide:
@@ -70,8 +70,8 @@ divide:
 	call div_hw	
 sqrt:
 	call sqrt_hw
-#mult:
-#	call mult_hw
+mult:
+	call mult
 bcd:
 	call bcd_hw
 	
