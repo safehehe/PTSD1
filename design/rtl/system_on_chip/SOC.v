@@ -96,7 +96,7 @@ module SOC (
       .clk  (clk),
       .rst  (!resetn),
       .d_in (mem_wdata[15:0]),
-      .cs   (cs[2]),
+      .cs   (cs[1]),
       .addr (mem_addr[4:0]),
       .rd   (rd),
       .wr   (wr),
