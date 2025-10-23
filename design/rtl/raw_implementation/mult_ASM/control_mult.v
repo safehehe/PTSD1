@@ -27,7 +27,7 @@ module control_mult (
   parameter CHECK = 3'b001;
   parameter SHIFT = 3'b010;
   parameter ADD = 3'b011;
-  parameter END = 3'b100;
+  parameter DONE = 3'b100;
 
   reg [2:0] state;
   reg [4:0] timer_done;
@@ -73,7 +73,7 @@ module control_mult (
           sh = 1;
           reset = 0;
           add = 0;
-          if (z) state = END;
+          if (z) state = DONE;
           else state = CHECK;
         end
         ADD: begin
@@ -83,7 +83,7 @@ module control_mult (
           add = 1;
           state = SHIFT;
         end
-        END: begin
+        DONE: begin
           
           done = 1;
           sh = 0;
@@ -93,9 +93,10 @@ module control_mult (
           else begin
 
             timer_done = timer_done - 1;
-            state = END;
+            state = DONE;
 
           end
+        end
 
         default: state = START;
       endcase
@@ -112,7 +113,7 @@ module control_mult (
       CHECK: state_name = "CHECK";
       SHIFT: state_name = "SHIFT";
       ADD:   state_name = "ADD";
-      END:   state_name = "END";
+      DONE:   state_name = "DONE";
     endcase
   end
 `endif
