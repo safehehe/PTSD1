@@ -30,6 +30,8 @@ module control_mult (
   parameter END = 3'b100;
 
   reg [2:0] state;
+  reg [4:0] timer_done;
+  parameter ST_TIMER_DONE = 5'd20;
 
   initial begin
     done = 0;
@@ -44,9 +46,11 @@ module control_mult (
   always @(posedge clk) begin
     if (rst) begin
       state = START;
+      timer_done = ST_TIMER_DONE;
     end else begin
       case (state)
         START: begin
+          timer_done = ST_TIMER_DONE;
           done = 0;
           sh = 0;
           reset = 1;
@@ -80,13 +84,18 @@ module control_mult (
           state = SHIFT;
         end
         END: begin
+          
           done = 1;
           sh = 0;
           reset = 0;
           add = 0;
-          count = count + 1;
-          state = (count>9) ? START : END ; // hace falta de 10 ciclos de reloj, para que lea el done y luego cargue el resultado
-        end
+          if (timer_done == 0) state = START;
+          else begin
+
+            timer_done = timer_done - 1;
+            state = END;
+
+          end
 
         default: state = START;
       endcase
