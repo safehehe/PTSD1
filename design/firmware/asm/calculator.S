@@ -9,6 +9,9 @@
 .globl blinker
 .globl put_hello
 
+
+
+
 calculator:
 #   li   gp,UART_BASE
 #   li   gp, DPRAM_BASE
@@ -61,22 +64,13 @@ loopM:
 	mv   a0,a2
 		
 	li   t0, '*'
-#	bne  t0, a3, divide
+#	bne  t0, a3, div
 #	call mult
-	call sqrt
-	j    print_res
-divide:
-#	call div
-	call div_hw	
-sqrt:
 	call sqrt_hw
-mult:
-	call mult
-bcd:
-	call bcd_hw
-	
+	j print_res
+
 print_res:		
-	call bcd
+	call bcd_hw
 	j    loopM
 putstring:
 	addi sp,sp,-4 # save ra on the stack

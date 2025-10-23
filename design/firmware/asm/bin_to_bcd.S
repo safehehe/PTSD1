@@ -1,4 +1,4 @@
-.equ BCD_BASE,   0x410000  
+.equ BCD_BASE,   0x440000  
 .equ BCD_BIN,   0x04
 .equ BCD_INIT,   0x08
 .equ BCD_UND,   0x0C
