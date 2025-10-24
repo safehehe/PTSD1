@@ -16,30 +16,44 @@ calculator:
 #   li   gp,UART_BASE
 #   li   gp, DPRAM_BASE
 #   li   sp,0x10040
-   li   sp,0x1000
-
-loopM:	
-	la   a0, command
+    li   sp,0x1000
+    la   a0, format
 	call putstring
+    la a0, text_mult
+    call putstring
+    la a0, text_div
+    call putstring
+    la a0, text_sqrt
+    call putstring
 
+loopM:
+    li a0, '\n'
+    call putchar
+    #Receive operator
+    call getchar
+    call putchar
+    mv a3, a0
+    #Receive ' ' character
+    call getchar
+    call putchar
 	# Receive first two digits decimal number	
 	call getchar    # 
 	call putchar    # echo
 	addi a0, a0, -0x30
 	li   a1, 10
 	call mult       # D0*10	
-	mv   a1, a0     # first digit operand
-
+	mv   a1, a0     # first digit first number
 	call getchar    # 
 	call putchar    # echo
 	addi a0, a0, -0x30
-	add  a2, a0, a1 # a2 = D0*10 + D1
+	add  a2, a0, a1 # a2 = D0*10 + D1 second digit first number
 	
-	# Receive operator	
-	call getchar    # 
-	call putchar    # echo	
-        mv   a3, a0     # a3 = operator
+    li t0, 'S'
+    beq t0, a3, skip_second_number
 	
+	#Receive ' ' character
+    call getchar
+    call putchar
 	# Receive second two digits decimal number	
 	call getchar    # 
 	call putchar    # echo
@@ -47,31 +61,38 @@ loopM:
 	li   a1, 10
 	call mult       # D0*10	
 	mv   a1, a0     # first digit operand
-
-
-	call getchar    # 
+    call getchar    # 
 	call putchar    # echo
 	addi a0, a0, -0x30
-	add  a0, a0, a1 # a0 = D0*10 + D1
+	add  a0, a0, a1 # a0 = D0*10 + D1#second digit
 	mv   t0, a0
 	
-
+skip_second_number:
 	la   a0, result
 	call putstring
-	
-
 	mv   a1,t0
 	mv   a0,a2
-		
-	li   t0, '*'
-#	bne  t0, a3, div
-#	call mult
-	call sqrt_hw
-	j print_res
+
+operation_selection:
+	li t0, '*'
+	beq t0,a3, F_mult
+	li t0, '/'
+	beq t0,a3, F_div
+	li t0, 'S'
+	beq t0,a3, F_sqrt
 
 print_res:		
 	call bcd_hw
+	addi a0,a0,0x30
+	call putchar
+	mv a0, a1
+	addi a0,a0,0x30
+	call putchar
+	mv a0, a2
+	addi a0,a0,0x30
+	call putchar
 	j    loopM
+
 putstring:
 	addi sp,sp,-4 # save ra on the stack
 	sw ra,0(sp)   # (need to do that for functions that call functions)
@@ -87,11 +108,24 @@ putstring:
 	addi sp,sp,4 # restore sp
 	ret	
 
+F_mult:
+	call mult
+	j print_res
+F_div:
+	call div
+	j print_res
+F_sqrt:
+	call sqrt_hw
+	j print_res
+
 .section .data
-command:
-	.asciz "\n\r - Enter two operands - \n\r"
-operator:
-	.asciz "\n\rEnter operator \n\r"
+text_mult:
+    .asciz "\n\r -* Number Number- \n\r"
+text_div:
+    .asciz "\n\r -/ Number Number- \n\r"   
+text_sqrt:
+    .asciz "\n\r -S Number _- \n\r"
+format:
+	.asciz "\n\r - op n1 [n2] - \n\r"
 result:
 	.asciz "\n\rResult = "
-

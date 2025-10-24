@@ -21,7 +21,7 @@ bcd_hw:
    lw   t1, BCD_DONE(gp)
    and  t1, t1, t0
    beqz t1, .L0  
-   lw   a0, BCD_UND(gp)
+   lw   a2, BCD_UND(gp)
    lw   a1, BCD_DEC(gp)
-   lw   a2, BCD_CEN(gp)
+   lw   a0, BCD_CEN(gp)
   ret
