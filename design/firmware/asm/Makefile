@@ -12,7 +12,7 @@ BUILD_DIR = build
 MEMORY_DIR = memory_image
 CHIP_MEMORY_DIR = ../../rtl/system_on_chip/memory_image
 
-MAIN = calculator_f.o# Cambiar por el main del proyecto
+MAIN = calculator.o# Cambiar por el main del proyecto
 SOURCES = $(wildcard *.S)#Wildcard solo ve los archivos existentes
 OBJECTS = $(patsubst %.S,$(BUILD_DIR)/%.o,$(SOURCES))#Indica los objetos que necesita a partir de los archivos existentes
 LINKER_SCRIPT = $(BUILD_DIR)/bram.ld
