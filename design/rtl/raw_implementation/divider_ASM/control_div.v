@@ -33,16 +33,18 @@ module control_div (
   parameter END1 = 3'b100;
 
   reg [2:0] state;
+  reg [4:0] timer_done;
+  parameter ST_TIMER_DONE = 5'd20;
 
-  reg [3:0] count;
 
   always @(posedge clk) begin
     if (rst) begin
       state = START;
-      count = 4'b1111;//15
+      timer_done = ST_TIMER_DONE;
     end else begin
       case (state)
         START: begin
+          timer_done = ST_TIMER_DONE;
           if (init_in) state = SHIFT_DEC;
           else state = START;
         end
@@ -57,10 +59,10 @@ module control_div (
         if (z) state = END1;
         else state = SHIFT_DEC;
         END1: begin
-          if (count == 0) state = START;
+          if (timer_done == 0) state = START;
           else begin
-            state = END1;
-            count = count-1;
+            timer_done = timer_done -1;
+            state = END1;     
           end
         end
         default: state = START;

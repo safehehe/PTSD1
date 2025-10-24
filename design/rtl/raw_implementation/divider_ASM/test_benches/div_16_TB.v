@@ -72,7 +72,7 @@ module div_16_TB;
    initial begin: TEST_CASE
      $dumpfile("div_16_TB.vcd");
      $dumpvars(-1, uut);
-     #((PERIOD*DUTY_CYCLE)*120) $finish;
+     #((PERIOD*DUTY_CYCLE)*200) $finish;
    end
 
 endmodule
