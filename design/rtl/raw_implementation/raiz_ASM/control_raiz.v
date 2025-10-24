@@ -32,7 +32,7 @@ module control_raiz (
 
   reg [3:0] state;
   reg [4:0] timer_done;
-  parameter ST_TIMER_DONE = 5'd20; //Setup Time Done
+  parameter ST_TIMER_DONE = 5'd24; //Setup Time Done
 
   always @(posedge clk) begin
     if (rst) begin

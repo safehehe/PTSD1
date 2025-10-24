@@ -1,20 +1,20 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Sat Oct 18 22:21:36 2025
+[*] Thu Oct 23 15:40:36 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/simple/peripheral_BCD_TB.vcd"
-[dumpfile_mtime] "Sat Oct 18 22:21:33 2025"
-[dumpfile_size] 9867
+[dumpfile_mtime] "Thu Oct 23 15:35:47 2025"
+[dumpfile_size] 10844
 [savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/simple/signals.gtkw"
-[timestart] 691200
-[size] 858 487
-[pos] -1 -1
-*-17.009373 870000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 252100
+[size] 1592 845
+[pos] -27 -24
+*-16.009373 454900 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] peripheral_BCD_TB.
 [treeopen] peripheral_BCD_TB.uut.
 [treeopen] peripheral_BCD_TB.uut.bcd1.
-[sst_width] 43
-[signals_width] 323
+[sst_width] 131
+[signals_width] 374
 [sst_expanded] 0
 [sst_vpaned_height] 306
 @28
@@ -32,7 +32,7 @@ peripheral_BCD_TB.uut.cs
 peripheral_BCD_TB.uut.wr
 @22
 peripheral_BCD_TB.uut.d_in[15:0]
-@c00024
+@c00029
 peripheral_BCD_TB.uut.in_BIN[8:0]
 @28
 (0)peripheral_BCD_TB.uut.in_BIN[8:0]
@@ -44,7 +44,7 @@ peripheral_BCD_TB.uut.in_BIN[8:0]
 (6)peripheral_BCD_TB.uut.in_BIN[8:0]
 (7)peripheral_BCD_TB.uut.in_BIN[8:0]
 (8)peripheral_BCD_TB.uut.in_BIN[8:0]
-@1401200
+@1401209
 -group_end
 @28
 peripheral_BCD_TB.uut.init
@@ -52,13 +52,49 @@ peripheral_BCD_TB.uut.init
 -Salidas
 @28
 peripheral_BCD_TB.uut.rd
-@23
+@c00022
+>-2400
 peripheral_BCD_TB.uut.d_out[31:0]
-@24
-peripheral_BCD_TB.uut.out_CEN[31:0]
-peripheral_BCD_TB.uut.out_DEC[31:0]
-peripheral_BCD_TB.uut.out_UND[31:0]
 @28
+>0
+(0)peripheral_BCD_TB.uut.d_out[31:0]
+(1)peripheral_BCD_TB.uut.d_out[31:0]
+(2)peripheral_BCD_TB.uut.d_out[31:0]
+(3)peripheral_BCD_TB.uut.d_out[31:0]
+(4)peripheral_BCD_TB.uut.d_out[31:0]
+(5)peripheral_BCD_TB.uut.d_out[31:0]
+(6)peripheral_BCD_TB.uut.d_out[31:0]
+(7)peripheral_BCD_TB.uut.d_out[31:0]
+(8)peripheral_BCD_TB.uut.d_out[31:0]
+(9)peripheral_BCD_TB.uut.d_out[31:0]
+(10)peripheral_BCD_TB.uut.d_out[31:0]
+(11)peripheral_BCD_TB.uut.d_out[31:0]
+(12)peripheral_BCD_TB.uut.d_out[31:0]
+(13)peripheral_BCD_TB.uut.d_out[31:0]
+(14)peripheral_BCD_TB.uut.d_out[31:0]
+(15)peripheral_BCD_TB.uut.d_out[31:0]
+(16)peripheral_BCD_TB.uut.d_out[31:0]
+(17)peripheral_BCD_TB.uut.d_out[31:0]
+(18)peripheral_BCD_TB.uut.d_out[31:0]
+(19)peripheral_BCD_TB.uut.d_out[31:0]
+(20)peripheral_BCD_TB.uut.d_out[31:0]
+(21)peripheral_BCD_TB.uut.d_out[31:0]
+(22)peripheral_BCD_TB.uut.d_out[31:0]
+(23)peripheral_BCD_TB.uut.d_out[31:0]
+(24)peripheral_BCD_TB.uut.d_out[31:0]
+(25)peripheral_BCD_TB.uut.d_out[31:0]
+(26)peripheral_BCD_TB.uut.d_out[31:0]
+(27)peripheral_BCD_TB.uut.d_out[31:0]
+(28)peripheral_BCD_TB.uut.d_out[31:0]
+(29)peripheral_BCD_TB.uut.d_out[31:0]
+(30)peripheral_BCD_TB.uut.d_out[31:0]
+(31)peripheral_BCD_TB.uut.d_out[31:0]
+@1401200
+-group_end
+@28
+peripheral_BCD_TB.uut.bcd1.out_CEN[3:0]
+peripheral_BCD_TB.uut.bcd1.out_DEC[3:0]
+peripheral_BCD_TB.uut.bcd1.out_UND[3:0]
 peripheral_BCD_TB.uut.bcd1.out_DONE
 @200
 -
@@ -66,7 +102,5 @@ peripheral_BCD_TB.uut.bcd1.out_DONE
 -Estado
 @820
 peripheral_BCD_TB.uut.bcd1.control_BCD.state_name[320:1]
-@24
-peripheral_BCD_TB.uut.bcd1.control_BCD.timer_done[3:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -43,7 +43,7 @@ module control_BCD (
   parameter GE_NEG_ALL = 2'b00;  //MSB:DEC, LBS:UND
   parameter GE_NEG_NONE = 2'b11;
   
-  parameter ST_TIMER_DONE = 5'd20; //Setup Time Done
+  parameter ST_TIMER_DONE = 5'd24; //Setup Time Done
   reg [4:0] timer_done;
 
   always @(posedge clk) begin

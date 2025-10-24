@@ -81,18 +81,35 @@ module quark_TB ();
     #160 RESET = 1;
     // Send a command to the UART (exercise Rx)
     @(posedge CLK);
-    #(tck * 90000) UART_WRITE_BYTE(8'h34);
-    #(tck * 2500) UART_WRITE_BYTE(8'h35);
-    #(tck * 2500) UART_WRITE_BYTE(8'h2F);  // Operator *
-    #(tck * 2500) UART_WRITE_BYTE(8'h34);
-    #(tck * 2500) UART_WRITE_BYTE(8'h32);
-    #(tck * 100000) UART_WRITE_BYTE(8'h39);
-    #(tck * 2500) UART_WRITE_BYTE(8'h39);
+    /*#(tck * 90000) UART_WRITE_BYTE(8'h34);  //Numero 4
+    #(tck * 2500) UART_WRITE_BYTE(8'h35);  //Numero 5
+    #(tck * 2500) UART_WRITE_BYTE(8'h53);  // Operator S
+    #(tck * 2500) UART_WRITE_BYTE(8'h34);  //Numero 4
+    #(tck * 2500) UART_WRITE_BYTE(8'h32);  //Numero 2
+    #(tck * 100000) UART_WRITE_BYTE(8'h39);  //Numero 9
+    #(tck * 2500) UART_WRITE_BYTE(8'h39);  //Numero 9
     #(tck * 2500) UART_WRITE_BYTE(8'h2A);  // operator /
-    #(tck * 2500) UART_WRITE_BYTE(8'h30);
-    #(tck * 500) UART_WRITE_BYTE(8'h33);
-
-
+    #(tck * 2500) UART_WRITE_BYTE(8'h30);  //Numero 0
+    #(tck * 500) UART_WRITE_BYTE(8'h33);  //Numero 3
+    */
+    #(tck * 250000) UART_WRITE_BYTE(8'h2A); //Operador *
+    #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
+    #(tck * 500) UART_WRITE_BYTE(8'h39);  //Numero 9
+    #(tck * 500) UART_WRITE_BYTE(8'h39);  //Numero 9
+    #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
+    #(tck * 500) UART_WRITE_BYTE(8'h30);  //Numero 0
+    #(tck * 500) UART_WRITE_BYTE(8'h33);  //Numero 3
+    #(tck * 100000) UART_WRITE_BYTE(8'h2F); //Operador /
+    #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
+    #(tck * 500) UART_WRITE_BYTE(8'h38);  //Numero 8
+    #(tck * 500) UART_WRITE_BYTE(8'h31);  //Numero 1
+    #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
+    #(tck * 500) UART_WRITE_BYTE(8'h30);  //Numero 0
+    #(tck * 500) UART_WRITE_BYTE(8'h39);  //Numero 9
+    #(tck * 100000) UART_WRITE_BYTE(8'h53); //Operador S
+    #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
+    #(tck * 500) UART_WRITE_BYTE(8'h36);  //Numero 6
+    #(tck * 500) UART_WRITE_BYTE(8'h34);  //Numero 4
 
     @(posedge CLK);
     #(tck * 100000) $finish;

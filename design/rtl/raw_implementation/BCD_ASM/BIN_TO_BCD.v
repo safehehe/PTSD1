@@ -82,7 +82,7 @@ module BIN_TO_BCD (
       .RST_VALUE (8),
       .LESS_VALUE(1)
   ) acc (
-      .rst  (rst),
+      .rst  (w_RST),
       .clk  (clk),
       .less (w_ACC),
       .out_K(w_K)

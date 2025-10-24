@@ -1,26 +1,28 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Oct 17 04:06:12 2025
+[*] Thu Oct 23 15:56:34 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/system_on_chip/simulation/quark/quark_TB.vcd"
-[dumpfile_mtime] "Fri Oct 17 04:05:26 2025"
-[dumpfile_size] 40434628
+[dumpfile_mtime] "Thu Oct 23 15:46:04 2025"
+[dumpfile_size] 122992146
 [savefile] "/home/samuel/Repositories/PTSD1/design/rtl/system_on_chip/simulation/quark/test_cpu_load.gtkw"
-[timestart] 0
-[size] 1912 1025
-[pos] -1 -1
-*-10.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 10325272
+[size] 1592 845
+[pos] -27 -24
+*-8.000000 10326080 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] quark_TB.
 [treeopen] quark_TB.uut.
+[treeopen] quark_TB.uut.bcd1.
+[treeopen] quark_TB.uut.bcd1.bcd1.
 [treeopen] quark_TB.uut.CPU.
 [treeopen] quark_TB.uut.div1.
 [treeopen] quark_TB.uut.mult1.
 [treeopen] quark_TB.uut.per_uart.
 [treeopen] quark_TB.uut.raiz1.
-[sst_width] 387
-[signals_width] 257
+[sst_width] 290
+[signals_width] 324
 [sst_expanded] 1
-[sst_vpaned_height] 491
+[sst_vpaned_height] 242
 @28
 quark_TB.uut.resetn
 @c00028
@@ -350,7 +352,7 @@ quark_TB.uut.raiz1.addr[4:0]
 -Entradas
 @28
 quark_TB.uut.raiz1.wr
-@25
+@24
 quark_TB.uut.raiz1.d_in[15:0]
 @22
 quark_TB.uut.raiz1.in_RR[15:0]
@@ -367,5 +369,85 @@ quark_TB.uut.raiz1.done
 @22
 quark_TB.uut.raiz1.out_R[15:0]
 quark_TB.uut.raiz1.out_Q[15:0]
+@200
+-
+-BCD
+-Dirección
+@28
+quark_TB.uut.bcd1.cs
+@22
+quark_TB.uut.bcd1.addr[4:0]
+@200
+-Entradas
+@28
+quark_TB.uut.bcd1.wr
+@24
+quark_TB.uut.bcd1.d_in[15:0]
+quark_TB.uut.bcd1.in_BIN[8:0]
+@28
+quark_TB.uut.bcd1.init
+@200
+-Salidas
+@28
+quark_TB.uut.bcd1.rd
+@22
+quark_TB.uut.bcd1.d_out[31:0]
+@28
+quark_TB.uut.bcd1.out_done
+quark_TB.uut.bcd1.bcd1.out_CEN[3:0]
+quark_TB.uut.bcd1.bcd1.out_DEC[3:0]
+quark_TB.uut.bcd1.bcd1.out_UND[3:0]
+@22
+quark_TB.uut.bcd1.bcd1.control_BCD.state[4:0]
+@28
+quark_TB.uut.bcd1.bcd1.control_BCD.in_K
+@800022
+quark_TB.uut.bcd1.bcd1.acc.N[3:0]
+@28
+(0)quark_TB.uut.bcd1.bcd1.acc.N[3:0]
+(1)quark_TB.uut.bcd1.bcd1.acc.N[3:0]
+(2)quark_TB.uut.bcd1.bcd1.acc.N[3:0]
+(3)quark_TB.uut.bcd1.bcd1.acc.N[3:0]
+@1001200
+-group_end
+@c00421
+quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+@28
+(0)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(1)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(2)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(3)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(4)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(5)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(6)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(7)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(8)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(9)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(10)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(11)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(12)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(13)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(14)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(15)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(16)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(17)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(18)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(19)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(20)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(21)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(22)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(23)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(24)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(25)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(26)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(27)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(28)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(29)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(30)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+(31)quark_TB.uut.bcd1.bcd1.acc.RST_VALUE
+@1401201
+-group_end
+@200
+-
 [pattern_trace] 1
 [pattern_trace] 0

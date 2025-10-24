@@ -45,7 +45,7 @@ module peripheral_BCD_TB;
       cs   = 1;
       rd   = 0;
       wr   = 1;
-      d_in = 16'h007B;//d123
+      d_in = 16'h00129;//d123
       addr = 16'h0004;
       #(PERIOD);
       cs = 0;
