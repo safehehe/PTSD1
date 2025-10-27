@@ -57,7 +57,6 @@ module peripheral_mult (
       case (reg_s[4:3])
         2'b01:   d_out = w_result;
         2'b10:   d_out = {31'b0, w_done};
-        default: d_out = 32'bz;
       endcase
     end
   end

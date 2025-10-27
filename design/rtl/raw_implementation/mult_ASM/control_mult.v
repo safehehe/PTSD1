@@ -84,17 +84,14 @@ module control_mult (
           state = SHIFT;
         end
         DONE: begin
-          
           done = 1;
           sh = 0;
           reset = 0;
           add = 0;
           if (timer_done == 0) state = START;
           else begin
-
             timer_done = timer_done - 1;
             state = DONE;
-
           end
         end
 
@@ -113,7 +110,7 @@ module control_mult (
       CHECK: state_name = "CHECK";
       SHIFT: state_name = "SHIFT";
       ADD:   state_name = "ADD";
-      DONE:   state_name = "DONE";
+      DONE:  state_name = "DONE";
     endcase
   end
 `endif

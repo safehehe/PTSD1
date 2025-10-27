@@ -69,6 +69,20 @@ module peripheral_mult_TB;
       wr   = 1;
       d_in = 16'h0001;
       addr = 16'h0004;
+      #(PERIOD);
+      cs = 0;
+      rd = 0;
+      wr = 0;
+      #(PERIOD*6);
+      cs = 1;
+      rd = 0;
+      wr = 1;
+      d_in = 16'h0000;
+      addr = 16'h0004;
+      #(PERIOD);
+      cs = 0;
+      rd = 0;
+      wr = 0;
       //Espero
       #(PERIOD * 17);
       //Leo done

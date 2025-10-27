@@ -109,7 +109,7 @@ putstring:
 	ret	
 
 F_mult:
-	call mult
+	call mult_hw
 	j print_res
 F_div:
 	call div

@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Mon Oct 27 15:45:42 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/mult_perip/simulation/simple/peripheral_mult_TB.vcd"
+[dumpfile_mtime] "Mon Oct 27 15:42:17 2025"
+[dumpfile_size] 5691
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/mult_perip/simulation/simple/signals.gtkw"
+[timestart] 122900
+[size] 1592 845
+[pos] -1 -1
+*-17.351425 990000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] peripheral_mult_TB.
+[treeopen] peripheral_mult_TB.uut.
+[treeopen] peripheral_mult_TB.uut.mult_32.
+[sst_width] 290
+[signals_width] 229
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+peripheral_mult_TB.uut.clk
+@200
+-Direcciones
+@28
+peripheral_mult_TB.uut.cs
+@22
+peripheral_mult_TB.uut.addr[4:0]
+@200
+-Entradas
+@22
+peripheral_mult_TB.uut.d_in[15:0]
+@420
+peripheral_mult_TB.uut.reg_A[15:0]
+@24
+peripheral_mult_TB.uut.reg_B[15:0]
+@28
+peripheral_mult_TB.uut.reg_init
+@200
+-Salidas
+@24
+peripheral_mult_TB.uut.w_result[31:0]
+@28
+peripheral_mult_TB.uut.w_done
+@201
+-Estado
+@24
+peripheral_mult_TB.uut.mult_32.control0.timer_done[4:0]
+@820
+peripheral_mult_TB.uut.mult_32.control0.state_name[320:1]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,9 +1,9 @@
 .equ MULT_BASE,   0x420000  
-.equ MULT_OP_A,   0x04
-.equ MULT_OP_B,   0x08
-.equ MULT_INIT,   0x0C
-.equ MULT_RESULT, 0x10
-.equ MULT_DONE,   0x14
+.equ MULT_OP_A,   0x01
+.equ MULT_OP_B,   0x02
+.equ MULT_INIT,   0x04
+.equ MULT_RESULT, 0x08
+.equ MULT_DONE,   0x10
 
 .section .text
 .globl mult
