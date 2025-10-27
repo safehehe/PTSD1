@@ -41,7 +41,7 @@ loopM:
 	call putchar    # echo
 	addi a0, a0, -0x30
 	li   a1, 10
-	call mult       # D0*10	
+	call mult_hw       # D0*10	
 	mv   a1, a0     # first digit first number
 	call getchar    # 
 	call putchar    # echo
@@ -59,7 +59,7 @@ loopM:
 	call putchar    # echo
 	addi a0, a0, -0x30
 	li   a1, 10
-	call mult       # D0*10	
+	call mult_hw       # D0*10	
 	mv   a1, a0     # first digit operand
     call getchar    # 
 	call putchar    # echo
@@ -112,7 +112,7 @@ F_mult:
 	call mult_hw
 	j print_res
 F_div:
-	call div
+	call div_hw
 	j print_res
 F_sqrt:
 	call sqrt_hw
