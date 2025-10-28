@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vQkUoYN8rUcwGy-w1si4" name="Page-1">
-        <mxGraphModel dx="629" dy="511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A694FF" math="0" shadow="0">
+        <mxGraphModel dx="812" dy="673" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A694FF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -112,32 +112,38 @@
                 <mxCell id="41" value="https://learn.lushaylabs.com/led-panel-hub75/" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="42" vertex="1">
                     <mxGeometry y="171" width="380" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=3;right=2;bottom=0;top=0;fontSize=14;fillColor=#307D6D;" vertex="1" parent="1">
-                    <mxGeometry x="120" y="1270" width="450" height="430" as="geometry"/>
-                </mxCell>
-                <mxCell id="47" value="HUB75_controller" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="48">
-                    <mxGeometry width="120" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="52" value="" style="group" vertex="1" connectable="0" parent="1">
+                <mxCell id="52" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="733.75" y="140" width="206.25" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://kuku.eu.org/content/projects/hub75e/connector.jpg;" vertex="1" parent="52">
+                <mxCell id="50" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://kuku.eu.org/content/projects/hub75e/connector.jpg;" parent="52" vertex="1">
                     <mxGeometry y="30" width="206.25" height="220" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" value="https://kuku.eu.org/?projects/hub75e/index" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="52">
+                <mxCell id="51" value="https://kuku.eu.org/?projects/hub75e/index" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="52" vertex="1">
                     <mxGeometry width="190" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="54" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="890" y="600" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" value="" style="group" vertex="1" connectable="0" parent="1">
+                <mxCell id="56" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="1200" y="565.92" width="380" height="397.08000000000004" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://cdn.sparkfun.com/assets/home_page_posts/2/6/5/0/ezgif-4-36eb6aafa0.gif;" vertex="1" parent="56">
+                <mxCell id="53" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://cdn.sparkfun.com/assets/home_page_posts/2/6/5/0/ezgif-4-36eb6aafa0.gif;" parent="56" vertex="1">
                     <mxGeometry y="30" width="380" height="367.08" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="https://news.sparkfun.com/2650" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="56">
+                <mxCell id="55" value="https://news.sparkfun.com/2650" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" parent="56" vertex="1">
                     <mxGeometry width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#307D6D;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="1150" width="480" height="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="HUB75" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#81C5C7;fillColor=#2C4FDB;rotation=-90;" vertex="1" parent="1">
+                    <mxGeometry x="392.5" y="1327.5" width="240" height="135" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="VRAM(EBR)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#93DBDB;fontColor=#C78585;rotation=-90;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="1350" width="180" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="HUB75_controller" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="1150" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
