@@ -7,10 +7,11 @@ POST_ROUTE_SIM_DIR = $(SIM_DIR)/post_route
 TESTBENCH_DIR = test_benches
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 OBJS_DIR = ../../raw_implementation/mult_ASM
+BUILDING_BLOCKS_DIR = ../../raw_implementation/building_blocks
 
 TOP = peripheral_mult
 TARGET = peripheral_mult
-OBJS = $(wildcard *.v) $(wildcard $(OBJS_DIR)/*.v)
+OBJS = $(wildcard *.v) $(wildcard $(OBJS_DIR)/*.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 

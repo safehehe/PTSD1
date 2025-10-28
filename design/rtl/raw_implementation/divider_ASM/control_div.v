@@ -3,7 +3,7 @@ module control_div (
     rst,
     init_in,
     MSB,
-    z,
+    in_K,
     INIT,
     SH,
     DEC,
@@ -16,7 +16,7 @@ module control_div (
   input rst;
   input init_in;
   input MSB;
-  input z;
+  input in_K;
 
   output reg INIT;
   output reg DV0;
@@ -45,24 +45,21 @@ module control_div (
       case (state)
         START: begin
           timer_done = ST_TIMER_DONE;
-          if (init_in) state = SHIFT_DEC;
-          else state = START;
+          state = init_in ? SHIFT_DEC : START;
         end
         SHIFT_DEC: state = CHECK;
-        CHECK:
-        if (z) state = END1;
-        else begin
+        CHECK: begin
           if (MSB == 0) state = ADD;
           else state = SHIFT_DEC;
         end
         ADD:
-        if (z) state = END1;
+        if (in_K) state = END1;
         else state = SHIFT_DEC;
         END1: begin
           if (timer_done == 0) state = START;
           else begin
-            timer_done = timer_done -1;
-            state = END1;     
+            timer_done = timer_done - 1;
+            state = END1;
           end
         end
         default: state = START;
@@ -82,7 +79,7 @@ module control_div (
       end
       SHIFT_DEC: begin
         INIT = 0;
-        DV0  = DV0;
+        DV0  = 0;
         SH   = 1;
         DEC  = 1;
         LDA  = 0;
@@ -98,7 +95,7 @@ module control_div (
       end
       ADD: begin
         INIT = 0;
-        DV0  = 1;  // primero suma
+        DV0  = 0;  // primero suma
         SH   = 0;
         DEC  = 0;
         LDA  = 1;
@@ -106,7 +103,7 @@ module control_div (
       end
       END1: begin
         INIT = 0;
-        DV0  = 0;
+        DV0  = 1;
         SH   = 0;
         DEC  = 0;
         LDA  = 0;

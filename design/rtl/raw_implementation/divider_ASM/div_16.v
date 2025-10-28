@@ -20,10 +20,10 @@ module div_16 (
   wire w_INIT, w_SH, w_LDA;
 
   wire w_MSB;
-  wire [15:0] Result_Sub;
-  wire [15:0] Reg_A;
+  wire [16:0] Result_Sub;
+  wire [16:0] Reg_A;
 
-  wire w_DEC, w_z, w_DV0;
+  wire w_DEC, w_K, w_DV0;
 
 
   lsr_div lsr_d (
@@ -38,30 +38,33 @@ module div_16 (
       .DV0(w_DV0),
       .OUT_R(Result)
   );
-  subtractor sb (
-      .in_A(Reg_A),
-      .in_B(B),
-      .MSB(w_MSB),
-      .Result(Result_Sub)
+
+  sumador #(
+      .N_BITS(17),
+      .CP2(1)
+  ) sb (
+      .A(Reg_A),
+      .B(B),
+      .out_SUM(Result_Sub)
   );
 
   acumulador_restando #(
-    .REG_WIDTH(5),
-    .RST_VALUE(16),
-    .LESS_VALUE(1)
+      .REG_WIDTH (5),
+      .RST_VALUE (16),
+      .LESS_VALUE(1)
   ) ctr_vd (
       .rst  (w_INIT),
       .clk  (clk),
       .less (w_DEC),
-      .out_K(w_z)
+      .out_K(w_K)
   );
 
   control_div ctl_dv (
       .clk(clk),
       .rst(rst),
       .init_in(init_in),
-      .MSB(w_MSB),
-      .z(w_z),
+      .MSB(Result_Sub[16]),
+      .in_K(w_K),
       .INIT(w_INIT),
       .SH(w_SH),
       .DEC(w_DEC),
