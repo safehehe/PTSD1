@@ -112,7 +112,7 @@ module peripheral_div_TB;
   initial begin : TEST_CASE
   $dumpfile("peripheral_div_TB.vcd");
   $dumpvars(-1,peripheral_div_TB);
-  #(PERIOD*50) $finish;
+  #(PERIOD*60) $finish;
   end
 
 
