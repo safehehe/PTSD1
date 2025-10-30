@@ -167,6 +167,15 @@ module control_BCD (
         out_ACC = 0;
         out_DONE = 1;
       end
+      default: begin
+        out_RST = 1;
+        out_SHIFT = 0;
+        out_SELECT_MUX = 0;
+        out_LOAD_UND = 0;
+        out_LOAD_DEC = 0;
+        out_ACC = 0;
+        out_DONE = 0;
+      end
     endcase
   end
 

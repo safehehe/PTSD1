@@ -4,4 +4,8 @@
 iverilog
 gtkwave
 yosys
+nextpnr
+opendocd
+pjrtrellis
+openFPGALoader
 ```

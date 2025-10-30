@@ -21,7 +21,7 @@ OBJS += $(wildcard $(COMM_PERIP)/*/*.v)
 #OBJS += $(wildcard $(COMM_RAW)/*/*.v)
 
 .PHONY : all sim_quark re_sim_quark sim_post_synth_quark re_sim_post_synth_quark clean
-.PHONY : configure_lattice
+.PHONY : configure_lattice detect
 
 all : sim_quark
 
@@ -49,16 +49,23 @@ re_sim_quark : $(SIM_QUARK_DIR)
 
 #LATTICE COLORLIGHT 5A
 $(BUILD_DIR)/$(TOP).json : $(BUILD_DIR)
-	yosys -v3 -l $(BUILD_DIR)/synth.log -p 'attrmap -tocase keep -imap keep=1; synth_ecp5 -top $(TOP) -json $(BUILD_DIR)/$(TOP).json' $(OBJS) -l $(BUILD_DIR)/$(TOP).rpt
+	yosys -v3 -l $(BUILD_DIR)/synth.log -p 'attrmap -tocase keep -imap keep="true" keep=1; synth_ecp5 -top $(TOP) -json $(BUILD_DIR)/$(TOP).json' $(OBJS) -l $(BUILD_DIR)/$(TOP).rpt
 $(BUILD_DIR)/$(TARGET)_out.config : build/$(TOP).json
-	nextpnr-ecp5 --json build/$(TOP).json --lpf pin_assignment.lpf --textcfg build/$(TARGET)_out.config --25k --package CABGA256 --speed 6 --timming-allow-fail --seed 1 --lpf-allow-unconstrained --log $(BUILD_DIR)/$(TOP)_pnr.log
-$(BIT_DIR)/$(BIT_NAME).bit : build/$(TARGET)_out.config
+	nextpnr-ecp5 --json build/$(TOP).json --lpf pin_assignment.lpf --textcfg build/$(TARGET)_out.config --25k --package CABGA256 --speed 6 --timing-allow-fail --seed 1 --lpf-allow-unconstrained --log $(BUILD_DIR)/$(TOP)_pnr.log
+$(BIT_DIR)/$(BIT_NAME).bit : $(BIT_DIR) build/$(TARGET)_out.config
 	ecppack --bootaddr 0 --compress $(BUILD_DIR)/$(TARGET)_out.config --svf $(BUILD_DIR)/$(TARGET).svf --bit $@
 
+bit_gen : $(BIT_DIR)/$(BIT_NAME).bit
+
 configure_lattice : $(BIT_DIR)/$(BIT_NAME).bit
-	sudo openFPGALoader -c ft232RL --pins=TXD:CTS:DTR:RXD -m $(BIT_DIR)/$(BIT_NAME).bit
+	sudo openFPGALoader -c ft232RL --pins=0:3:4:1 -m $(BIT_DIR)/$(BIT_NAME).bit
+#                                    UART=TXD:CTS:DTR:RXD
 #                                    JTAG=TDI:TDO:TCK:TMS 
-#                                         
+#                                     PDB=J32:J30:J27:J31     
+#                                 FT232RL=0:3:4:1
+
+detect :
+	openFPGALoader -c ft232RL --pins=0:3:4:1 --verbose 30000000 --detect
 
 $(SIM_QUARK_DIR) :
 	mkdir -p $(SIM_QUARK_DIR)
