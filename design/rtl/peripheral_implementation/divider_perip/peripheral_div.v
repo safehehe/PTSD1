@@ -80,7 +80,7 @@ module peripheral_div (
       .init_in(init),
       .A      (in_A),
       .B      (in_B),
-      .result (out_R),
+      .Result (out_R),
       .done   (out_done)
   );
 
