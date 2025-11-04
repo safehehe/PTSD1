@@ -181,7 +181,6 @@ module control_BCD (
 
 `ifdef BENCH
   reg [8*40:1] state_name;
-  reg [8*40:1] state_comp_name;
   always @(*) begin
     case (state)
       START: state_name = "START";
