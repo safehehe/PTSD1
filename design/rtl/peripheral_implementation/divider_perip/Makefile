@@ -21,7 +21,7 @@ simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y l
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
-	gtkwave $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vcd &
+	gtkwave $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/signals.gtkw &
 re_simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta y los archivos de simulación
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
