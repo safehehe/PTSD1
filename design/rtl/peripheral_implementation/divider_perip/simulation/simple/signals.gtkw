@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Tue Nov  4 12:49:21 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/design/rtl/peripheral_implementation/divider_perip/simulation/simple/peripheral_div_TB.vcd"
+[dumpfile_mtime] "Tue Nov  4 12:40:23 2025"
+[dumpfile_size] 9516
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/design/rtl/peripheral_implementation/divider_perip/simulation/simple/signals.gtkw"
+[timestart] 0
+[size] 1366 651
+[pos] -51 -51
+*-17.901823 525000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] peripheral_div_TB.
+[treeopen] peripheral_div_TB.uut.
+[sst_width] 216
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@22
+peripheral_div_TB.uut.in_A[15:0]
+peripheral_div_TB.uut.in_B[15:0]
+peripheral_div_TB.uut.d_in[15:0]
+@24
+peripheral_div_TB.uut.d_out[15:0]
+@28
+peripheral_div_TB.uut.clk
+@24
+peripheral_div_TB.uut.out_R[15:0]
+@28
+peripheral_div_TB.uut.out_done
+peripheral_div_TB.uut.rd
+peripheral_div_TB.uut.wr
+peripheral_div_TB.uut.init
+@29
+peripheral_div_TB.uut.cs
+[pattern_trace] 1
+[pattern_trace] 0
