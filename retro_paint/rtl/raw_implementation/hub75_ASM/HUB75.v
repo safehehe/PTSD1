@@ -1,57 +1,50 @@
 module HUB75 (
     input clk,
     input rstn,
+    input in_INIT,
+    input [2:0] in_RGB0,
+    input [2:0] in_RGB1,
+    input [4:0] in_ROW,
+    output ctl_CLOKER_ITER,
+    output ctl_HUB75_WAITING,
     output [2:0] w_RGB0,
     output [2:0] w_RGB1,
     output w_SCREEN_CLOCK,
-    output [4:0] ABCDE,
-    output LATCH,
-    output nOE
+    output [4:0] w_ABCDE,
+    output w_LATCH,
+    output w_nOE
 );
-  reg [3:0] auto_init;
-  reg [2:0] reg_RGB0;
-  reg [2:0] reg_RGB1;
   reg [2:0] state;
-  reg [4:0] reg_ABCDE;
+  reg reg_WAITING;
+  assign ctl_HUB75_WAITING = reg_WAITING;
   reg reg_LATCH;
   reg reg_nOE;
-  assign nOE   = reg_nOE;
-  assign LATCH = reg_LATCH;
-  assign ABCDE = reg_ABCDE;
+  assign w_nOE   = reg_nOE;
+  assign w_LATCH = reg_LATCH;
+  assign w_ABCDE = in_ROW;
+
   parameter START = 0;
-  parameter INIT_CLOCKER = 1;
-  parameter CHECK = 2;
-  parameter LATCHE = 3;
-  parameter SHOW = 4;
-  parameter NEXT = 5;
+  parameter WAIT_ORDER = 1;
+  parameter INIT_CLOCKER = 2;
+  parameter CHECK = 3;
+  parameter LATCHE = 4;
+  parameter SHOW = 5;
 
   always @(negedge clk) begin
     if (!rstn) begin
-      reg_RGB0 = 3'b011;
-      reg_RGB1 = 3'b101;
       state = START;
-      auto_init = 4'b1111;
-      reg_ABCDE = 0;
     end else begin
       case (state)
-        START: begin
-          if (auto_init == 0) begin
-            state = INIT_CLOCKER;
-          end else begin
-            auto_init = auto_init - 1;
-            state = START;
-          end
+        START: state = WAIT_ORDER;
+        WAIT_ORDER : begin
+          state = in_INIT ? INIT_CLOCKER : WAIT_ORDER;
         end
         INIT_CLOCKER: state = CHECK;
         CHECK: begin
           state = w_CLOCKER_FINISH ? LATCHE : CHECK;
         end
         LATCHE: state = SHOW;
-        SHOW: state = NEXT;
-        NEXT: begin
-          state = INIT_CLOCKER;
-          reg_ABCDE = reg_ABCDE + 1;
-        end
+        SHOW: state = WAIT_ORDER;
         default: state = START;
       endcase
     end
@@ -108,12 +101,13 @@ module HUB75 (
   reg  reg_CLOCKER_INIT;
   wire w_CLOCKER_FINISH;
   wire w_CLOCKER_ITER;
+  assign ctl_CLOKER_ITER = w_CLOCKER_ITER;
   RGB_clocker CLOCKER (
       .clk       (clk),
       .rst       (reg_CLOCKER_RST),
       .in_INIT   (reg_CLOCKER_INIT),
-      .in_RGB0   (reg_RGB0),
-      .in_RGB1   (reg_RGB1),
+      .in_RGB0   (in_RGB0),
+      .in_RGB1   (in_RGB1),
       .out_FINISH(w_CLOCKER_FINISH),
       .out_ITER  (w_CLOCKER_ITER),
       .out_RGB0  (w_RGB0),
