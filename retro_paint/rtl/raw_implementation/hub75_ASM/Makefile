@@ -1,17 +1,18 @@
-DESIGN = simple_turn_on
 BUILD_DIR = build
 SIM_DIR = simulation
 SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 POST_ROUTE_SIM_DIR = $(SIM_DIR)/post_route
 TESTBENCH_DIR = test_benches
+BUILDING_BLOCKS_DIR = ../building_blocks
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 BIT_DIR = bitstream
 
-TOP = simple_turn_on
-TARGET = simple_turn_on
-BIT_NAME= simple_turn_on
-OBJS = $(wildcard *.v)
+DESIGN = HUB75
+TOP = HUB75
+TARGET = HUB75
+BIT_NAME= HUB75
+OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 .PHONY : bit_gen configure_lattice
@@ -39,9 +40,11 @@ re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 
+
+
 #LATTICE COLORLIGHT 5A
 $(BUILD_DIR)/$(TOP).json : $(BUILD_DIR)
-	yosys -v3 -l $(BUILD_DIR)/synth.log -p 'attrmap -tocase keep -imap keep="true" keep=1; synth_ecp5 -top $(TOP) -json $(BUILD_DIR)/$(TOP).json' $(OBJS) -l $(BUILD_DIR)/$(TOP).rpt
+	yosys -v3 -l $(BUILD_DIR)/synth.log -p 'attrmap -tocase keep -imap keep="true" keep=1; synth_ecp5 -top $(TOP) -json $(BUILD_DIR)/$(TOP).json; write_verilog -attr2comment $(BUILD_DIR)/$(TOP)_synth.v ' $(OBJS) -l $(BUILD_DIR)/$(TOP).rpt
 $(BUILD_DIR)/$(TARGET)_out.config : build/$(TOP).json
 	nextpnr-ecp5 --json build/$(TOP).json --lpf pin_assignment.lpf --textcfg build/$(TARGET)_out.config --25k --package CABGA256 --speed 6 --timing-allow-fail --seed 1 --lpf-allow-unconstrained --log $(BUILD_DIR)/$(TOP)_pnr.log
 $(BIT_DIR)/$(BIT_NAME).bit : $(BIT_DIR) build/$(TARGET)_out.config
@@ -49,7 +52,7 @@ $(BIT_DIR)/$(BIT_NAME).bit : $(BIT_DIR) build/$(TARGET)_out.config
 
 bit_gen : $(BIT_DIR)/$(BIT_NAME).bit
 
-configure_lattice : $(BIT_DIR)/$(BIT_NAME).bit
+configure_lattice : clean $(BIT_DIR)/$(BIT_NAME).bit
 	sudo openFPGALoader -c ft232RL --pins=0:3:4:1 -m $(BIT_DIR)/$(BIT_NAME).bit
 #                                    UART=TXD:CTS:DTR:RXD
 #                                    JTAG=TDI:TDO:TCK:TMS 
@@ -59,11 +62,11 @@ configure_lattice : $(BIT_DIR)/$(BIT_NAME).bit
 detect :
 	openFPGALoader -c ft232RL --pins=0:3:4:1 --verbose 30000000 --detect
 
-$(SIM_QUARK_DIR) :
-	mkdir -p $(SIM_QUARK_DIR)
+$(SIMPLE_SIM_DIR) :
+	mkdir -p $(SIMPLE_SIM_DIR)
 
-$(POST_SYNTH_QUARK_SIM_DIR) :
-	mkdir -p $(POST_SYNTH_QUARK_SIM_DIR)
+$(POST_SYNTH_SIM_DIR) :
+	mkdir -p $(POST_SYNTH_SIM_DIR)
 
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)

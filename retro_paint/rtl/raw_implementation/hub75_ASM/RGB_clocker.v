@@ -2,21 +2,13 @@ module RGB_clocker (
     input clk,
     input rst,
     input in_INIT,
-    input in_R0,
-    input in_G0,
-    input in_B0,
-    input in_R1,
-    input in_G1,
-    input in_B1,
+    input [2:0] in_RGB0,
+    input [2:0] in_RGB1,
     output reg out_FINISH,
-    output wire out_ITER,
-    output wire out_R0,
-    output wire out_G0,
-    output wire out_B0,
-    output wire out_R1,
-    output wire out_G1,
-    output wire out_B1,
-    output wire S_CLOCK
+    output out_ITER,
+    output [2:0] out_RGB0,
+    output [2:0] out_RGB1,
+    output S_CLOCK
 );
   reg reg_LEDS_RST;
   reg reg_LEDS_L;
@@ -24,12 +16,8 @@ module RGB_clocker (
   assign S_CLOCK  = clk & reg_LEDS_L;
   wire w_K;
 
-  assign out_R0 = in_R0;
-  assign out_G0 = in_G0;
-  assign out_B0 = in_B0;
-  assign out_R1 = in_R1;
-  assign out_G1 = in_G1;
-  assign out_B1 = in_B1;
+  assign out_RGB0 = in_RGB0;
+  assign out_RGB1 = in_RGB1;
 
   reg [1:0] state;
   parameter START = 2'b00;
@@ -58,7 +46,7 @@ module RGB_clocker (
           end
         end
         ITER: begin
-          if (!w_K) begin
+          if (w_K) begin
             state = FINISH;
             reg_LEDS_RST = 0;
             reg_LEDS_L = 0;
@@ -93,8 +81,8 @@ module RGB_clocker (
   end
 
   acumulador_restando #(
-      .REG_WIDTH(7),
-      .RST_VALUE(64),
+      .REG_WIDTH (7),
+      .RST_VALUE (64),
       .LESS_VALUE(1)
   ) LEDS (
       .rst  (reg_LEDS_RST),
@@ -102,5 +90,16 @@ module RGB_clocker (
       .less (reg_LEDS_L),
       .out_K(w_K)
   );
+
+`ifdef BENCH
+  reg [8*40:1] state_name;
+  always @(*) begin
+    case (state)
+      START:        state_name = "START";
+      ITER: state_name = "ITER";
+      FINISH:        state_name = "FINISH";
+    endcase
+  end
+`endif
 
 endmodule
