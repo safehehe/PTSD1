@@ -1,6 +1,6 @@
 module HUB75 (
     input clk,
-    input rstn,
+    input rst,
     input in_INIT,
     input [2:0] in_RGB0,
     input [2:0] in_RGB1,
@@ -14,7 +14,6 @@ module HUB75 (
     output w_LATCH,
     output w_nOE
 );
-  reg [2:0] state;
   reg reg_WAITING;
   assign ctl_HUB75_WAITING = reg_WAITING;
   reg reg_LATCH;
@@ -23,6 +22,7 @@ module HUB75 (
   assign w_LATCH = reg_LATCH;
   assign w_ABCDE = in_ROW;
 
+  reg [2:0] state;
   parameter START = 0;
   parameter WAIT_ORDER = 1;
   parameter INIT_CLOCKER = 2;
@@ -31,12 +31,11 @@ module HUB75 (
   parameter SHOW = 5;
 
   always @(negedge clk) begin
-    if (!rstn) begin
-      state = START;
-    end else begin
+    if (rst) state = START;
+    else begin
       case (state)
         START: state = WAIT_ORDER;
-        WAIT_ORDER : begin
+        WAIT_ORDER: begin
           state = in_INIT ? INIT_CLOCKER : WAIT_ORDER;
         end
         INIT_CLOCKER: state = CHECK;
@@ -57,42 +56,49 @@ module HUB75 (
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
         reg_nOE = 1;
+        reg_WAITING = 0;
+      end
+      WAIT_ORDER: begin
+        reg_CLOCKER_INIT = 0;
+        reg_CLOCKER_RST = 1;
+        reg_LATCH = 0;
+        reg_nOE = reg_nOE;
+        reg_WAITING = 1;
       end
       INIT_CLOCKER: begin
         reg_CLOCKER_INIT = 1;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
         reg_nOE = 1;
+        reg_WAITING = 0;
       end
       CHECK: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
         reg_nOE = 1;
+        reg_WAITING = 0;
       end
       LATCHE: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 1;
         reg_nOE = 1;
+        reg_WAITING = 0;
       end
       SHOW: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
         reg_nOE = 0;
-      end
-      NEXT: begin
-        reg_CLOCKER_INIT = 0;
-        reg_CLOCKER_RST = 0;
-        reg_LATCH = 0;
-        reg_nOE = 0;
+        reg_WAITING = 0;
       end
       default: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
         reg_nOE = 1;
+        reg_WAITING = 0;
       end
     endcase
   end
