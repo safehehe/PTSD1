@@ -1,4 +1,5 @@
-
+`timescale 1ns / 1ps
+`define SIMULATION
 module BCM_TB;
   reg  clk;
   reg  rst;
@@ -40,8 +41,18 @@ module BCM_TB;
     repeat (2) @(posedge clk);
     CONTINUE <= 0;
     repeat (1027) @(posedge clk);
+    CONTINUE <= 1;
+    repeat (2) @(posedge clk);
+    CONTINUE <= 0;
+    repeat (2051) @(posedge clk);
+    CONTINUE <= 1;
+    repeat (2) @(posedge clk);
+    CONTINUE <= 0;
+    repeat (5000) @(posedge clk);
+    CONTINUE <= 1;
+    repeat (2) @(posedge clk);
+    CONTINUE <= 0;
     $finish(2);
   end
 
 endmodule
-`default_nettype wire

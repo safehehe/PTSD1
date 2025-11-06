@@ -19,26 +19,94 @@ module BCM #(
   reg reg_RST;
   parameter START = 0;
   parameter TIMER_PLUS = 1;
-  parameter CHECK_TIMER = 2;
-  parameter NEXT = 3;
-  parameter REST = 4;
-  parameter CHECK_PESO = 5;
-  parameter FINISH = 6;
+  parameter NEXT = 2;
+  parameter REST = 3;
+  parameter FINISH = 4;
 
+  parameter TIME_PESO1 = 1 * CYCLES_PER_TICK;
+  parameter TIME_PESO2 = 2 * CYCLES_PER_TICK;
+  parameter TIME_PESO4 = 4 * CYCLES_PER_TICK;
+  parameter TIME_PESO8 = 8 * CYCLES_PER_TICK;
 
   always @(posedge clk) begin
-    if (rst) state = START;
-    else begin
+    if (rst) begin
+      reg_RST = 1;
+      reg_TIMER_PLUS = 0;
+      reg_NEXT_PLANE = 0;
+      reg_PESO_PLUS = 0;
+      reg_FINISH = 0;
+      state = START;
+    end else begin
       case (state)
-        START: state = in_INIT ? TIMER_PLUS : START;
-        TIMER_PLUS: state = CHECK_TIMER;
-        CHECK_TIMER: begin
-          state = w_TIMER == w_PESO*CYCLES_PER_TICK ? NEXT : TIMER_PLUS;
+        START: begin
+          if (in_INIT) begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 1;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            state = TIMER_PLUS;
+          end else begin
+            reg_RST = 1;
+            reg_TIMER_PLUS = 0;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            state = START;
+          end
         end
-        NEXT: state = REST;
-        REST: state = in_CONTINUE ? CHECK_PESO : REST;
-        CHECK_PESO: state = w_PESO == RESOLUTION ? FINISH : TIMER_PLUS;
-        default: state = START;
+        TIMER_PLUS: begin
+          if (w_TIMER == (CYCLES_PER_TICK << (w_PESO))) begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 0;
+            reg_NEXT_PLANE = 1;
+            reg_PESO_PLUS = 1;
+            reg_FINISH = 0;
+            state = NEXT;
+          end else begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 1;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            state = TIMER_PLUS;
+          end
+        end
+        NEXT: begin
+          reg_RST = 0;
+          reg_TIMER_PLUS = 0;
+          reg_NEXT_PLANE = 0;
+          reg_PESO_PLUS = 0;
+          reg_FINISH = 0;
+          state = REST;
+        end
+        REST: begin
+          if (in_CONTINUE) begin
+            if (w_PESO == RESOLUTION) begin
+              reg_RST = 0;
+              reg_TIMER_PLUS = 0;
+              reg_NEXT_PLANE = 0;
+              reg_PESO_PLUS = 0;
+              reg_FINISH = 1;
+              state = FINISH;
+            end else begin
+              reg_RST = 0;
+              reg_TIMER_PLUS = 1;
+              reg_NEXT_PLANE = 0;
+              reg_PESO_PLUS = 0;
+              reg_FINISH = 0;
+              state = TIMER_PLUS;
+            end
+          end
+        end
+        default: begin
+          reg_RST = 1;
+          reg_TIMER_PLUS = 0;
+          reg_NEXT_PLANE = 0;
+          reg_PESO_PLUS = 0;
+          reg_FINISH = 0;
+          state = START;
+        end
       endcase
     end
   end
@@ -55,80 +123,15 @@ module BCM #(
   );
 
   wire [3:0] w_PESO;
-  reg reg_PESO_SHIFT;
-  LSR #(
-      .WIDTH(4),
-      .RST_VALUE(1),
-      .PARALLEL_OUTPUT(1)
-  ) lsr_PESO (
-      .clk     (clk),
-      .rst     (reg_RST),
-      .in_DATA (1'b0),
-      .in_SHIFT(reg_PESO_SHIFT),
-      .in_LOAD (1'b0),
-      .out_DATA(w_PESO)
+  reg reg_PESO_PLUS;
+  acumulador #(
+      .WIDTH(3)
+  ) acc_PESO (
+      .clk  (clk),
+      .rst  (reg_RST),
+      .plus (reg_PESO_PLUS),
+      .value(w_PESO)
   );
-
-  always @(*) begin
-    case (state)
-      START: begin
-        reg_RST = 1;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-      TIMER_PLUS: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 1;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-      CHECK_TIMER: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-      NEXT: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 1;
-        reg_PESO_SHIFT = 1;
-        reg_FINISH = 0;
-      end
-      REST: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-      CHECK_PESO: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-      FINISH: begin
-        reg_RST = 0;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 1;
-      end
-      default: begin
-        reg_RST = 1;
-        reg_TIMER_PLUS = 0;
-        reg_NEXT_PLANE = 0;
-        reg_PESO_SHIFT = 0;
-        reg_FINISH = 0;
-      end
-    endcase
-  end
 
 `ifdef BENCH
   reg [8*40:1] state_name;
@@ -136,10 +139,8 @@ module BCM #(
     case (state)
       START:       state_name = "START";
       TIMER_PLUS:  state_name = "TIMER_PLUS";
-      CHECK_TIMER: state_name = "CHECK_TIMER";
       NEXT:        state_name = "NEXT";
       REST:        state_name = "REST";
-      CHECK_PESO:  state_name = "CHECK_PESO";
       FINISH:      state_name = "FINISH";
     endcase
   end
