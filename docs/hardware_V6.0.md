@@ -1,3 +1,5 @@
+([Original](https://github.com/q3k/chubby75/blob/master/5a-75e/hardware_V6.0.md))
+
 # Colorlight 5A-75E V6.0/V8.0 Hardware
 
 Both V6.0 and V8.0 appear to have the same pinout.

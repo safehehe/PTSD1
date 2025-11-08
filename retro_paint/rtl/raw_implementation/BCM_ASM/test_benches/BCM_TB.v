@@ -16,7 +16,7 @@ module BCM_TB;
       .out_FINISH    (w_FINISH)
   );
 
-  localparam CLK_PERIOD = 10;
+  localparam CLK_PERIOD = 40;
   always #(CLK_PERIOD / 2) clk = ~clk;
 
   initial begin

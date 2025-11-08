@@ -1,20 +1,20 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Thu Nov  6 23:05:46 2025
+[*] Fri Nov  7 02:05:15 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/BCM_ASM/simulation/simple/BCM_TB.vcd"
-[dumpfile_mtime] "Thu Nov  6 23:04:12 2025"
-[dumpfile_size] 553766
+[dumpfile_mtime] "Fri Nov  7 02:01:40 2025"
+[dumpfile_size] 391784
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/BCM_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1592 845
 [pos] -1 -1
-*-24.054293 35360000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-25.754293 10802700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] BCM_TB.
 [treeopen] BCM_TB.u_BCM.
-[sst_width] 290
+[sst_width] 64
 [signals_width] 285
-[sst_expanded] 1
+[sst_expanded] 0
 [sst_vpaned_height] 242
 @28
 BCM_TB.clk

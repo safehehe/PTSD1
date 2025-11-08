@@ -1,6 +1,6 @@
 module BCM #(
-    parameter RESOLUTION = 16,
-    parameter CYCLES_PER_TICK = 512
+    parameter RESOLUTION = 4,
+    parameter CYCLES_PER_TICK = 256
 ) (
     input  clk,
     input  rst,
