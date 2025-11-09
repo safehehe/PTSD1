@@ -16,12 +16,8 @@ module planes_cache (
   reg [63:0] reg_cache_B1;
 
   always @(*) begin
-    out_RGB01[5] = reg_cache_R0[0];
-    out_RGB01[4] = reg_cache_G0[0];
-    out_RGB01[3] = reg_cache_B0[0];
-    out_RGB01[2] = reg_cache_R1[0];
-    out_RGB01[1] = reg_cache_R1[0];
-    out_RGB01[0] = reg_cache_R1[0];
+    out_RGB01[5:3] = {reg_cache_R0[0],reg_cache_G0[0],reg_cache_B0[0]};
+    out_RGB01[2:0] = {reg_cache_R1[0],reg_cache_G1[0],reg_cache_B1[0]};
   end
   always @(posedge clk) begin
     if (in_LOAD0) begin

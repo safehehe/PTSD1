@@ -1,4 +1,4 @@
-module LSR #(
+module RSR #(
   parameter WIDTH = 8,
   parameter RST_VALUE = 0,
   parameter PARALLEL_INPUT = 0,
@@ -21,7 +21,7 @@ module LSR #(
 
   always @(negedge clk ) begin
     if (rst) reg_STORED = RST_VALUE;
-    else if (in_SHIFT) reg_STORED = reg_STORED << SHIFT_AMOUNT;
+    else if (in_SHIFT) reg_STORED = reg_STORED >> SHIFT_AMOUNT;
     else if (PARALLEL_INPUT & in_LOAD) reg_STORED = in_DATA;
     else if (!PARALLEL_INPUT & in_LOAD) reg_STORED[0] = in_DATA;
     else reg_STORED = reg_STORED;
