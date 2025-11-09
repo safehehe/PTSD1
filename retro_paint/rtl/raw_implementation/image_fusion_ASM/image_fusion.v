@@ -5,7 +5,7 @@ module image_fusion (
 );
   genvar i;
   generate
-    for (i = 0; i < 64; i = i + 1) begin
+    for (i = 0; i < 64; i = i + 1) begin : gen_pixels_fusion
       pixel_fusion pf0 (
           .image_pixel  (image_data[(i+1)*8-1:i*8]),
           .overlay_pixel(overlay_data[(i+1)*8-1:i*8]),

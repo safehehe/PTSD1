@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram id="1_i60ao3NJE--BP3Q308" name="Page-1">
-        <mxGraphModel dx="952" dy="852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#85AD3E" math="0" shadow="0">
+        <mxGraphModel dx="239" dy="391" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#85AD3E" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="45" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=21;fillColor=none;strokeWidth=2;" vertex="1" parent="1">
+                <mxCell id="45" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=21;fillColor=none;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="530" y="130" width="1120" height="810" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="reg_cache_R0x64" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=3;right=1;bottom=0;top=SH%3Ain;type=shiftReg;leftArr=D%5B64%5D%3Ain,LOAD%3Ain,%3Aclk;rightArr=Q%3Aout;" parent="1" vertex="1">
@@ -99,10 +99,10 @@
                 <mxCell id="43" value="out_RGB[0]" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=output;drawPins=0;left=1;right=0;bottom=0;top=0;" parent="1" vertex="1">
                     <mxGeometry x="1470" y="740" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="planes_cache" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
+                <mxCell id="44" value="planes_cache" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
                     <mxGeometry x="550" y="150" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="planes_cache" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=6;right=1;bottom=0;top=%3Aclk;leftArr=SHIFT%3Ain,LOAD0%3Ain,LOAD1%3Ain,R%5B64%5D%3Ain,G%5B64%5D%3Ain,B%5B64%5D%3Ain;rightArr=RGB%5B6%5D%3Aout;" vertex="1" parent="1">
+                <mxCell id="48" value="planes_cache" style="externalPins=1;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=1;left=6;right=1;bottom=0;top=%3Aclk;leftArr=SHIFT%3Ain,LOAD0%3Ain,LOAD1%3Ain,R%5B64%5D%3Ain,G%5B64%5D%3Ain,B%5B64%5D%3Ain;rightArr=RGB01%5B6%5D%3Aout;" parent="1" vertex="1">
                     <mxGeometry x="200" y="220" width="220" height="220" as="geometry"/>
                 </mxCell>
             </root>

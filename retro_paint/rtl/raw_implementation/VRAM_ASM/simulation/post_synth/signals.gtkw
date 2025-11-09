@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Sun Nov  9 19:09:05 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/VRAM_ASM/simulation/post_synth/VRAM_TB.vcd"
+[dumpfile_mtime] "Sun Nov  9 19:05:50 2025"
+[dumpfile_size] 1840238
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/VRAM_ASM/simulation/post_synth/signals.gtkw"
+[timestart] 54800
+[size] 1592 845
+[pos] -27 -25
+*-16.365782 159000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] VRAM_TB.
+[sst_width] 290
+[signals_width] 212
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+VRAM_TB.clk
+VRAM_TB.wr
+@22
+VRAM_TB.wr_addr[11:0]
+VRAM_TB.in_data[7:0]
+@28
+VRAM_TB.rd
+@22
+VRAM_TB.rd_addr[5:0]
+@23
+VRAM_TB.read_data[511:0]
+[pattern_trace] 1
+[pattern_trace] 0

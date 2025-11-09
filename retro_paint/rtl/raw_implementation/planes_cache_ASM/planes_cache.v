@@ -1,6 +1,6 @@
 module planes_cache (
     input clk,
-    input [63:0] in_R,
+    input [63:0] in_R,//guardo cada canal al tiempo
     input [63:0] in_G,
     input [63:0] in_B,
     input in_LOAD0,

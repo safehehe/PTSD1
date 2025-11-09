@@ -1,37 +1,33 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Sun Nov  9 03:53:01 2025
+[*] Sun Nov  9 17:09:21 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/VRAM_ASM/simulation/simple/VRAM_TB.vcd"
-[dumpfile_mtime] "Sun Nov  9 03:36:19 2025"
-[dumpfile_size] 882
+[dumpfile_mtime] "Sun Nov  9 17:08:41 2025"
+[dumpfile_size] 8902
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/raw_implementation/VRAM_ASM/simulation/simple/signals.gtkw"
-[timestart] 0
-[size] 714 845
-[pos] -27 -24
-*-14.351435 65000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 125400
+[size] 1592 845
+[pos] -1 -1
+*-16.216322 479800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] VRAM_TB.
 [sst_width] 290
-[signals_width] 198
+[signals_width] 281
 [sst_expanded] 1
-[sst_vpaned_height] 242
+[sst_vpaned_height] 241
 @28
 VRAM_TB.u_VRAM.clk
-@22
-VRAM_TB.u_VRAM.in_data[31:0]
-@28
 VRAM_TB.u_VRAM.wr
 @22
-VRAM_TB.u_VRAM.wr_addr[9:0]
+VRAM_TB.u_VRAM.in_data[7:0]
 @28
 VRAM_TB.u_VRAM.rd
 @22
 VRAM_TB.u_VRAM.rd_addr[5:0]
 VRAM_TB.u_VRAM.write_row[5:0]
-VRAM_TB.u_VRAM.write_mask[3:0]
-@c00022
+@c00023
 VRAM_TB.u_VRAM.out_data[511:0]
-@28
+@29
 (0)VRAM_TB.u_VRAM.out_data[511:0]
 (1)VRAM_TB.u_VRAM.out_data[511:0]
 (2)VRAM_TB.u_VRAM.out_data[511:0]
@@ -544,7 +540,7 @@ VRAM_TB.u_VRAM.out_data[511:0]
 (509)VRAM_TB.u_VRAM.out_data[511:0]
 (510)VRAM_TB.u_VRAM.out_data[511:0]
 (511)VRAM_TB.u_VRAM.out_data[511:0]
-@1401200
+@1401201
 -group_end
 [pattern_trace] 1
 [pattern_trace] 0
