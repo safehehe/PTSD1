@@ -7,13 +7,14 @@ module VRAM (
     input [5:0] rd_addr,
     output reg [511:0] out_data
 );
-  (* ram_style = "distributed" *)
+  (* ram_style = "block" *)
   reg [7:0] vram[0:4095];  //4096 cells 8bits wide
 
   initial begin
     $readmemh("./test_benches/test_mem_image.hex", vram);
   end
   always @(posedge clk) begin
+    if (wr) vram[wr_addr] <= in_data;
     if (rd) begin//7:0 pixel numero cero, numero de pixel aumenta a la derecha
       out_data[7:0] <= vram[{rd_addr, 6'd0}];
       out_data[15:8] <= vram[{rd_addr, 6'd1}];
@@ -80,8 +81,5 @@ module VRAM (
       out_data[503:496] <= vram[{rd_addr, 6'd62}];
       out_data[511:504] <= vram[{rd_addr, 6'd63}];
     end
-  end
-  always @(posedge clk) begin
-    if (wr) vram[wr_addr] <= in_data;
   end
 endmodule

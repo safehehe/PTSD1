@@ -5,6 +5,8 @@ module HUB75 (
     input [2:0] in_RGB0,
     input [2:0] in_RGB1,
     input [4:0] in_ROW,
+    input in_LATCH,
+    input in_BRIGHT_DIM,
     output ctl_CLOKER_ITER,
     output ctl_HUB75_WAITING,
     output [2:0] w_RGB0,
@@ -34,16 +36,12 @@ module HUB75 (
     if (rst) state = START;
     else begin
       case (state)
-        START: state = WAIT_ORDER;
-        WAIT_ORDER: begin
-          state = in_INIT ? INIT_CLOCKER : WAIT_ORDER;
-        end
+        START: state = in_INIT ? INIT_CLOCKER : START;
         INIT_CLOCKER: state = CHECK;
-        CHECK: begin
-          state = w_CLOCKER_FINISH ? LATCHE : CHECK;
-        end
+        CHECK: state = w_CLOCKER_FINISH ? WAIT_ORDER : CHECK;
+        WAIT_ORDER: state = in_LATCH ? LATCHE : WAIT_ORDER;
         LATCHE: state = SHOW;
-        SHOW: state = WAIT_ORDER;
+        SHOW: state = START;
         default: state = START;
       endcase
     end
@@ -62,7 +60,7 @@ module HUB75 (
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
-        reg_nOE = reg_nOE;
+        reg_nOE = 0+in_BRIGHT_DIM;
         reg_WAITING = 1;
       end
       INIT_CLOCKER: begin
@@ -128,9 +126,9 @@ module HUB75 (
       START:        state_name = "START";
       INIT_CLOCKER: state_name = "INIT_CLOCKER";
       CHECK:        state_name = "CHECK";
+      WAIT_ORDER:   state_name = "WAIT_ORDER";
       LATCHE:       state_name = "LATCHE";
       SHOW:         state_name = "SHOW";
-      NEXT:         state_name = "NEXT";
     endcase
   end
 `endif
