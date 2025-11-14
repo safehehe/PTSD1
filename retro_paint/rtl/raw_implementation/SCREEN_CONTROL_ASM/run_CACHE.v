@@ -3,51 +3,49 @@ module run_CACHE (
     input in_INIT,
     input rst,
     input in_PLANE_READY_MM,
-    output reg out_CACHE,
+    output reg out_order_CACHE,
     output reg out_HUB75_INIT
 );
   reg [1:0] state;
+  parameter START = 0;
+  parameter CACHE_WORKING = 1;
+  parameter HUB75_STARTED = 2;
+
   always @(posedge clk) begin
     if (rst) begin
-      if (in_INIT) begin
-        out_CACHE = 1;
-        out_HUB75_INIT = 0;
-        state = 2'b01;
-      end else begin
-        out_CACHE = 0;
-        out_HUB75_INIT = 0;
-        state = 2'b00;
-      end
+      out_order_CACHE = 0;
+      out_HUB75_INIT = 0;
+      state = START;
     end else
       case (state)
-        2'b00: begin
+        START: begin
           if (in_INIT) begin
-            out_CACHE = 1;
+            out_order_CACHE = 1;
             out_HUB75_INIT = 0;
-            state = 2'b01;
+            state = CACHE_WORKING;
           end else begin
-            out_CACHE = 0;
+            out_order_CACHE = 0;
             out_HUB75_INIT = 0;
-            state = 2'b00;
+            state = START;
           end
         end
-        2'b01: begin
+        CACHE_WORKING: begin
           if (in_PLANE_READY_MM) begin
-            out_CACHE = 0;
+            out_order_CACHE = 0;
             out_HUB75_INIT = 1;
-            state = 2'b10;
+            state = HUB75_STARTED;
           end else begin
-            out_CACHE = 0;
+            out_order_CACHE = 0;
             out_HUB75_INIT = 0;
-            state = 2'b01;
+            state = CACHE_WORKING;
           end
         end
-        2'b10: begin
-          out_CACHE = 0;
+        HUB75_STARTED: begin
+          out_order_CACHE = 0;
           out_HUB75_INIT = 0;
-          state = 2'b00;
+          state = START;
         end
-        default: state = 2'b00;
+        default: state = START;
       endcase
   end
 
@@ -55,23 +53,9 @@ module run_CACHE (
   reg [8*40:1] state_name;
   always @(*) begin
     case (state)
-      2'b00: begin
-        if (in_INIT) begin
-          state_name = "out_CACHE = 1";
-        end else begin
-          state_name = "00 BOTH cero";
-        end
-      end
-      2'b01: begin
-        if (in_PLANE_READY_MM) begin
-          state_name = "out_HUB75_INIT = 1";
-        end else begin
-          state_name = "01 BOTH cero";
-        end
-      end
-      2'b10: begin
-        state_name = "10 BOTH cero";
-      end
+      START: state_name = "START";
+      CACHE_WORKING: state_name = "CACHE_WORKING";
+      HUB75_STARTED: state_name = "HUB75_STARTED";
     endcase
   end
 `endif

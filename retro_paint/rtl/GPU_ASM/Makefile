@@ -15,7 +15,7 @@ TARGET = GPU
 OBJS = $(wildcard *.v) $(wildcard $(DEPENDENCIES_DIR)/*/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
-.PHONY : configure_lattice detect
+.PHONY : configure_lattice detect cp_monochrome cp_palette
 all : simple_sim
 
 simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y lanza GTKwave
@@ -61,6 +61,12 @@ configure_lattice : $(BIT_DIR)/$(BIT_NAME).bit
 
 detect :
 	openFPGALoader -c ft232RL --pins=0:3:4:1 --verbose 30000000 --detect
+
+
+cp_monochrome : 
+	cp ../../scripts/mono.hex test_benches/test_mem_image.hex
+cp_palette :
+	cp ../../scripts/palette.hex test_benches/test_mem_image.hex
 
 $(SIMPLE_SIM_DIR) :
 	mkdir -p $(SIMPLE_SIM_DIR)

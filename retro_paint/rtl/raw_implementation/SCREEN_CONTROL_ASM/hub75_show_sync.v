@@ -1,4 +1,4 @@
-module hub75_latch_sync (
+module hub75_show_sync (
     input  clk,
     input  rst,
     input  in_sync_hub75_latch,

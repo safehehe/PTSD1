@@ -39,7 +39,7 @@ module GPU_TB;
     rst_n <= 1;
     @(posedge clk);
     repeat (2) @(posedge clk);
-    #(CLK_PERIOD * 5000) $finish(2);
+    #(CLK_PERIOD * 100_000) $finish(2);
   end
 
 endmodule

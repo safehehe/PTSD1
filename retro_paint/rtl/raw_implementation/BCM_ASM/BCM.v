@@ -1,24 +1,24 @@
 module BCM #(
-    parameter RESOLUTION = 4,
+    parameter RESOLUTION = 3,
     parameter CYCLES_PER_TICK = 256,
-    parameter BRIGHTNESS = 192//more is less bright
+    parameter BRIGHTNESS = 0  //more is less bright
 ) (
     input  clk,
     input  rst,
     input  in_INIT,
     input  in_CONTINUE,
     output out_NEXT_PLANE,
-    output out_FINISH,
-    output out_HALF_WAY
+    output out_FINISHED,
+    output out_BRIGH_DIM
 );
 
   reg reg_NEXT_PLANE;
   assign out_NEXT_PLANE = reg_NEXT_PLANE;
   reg reg_FINISH;
-  assign out_FINISH = reg_FINISH;
-  reg reg_HALF_WAY;
-  assign out_HALF_WAY = reg_HALF_WAY;
-  reg [3:0] state;
+  assign out_FINISHED = reg_FINISH;
+  reg reg_BRIGHT_DIM;
+  assign out_BRIGH_DIM = reg_BRIGHT_DIM;
+  reg [2:0] state;
   reg reg_RST;
   parameter START = 0;
   parameter TIMER_PLUS = 1;
@@ -33,7 +33,7 @@ module BCM #(
       reg_NEXT_PLANE = 0;
       reg_PESO_PLUS = 0;
       reg_FINISH = 0;
-      reg_HALF_WAY = 0;
+      reg_BRIGHT_DIM = 0;
       state = START;
     end else begin
       case (state)
@@ -44,7 +44,6 @@ module BCM #(
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_HALF_WAY = 0;
             state = TIMER_PLUS;
           end else begin
             reg_RST = 1;
@@ -52,7 +51,7 @@ module BCM #(
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_HALF_WAY = 0;
+            reg_BRIGHT_DIM = 0;
             state = START;
           end
         end
@@ -60,66 +59,67 @@ module BCM #(
           if (w_TIMER == (CYCLES_PER_TICK << (w_PESO))) begin
             reg_RST = 0;
             reg_TIMER_PLUS = 0;
-            reg_NEXT_PLANE = 1;
-            reg_PESO_PLUS = 1;
-            reg_FINISH = 0;
-            reg_HALF_WAY = 0;
-            state = NEXT;
-          end else if (w_TIMER >= ((CYCLES_PER_TICK - BRIGHTNESS) << (w_PESO))) begin
-            reg_RST = 0;
-            reg_TIMER_PLUS = 1;
             reg_NEXT_PLANE = 0;
-            reg_PESO_PLUS = 0;
+            reg_PESO_PLUS = 1;
+            reg_BRIGHT_DIM = 0;
             reg_FINISH = 0;
-            reg_HALF_WAY = 1;
-            state = TIMER_PLUS;
+            state = NEXT;
           end else begin
             reg_RST = 0;
             reg_TIMER_PLUS = 1;
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_HALF_WAY = 0;
+            reg_BRIGHT_DIM = (w_TIMER >= ((CYCLES_PER_TICK - BRIGHTNESS) << (w_PESO)));
             state = TIMER_PLUS;
           end
         end
         NEXT: begin
-          reg_RST = 0;
-          reg_TIMER_PLUS = 0;
-          reg_NEXT_PLANE = 0;
-          reg_PESO_PLUS = 0;
-          reg_FINISH = 0;
-          reg_HALF_WAY = 0;
-          state = REST;
+          if (w_PESO == (RESOLUTION)) begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 0;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 1;
+            reg_BRIGHT_DIM = 0;
+            state = FINISH;
+          end else begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 0;
+            reg_NEXT_PLANE = 1;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            reg_BRIGHT_DIM = 0;
+            state = REST;
+          end
         end
         REST: begin
           if (in_CONTINUE) begin
-            if (w_PESO == RESOLUTION) begin
-              reg_RST = 0;
-              reg_TIMER_PLUS = 0;
-              reg_NEXT_PLANE = 0;
-              reg_PESO_PLUS = 0;
-              reg_FINISH = 1;
-              reg_HALF_WAY = 0;
-              state = FINISH;
-            end else begin
-              reg_RST = 0;
-              reg_TIMER_PLUS = 1;
-              reg_NEXT_PLANE = 0;
-              reg_PESO_PLUS = 0;
-              reg_FINISH = 0;
-              reg_HALF_WAY = 0;
-              state = TIMER_PLUS;
-            end
+            reg_RST = 0;
+            reg_TIMER_PLUS = 1;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            reg_BRIGHT_DIM = 0;
+            state = TIMER_PLUS;
           end else begin
             reg_RST = 0;
             reg_TIMER_PLUS = 0;
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_HALF_WAY = 0;
+            reg_BRIGHT_DIM = 0;
             state = REST;
           end
+        end
+        FINISH : begin
+            reg_RST = 0;
+            reg_TIMER_PLUS = 0;
+            reg_NEXT_PLANE = 0;
+            reg_PESO_PLUS = 0;
+            reg_FINISH = 0;
+            reg_BRIGHT_DIM = 0;
+            state = FINISH;
         end
         default: begin
           reg_RST = 1;
@@ -127,7 +127,7 @@ module BCM #(
           reg_NEXT_PLANE = 0;
           reg_PESO_PLUS = 0;
           reg_FINISH = 0;
-          reg_HALF_WAY = 0;
+          reg_BRIGHT_DIM = 0;
           state = START;
         end
       endcase
@@ -141,7 +141,7 @@ module BCM #(
       .POS_EDGE(1)
   ) acc_TIMER (
       .clk  (clk),
-      .rst  (reg_RST | reg_NEXT_PLANE),
+      .rst  (reg_RST | reg_PESO_PLUS),
       .plus (reg_TIMER_PLUS),
       .value(w_TIMER)
   );

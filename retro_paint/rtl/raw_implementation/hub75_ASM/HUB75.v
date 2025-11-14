@@ -5,7 +5,7 @@ module HUB75 (
     input [2:0] in_RGB0,
     input [2:0] in_RGB1,
     input [4:0] in_ROW,
-    input in_LATCH,
+    input in_SHOW,
     input in_BRIGHT_DIM,
     output ctl_CLOKER_ITER,
     output ctl_HUB75_WAITING,
@@ -39,7 +39,7 @@ module HUB75 (
         START: state = in_INIT ? INIT_CLOCKER : START;
         INIT_CLOCKER: state = CHECK;
         CHECK: state = w_CLOCKER_FINISH ? WAIT_ORDER : CHECK;
-        WAIT_ORDER: state = in_LATCH ? LATCHE : WAIT_ORDER;
+        WAIT_ORDER: state = in_SHOW ? LATCHE : WAIT_ORDER;
         LATCHE: state = SHOW;
         SHOW: state = START;
         default: state = START;
@@ -67,14 +67,14 @@ module HUB75 (
         reg_CLOCKER_INIT = 1;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
-        reg_nOE = 1;
+        reg_nOE = 0;
         reg_WAITING = 0;
       end
       CHECK: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
-        reg_nOE = 1;
+        reg_nOE = 0;
         reg_WAITING = 0;
       end
       LATCHE: begin
@@ -94,7 +94,7 @@ module HUB75 (
       default: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
-        reg_LATCH = 0;
+        reg_LATCH = 1;
         reg_nOE = 1;
         reg_WAITING = 0;
       end

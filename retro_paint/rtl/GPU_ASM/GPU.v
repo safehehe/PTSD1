@@ -11,7 +11,7 @@ module GPU (
   wire w_HUB75_INIT;
   wire [4:0] w_ROW;
   wire w_HUB75_RST;
-  wire w_HUB75_LATCH;
+  wire w_HUB75_SHOW;
   wire w_HUB75_WAITING;
   wire w_HUB75_ITER;
   wire [2:0] w_HUB75_RGB0;
@@ -48,7 +48,7 @@ module GPU (
       .out_PLANE_SELECT_MM     (w_CONTROL_PLANE_SELECT),
       .out_signal_CACHE        (w_CONTROL_CACHE),
       .out_signal_HUB75_INIT   (w_HUB75_INIT),
-      .out_signal_HUB75_LATCH  (w_HUB75_LATCH),
+      .out_signal_HUB75_SHOW  (w_HUB75_SHOW),
       .out_ROW                 (w_ROW),
       .out_RST                 (w_HUB75_RST)
   );
@@ -81,7 +81,7 @@ module GPU (
       .in_RGB0          (w_HUB75_RGB0),
       .in_RGB1          (w_HUB75_RGB1),
       .in_ROW           (w_ROW),
-      .in_LATCH         (w_HUB75_LATCH),
+      .in_SHOW         (w_HUB75_SHOW),
       .in_BRIGHT_DIM    (w_BRIGH_DIM),
       .ctl_CLOKER_ITER  (w_HUB75_ITER),
       .ctl_HUB75_WAITING(w_HUB75_WAITING),
