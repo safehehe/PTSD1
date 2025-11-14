@@ -7,12 +7,13 @@ ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 BIT_DIR = bitstream
 BIT_NAME = GPU
 
-DEPENDENCIES_DIR = ../raw_implementation
+DEPENDENCIES_DIR = ./dependencies
+BUILDING_BLOCKS_DIR = ../raw_implementation/building_blocks
 
 DESIGN = GPU
 TOP = GPU
 TARGET = GPU
-OBJS = $(wildcard *.v) $(wildcard $(DEPENDENCIES_DIR)/*/*.v)
+OBJS = $(wildcard *.v) $(wildcard $(DEPENDENCIES_DIR)/*/*.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 .PHONY : configure_lattice detect cp_monochrome cp_palette

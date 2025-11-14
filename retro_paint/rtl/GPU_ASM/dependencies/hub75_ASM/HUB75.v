@@ -41,7 +41,7 @@ module HUB75 (
         CHECK: state = w_CLOCKER_FINISH ? WAIT_ORDER : CHECK;
         WAIT_ORDER: state = in_SHOW ? LATCHE : WAIT_ORDER;
         LATCHE: state = SHOW;
-        SHOW: state = START;
+        SHOW: state = in_INIT ? INIT_CLOCKER : SHOW;
         default: state = START;
       endcase
     end

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="x0mIBSlLKbF8bG4Bfshz" name="Page-1">
-        <mxGraphModel dx="2454" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#966562" math="0" shadow="0">
+        <mxGraphModel dx="2921" dy="338" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#966562" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -198,7 +198,7 @@
                 <mxCell id="187" value="reg_BCM_INIT = 0" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="760" y="1220.5" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="287" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="190" target="285">
+                <mxCell id="287" value="" style="edgeStyle=none;html=1;" parent="1" source="190" target="285" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="190" value="w_BCM_FINISHED==1?" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
@@ -213,7 +213,7 @@
                 <mxCell id="194" value="Falso" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="880" y="1298" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="259" style="edgeStyle=none;html=1;entryX=0.756;entryY=0.457;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="197" target="236">
+                <mxCell id="259" style="edgeStyle=none;html=1;entryX=0.756;entryY=0.457;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="197" target="236" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="197" value="out_ROW =+1&lt;br&gt;reg_BCM_RST = 1&lt;br&gt;out_PLANE_RST = 1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
@@ -284,22 +284,22 @@
                 <mxCell id="217" value="w_BCM_CONTINUE = 0" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="1590" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="229" style="edgeStyle=none;html=1;entryX=0.432;entryY=0.011;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="223" target="224">
+                <mxCell id="229" style="edgeStyle=none;html=1;entryX=0.432;entryY=0.011;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="223" target="224" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="223" value="START" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="223" value="START" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-490" y="665" width="130" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="246" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="224" target="245">
+                <mxCell id="246" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="224" target="245" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="224" value="ONCE_CACHE_WAITING" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="224" value="ONCE_CACHE_WAITING" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-430" y="984.5" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="226" value="rst" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="226" value="rst" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-550" y="590" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="227" value="" style="curved=1;endArrow=classic;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="223">
+                <mxCell id="227" value="" style="curved=1;endArrow=classic;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" target="223" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-580" y="570" as="sourcePoint"/>
                         <mxPoint x="-480" y="685" as="targetPoint"/>
@@ -309,40 +309,40 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="231" value="RST = 1&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="231" value="RST = 1&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-480" y="500" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="235" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="232" target="233">
+                <mxCell id="235" value="" style="edgeStyle=none;html=1;" parent="1" source="232" target="233" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="257" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="232" target="197">
+                <mxCell id="257" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="232" target="197" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="1030" y="989.9999999999998" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="232" value="out_ROW == 31?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+                <mxCell id="232" value="out_ROW == 31?" style="rhombus;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="1050" y="1001" width="111" height="79.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="236" style="edgeStyle=none;html=1;entryX=0.463;entryY=0.485;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="233" target="172">
+                <mxCell id="236" style="edgeStyle=none;html=1;entryX=0.463;entryY=0.485;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="233" target="172" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="950" y="595"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="233" value="reg_RST = 1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+                <mxCell id="233" value="reg_RST = 1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
                     <mxGeometry x="1075.5" y="749.5" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="237" value="Verdadero" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="237" value="Verdadero" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1120" y="969" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="239" value="Falso" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="239" value="Falso" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="990" y="999" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="241" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="241" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-570" y="805" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="242" style="edgeStyle=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="224" target="224">
+                <mxCell id="242" style="edgeStyle=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="224" target="224" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-620" y="1120"/>
@@ -350,34 +350,34 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="243" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="243" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-770" y="1083.5" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="244" value="in_HUB75_WAITING == 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="244" value="in_HUB75_WAITING == 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-630" y="1039" width="160" height="31" as="geometry"/>
                 </mxCell>
-                <mxCell id="250" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="245" target="249">
+                <mxCell id="250" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="245" target="249" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="245" value="ONCE_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="245" value="ONCE_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-450" y="1368" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="247" value="in_HUB75_WAITING == 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="247" value="in_HUB75_WAITING == 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-350" y="1235" width="160" height="31" as="geometry"/>
                 </mxCell>
-                <mxCell id="248" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 1&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 1" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="248" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 1&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 1" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-330" y="1263" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="254" style="edgeStyle=none;html=1;" edge="1" parent="1" source="249" target="252">
+                <mxCell id="254" style="edgeStyle=none;html=1;" parent="1" source="249" target="252" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="249" value="BCM_INIT&amp;amp;CACHE" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="249" value="BCM_INIT&amp;amp;CACHE" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-460" y="1690" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="251" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 1&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="251" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 1&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-340" y="1570" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="268" style="edgeStyle=none;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="252" target="291">
+                <mxCell id="268" style="edgeStyle=none;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="252" target="291" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-91.4373599999999" y="760.3203418547753" as="targetPoint"/>
                         <Array as="points">
@@ -386,23 +386,23 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="272" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="252" target="271">
+                <mxCell id="272" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="252" target="271" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="292" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="252" target="291">
+                <mxCell id="292" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="252" target="291" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-90" y="1990"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="252" value="WORKING" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="252" value="WORKING" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-450" y="2010" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="253" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="253" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-570" y="1880" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="255" style="edgeStyle=none;html=1;exitX=0.021;exitY=0.352;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="252" target="252">
+                <mxCell id="255" style="edgeStyle=none;html=1;exitX=0.021;exitY=0.352;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="252" target="252" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-500" y="2060"/>
@@ -410,35 +410,35 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="256" value="in_HUB_WAITING&amp;nbsp; and w_BCM_NEXT_PLANE and w_BCM_FINISHED == 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="256" value="in_HUB_WAITING&amp;nbsp; and w_BCM_NEXT_PLANE and w_BCM_FINISHED == 0" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-645" y="2000" width="190" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="261" value="w_BCM_FINISHED == 1 and out_ROW == 31" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="261" value="w_BCM_FINISHED == 1 and out_ROW == 31" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-95" y="1810" width="190" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="262" value="RST = 1&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST&amp;nbsp;= 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="262" value="RST = 1&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST&amp;nbsp;= 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-90" y="1865" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="266" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 1&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST= 1&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="266" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 1&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST= 1&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="120" y="1915" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="267" value="w_BCM_FINISHED == 1 and out_ROW != 31" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="267" value="w_BCM_FINISHED == 1 and out_ROW != 31" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="110" y="1860" width="190" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="269" value="in_HUB75_WAITING == 1 AND W_BCM_NEXT_PLANE == 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="269" value="in_HUB75_WAITING == 1 AND W_BCM_NEXT_PLANE == 1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-320" y="2210" width="190" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="270" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 1" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="270" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 1" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-330" y="2300" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="277" style="edgeStyle=none;html=1;entryX=0.54;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="271" target="276">
+                <mxCell id="277" style="edgeStyle=none;html=1;entryX=0.54;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="271" target="276" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-610" y="2448"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="282" style="edgeStyle=none;html=1;" edge="1" parent="1" source="271" target="252">
+                <mxCell id="282" style="edgeStyle=none;html=1;" parent="1" source="271" target="252" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-70" y="2170" as="targetPoint"/>
                         <Array as="points">
@@ -447,53 +447,53 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="271" value="HUB75_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="271" value="HUB75_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-420" y="2490" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="274" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 1&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 1&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="274" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 1&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 1&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-755" y="2460" width="300" height="145" as="geometry"/>
                 </mxCell>
-                <mxCell id="280" style="edgeStyle=none;html=1;" edge="1" parent="1" source="276" target="252">
+                <mxCell id="280" style="edgeStyle=none;html=1;" parent="1" source="276" target="252" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="276" value="PLANE_P" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="276" value="PLANE_P" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-840" y="2265" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="278" value="w_PLANE_SELECTION != 3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="278" value="w_PLANE_SELECTION != $RESOLUTION-1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-630" y="2395" width="190" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="281" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="281" value="RST = 0&lt;br&gt;CACHE_INIT = 1&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-910" y="2130" width="300" height="145" as="geometry"/>
                 </mxCell>
-                <mxCell id="283" value="w_PLANE_SELECTION == 3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="283" value="w_PLANE_SELECTION == 3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2230" width="190" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="284" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 1&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="284" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 1&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="50" y="2275" width="180" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="288" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="285" target="286">
+                <mxCell id="288" value="" style="edgeStyle=none;html=1;" parent="1" source="285" target="286" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="285" value="out_HUB75_SHOW = 1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+                <mxCell id="285" value="out_HUB75_SHOW = 1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="975" y="1184" width="130" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="289" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="286" target="232">
+                <mxCell id="289" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="286" target="232" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="286" value="out_HUB75_SHOW = 0" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" vertex="1" parent="1">
+                <mxCell id="286" value="out_HUB75_SHOW = 0" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="975" y="1099.5" width="130" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="293" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="291" target="223">
+                <mxCell id="293" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="291" target="223" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-90" y="760"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="291" value="LAST_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="291" value="LAST_SHOW" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="-95" y="1495" width="175" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="294" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="294" value="RST = 0&lt;br&gt;CACHE_INIT = 0&lt;br&gt;ROW_P = 0&lt;br&gt;PLANE_SELECT_P = 0&lt;br&gt;BCM_INIT = 0&lt;br&gt;BCM_PLS_RST = 0&lt;br&gt;BMC_CONTINUE = 0&lt;br&gt;HUB75_SHOW = 0" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-40" y="1208" width="180" height="130" as="geometry"/>
                 </mxCell>
             </root>

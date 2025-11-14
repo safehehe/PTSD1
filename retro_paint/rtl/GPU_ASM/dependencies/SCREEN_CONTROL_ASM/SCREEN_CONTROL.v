@@ -1,4 +1,6 @@
-module SCREEN_CONTROL (
+module SCREEN_CONTROL #(
+  parameter RESOLUTION = 3
+) (
     input clk,
     input rst,
     input in_signal_PLANE_READY_MM,
@@ -163,7 +165,7 @@ module SCREEN_CONTROL (
             state = START;
         end
         HUB75_SHOW: begin
-          if (out_PLANE_SELECT_MM == 3) begin
+          if (out_PLANE_SELECT_MM == (RESOLUTION-1)) begin
             reg_RST = 0;
             reg_CACHE_INIT = 0;
             reg_ROW_P = 0;

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 14 15:31:31 2025
+[*] Fri Nov 14 17:03:55 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Fri Nov 14 15:29:27 2025"
-[dumpfile_size] 11215818
+[dumpfile_mtime] "Fri Nov 14 17:03:08 2025"
+[dumpfile_size] 11589397
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1592 845
 [pos] -1 -1
-*-26.718037 148100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-24.718037 13720000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [treeopen] GPU_TB.u_GPU.u_SCREEN_CONTROL.
@@ -79,13 +79,14 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_run_CACHE.state[1:0]
 -BCM
 @28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_CONTINUE
+@29
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_PESO_PLUS
+@28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_NEXT_PLANE
 @24
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.w_TIMER[12:0]
-@29
-GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.w_PESO[2:0]
 @28
+GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.w_PESO[2:0]
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.acc_TIMER.plus
 @820
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.state_name[320:1]
