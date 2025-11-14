@@ -23,7 +23,7 @@ module HUB75 (
   assign w_nOE   = reg_nOE;
   assign w_LATCH = reg_LATCH;
   assign w_ABCDE = in_ROW;
-
+  reg once_LATCHE;
   reg [2:0] state;
   parameter START = 0;
   parameter WAIT_ORDER = 1;
@@ -33,14 +33,22 @@ module HUB75 (
   parameter SHOW = 5;
 
   always @(negedge clk) begin
-    if (rst) state = START;
-    else begin
+    if (rst) begin
+      once_LATCHE = 0;
+      state = START;
+    end else begin
       case (state)
-        START: state = in_INIT ? INIT_CLOCKER : START;
+        START: begin
+          once_LATCHE = 0;
+          state = in_INIT ? INIT_CLOCKER : START;
+        end
         INIT_CLOCKER: state = CHECK;
         CHECK: state = w_CLOCKER_FINISH ? WAIT_ORDER : CHECK;
         WAIT_ORDER: state = in_SHOW ? LATCHE : WAIT_ORDER;
-        LATCHE: state = SHOW;
+        LATCHE: begin
+          once_LATCHE = 1;
+          state = SHOW;
+        end
         SHOW: state = in_INIT ? INIT_CLOCKER : SHOW;
         default: state = START;
       endcase
@@ -60,21 +68,21 @@ module HUB75 (
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
-        reg_nOE = 0+in_BRIGHT_DIM;
+        reg_nOE = ~once_LATCHE + in_BRIGHT_DIM;
         reg_WAITING = 1;
       end
       INIT_CLOCKER: begin
         reg_CLOCKER_INIT = 1;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
-        reg_nOE = 0;
+        reg_nOE = ~once_LATCHE;
         reg_WAITING = 0;
       end
       CHECK: begin
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
-        reg_nOE = 0;
+        reg_nOE = ~once_LATCHE;
         reg_WAITING = 0;
       end
       LATCHE: begin

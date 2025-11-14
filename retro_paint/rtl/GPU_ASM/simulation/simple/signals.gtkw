@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 14 17:03:55 2025
+[*] Fri Nov 14 23:05:10 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Fri Nov 14 17:03:08 2025"
-[dumpfile_size] 11589397
+[dumpfile_mtime] "Fri Nov 14 23:03:48 2025"
+[dumpfile_size] 12070210
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
-[timestart] 0
+[timestart] 2471551000
 [size] 1592 845
 [pos] -1 -1
-*-24.718037 13720000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-20.718037 2473465000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [treeopen] GPU_TB.u_GPU.u_SCREEN_CONTROL.
@@ -45,6 +45,7 @@ GPU_TB.u_GPU.u_HUB75.state_name[320:1]
 @28
 GPU_TB.u_GPU.u_HUB75.in_INIT
 GPU_TB.u_GPU.u_HUB75.in_SHOW
+GPU_TB.u_GPU.u_HUB75.rst
 GPU_TB.u_GPU.u_HUB75.ctl_HUB75_WAITING
 GPU_TB.u_GPU.u_HUB75.ctl_CLOKER_ITER
 GPU_TB.u_GPU.u_HUB75.w_CLOCKER_FINISH
@@ -59,15 +60,11 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_ITER
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_WAITING
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_PLANE_READY_MM
 GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_SHOW
-GPU_TB.u_GPU.u_SCREEN_CONTROL.w_inter_HUB75_SHOW
-GPU_TB.u_GPU.u_SCREEN_CONTROL.state[2:0]
+GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_INIT
+GPU_TB.u_GPU.u_SCREEN_CONTROL.reg_HUB75_INIT
+GPU_TB.u_GPU.u_SCREEN_CONTROL.reg_HUB75_SHOW
 @820
 GPU_TB.u_GPU.u_SCREEN_CONTROL.state_name[320:1]
-@28
-GPU_TB.u_GPU.u_SCREEN_CONTROL.u_hub75_show_sync.clk
-GPU_TB.u_GPU.u_SCREEN_CONTROL.u_hub75_show_sync.in_sync_hub75_latch
-GPU_TB.u_GPU.u_SCREEN_CONTROL.u_hub75_show_sync.out_synced_hub75_latch
-GPU_TB.u_GPU.u_SCREEN_CONTROL.u_hub75_show_sync.state
 @200
 -run cache
 @28
@@ -78,11 +75,12 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_run_CACHE.state[1:0]
 -run render
 -BCM
 @28
+GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_INIT
+GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.rst
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_CONTINUE
-@29
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_PESO_PLUS
-@28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_NEXT_PLANE
+GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.out_FINISHED
 @24
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.w_TIMER[12:0]
 @28
@@ -105,8 +103,14 @@ GPU_TB.u_GPU.u_memory_management.state_name[320:1]
 GPU_TB.u_GPU.u_planes_cache.in_SHIFT
 @22
 GPU_TB.u_GPU.u_planes_cache.in_R[63:0]
+GPU_TB.u_GPU.u_planes_cache.in_G[63:0]
+GPU_TB.u_GPU.u_planes_cache.in_B[63:0]
 GPU_TB.u_GPU.u_planes_cache.reg_cache_R0[63:0]
+GPU_TB.u_GPU.u_planes_cache.reg_cache_G0[63:0]
+GPU_TB.u_GPU.u_planes_cache.reg_cache_B0[63:0]
 GPU_TB.u_GPU.u_planes_cache.reg_cache_R1[63:0]
+GPU_TB.u_GPU.u_planes_cache.reg_cache_G1[63:0]
+GPU_TB.u_GPU.u_planes_cache.reg_cache_B1[63:0]
 GPU_TB.u_GPU.u_planes_cache.out_RGB01[5:0]
 @28
 GPU_TB.u_GPU.u_planes_cache.in_LOAD0

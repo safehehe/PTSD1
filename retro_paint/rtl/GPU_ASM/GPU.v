@@ -38,7 +38,7 @@ module GPU (
   wire [511:0] w_VRAM_DATA;
 
   SCREEN_CONTROL u_SCREEN_CONTROL (
-      .clk                     (clk),
+      .clk                     (~clk),
       .rst                     (!rstn),
       .in_signal_PLANE_READY_MM(w_CONTROL_PLANE_READY),
       .in_signal_HUB75_WAITING (w_HUB75_WAITING),

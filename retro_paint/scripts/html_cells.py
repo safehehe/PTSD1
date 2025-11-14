@@ -4,8 +4,8 @@ import itertools
 from typing import List
 
 # Definición de las dimensiones de la cuadrícula
-ROWS = 64
-COLS = 64
+ROWS = 16
+COLS = 16
 TOTAL_CELLS = ROWS * COLS
 
 def generate_grid_html(colors: List[str]) -> str:
@@ -50,7 +50,7 @@ def generate_grid_html(colors: List[str]) -> str:
         .cell:hover {{
             box-sizing: border-box;
             border-style:solid;
-            border-width: 2px; /* Quitamos los bordes para un look limpio */
+            border-width: 2px;
             border-color : #FFFFFF;
         }}
     """
@@ -137,14 +137,14 @@ def main(color_string_to_use = ""):
     except IOError as e:
         print(f"Error al escribir el archivo {output_filename}: {e}", file=sys.stderr)
 
-def to_hex_color(rr:list,gg:list,bb:list,ss:list):
+def to_hex_color(rrr:str,ggg:str,bb:str):
     #print("RR:",rr)
     #print("GG:",gg)
     #print("BB:",bb)
     #print("SS:",ss)
-    red = (ss[1] + 2*ss[0] + 4*rr[1]+ 8*rr[0])*17
-    green = (ss[1] + 2*ss[0] + 4*gg[1]+ 8*gg[0])*17
-    blue = (ss[1] + 2*ss[0] + 4*bb[1]+ 8*bb[0])*17
+    red = int(rrr,2)*32
+    green = int(ggg,2)*32
+    blue = int(bb,2)*64
     #print("red:",red)
     #print("green:",green)
     #print("blue:",blue)
@@ -156,11 +156,10 @@ def to_hex_color(rr:list,gg:list,bb:list,ss:list):
 
 def decimal_to_color(decimal):
     bin_ = f'{decimal:08b}'
-    rr = [int(bin_[0]),int(bin_[1])]
-    gg = [int(bin_[2]),int(bin_[3])]
-    bb = [int(bin_[4]),int(bin_[5])]
-    ss = [int(bin_[6]),int(bin_[7])]
-    return rr,gg,bb,ss
+    rrr = bin_[0]+bin_[1]+bin_[2]
+    ggg = bin_[3]+bin_[4]+bin_[5]
+    bb = bin_[6]+bin_[7]
+    return rrr,ggg,bb
 def decimal_to_byte(decimal):
     hex_by = f'{decimal:02x}'
     return hex_by
@@ -170,16 +169,16 @@ palette_path = "./palette.hex"
 if (__name__ == "__main__") :
     bytes_colors = []
     colors = []
-    
-    for row in range (5):
+    number = []
+    for row in range (16):
         tmp_row = []
         tmp_bytes = []
-        for _ in range(64):
-            tmp_row.append("#"+ to_hex_color(*decimal_to_color(row+130)))
-            tmp_bytes.append(decimal_to_byte(row+130))
-        colors = colors + tmp_row*16    
-        bytes_colors = bytes_colors + tmp_bytes*16
-    
+        for col in range(16):
+            colors.append("#"+ to_hex_color(*decimal_to_color(col + row*16)))
+            number.append(col + row*16)
+            bytes_colors.append(decimal_to_byte(col + row*16))
+    print(colors)
+    print(number)
     main(",".join(colors))
     with open(palette_path,'w') as f:
         f.write("\n".join(bytes_colors))
