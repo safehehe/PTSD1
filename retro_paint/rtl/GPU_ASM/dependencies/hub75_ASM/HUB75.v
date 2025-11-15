@@ -82,7 +82,7 @@ module HUB75 (
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 0;
         reg_LATCH = 0;
-        reg_nOE = ~once_LATCHE;
+        reg_nOE = ~once_LATCHE ;
         reg_WAITING = 0;
       end
       LATCHE: begin
@@ -96,7 +96,7 @@ module HUB75 (
         reg_CLOCKER_INIT = 0;
         reg_CLOCKER_RST = 1;
         reg_LATCH = 0;
-        reg_nOE = 0;
+        reg_nOE = 0 + in_BRIGHT_DIM;
         reg_WAITING = 0;
       end
       default: begin

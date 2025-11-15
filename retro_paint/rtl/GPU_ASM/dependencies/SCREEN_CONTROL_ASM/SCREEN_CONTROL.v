@@ -12,17 +12,19 @@ module SCREEN_CONTROL #(
     output wire out_signal_CACHE,
     output wire out_signal_HUB75_INIT,
     output out_signal_HUB75_SHOW,
+    output out_signal_HUB75_RST,
     output [4:0] out_ROW,
     output out_RST
 );
   assign out_signal_SHIFT_PLANE = in_signal_HUB75_ITER;
-  assign out_signal_HUB75_SHOW  = reg_HUB75_SHOW;
-  assign out_signal_HUB75_INIT = reg_HUB75_INIT+w_inter_HUB75_INIT;
+  assign out_signal_HUB75_SHOW  = w_synced_HUB75_SHOW;
+  assign out_signal_HUB75_RST   = w_synced_HUB75_RST + reg_RST;
+  assign out_signal_HUB75_INIT  = w_inter_HUB75_INIT;
   wire w_inter_HUB75_INIT;
-  wire w_inter_HUB75_SHOW;
+  wire w_synced_HUB75_SHOW;
+  wire w_synced_HUB75_RST;
   assign out_RST = reg_RST;
   reg  reg_RST;
-  reg  reg_HUB75_INIT;
   reg  reg_CACHE_INIT;
   reg  reg_ROW_P;
   reg  reg_PLANE_SELECT_P;
@@ -30,6 +32,7 @@ module SCREEN_CONTROL #(
   reg  reg_BCM_PLS_RST;
   reg  reg_BCM_CONTINUE;
   reg  reg_HUB75_SHOW;
+  reg  reg_HUB75_RST;
   wire w_BCM_FINISH;
   wire w_BCM_NEXT_PLANE;
 
@@ -40,8 +43,7 @@ module SCREEN_CONTROL #(
   parameter WORKING = 4;
   parameter HUB75_SHOW = 5;
   parameter PLANE_P = 6;
-  parameter LAST_SHOW = 7;
-  parameter CACHE_CLEAN = 8;
+  parameter HUB75_RST = 7;
   reg [3:0] state;
   always @(negedge clk) begin
     if (rst) begin
@@ -51,11 +53,11 @@ module SCREEN_CONTROL #(
       reg_PLANE_SELECT_P = 0;
       reg_BCM_INIT = 0;
       reg_BCM_PLS_RST = 1;
+      reg_HUB75_RST = 1;
       reg_BCM_CONTINUE = 0;
       reg_HUB75_SHOW = 0;
-      reg_HUB75_INIT = 0;
       state = START;
-    end else
+    end else begin
       case (state)
         START: begin
           reg_RST = 0;
@@ -64,35 +66,22 @@ module SCREEN_CONTROL #(
           reg_PLANE_SELECT_P = 0;
           reg_BCM_INIT = 0;
           reg_BCM_PLS_RST = 0;
+          reg_HUB75_RST = 0;
           reg_BCM_CONTINUE = 0;
           reg_HUB75_SHOW = 0;
-          reg_HUB75_INIT = 0;
           state = ONCE_CACHE_WAITING;
         end
         ONCE_CACHE_WAITING: begin
-          if (in_signal_HUB75_WAITING) begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 1;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 0;
-            reg_HUB75_SHOW = 1;
-            reg_HUB75_INIT = 0;
-            state = ONCE_SHOW;
-          end else begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 0;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 0;
-            reg_HUB75_SHOW = 0;
-            reg_HUB75_INIT = 0;
-            state = ONCE_CACHE_WAITING;
-          end
+          reg_RST = 0;
+          reg_CACHE_INIT = 0;
+          reg_ROW_P = 0;
+          reg_PLANE_SELECT_P = in_signal_HUB75_WAITING;
+          reg_BCM_INIT = 0;
+          reg_BCM_PLS_RST = 0;
+          reg_HUB75_RST = 0;
+          reg_BCM_CONTINUE = 0;
+          reg_HUB75_SHOW = in_signal_HUB75_WAITING;
+          state = in_signal_HUB75_WAITING ? ONCE_SHOW : ONCE_CACHE_WAITING;
         end
         ONCE_SHOW: begin
           reg_RST = 0;
@@ -102,8 +91,8 @@ module SCREEN_CONTROL #(
           reg_BCM_INIT = 1;
           reg_BCM_PLS_RST = 0;
           reg_BCM_CONTINUE = 0;
-          reg_HUB75_SHOW = 1;
-          reg_HUB75_INIT = 0;
+          reg_HUB75_RST = 0;
+          reg_HUB75_SHOW = 0;
           state = BCM_INIT_Y_CACHE;
         end
         BCM_INIT_Y_CACHE: begin
@@ -114,60 +103,11 @@ module SCREEN_CONTROL #(
           reg_BCM_INIT = 0;
           reg_BCM_PLS_RST = 0;
           reg_BCM_CONTINUE = 0;
-          reg_HUB75_SHOW = 1;
-          reg_HUB75_INIT = 0;
+          reg_HUB75_RST = 0;
+          reg_HUB75_SHOW = 0;
           state = WORKING;
         end
         WORKING: begin
-          if (w_BCM_FINISH) begin
-            if (out_ROW == 31) begin
-              reg_RST = 1;
-              reg_CACHE_INIT = 0;
-              reg_ROW_P = 0;
-              reg_PLANE_SELECT_P = 0;
-              reg_BCM_INIT = 0;
-              reg_BCM_PLS_RST = 1;
-              reg_BCM_CONTINUE = 0;
-              reg_HUB75_SHOW = 1;
-              reg_HUB75_INIT = 0;
-              state = LAST_SHOW;
-            end else begin
-              reg_RST = 0;
-              reg_CACHE_INIT = 0;
-              reg_ROW_P = 1;
-              reg_PLANE_SELECT_P = 0;
-              reg_BCM_INIT = 0;
-              reg_BCM_PLS_RST = 1;
-              reg_BCM_CONTINUE = 0;
-              reg_HUB75_SHOW = 1;
-              reg_HUB75_INIT = 0;
-              state = LAST_SHOW;
-            end
-          end else if (in_signal_HUB75_WAITING & w_BCM_NEXT_PLANE) begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 0;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 0;
-            reg_HUB75_SHOW = 1;
-            reg_HUB75_INIT = 0;
-            state = HUB75_SHOW;
-          end else begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 0;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 0;
-            reg_HUB75_SHOW = 0;
-            reg_HUB75_INIT = 0;
-            state = WORKING;
-          end
-        end
-        LAST_SHOW: begin
           reg_RST = 0;
           reg_CACHE_INIT = 0;
           reg_ROW_P = 0;
@@ -175,48 +115,37 @@ module SCREEN_CONTROL #(
           reg_BCM_INIT = 0;
           reg_BCM_PLS_RST = 0;
           reg_BCM_CONTINUE = 0;
+          reg_HUB75_RST = w_BCM_FINISH;
+          reg_HUB75_SHOW = in_signal_HUB75_WAITING & w_BCM_NEXT_PLANE;
+          if (w_BCM_FINISH) state = HUB75_RST;
+          else if (in_signal_HUB75_WAITING & w_BCM_NEXT_PLANE) state = HUB75_SHOW;
+          else state = WORKING;
+        end
+        HUB75_RST: begin
+          reg_RST = &out_ROW;  //se evalua a 1 si todos los bits son 1
+          reg_CACHE_INIT = 0;
+          reg_ROW_P = ~&out_ROW;  //se evalua a 0 si todos los bits son 1
+          reg_PLANE_SELECT_P = 0;
+          reg_BCM_INIT = 0;
+          reg_BCM_PLS_RST = 1;
+          reg_BCM_CONTINUE = 0;
+          reg_HUB75_RST = 0;
           reg_HUB75_SHOW = 0;
-          reg_HUB75_INIT = 0;
           state = START;
         end
         HUB75_SHOW: begin
-          if (out_PLANE_SELECT_MM == (RESOLUTION - 1)) begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 0;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 1;
-            reg_HUB75_SHOW = 0;
-            reg_HUB75_INIT = 0;
-            state = CACHE_CLEAN;
-          end else begin
-            reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 1;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 1;
-            reg_HUB75_SHOW = 0;
-            reg_HUB75_INIT = 0;
-            state = PLANE_P;
-          end
-        end
-        CACHE_CLEAN: begin
           reg_RST = 0;
-            reg_CACHE_INIT = 0;
-            reg_ROW_P = 0;
-            reg_PLANE_SELECT_P = 0;
-            reg_BCM_INIT = 0;
-            reg_BCM_PLS_RST = 0;
-            reg_BCM_CONTINUE = 0;
-            reg_HUB75_SHOW = 0;
-            reg_HUB75_INIT = 1;
-            state = WORKING;
+          reg_CACHE_INIT = 0;
+          reg_ROW_P = 0;
+          reg_PLANE_SELECT_P = out_PLANE_SELECT_MM != (RESOLUTION-1);
+          reg_BCM_INIT = 0;
+          reg_BCM_PLS_RST = 0;
+          reg_BCM_CONTINUE = 1;
+          reg_HUB75_RST = 0;
+          reg_HUB75_SHOW = 0;
+          state = out_PLANE_SELECT_MM != (RESOLUTION-1) ? PLANE_P : WORKING;
         end
-        PLANE_P: begin
+        PLANE_P : begin
           reg_RST = 0;
           reg_CACHE_INIT = 1;
           reg_ROW_P = 0;
@@ -224,8 +153,8 @@ module SCREEN_CONTROL #(
           reg_BCM_INIT = 0;
           reg_BCM_PLS_RST = 0;
           reg_BCM_CONTINUE = 0;
+          reg_HUB75_RST = 0;
           reg_HUB75_SHOW = 0;
-          reg_HUB75_INIT = 0;
           state = WORKING;
         end
         default: begin
@@ -234,21 +163,22 @@ module SCREEN_CONTROL #(
           reg_ROW_P = 0;
           reg_PLANE_SELECT_P = 0;
           reg_BCM_INIT = 0;
-          reg_BCM_PLS_RST = 0;
+          reg_BCM_PLS_RST = 1;
+          reg_HUB75_RST = 1;
           reg_BCM_CONTINUE = 0;
           reg_HUB75_SHOW = 0;
-          reg_HUB75_INIT = 0;
           state = START;
         end
       endcase
+    end
   end
-
   acumulador #(
       .WIDTH(5),
       .RST_VALUE(0),
-      .PLUS_VALUE(1)
+      .PLUS_VALUE(1),
+      .POS_EDGE(1)
   ) u_acumulador_row (
-      .clk  (~clk),
+      .clk  (clk),
       .rst  (reg_RST),
       .plus (reg_ROW_P),
       .value(out_ROW)
@@ -257,9 +187,10 @@ module SCREEN_CONTROL #(
   acumulador #(
       .WIDTH(2),
       .RST_VALUE(0),
-      .PLUS_VALUE(1)
+      .PLUS_VALUE(1),
+      .POS_EDGE(1)
   ) u_acumulador_plane_select (
-      .clk  (~clk),
+      .clk  (clk),
       .rst  (reg_BCM_PLS_RST),
       .plus (reg_PLANE_SELECT_P),
       .value(out_PLANE_SELECT_MM)
@@ -284,6 +215,20 @@ module SCREEN_CONTROL #(
       .out_HUB75_INIT   (w_inter_HUB75_INIT)
   );
 
+  hub75_sync u_hub75_sync_show (
+      .clk             (clk),
+      .rst             (reg_RST),
+      .in_sync_hub75   (reg_HUB75_SHOW),
+      .out_synced_hub75(w_synced_HUB75_SHOW)
+  );
+
+  hub75_sync u_hub75_sync_rst (
+      .clk             (clk),
+      .rst             (reg_RST),
+      .in_sync_hub75   (reg_HUB75_RST),
+      .out_synced_hub75(w_synced_HUB75_RST)
+  );
+
 
 
 `ifdef BENCH
@@ -295,7 +240,7 @@ module SCREEN_CONTROL #(
       ONCE_SHOW: state_name = "ONCE_SHOW";
       BCM_INIT_Y_CACHE: state_name = "BCM_INIT_Y_CACHE";
       WORKING: state_name = "WORKING";
-      LAST_SHOW: state_name = "LAST_SHOW";
+      HUB75_RST: state_name = "HUB75_RST";
       HUB75_SHOW: state_name = "HUB75_SHOW";
       PLANE_P: state_name = "PLANE_P";
     endcase

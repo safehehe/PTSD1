@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 14 23:05:10 2025
+[*] Sat Nov 15 19:36:22 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Fri Nov 14 23:03:48 2025"
-[dumpfile_size] 12070210
+[dumpfile_mtime] "Sat Nov 15 19:36:11 2025"
+[dumpfile_size] 10387374
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
-[timestart] 2471551000
-[size] 1592 845
+[timestart] 2349300000
+[size] 1912 1025
 [pos] -1 -1
-*-20.718037 2473465000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-24.718037 2434240000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [treeopen] GPU_TB.u_GPU.u_SCREEN_CONTROL.
 [sst_width] 290
 [signals_width] 368
 [sst_expanded] 1
-[sst_vpaned_height] 242
+[sst_vpaned_height] 305
 @28
 GPU_TB.clk
 GPU_TB.rst_n
@@ -42,8 +42,9 @@ GPU_TB.screen_nOE
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
 @200
 -HUB75
-@28
+@29
 GPU_TB.u_GPU.u_HUB75.in_INIT
+@28
 GPU_TB.u_GPU.u_HUB75.in_SHOW
 GPU_TB.u_GPU.u_HUB75.rst
 GPU_TB.u_GPU.u_HUB75.ctl_HUB75_WAITING
@@ -59,9 +60,9 @@ GPU_TB.u_GPU.u_HUB75.state_name[320:1]
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_ITER
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_WAITING
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_PLANE_READY_MM
+GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_BRIGHT_DIM
 GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_SHOW
 GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_INIT
-GPU_TB.u_GPU.u_SCREEN_CONTROL.reg_HUB75_INIT
 GPU_TB.u_GPU.u_SCREEN_CONTROL.reg_HUB75_SHOW
 @820
 GPU_TB.u_GPU.u_SCREEN_CONTROL.state_name[320:1]
@@ -79,6 +80,7 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_INIT
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.rst
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_CONTINUE
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_PESO_PLUS
+GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.out_BRIGH_DIM
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.reg_NEXT_PLANE
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.out_FINISHED
 @24

@@ -1,7 +1,7 @@
 module BCM #(
     parameter RESOLUTION = 3,
     parameter CYCLES_PER_TICK = 256,
-    parameter BRIGHTNESS = 0  //more is less bright
+    parameter BRIGHTNESS = 192  //more is less bright
 ) (
     input  clk,
     input  rst,
@@ -61,7 +61,7 @@ module BCM #(
             reg_TIMER_PLUS = 0;
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 1;
-            reg_BRIGHT_DIM = 0;
+            reg_BRIGHT_DIM = reg_BRIGHT_DIM;
             reg_FINISH = 0;
             state = NEXT;
           end else begin
@@ -81,7 +81,7 @@ module BCM #(
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 1;
-            reg_BRIGHT_DIM = 0;
+            reg_BRIGHT_DIM = reg_BRIGHT_DIM;
             state = FINISH;
           end else begin
             reg_RST = 0;
@@ -89,7 +89,7 @@ module BCM #(
             reg_NEXT_PLANE = 1;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_BRIGHT_DIM = 0;
+            reg_BRIGHT_DIM = reg_BRIGHT_DIM;
             state = REST;
           end
         end
@@ -108,7 +108,7 @@ module BCM #(
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_BRIGHT_DIM = 0;
+            reg_BRIGHT_DIM = reg_BRIGHT_DIM;
             state = REST;
           end
         end
@@ -118,7 +118,7 @@ module BCM #(
             reg_NEXT_PLANE = 0;
             reg_PESO_PLUS = 0;
             reg_FINISH = 0;
-            reg_BRIGHT_DIM = 0;
+            reg_BRIGHT_DIM = reg_BRIGHT_DIM;
             state = FINISH;
         end
         default: begin

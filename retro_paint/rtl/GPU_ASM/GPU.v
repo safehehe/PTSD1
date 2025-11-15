@@ -31,14 +31,14 @@ module GPU (
   wire [1:0] w_CONTROL_PLANE_SELECT;
   wire w_CONTROL_SHIFT_PLANE;
   wire w_CONTROL_PLANE_READY;
-
+  wire w_CONTROL_RST;
   wire w_MEM_MANG_RD;
   wire [5:0] w_MEM_MANG_ADDR;
 
   wire [511:0] w_VRAM_DATA;
 
   SCREEN_CONTROL u_SCREEN_CONTROL (
-      .clk                     (~clk),
+      .clk                     (clk),
       .rst                     (!rstn),
       .in_signal_PLANE_READY_MM(w_CONTROL_PLANE_READY),
       .in_signal_HUB75_WAITING (w_HUB75_WAITING),
@@ -48,14 +48,15 @@ module GPU (
       .out_PLANE_SELECT_MM     (w_CONTROL_PLANE_SELECT),
       .out_signal_CACHE        (w_CONTROL_CACHE),
       .out_signal_HUB75_INIT   (w_HUB75_INIT),
-      .out_signal_HUB75_SHOW  (w_HUB75_SHOW),
+      .out_signal_HUB75_SHOW   (w_HUB75_SHOW),
+      .out_signal_HUB75_RST    (w_HUB75_RST),
       .out_ROW                 (w_ROW),
-      .out_RST                 (w_HUB75_RST)
+      .out_RST                 (w_CONTROL_RST)
   );
 
   memory_management u_memory_management (
       .clk            (clk),
-      .rst            (w_HUB75_RST),
+      .rst            (w_CONTROL_RST),
       .in_CACHE       (w_CONTROL_CACHE),
       .in_ROW         (w_ROW),
       .in_PLANE_SELECT(w_CONTROL_PLANE_SELECT),
@@ -81,7 +82,7 @@ module GPU (
       .in_RGB0          (w_HUB75_RGB0),
       .in_RGB1          (w_HUB75_RGB1),
       .in_ROW           (w_ROW),
-      .in_SHOW         (w_HUB75_SHOW),
+      .in_SHOW          (w_HUB75_SHOW),
       .in_BRIGHT_DIM    (w_BRIGH_DIM),
       .ctl_CLOKER_ITER  (w_HUB75_ITER),
       .ctl_HUB75_WAITING(w_HUB75_WAITING),

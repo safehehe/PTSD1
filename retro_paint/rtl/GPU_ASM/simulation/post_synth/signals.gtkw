@@ -1,22 +1,26 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 14 20:29:09 2025
+[*] Sat Nov 15 20:23:18 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/post_synth/GPU_TB.vcd"
-[dumpfile_mtime] "Fri Nov 14 20:24:29 2025"
-[dumpfile_size] 505737787
+[dumpfile_mtime] "Sat Nov 15 20:14:22 2025"
+[dumpfile_size] 468825746
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/post_synth/signals.gtkw"
-[timestart] 2383400000
-[size] 1592 845
-[pos] -27 -25
-*-24.317402 2400400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 0
+[size] 858 1025
+[pos] -1 -1
+*-20.317402 111000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] GPU_TB.
 [sst_width] 290
-[signals_width] 246
+[signals_width] 382
 [sst_expanded] 1
-[sst_vpaned_height] 242
+[sst_vpaned_height] 306
 @28
 GPU_TB.clk
 GPU_TB.rst_n
+@200
+-Salidas
+@28
 GPU_TB.screen_CLK
 @22
 GPU_TB.screen_ABCDE[4:0]
@@ -24,7 +28,13 @@ GPU_TB.screen_ABCDE[4:0]
 GPU_TB.screen_RGB0[2:0]
 GPU_TB.screen_RGB1[2:0]
 GPU_TB.screen_LATCH
-@29
 GPU_TB.screen_nOE
+@200
+-HUB75
+@28
+GPU_TB.u_GPU.\u_HUB75.rst
+GPU_TB.u_GPU.\u_HUB75.in_INIT
+GPU_TB.u_GPU.\u_HUB75.in_SHOW
+GPU_TB.u_GPU.\u_HUB75.ctl_HUB75_WAITING
 [pattern_trace] 1
 [pattern_trace] 0
