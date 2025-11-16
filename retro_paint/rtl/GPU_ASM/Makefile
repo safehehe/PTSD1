@@ -69,7 +69,7 @@ detect :
 cp_monochrome : 
 	cp ../../scripts/mono.hex test_benches/test_mem_image.hex
 cp_palette :
-	cp ../../scripts/palette.hex test_benches/test_mem_image.hex
+	cp ../../scripts/paleta256.hex test_benches/test_mem_image.hex
 
 $(SIMPLE_SIM_DIR) :
 	mkdir -p $(SIMPLE_SIM_DIR)

@@ -35,11 +35,25 @@ module GPU (
   wire w_MEM_MANG_RD;
   wire [5:0] w_MEM_MANG_ADDR;
 
-  wire [511:0] w_VRAM_DATA;
+  wire [511:0] w_FRAME_DATA;
+
+  wire w_SUPER_RST;
+  image_select u_image_select (
+      .clk        (clk),
+      .rst        (!rstn),
+      .in_ADDR    (w_MEM_MANG_ADDR),
+      .in_rd      (w_MEM_MANG_RD),
+      .out_data   (w_FRAME_DATA),
+      .out_reg_RST(w_SUPER_RST)
+  );
+
+
+
+
 
   SCREEN_CONTROL u_SCREEN_CONTROL (
       .clk                     (clk),
-      .rst                     (!rstn),
+      .rst                     (w_SUPER_RST),
       .in_signal_PLANE_READY_MM(w_CONTROL_PLANE_READY),
       .in_signal_HUB75_WAITING (w_HUB75_WAITING),
       .in_signal_HUB75_ITER    (w_HUB75_ITER),
@@ -62,7 +76,7 @@ module GPU (
       .in_PLANE_SELECT(w_CONTROL_PLANE_SELECT),
       .in_SHIFT_PLANE (w_CONTROL_SHIFT_PLANE),
       .in_RGB01       (w_PLANES_CACHE_RGB01),
-      .in_FUSED_DATA  (w_VRAM_DATA),
+      .in_FUSED_DATA  (w_FRAME_DATA),
       .out_PLANE_READY(w_CONTROL_PLANE_READY),
       .out_PLANE_LOAD0(w_PLANES_CACHE_LOAD0),
       .out_PLANE_LOAD1(w_PLANES_CACHE_LOAD1),
@@ -102,15 +116,6 @@ module GPU (
       .in_LOAD1 (w_PLANES_CACHE_LOAD1),
       .in_SHIFT (w_PLANES_CACHE_SHIFT),
       .out_RGB01(w_PLANES_CACHE_RGB01)
-  );
-  VRAM u_VRAM (
-      .clk     (clk),
-      .wr      (1'b0),
-      .wr_addr (12'b0),
-      .in_data (8'b0),
-      .rd      (w_MEM_MANG_RD),
-      .rd_addr (w_MEM_MANG_ADDR),
-      .out_data(w_VRAM_DATA)
   );
 
 endmodule

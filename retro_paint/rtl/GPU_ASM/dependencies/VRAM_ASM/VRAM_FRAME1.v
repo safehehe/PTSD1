@@ -1,6 +1,4 @@
-module VRAM #(
-  parameter HEX_FILE = "./test_benches/test_mem_image.hex"
-) (
+module VRAM_FRAME1 (
     input clk,
     input wr,
     input [11:0] wr_addr,  //4096 direcciones una por pixel
@@ -13,11 +11,11 @@ module VRAM #(
   reg [7:0] vram[0:4095];  //4096 cells 8bits wide
 
   initial begin
-    $readmemh(HEX_FILE, vram);
+    $readmemh("./test_benches/frame1.hex", vram);
   end
   always @(posedge clk) begin
     if (wr) vram[wr_addr] <= in_data;
-    if (rd) begin//7:0 pixel numero cero, numero de pixel aumenta a la derecha
+    if (rd) begin  //7:0 pixel numero cero, numero de pixel aumenta a la derecha
       out_data[7:0] <= vram[{rd_addr, 6'd0}];
       out_data[15:8] <= vram[{rd_addr, 6'd1}];
       out_data[23:16] <= vram[{rd_addr, 6'd2}];
