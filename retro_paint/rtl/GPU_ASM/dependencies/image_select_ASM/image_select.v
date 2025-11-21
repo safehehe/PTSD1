@@ -3,12 +3,12 @@ module image_select (
     input rst,
     input [5:0] in_ADDR,
     input in_rd,
+    input in_VRAM_AVAILABLE,
     output wire [511:0] out_data,
-    output reg out_reg_RST,
     output wire out_VRAM_SIGNAL
 );
   wire [23:0] w_TIMER_VALUE;
-  assign out_VRAM_SIGNAL = VRAM0_SIGNAL + VRAM1_SIGNAL;
+  assign out_VRAM_SIGNAL = VRAM0_SIGNAL | VRAM1_SIGNAL;
   wire VRAM0_SIGNAL;
   wire VRAM1_SIGNAL;
   reg  reg_frame;
@@ -16,9 +16,10 @@ module image_select (
   parameter WAITING = 0;
   parameter SWITCHING = 1;
   reg state;
+  reg reg_RST;
   always @(posedge clk) begin
     if (rst) begin
-      out_reg_RST = 1;
+      reg_RST = 1;
       reg_frame = 1;
       reg_TIMER_PLUS = 0;
       state = WAITING;
@@ -26,25 +27,32 @@ module image_select (
       case (state)
         WAITING: begin
           if (w_TIMER_VALUE[22]) begin
-            out_reg_RST = 1;
-            reg_TIMER_PLUS = 0;
-            reg_frame = ~reg_frame;
-            state = SWITCHING;
+            if (in_VRAM_AVAILABLE) begin
+              reg_RST = 1;
+              reg_TIMER_PLUS = 0;
+              reg_frame = ~reg_frame;
+              state = SWITCHING;
+            end else begin
+              reg_RST = 0;
+              reg_TIMER_PLUS = 0;
+              reg_frame = reg_frame;
+              state = WAITING;
+            end
           end else begin
-            out_reg_RST = 0;
+            reg_RST = 0;
             reg_TIMER_PLUS = 1;
             reg_frame = reg_frame;
             state = WAITING;
           end
         end
         SWITCHING: begin
-          out_reg_RST = 0;
+          reg_RST = 0;
           reg_TIMER_PLUS = 1;
           reg_frame = reg_frame;
           state = WAITING;
         end
         default: begin
-          out_reg_RST = 1;
+          reg_RST = 1;
           reg_frame = 0;
           reg_TIMER_PLUS = 0;
           state = WAITING;
@@ -63,10 +71,10 @@ module image_select (
 
   wire [511:0] w_data_FRAME0;
   VRAM #(
-      .HEX_FILE("./test_benches/frame0.hex")
+      .HEX_FILE("./test_benches/octopuss/octopuss0.hex")
   ) u_FRAME0 (
       .clk        (clk),
-      .rst        (out_reg_RST),
+      .rst        (reg_RST),
       .wr         (1'b0),
       .wr_addr    (12'b0),
       .in_data    (8'b0),
@@ -77,10 +85,10 @@ module image_select (
   );
   wire [511:0] w_data_FRAME1;
   VRAM #(
-      .HEX_FILE("./test_benches/frame1.hex")
+      .HEX_FILE("./test_benches/octopuss/octopuss1.hex")
   ) u_FRAME1 (
       .clk        (clk),
-      .rst        (out_reg_RST),
+      .rst        (reg_RST),
       .wr         (1'b0),
       .wr_addr    (12'b0),
       .in_data    (8'b0),
@@ -94,7 +102,7 @@ module image_select (
       .WIDTH(24)
   ) u_frame_switch_counter (
       .clk  (clk),
-      .rst  (out_reg_RST),
+      .rst  (reg_RST),
       .plus (reg_TIMER_PLUS),
       .value(w_TIMER_VALUE)    //20
   );

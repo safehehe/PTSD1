@@ -1,7 +1,7 @@
 module BCM #(
     parameter RESOLUTION = 3,
     parameter CYCLES_PER_TICK = 256,//mayor a 64
-    parameter BRIGHTNESS = 200  //more is less bright
+    parameter BRIGHTNESS = 232  //more is less bright
 ) (
     input  clk,
     input  rst,

@@ -80,8 +80,8 @@ def procesar_imagen_a_hex(input_png_path, output_hex_path):
         print(f"Ocurrió un error: {e}")
 
 # --- Configuración ---
-INPUT_FILE = "./2_frames/pc-walk-down-2.png"  # Reemplaza con el nombre de tu archivo PNG
-OUTPUT_FILE = "./2_frames/pc-walk-down-2.hex"
+INPUT_FILE = "./4_frames/octopuss0.png"  # Reemplaza con el nombre de tu archivo PNG
+OUTPUT_FILE = "./4_frames/octopuss0.hex"
 
 # --- Ejecución ---
 if __name__ == "__main__":

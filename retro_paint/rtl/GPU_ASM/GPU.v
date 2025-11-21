@@ -42,22 +42,22 @@ module GPU (
   wire [511:0] w_ROW0_DATA;
   wire [511:0] w_ROW1_DATA;
 
-  wire w_SUPER_RST;
   wire w_VRAM_SIGNAL;
+  wire w_VRAM_AVAILABLE;
   image_select u_image_select (
-      .clk            (clk),
-      .rst            (!rstn),
-      .in_ADDR        (w_MEM_MANG_ADDR),
-      .in_rd          (w_MEM_MANG_RD),
-      .out_data       (w_FRAME_DATA),
-      .out_reg_RST    (w_SUPER_RST),
-      .out_VRAM_SIGNAL(w_VRAM_SIGNAL)
+      .clk              (clk),
+      .rst              (!rstn),
+      .in_ADDR          (w_MEM_MANG_ADDR),
+      .in_rd            (w_MEM_MANG_RD),
+      .in_VRAM_AVAILABLE(w_VRAM_AVAILABLE),
+      .out_data         (w_FRAME_DATA),
+      .out_VRAM_SIGNAL  (w_VRAM_SIGNAL),
   );
 
 
   SCREEN_CONTROL u_SCREEN_CONTROL (
       .clk                     (clk),
-      .rst                     (w_SUPER_RST),
+      .rst                     (!rstn),
       .in_signal_PLANE_READY_MM(w_CONTROL_PLANE_READY),
       .in_signal_HUB75_WAITING (w_HUB75_WAITING),
       .in_signal_HUB75_ITER    (w_HUB75_ITER),
@@ -68,34 +68,34 @@ module GPU (
       .out_signal_HUB75_INIT   (w_HUB75_INIT),
       .out_signal_HUB75_SHOW   (w_HUB75_SHOW),
       .out_signal_HUB75_RST    (w_HUB75_RST),
-      .out_ROW                 (w_ROW),
-      .out_RST                 (w_CONTROL_RST)
+      .out_ROW                 (w_ROW)
   );
 
   memory_management u_memory_management (
-      .clk              (clk),
-      .rst              (w_CONTROL_RST),
-      .in_CACHE         (w_CONTROL_CACHE),
-      .in_ROW           (w_ROW),
-      .in_PLANE_SELECT  (w_CONTROL_PLANE_SELECT),
-      .in_SHIFT_PLANE   (w_CONTROL_SHIFT_PLANE),
-      .in_RGB01         (w_PLANES_CACHE_RGB01),
-      .in_ROW0_DATA     (w_ROW0_DATA),
-      .in_ROW1_DATA     (w_ROW1_DATA),
-      .in_VRAM_DONE_READ(w_VRAM_SIGNAL),
-      .out_PLANE_READY  (w_CONTROL_PLANE_READY),
-      .out_PLANE_LOAD0  (w_PLANES_CACHE_LOAD0),
-      .out_PLANE_LOAD1  (w_PLANES_CACHE_LOAD1),
-      .out_PLANE_SHIFT  (w_PLANES_CACHE_SHIFT),
-      .out_ROW_LOAD0    (w_ROW_CACHE_ROW_LOAD0),
-      .out_ROW_LOAD1    (w_ROW_CACHE_ROW_LOAD1),
-      .out_RGB0         (w_HUB75_RGB0),
-      .out_RGB1         (w_HUB75_RGB1),
-      .out_R            (w_PLANES_CACHE_RED),
-      .out_G            (w_PLANES_CACHE_GREEN),
-      .out_B            (w_PLANES_CACHE_BLUE),
-      .out_ADDR         (w_MEM_MANG_ADDR),
-      .out_RD           (w_MEM_MANG_RD)
+      .clk               (clk),
+      .rst               (w_HUB75_RST),
+      .in_CACHE          (w_CONTROL_CACHE),
+      .in_ROW            (w_ROW),
+      .in_PLANE_SELECT   (w_CONTROL_PLANE_SELECT),
+      .in_SHIFT_PLANE    (w_CONTROL_SHIFT_PLANE),
+      .in_RGB01          (w_PLANES_CACHE_RGB01),
+      .in_ROW0_DATA      (w_ROW0_DATA),
+      .in_ROW1_DATA      (w_ROW1_DATA),
+      .in_VRAM_DONE_READ (w_VRAM_SIGNAL),
+      .out_PLANE_READY   (w_CONTROL_PLANE_READY),
+      .out_PLANE_LOAD0   (w_PLANES_CACHE_LOAD0),
+      .out_PLANE_LOAD1   (w_PLANES_CACHE_LOAD1),
+      .out_PLANE_SHIFT   (w_PLANES_CACHE_SHIFT),
+      .out_ROW_LOAD0     (w_ROW_CACHE_ROW_LOAD0),
+      .out_ROW_LOAD1     (w_ROW_CACHE_ROW_LOAD1),
+      .out_RGB0          (w_HUB75_RGB0),
+      .out_RGB1          (w_HUB75_RGB1),
+      .out_R             (w_PLANES_CACHE_RED),
+      .out_G             (w_PLANES_CACHE_GREEN),
+      .out_B             (w_PLANES_CACHE_BLUE),
+      .out_ADDR          (w_MEM_MANG_ADDR),
+      .out_RD            (w_MEM_MANG_RD),
+      .out_VRAM_AVAILABLE(w_VRAM_AVAILABLE)
   );
   HUB75 u_HUB75 (
       .clk              (clk),
