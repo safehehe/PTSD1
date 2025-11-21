@@ -6,12 +6,16 @@ module memory_management (
     input [1:0] in_PLANE_SELECT,
     input in_SHIFT_PLANE,
     input [5:0] in_RGB01,
-    input [511:0] in_FUSED_DATA,
+    input [511:0] in_ROW0_DATA,
+    input [511:0] in_ROW1_DATA,
+    input in_VRAM_DONE_READ,
 
     output reg out_PLANE_READY,
     output reg out_PLANE_LOAD0,
     output reg out_PLANE_LOAD1,
     output reg out_PLANE_SHIFT,
+    output reg out_ROW_LOAD0,
+    output reg out_ROW_LOAD1,
     output [2:0] out_RGB0,
     output [2:0] out_RGB1,
     output [63:0] out_R,
@@ -20,30 +24,43 @@ module memory_management (
     output [5:0] out_ADDR,
     output reg out_RD
 );
-  reg reg_PAD_ADDR;
+  reg reg_SIDE;
 
-  assign out_ADDR = {reg_PAD_ADDR, in_ROW};
+  assign out_ADDR = {reg_SIDE, in_ROW};
 
   assign out_RGB0 = in_RGB01[5:3];
   assign out_RGB1 = in_RGB01[2:0];
 
+  wire [511:0] w_cache_row;
+  multiplexor2x1 #(
+      .IN_WIDTH(512)
+  ) u_multiplexor2x1 (
+      .IN1    (in_ROW1_DATA),
+      .IN0    (in_ROW0_DATA),
+      .SELECT (reg_SIDE),
+      .MUX_OUT(w_cache_row)
+  );
+
   plane_selection u_plane_selection (
       .in_selection     (in_PLANE_SELECT),
-      .in_row_data      (in_FUSED_DATA),
+      .in_row_data      (w_cache_row),
       .out_red_channel  (out_R),
       .out_green_channel(out_G),
       .out_blue_channel (out_B)
   );
 
-  reg [2:0] state;
-  parameter START = 3'd0;
-  parameter SHIFT_P = 3'd1;
-  parameter S_CACHE0 = 3'd2;
-  parameter S_LOAD0 = 3'd3;
-  parameter S_CACHE1 = 3'd4;
-  parameter S_LOAD1 = 3'd5;
-  parameter DONE = 3'd6;
+  reg [3:0] state;
+  reg reg_row_cached;
+  parameter START = 0;
+  parameter SHIFT_P = 1;
+  parameter S_LOAD0 = 2;
+  parameter S_LOAD1 = 3;
+  parameter DONE = 4;
 
+  parameter S_CACHE_ROW0 = 5;
+  parameter S_LOAD_ROW0 = 6;
+  parameter S_CACHE_ROW1 = 7;
+  parameter S_LOAD_ROW1 = 8;
   always @(negedge clk) begin
     if (rst) begin
       state = START;
@@ -52,7 +69,10 @@ module memory_management (
       out_PLANE_LOAD0 = 0;
       out_PLANE_LOAD1 = 0;
       out_PLANE_READY = 0;
-      reg_PAD_ADDR = 0;
+      reg_row_cached = 0;
+      reg_SIDE = 0;
+      out_ROW_LOAD0 = 0;
+      out_ROW_LOAD1 = 0;
     end else
       case (state)
         START: begin
@@ -62,16 +82,35 @@ module memory_management (
             out_PLANE_LOAD0 = 0;
             out_PLANE_LOAD1 = 0;
             out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
+            reg_row_cached = reg_row_cached;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
+            reg_SIDE = 0;
             state = SHIFT_P;
           end else if (in_CACHE) begin
-            out_RD = 1;
-            out_PLANE_SHIFT = 0;
-            out_PLANE_LOAD0 = 0;
-            out_PLANE_LOAD1 = 0;
-            out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
-            state = S_CACHE0;
+            if (reg_row_cached) begin
+              out_RD = 0;
+              out_PLANE_SHIFT = 0;
+              out_PLANE_LOAD0 = 1;
+              out_PLANE_LOAD1 = 0;
+              out_PLANE_READY = 0;
+              reg_row_cached = 0;
+              reg_SIDE = 0;
+              out_ROW_LOAD0 = 0;
+              out_ROW_LOAD1 = 0;
+              state = S_LOAD0;
+            end else begin
+              out_RD = 1;
+              out_PLANE_SHIFT = 0;
+              out_PLANE_LOAD0 = 0;
+              out_PLANE_LOAD1 = 0;
+              out_PLANE_READY = 0;
+              reg_row_cached = 0;
+              reg_SIDE = 0;
+              out_ROW_LOAD0 = 0;
+              out_ROW_LOAD1 = 0;
+              state = S_CACHE_ROW0;
+            end
           end
         end
         SHIFT_P: begin
@@ -81,7 +120,9 @@ module memory_management (
             out_PLANE_LOAD0 = 0;
             out_PLANE_LOAD1 = 0;
             out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
+            reg_SIDE = 0;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
             state = SHIFT_P;
           end else begin
             out_RD = 0;
@@ -89,35 +130,21 @@ module memory_management (
             out_PLANE_LOAD0 = 0;
             out_PLANE_LOAD1 = 0;
             out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
+            reg_SIDE = 0;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
             state = START;
           end
         end
-        S_CACHE0: begin
-          out_RD = 0;
-          out_PLANE_SHIFT = 0;
-          out_PLANE_LOAD0 = 1;
-          out_PLANE_LOAD1 = 0;
-          out_PLANE_READY = 0;
-          reg_PAD_ADDR = 0;
-          state = S_LOAD0;
-        end
         S_LOAD0: begin
-          out_RD = 1;
-          out_PLANE_SHIFT = 0;
-          out_PLANE_LOAD0 = 0;
-          out_PLANE_LOAD1 = 0;
-          out_PLANE_READY = 0;
-          reg_PAD_ADDR = 1;
-          state = S_CACHE1;
-        end
-        S_CACHE1: begin
           out_RD = 0;
           out_PLANE_SHIFT = 0;
           out_PLANE_LOAD0 = 0;
           out_PLANE_LOAD1 = 1;
           out_PLANE_READY = 0;
-          reg_PAD_ADDR = 1;
+          reg_SIDE = 1;
+          out_ROW_LOAD0 = 0;
+          out_ROW_LOAD1 = 0;
           state = S_LOAD1;
         end
         S_LOAD1: begin
@@ -126,7 +153,9 @@ module memory_management (
           out_PLANE_LOAD0 = 0;
           out_PLANE_LOAD1 = 0;
           out_PLANE_READY = 1;
-          reg_PAD_ADDR = 0;
+          reg_SIDE = 0;
+          out_ROW_LOAD0 = 0;
+          out_ROW_LOAD1 = 0;
           state = DONE;
         end
         DONE: begin
@@ -135,8 +164,79 @@ module memory_management (
           out_PLANE_LOAD0 = 0;
           out_PLANE_LOAD1 = 0;
           out_PLANE_READY = 0;
-          reg_PAD_ADDR = 0;
+          reg_SIDE = 0;
+          out_ROW_LOAD0 = 0;
+          out_ROW_LOAD1 = 0;
           state = START;
+        end
+        S_CACHE_ROW0: begin
+          if (in_VRAM_DONE_READ) begin
+            out_RD = 0;
+            out_PLANE_SHIFT = 0;
+            out_PLANE_LOAD0 = 0;
+            out_PLANE_LOAD1 = 0;
+            out_PLANE_READY = 0;
+            reg_SIDE = 0;
+            out_ROW_LOAD0 = 1;
+            out_ROW_LOAD1 = 0;
+            state = S_LOAD_ROW0;
+          end else begin
+            out_RD = 0;
+            out_PLANE_SHIFT = 0;
+            out_PLANE_LOAD0 = 0;
+            out_PLANE_LOAD1 = 0;
+            out_PLANE_READY = 0;
+            reg_SIDE = 0;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
+            state = S_CACHE_ROW0;
+          end
+        end
+        S_LOAD_ROW0: begin
+          out_RD = 1;
+          out_PLANE_SHIFT = 0;
+          out_PLANE_LOAD0 = 0;
+          out_PLANE_LOAD1 = 0;
+          out_PLANE_READY = 0;
+          reg_SIDE = 1;
+          out_ROW_LOAD0 = 0;
+          out_ROW_LOAD1 = 0;
+          state = S_CACHE_ROW1;
+        end
+        S_CACHE_ROW1: begin
+          if (in_VRAM_DONE_READ) begin
+            out_RD = 0;
+            out_PLANE_SHIFT = 0;
+            out_PLANE_LOAD0 = 0;
+            out_PLANE_LOAD1 = 0;
+            out_PLANE_READY = 0;
+            reg_SIDE = 1;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 1;
+            state = S_LOAD_ROW1;
+          end else begin
+            out_RD = 0;
+            out_PLANE_SHIFT = 0;
+            out_PLANE_LOAD0 = 0;
+            out_PLANE_LOAD1 = 0;
+            out_PLANE_READY = 0;
+            reg_SIDE = 1;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
+            state = S_CACHE_ROW1;
+          end
+        end
+        S_LOAD_ROW1: begin
+          out_RD = 0;
+          out_PLANE_SHIFT = 0;
+          out_PLANE_LOAD0 = 1;
+          out_PLANE_LOAD1 = 0;
+          out_PLANE_READY = 0;
+          reg_SIDE = 0;
+          reg_row_cached = 1;
+          out_ROW_LOAD0 = 0;
+          out_ROW_LOAD1 = 0;
+          state = S_LOAD0;
         end
         default: begin
           if (in_SHIFT_PLANE) begin
@@ -145,16 +245,35 @@ module memory_management (
             out_PLANE_LOAD0 = 0;
             out_PLANE_LOAD1 = 0;
             out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
+            reg_row_cached = reg_row_cached;
+            out_ROW_LOAD0 = 0;
+            out_ROW_LOAD1 = 0;
+            reg_SIDE = 0;
             state = SHIFT_P;
           end else if (in_CACHE) begin
-            out_RD = 1;
-            out_PLANE_SHIFT = 0;
-            out_PLANE_LOAD0 = 0;
-            out_PLANE_LOAD1 = 0;
-            out_PLANE_READY = 0;
-            reg_PAD_ADDR = 0;
-            state = S_CACHE0;
+            if (reg_row_cached) begin
+              out_RD = 0;
+              out_PLANE_SHIFT = 0;
+              out_PLANE_LOAD0 = 1;
+              out_PLANE_LOAD1 = 0;
+              out_PLANE_READY = 0;
+              reg_row_cached = 0;
+              reg_SIDE = 0;
+              out_ROW_LOAD0 = 0;
+              out_ROW_LOAD1 = 0;
+              state = S_LOAD0;
+            end else begin
+              out_RD = 1;
+              out_PLANE_SHIFT = 0;
+              out_PLANE_LOAD0 = 0;
+              out_PLANE_LOAD1 = 0;
+              out_PLANE_READY = 0;
+              reg_row_cached = 0;
+              reg_SIDE = 0;
+              out_ROW_LOAD0 = 0;
+              out_ROW_LOAD1 = 0;
+              state = S_CACHE_ROW0;
+            end
           end
         end
       endcase
@@ -166,10 +285,12 @@ module memory_management (
     case (state)
       START: state_name = "START";
       SHIFT_P: state_name = "SHIFT_P";
-      S_CACHE0: state_name = "S_CACHE0";
+      S_CACHE_ROW0: state_name = "S_CACHE_ROW0";
       S_LOAD0: state_name = "S_LOAD0";
-      S_CACHE1: state_name = "S_CACHE1";
+      S_CACHE_ROW1: state_name = "S_CACHE_ROW1";
       S_LOAD1: state_name = "S_LOAD1";
+      S_LOAD_ROW1: state_name = "S_LOAD_ROW1";
+      S_LOAD_ROW0: state_name = "S_LOAD_ROW0";
       DONE: state_name = "DONE";
     endcase
   end

@@ -3,7 +3,7 @@ SIM_DIR = simulation
 SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 TESTBENCH_DIR = test_benches
-BUILDING_BLOCKS_DIR = ../building_blocks
+BUILDING_BLOCKS_DIR = ../../../raw_implementation/building_blocks
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 DESIGN = VRAM
@@ -36,7 +36,9 @@ re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 
-
+net_dot : $(OBJS) $(BUILD_DIR)
+	yosys -p "prep -top $(TOP) -flatten; show -viewer none -format dot -stretch -prefix ./diagrams/$(TOP)" $(OBJS)
+	
 
 #LATTICE COLORLIGHT 5A
 $(BUILD_DIR)/$(TOP).json : $(BUILD_DIR)

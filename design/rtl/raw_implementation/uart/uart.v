@@ -3,7 +3,7 @@
 // File Name   : uart.v
 //-----------------------------------------------------
 module uart #(
-    parameter freq_hz = 27000000,
+    parameter freq_hz = 25_000_000,
     parameter baud    = 115200
 ) (
     input            reset,
@@ -11,7 +11,7 @@ module uart #(
     // UART lines
     input            uart_rxd,
     output reg       uart_txd,
-    // 
+    //
     output reg [7:0] rx_data,
     output reg       rx_avail,
     output reg       rx_error,

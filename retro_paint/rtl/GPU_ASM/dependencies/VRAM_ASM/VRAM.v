@@ -1,87 +1,155 @@
 module VRAM #(
-  parameter HEX_FILE = "./test_benches/test_mem_image.hex"
+    parameter HEX_FILE = "./test_benches/test_mem_image.hex"
 ) (
     input clk,
+    input rst,
     input wr,
     input [11:0] wr_addr,  //4096 direcciones una por pixel
     input [7:0] in_data,
     input rd,
     input [5:0] rd_addr,
-    output reg [511:0] out_data
+    output wire [511:0] out_data,
+    output reg out_charged
 );
-  (* ram_style = "block" *)
-  reg [7:0] vram[0:4095];  //4096 cells 8bits wide
+  wire [4:0] w_COUNTER_V;
+  wire [31:0] wire_rd_byte;
 
-  initial begin
-    $readmemh(HEX_FILE, vram);
-  end
+  reg reg_COUNTER_P;
+  reg reg_ACC_RST;
+
+  reg reg_inter_write;
+  reg reg_inter_read;
+  reg [9:0] reg_inter_read_addr;
+
+  parameter IDLE = 0;
+  parameter READING = 1;
+  parameter SHIFTING = 2;
+  reg [1:0] state;
+
   always @(posedge clk) begin
-    if (wr) vram[wr_addr] <= in_data;
-    if (rd) begin//7:0 pixel numero cero, numero de pixel aumenta a la derecha
-      out_data[7:0] <= vram[{rd_addr, 6'd0}];
-      out_data[15:8] <= vram[{rd_addr, 6'd1}];
-      out_data[23:16] <= vram[{rd_addr, 6'd2}];
-      out_data[31:24] <= vram[{rd_addr, 6'd3}];
-      out_data[39:32] <= vram[{rd_addr, 6'd4}];
-      out_data[47:40] <= vram[{rd_addr, 6'd5}];
-      out_data[55:48] <= vram[{rd_addr, 6'd6}];
-      out_data[63:56] <= vram[{rd_addr, 6'd7}];
-      out_data[71:64] <= vram[{rd_addr, 6'd8}];
-      out_data[79:72] <= vram[{rd_addr, 6'd9}];
-      out_data[87:80] <= vram[{rd_addr, 6'd10}];
-      out_data[95:88] <= vram[{rd_addr, 6'd11}];
-      out_data[103:96] <= vram[{rd_addr, 6'd12}];
-      out_data[111:104] <= vram[{rd_addr, 6'd13}];
-      out_data[119:112] <= vram[{rd_addr, 6'd14}];
-      out_data[127:120] <= vram[{rd_addr, 6'd15}];
-      out_data[135:128] <= vram[{rd_addr, 6'd16}];
-      out_data[143:136] <= vram[{rd_addr, 6'd17}];
-      out_data[151:144] <= vram[{rd_addr, 6'd18}];
-      out_data[159:152] <= vram[{rd_addr, 6'd19}];
-      out_data[167:160] <= vram[{rd_addr, 6'd20}];
-      out_data[175:168] <= vram[{rd_addr, 6'd21}];
-      out_data[183:176] <= vram[{rd_addr, 6'd22}];
-      out_data[191:184] <= vram[{rd_addr, 6'd23}];
-      out_data[199:192] <= vram[{rd_addr, 6'd24}];
-      out_data[207:200] <= vram[{rd_addr, 6'd25}];
-      out_data[215:208] <= vram[{rd_addr, 6'd26}];
-      out_data[223:216] <= vram[{rd_addr, 6'd27}];
-      out_data[231:224] <= vram[{rd_addr, 6'd28}];
-      out_data[239:232] <= vram[{rd_addr, 6'd29}];
-      out_data[247:240] <= vram[{rd_addr, 6'd30}];
-      out_data[255:248] <= vram[{rd_addr, 6'd31}];
-      out_data[263:256] <= vram[{rd_addr, 6'd32}];
-      out_data[271:264] <= vram[{rd_addr, 6'd33}];
-      out_data[279:272] <= vram[{rd_addr, 6'd34}];
-      out_data[287:280] <= vram[{rd_addr, 6'd35}];
-      out_data[295:288] <= vram[{rd_addr, 6'd36}];
-      out_data[303:296] <= vram[{rd_addr, 6'd37}];
-      out_data[311:304] <= vram[{rd_addr, 6'd38}];
-      out_data[319:312] <= vram[{rd_addr, 6'd39}];
-      out_data[327:320] <= vram[{rd_addr, 6'd40}];
-      out_data[335:328] <= vram[{rd_addr, 6'd41}];
-      out_data[343:336] <= vram[{rd_addr, 6'd42}];
-      out_data[351:344] <= vram[{rd_addr, 6'd43}];
-      out_data[359:352] <= vram[{rd_addr, 6'd44}];
-      out_data[367:360] <= vram[{rd_addr, 6'd45}];
-      out_data[375:368] <= vram[{rd_addr, 6'd46}];
-      out_data[383:376] <= vram[{rd_addr, 6'd47}];
-      out_data[391:384] <= vram[{rd_addr, 6'd48}];
-      out_data[399:392] <= vram[{rd_addr, 6'd49}];
-      out_data[407:400] <= vram[{rd_addr, 6'd50}];
-      out_data[415:408] <= vram[{rd_addr, 6'd51}];
-      out_data[423:416] <= vram[{rd_addr, 6'd52}];
-      out_data[431:424] <= vram[{rd_addr, 6'd53}];
-      out_data[439:432] <= vram[{rd_addr, 6'd54}];
-      out_data[447:440] <= vram[{rd_addr, 6'd55}];
-      out_data[455:448] <= vram[{rd_addr, 6'd56}];
-      out_data[463:456] <= vram[{rd_addr, 6'd57}];
-      out_data[471:464] <= vram[{rd_addr, 6'd58}];
-      out_data[479:472] <= vram[{rd_addr, 6'd59}];
-      out_data[487:480] <= vram[{rd_addr, 6'd60}];
-      out_data[495:488] <= vram[{rd_addr, 6'd61}];
-      out_data[503:496] <= vram[{rd_addr, 6'd62}];
-      out_data[511:504] <= vram[{rd_addr, 6'd63}];
-    end
+    if (rst) begin
+      reg_inter_read = 0;
+      reg_inter_write = 0;
+      reg_inter_read_addr = 12'b0;
+      reg_ACC_RST = 1;
+      reg_COUNTER_P = 0;
+      out_charged = 0;
+      state = IDLE;
+    end else
+      case (state)
+        IDLE: begin
+          if (wr) begin
+            reg_inter_read = 0;
+            reg_inter_write = 1;
+            reg_inter_read_addr = 12'b0;
+            reg_ACC_RST = 0;
+            reg_COUNTER_P = 0;
+            out_charged = 0;
+            state = IDLE;
+          end else if (rd) begin
+            reg_inter_read = 1;
+            reg_inter_write = 0;
+            reg_inter_read_addr = {rd_addr, w_COUNTER_V[3:0]};
+            reg_ACC_RST = 0;
+            reg_COUNTER_P = 0;
+            out_charged = 0;
+            state = READING;
+          end else begin
+            reg_inter_read = 0;
+            reg_inter_write = 0;
+            reg_inter_read_addr = 12'b0;
+            reg_ACC_RST = 0;
+            reg_COUNTER_P = 0;
+            out_charged = 0;
+            state = IDLE;
+          end
+        end
+        READING: begin
+          if (w_COUNTER_V[4]) begin
+            reg_inter_read = 0;
+            reg_inter_write = 0;
+            reg_inter_read_addr = 12'b0;
+            reg_ACC_RST = 1;
+            reg_COUNTER_P = 0;
+            out_charged = 1;
+            state = IDLE;
+          end else begin
+            reg_inter_read = 0;
+            reg_inter_write = 0;
+            reg_inter_read_addr = 12'b0;
+            reg_ACC_RST = 0;
+            reg_COUNTER_P = 1;
+            out_charged = 0;
+            state = SHIFTING;
+          end
+        end
+        SHIFTING: begin
+          reg_inter_read = 1;
+          reg_inter_write = 0;
+          reg_inter_read_addr = {rd_addr, w_COUNTER_V[3:0]};
+          reg_ACC_RST = 0;
+          reg_COUNTER_P = 0;
+          out_charged = 0;
+          state = READING;
+        end
+        default: begin
+          reg_inter_read = 0;
+          reg_inter_write = 0;
+          reg_inter_read_addr = 12'b0;
+          reg_ACC_RST = 1;
+          reg_COUNTER_P = 0;
+          out_charged = 0;
+          state = IDLE;
+        end
+      endcase
   end
+
+  acumulador #(
+      .WIDTH(5),
+      .POS_EDGE(0)
+  ) u_acumulador (
+      .clk  (clk),
+      .rst  (reg_ACC_RST),
+      .plus (reg_COUNTER_P),
+      .value(w_COUNTER_V)
+  );
+
+  MultipleRSR #(
+      .RST_VALUE({1'b1, 510'b0, 1'b1}),
+      .IN_WIDTH(32),
+      .SIZE(512)
+  ) u_output_reg (
+      .clk     (clk),
+      .rst     (rst),
+      .in_data (wire_rd_byte),
+      .in_LOAD (reg_COUNTER_P),
+      .out_data(out_data)
+  );
+
+  MEM #(
+      .HEX_FILE(HEX_FILE)
+  ) u_MEM (
+      .clk     (clk),
+      .wr      (reg_inter_write),
+      .wr_addr (wr_addr),
+      .in_data (in_data),
+      .rd      (reg_inter_read),
+      .rd_addr (reg_inter_read_addr),
+      .out_data(wire_rd_byte)
+  );
+
+
+
+`ifdef BENCH
+  reg [8*40:1] state_name;
+  always @(*) begin
+    case (state)
+      IDLE: state_name = "IDLE";
+      READING: state_name = "READING";
+      SHIFTING: state_name = "SHIFTING";
+      default: state_name = "NA";
+    endcase
+  end
+`endif
+
 endmodule
