@@ -1,16 +1,10 @@
 .equ UART_BASE, 0x400000  
 .equ DPRAM_BASE, 0x450000  
 
-.equ IO_LEDS, 4
-.equ IO_UART_DAT, 8
-.equ IO_UART_CNTL, 16
+#.equ IO_LEDS, 4
+#.equ IO_UART_DAT, 8
+#.equ IO_UART_CNTL, 16
 .section .text
-.globl start 
-.globl blinker
-.globl put_hello
-
-
-
 
 calculator:
 #   li   gp,UART_BASE
@@ -27,7 +21,7 @@ calculator:
     call putstring
 
 loopM:
-    li a0, '\n'
+    li a0, '\n\r'
     call putchar
     #Receive operator
     call getchar
@@ -124,7 +118,7 @@ text_mult:
 text_div:
     .asciz "\n\r -/ Number Number- \n\r"   
 text_sqrt:
-    .asciz "\n\r -S Number _- \n\r"
+    .asciz "\n\r -S Number- \n\r"
 format:
 	.asciz "\n\r - op n1 [n2] - \n\r"
 result:

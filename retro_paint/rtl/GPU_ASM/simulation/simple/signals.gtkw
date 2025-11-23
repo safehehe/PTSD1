@@ -1,25 +1,27 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Sun Nov 16 01:26:20 2025
+[*] Fri Nov 21 18:48:25 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Sun Nov 16 01:23:30 2025"
-[dumpfile_size] 17339224
+[dumpfile_mtime] "Fri Nov 21 18:46:54 2025"
+[dumpfile_size] 24767898
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
-[size] 1912 1025
-[pos] -27 -24
-*-20.718037 6028000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1592 845
+[pos] -1 -1
+*-20.574007 3387000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [sst_width] 290
 [signals_width] 368
 [sst_expanded] 1
-[sst_vpaned_height] 305
+[sst_vpaned_height] 242
 @28
 GPU_TB.clk
 GPU_TB.rst_n
 @200
+-Salidas
+@800200
 -Salidas
 @28
 GPU_TB.screen_CLK
@@ -39,7 +41,11 @@ GPU_TB.screen_LATCH
 GPU_TB.screen_nOE
 @820
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
+@1000200
+-Salidas
 @200
+-HUB75
+@800200
 -HUB75
 @28
 GPU_TB.u_GPU.u_HUB75.in_INIT
@@ -53,8 +59,12 @@ GPU_TB.u_GPU.u_HUB75.w_nOE
 GPU_TB.u_GPU.u_HUB75.state[2:0]
 @820
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
+@1000200
+-HUB75
 @200
--Control
+-Screen Control
+@800200
+-Screen Control
 @28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_ITER
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_WAITING
@@ -63,16 +73,23 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_BRIGHT_DIM
 GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_SHOW
 GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_INIT
 GPU_TB.u_GPU.u_SCREEN_CONTROL.reg_HUB75_SHOW
+GPU_TB.u_GPU.u_SCREEN_CONTROL.out_signal_HUB75_RST
+GPU_TB.u_GPU.u_SCREEN_CONTROL.w_synced_HUB75_RST
 @820
 GPU_TB.u_GPU.u_SCREEN_CONTROL.state_name[320:1]
 @200
+-run cache
+@c00200
 -run cache
 @28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_run_CACHE.in_INIT
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_run_CACHE.out_HUB75_INIT
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_run_CACHE.state[1:0]
+@1401200
+-run cache
 @200
--run render
+-BCM
+@c00200
 -BCM
 @28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.in_INIT
@@ -89,16 +106,28 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.w_PESO[2:0]
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.acc_TIMER.plus
 @820
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.state_name[320:1]
+@1401200
+-BCM
+@1000200
+-Screen Control
 @200
+-Memory Management
+@800200
 -Memory Management
 @24
 GPU_TB.u_GPU.u_memory_management.in_PLANE_SELECT[1:0]
 @28
 GPU_TB.u_GPU.u_memory_management.in_CACHE
+GPU_TB.u_GPU.u_memory_management.rst
+GPU_TB.u_GPU.u_memory_management.reg_row_cached
 GPU_TB.u_GPU.u_memory_management.out_PLANE_READY
 @820
 GPU_TB.u_GPU.u_memory_management.state_name[320:1]
+@1000200
+-Memory Management
 @200
+-Planes Cache
+@c00200
 -Planes Cache
 @28
 GPU_TB.u_GPU.u_planes_cache.in_SHIFT
@@ -117,17 +146,20 @@ GPU_TB.u_GPU.u_planes_cache.out_RGB01[5:0]
 GPU_TB.u_GPU.u_planes_cache.in_LOAD0
 GPU_TB.u_GPU.u_planes_cache.in_LOAD1
 GPU_TB.u_GPU.u_planes_cache.in_SHIFT
-@200
--FRAME
+@1401200
+-Planes Cache
+@201
+-Image Select
 @28
-GPU_TB.u_GPU.u_image_select.clk
 GPU_TB.u_GPU.u_image_select.out_reg_RST
 GPU_TB.u_GPU.u_image_select.reg_TIMER_PLUS
-@22
+@24
 GPU_TB.u_GPU.u_image_select.in_ADDR[5:0]
 @28
 GPU_TB.u_GPU.u_image_select.in_rd
 @22
 GPU_TB.u_GPU.u_image_select.out_data[511:0]
+@28
+GPU_TB.u_GPU.u_image_select.out_VRAM_SIGNAL
 [pattern_trace] 1
 [pattern_trace] 0

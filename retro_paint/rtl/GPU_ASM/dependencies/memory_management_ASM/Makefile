@@ -3,17 +3,20 @@ SIM_DIR = simulation
 SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 TESTBENCH_DIR = test_benches
-BUILDING_BLOCKS_DIR = ../building_blocks
+BUILDING_BLOCKS_DIR = ../../../raw_implementation/building_blocks
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 VRAM_DIR = ../VRAM_ASM
 planes_cache_DIR = ../planes_cache_ASM
-
+row_cache_DIR = ../row_cache_ASM
 
 DESIGN = memory_management
 TOP = memory_management
 TARGET = memory_management
-OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v) $(wildcard $(VRAM_DIR)/*.v) $(wildcard $(planes_cache_DIR)/*.v)
+OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
+OBJS += $(wildcard $(VRAM_DIR)/*.v)
+OBJS += $(wildcard $(planes_cache_DIR)/*.v)
+OBJS += $(wildcard $(row_cache_DIR)/*.v)
 post_synth_OBJS = $(wildcard $(VRAM_DIR)/build/*_synth.v) $(wildcard $(planes_cache_DIR)/build/*_synth.v)
 .PHONY : all simple_sim re_simple_sim sim_post_synth re_sim_post_synth clean
 all : simple_sim

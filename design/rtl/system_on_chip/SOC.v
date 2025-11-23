@@ -43,7 +43,7 @@ module SOC (
 
 
   peripheral_uart #(
-      .clk_freq(26000000),  // 27000000 for gowin 33333333 for efinix
+      .clk_freq(25_000_000),  // 27000000 for gowin 33333333 for efinix
       .baud    (115200)     // 57600 for gowin
   ) per_uart (
       .clk(clk),

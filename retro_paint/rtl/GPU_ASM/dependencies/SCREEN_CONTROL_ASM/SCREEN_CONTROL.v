@@ -13,17 +13,15 @@ module SCREEN_CONTROL #(
     output wire out_signal_HUB75_INIT,
     output out_signal_HUB75_SHOW,
     output out_signal_HUB75_RST,
-    output [4:0] out_ROW,
-    output out_RST
+    output [4:0] out_ROW
 );
   assign out_signal_SHIFT_PLANE = in_signal_HUB75_ITER;
   assign out_signal_HUB75_SHOW  = w_synced_HUB75_SHOW;
-  assign out_signal_HUB75_RST   = w_synced_HUB75_RST + reg_RST;
+  assign out_signal_HUB75_RST   = w_synced_HUB75_RST | reg_RST;
   assign out_signal_HUB75_INIT  = w_inter_HUB75_INIT;
   wire w_inter_HUB75_INIT;
   wire w_synced_HUB75_SHOW;
   wire w_synced_HUB75_RST;
-  assign out_RST = reg_RST;
   reg  reg_RST;
   reg  reg_CACHE_INIT;
   reg  reg_ROW_P;
