@@ -7,7 +7,7 @@ module control_div (
     INIT,
     SH,
     DEC,
-    LDA,
+    loadA,
     DONE,
     DV0
 );
@@ -22,7 +22,7 @@ module control_div (
   output reg DV0;
   output reg SH;
   output reg DEC;
-  output reg LDA;
+  output reg loadA;
   output reg DONE;
 
 
@@ -74,7 +74,7 @@ module control_div (
         DV0  = 0;
         SH   = 0;
         DEC  = 0;
-        LDA  = 0;
+        loadA  = 0;
         DONE = 0;
       end
       SHIFT_DEC: begin
@@ -82,7 +82,7 @@ module control_div (
         DV0  = 0;
         SH   = 1;
         DEC  = 1;
-        LDA  = 0;
+        loadA  = 0;
         DONE = 0;
       end
       CHECK: begin
@@ -90,15 +90,15 @@ module control_div (
         DV0  = 0;
         SH   = 0;
         DEC  = 0;
-        LDA  = 0;
+        loadA  = 0;
         DONE = 0;
       end
       ADD: begin
         INIT = 0;
-        DV0  = 0;  // primero suma
+        DV0  = 0; 
         SH   = 0;
         DEC  = 0;
-        LDA  = 1;
+        loadA  = 1;
         DONE = 0;
       end
       END1: begin
@@ -106,7 +106,7 @@ module control_div (
         DV0  = 1;
         SH   = 0;
         DEC  = 0;
-        LDA  = 0;
+        loadA  = 0;
         DONE = 1;
       end
       default: begin
@@ -114,7 +114,7 @@ module control_div (
         DV0  = 0;
         SH   = 0;
         DEC  = 0;
-        LDA  = 0;
+        loadA  = 0;
         DONE = 0;
       end
     endcase

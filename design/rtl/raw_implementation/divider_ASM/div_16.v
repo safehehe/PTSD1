@@ -4,7 +4,8 @@ module div_16 (
     init_in,
     A,
     B,
-    Result,
+    R,
+    Q,
     done
 );
 
@@ -13,39 +14,39 @@ module div_16 (
   input init_in;
   input [15:0] A;
   input [15:0] B;
-  output [15:0] Result;
+  output [15:0] R;
+  output [15:0] Q;
   output done;
 
 
-  wire w_INIT, w_SH, w_LDA;
+  wire w_init, w_shift, w_loadA;
 
-  wire w_MSB;
-  wire [16:0] Result_Sub;
-  wire [16:0] Reg_A;
+  wire [16:0] R_Sub;
+ 
 
-  wire w_DEC, w_K, w_DV0;
+  wire w_DEC, w_K, w_R;
 
 
   lsr_div lsr_d (
       .clk(clk),
-      .rst(w_INIT),
+      .rst(w_init),
       .DV_in(A),
-      .IN_A(Result_Sub),
-      .INIT(w_INIT),
-      .SH(w_SH),
-      .LDA(w_LDA),
-      .A(Reg_A),
+      .IN_A(R_Sub),
+      .INIT(w_init),
+      .SH(w_shift),
+      .loadA(w_loadA),
+      .in_Q(Q),
       .DV0(w_DV0),
-      .OUT_R(Result)
+      .OUT_R(R)
   );
 
   sumador #(
       .N_BITS(17),
       .CP2(1)
   ) sb (
-      .A(Reg_A),
+      .A(Q),
       .B(B),
-      .out_SUM(Result_Sub)
+      .out_SUM(R_Sub)
   );
 
   acumulador_restando #(
@@ -53,7 +54,7 @@ module div_16 (
       .RST_VALUE (16),
       .LESS_VALUE(1)
   ) ctr_vd (
-      .rst  (w_INIT),
+      .rst  (w_init),
       .clk  (clk),
       .less (w_DEC),
       .out_K(w_K)
@@ -63,12 +64,12 @@ module div_16 (
       .clk(clk),
       .rst(rst),
       .init_in(init_in),
-      .MSB(Result_Sub[16]),
+      .MSB(R_Sub[16]),
       .in_K(w_K),
-      .INIT(w_INIT),
-      .SH(w_SH),
+      .INIT(w_init),
+      .SH(w_shift),
       .DEC(w_DEC),
-      .LDA(w_LDA),
+      .loadA(w_loadA),
       .DONE(done),
       .DV0(w_DV0)
   );

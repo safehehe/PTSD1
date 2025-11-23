@@ -12,7 +12,7 @@ module div_16_TB;
   reg init_in;
   reg [15:0] A;
   reg [15:0] B;
-  wire [15:0] Result;
+  wire [15:0] R;
   wire done;
 
   div_16 uut (
@@ -21,7 +21,7 @@ module div_16_TB;
       .init_in(start),
       .A(A),
       .B(B),
-      .Result(Result),
+      .R(R),
       .done(done)
   );
 
@@ -45,15 +45,15 @@ module div_16_TB;
   end
 
 
-  initial begin  // Initialize Inputs
+  initial begin  
     clk = 0;
     reset = 1;
     start = 0;
-    A = 16'h0051;
+    A = 16'h0052;
     B = 16'h0009;
   end
 
-  initial begin  // Process for clk
+  initial begin  
     #OFFSET;
     forever begin
       clk = 1'b0;
@@ -62,7 +62,7 @@ module div_16_TB;
     end
   end
 
-  initial begin  // Reset the system, Start the image capture process
+  initial begin  
     #10->reset_trigger;
     @(reset_done_trigger);
     @(posedge clk);
