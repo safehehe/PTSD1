@@ -1,6 +1,6 @@
 # Proyecto Transversal Sistemas Digitales 1 
 
-## Universidad Nacional De Colombia - Electrónica Digital I
+## Universidad Nacional De Colombia 
 
 ## Autores
 
