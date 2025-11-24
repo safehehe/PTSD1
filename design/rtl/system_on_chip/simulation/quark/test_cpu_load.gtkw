@@ -1,6 +1,6 @@
 [*]
 [*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
-[*] Mon Nov 24 15:35:19 2025
+[*] Mon Nov 24 15:41:39 2025
 [*]
 [dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/design/rtl/system_on_chip/simulation/quark/quark_TB.vcd"
 [dumpfile_mtime] "Mon Nov 24 15:27:29 2025"
@@ -191,7 +191,13 @@ quark_TB.uut.CPU.mem_wmask[3:0]
 quark_TB.uut.CPU.mem_wdata[31:0]
 quark_TB.uut.CPU.aluIn1[31:0]
 quark_TB.uut.CPU.aluIn2[31:0]
+@23
 quark_TB.uut.CPU.aluOut[31:0]
+@200
+-
+-UART
+@c00200
+-UART
 @28
 [color] 3
 quark_TB.uut.RXD
@@ -213,9 +219,13 @@ quark_TB.uut.per_uart.wr
 quark_TB.uut.per_uart.rx_avail
 @22
 quark_TB.uut.per_uart.rx_data[7:0]
+@1401200
+-UART
 @200
 -
 -REGISTER BANK
+@c00200
+-Banco de Registros
 @22
 [color] 2
 quark_TB.uut.CPU.\registerFile[0][31:0]
@@ -320,16 +330,12 @@ quark_TB.uut.CPU.\registerFile[14][31:0]
 quark_TB.uut.CPU.\registerFile[15][31:0]
 [color] 2
 quark_TB.uut.CPU.\registerFile[16][31:0]
+@1401200
+-Banco de Registros
 @200
 -
 @20000
 -
-@22
-quark_TB.uut.RAM.\MEM[1024][31:0]
-quark_TB.uut.RAM.\MEM[1023][31:0]
-quark_TB.uut.RAM.\MEM[1022][31:0]
-quark_TB.uut.RAM.\MEM[1021][31:0]
-quark_TB.uut.RAM.\MEM[1020][31:0]
 @200
 -MULTIPLIER
 @c00200
@@ -461,7 +467,7 @@ quark_TB.uut.bcd1.bcd1.out_UND[3:0]
 quark_TB.uut.bcd1.bcd1.control_BCD.state[4:0]
 @1401200
 -BCD
-@20001
+@20000
 -
 @200
 -
