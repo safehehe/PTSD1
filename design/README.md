@@ -204,13 +204,13 @@ Ejemplo simulación simple:
 ```bash
 [raiz_ASM] $ make simple_sim
 ```
-<img width="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png>
+<img width="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png">
 
 Ejemplo simulación luego de síntesis:
 ```bash
 [raiz_ASM] $ make sim_post_synth
 ```
-<img width="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png>
+<img width="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png">
 
 
 Tambien se simula el sistema completo de la siguiente manera :
