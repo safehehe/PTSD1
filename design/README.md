@@ -104,7 +104,7 @@ El Address Decoder asigna un rango de direcciones a cada uno:
 
 A continuación se muestra la arquitectura final del SoC:
 
-<img width="900" alt="structure" src="./rtl/peripheral_implementation/diagrams/structure.png" />
+<img width="700" alt="structure" src="./rtl/peripheral_implementation/diagrams/structure.png" />
 
 #### Periférico Raíz Cuadrada
 Código
@@ -123,9 +123,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="900" alt="raiz" src="./rtl/raw_implementation/raiz_ASM/diagrams/diagrama_raiz.png" />
+<img width="700" alt="raiz" src="./rtl/raw_implementation/raiz_ASM/diagrams/diagrama_raiz.png" />
 
-<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/raiz_perip/diagrams/diagrama_perip_raiz.png"/>
+<img width="700" alt="periferico_raiz" src="./rtl/peripheral_implementation/raiz_perip/diagrams/diagrama_perip_raiz.png"/>
 
 
 
@@ -146,9 +146,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="900" alt="diagrama_divider" src="./rtl/raw_implementation/divider_ASM/diagrams/divisor.png" />
+<img width="700" alt="diagrama_divider" src="./rtl/raw_implementation/divider_ASM/diagrams/divisor.png" />
 
-<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/divider_perip/diagrams/diagrama_divider_perip.png"/>
+<img width="700" alt="periferico_raiz" src="./rtl/peripheral_implementation/divider_perip/diagrams/diagrama_divider_perip.png"/>
 
 #### Periférico Multiplicación
 Código
@@ -167,9 +167,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="900" alt="diagrama_mult" src="./rtl/raw_implementation/mult_ASM/diagrams/multiplicador.png" />
+<img width="700" alt="diagrama_mult" src="./rtl/raw_implementation/mult_ASM/diagrams/multiplicador.png" />
 
-<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/mult_perip/diagrams/diagrama_mult_perip.png"/>
+<img width="700" alt="periferico_raiz" src="./rtl/peripheral_implementation/mult_perip/diagrams/diagrama_mult_perip.png"/>
 
 
 
@@ -188,9 +188,9 @@ Direcciones:
 
 Diagramas
 
-<img width="900" alt="bcd" src="./rtl/raw_implementation/BCD_ASM/diagrams/diagrams_bcd.png" />
+<img width="700" alt="bcd" src="./rtl/raw_implementation/BCD_ASM/diagrams/diagrams_bcd.png" />
 
-<img width="900" alt="diagrama_perip_BCD" src="./rtl/peripheral_implementation/BCD_perip/diagrams/diagrama_perip_BCD.png" />
+<img width="700" alt="diagrama_perip_BCD" src="./rtl/peripheral_implementation/BCD_perip/diagrams/diagrama_perip_BCD.png" />
 
 
 
@@ -204,13 +204,13 @@ Ejemplo simulación simple:
 ```bash
 [raiz_ASM] $ make simple_sim
 ```
-<img width="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png">
+<img width="700" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png">
 
 Ejemplo simulación luego de síntesis:
 ```bash
 [raiz_ASM] $ make sim_post_synth
 ```
-<img width="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png">
+<img width="700" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png">
 
 
 Tambien se simula el sistema completo de la siguiente manera :
@@ -218,7 +218,7 @@ Tambien se simula el sistema completo de la siguiente manera :
 [system_on_chip] make sim_quark
 ```
 Resultado en consola de la simulación de el sistema:
-<img width="900" alt="sim_quark_SOC" src="./Imagenes/TerminalCalculadora.png">
+<img height="100" alt="sim_quark_SOC" src="./Imagenes/TerminalCalculadora.png">
 
 #### Implementación en FPGA
 
