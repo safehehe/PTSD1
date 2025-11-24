@@ -1,31 +1,33 @@
 [*]
 [*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
-[*] Thu Oct 23 13:13:44 2025
+[*] Mon Nov 24 15:02:46 2025
 [*]
 [dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/design/rtl/raw_implementation/mult_ASM/simulation/simple/mult_32_TB.vcd"
-[dumpfile_mtime] "Thu Oct 23 13:06:02 2025"
-[dumpfile_size] 5664
+[dumpfile_mtime] "Mon Nov 24 15:00:38 2025"
+[dumpfile_size] 5674
 [savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/design/rtl/raw_implementation/mult_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1366 651
-[pos] -51 -51
+[pos] -1 -1
 *-17.855467 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] mult_32_TB.
 [treeopen] mult_32_TB.uut.
 [sst_width] 216
-[signals_width] 94
+[signals_width] 166
 [sst_expanded] 1
 [sst_vpaned_height] 168
+@200
+-Entradas
 @24
 mult_32_TB.uut.A[15:0]
 mult_32_TB.uut.B[15:0]
-@28
-mult_32_TB.uut.rst
-mult_32_TB.uut.done
-mult_32_TB.uut.init
+@200
+-Salida
 @24
 mult_32_TB.uut.pp[31:0]
-@29
-mult_32_TB.uut.clk
+@200
+-Estado
+@820
+mult_32_TB.uut.control0.state_name[320:1]
 [pattern_trace] 1
 [pattern_trace] 0
