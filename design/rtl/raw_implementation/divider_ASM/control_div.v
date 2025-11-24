@@ -34,7 +34,7 @@ module control_div (
 
   reg [2:0] state;
   reg [4:0] timer_done;
-  parameter ST_TIMER_DONE = 5'd20;
+  parameter ST_TIMER_DONE = 5'd24;
 
 
   always @(posedge clk) begin
@@ -71,50 +71,50 @@ module control_div (
     case (state)
       START: begin
         INIT = 1;
-        DV0  = 0;
-        SH   = 0;
-        DEC  = 0;
-        loadA  = 0;
+        DV0 = 0;
+        SH = 0;
+        DEC = 0;
+        loadA = 0;
         DONE = 0;
       end
       SHIFT_DEC: begin
         INIT = 0;
-        DV0  = 0;
-        SH   = 1;
-        DEC  = 1;
-        loadA  = 0;
+        DV0 = 0;
+        SH = 1;
+        DEC = 1;
+        loadA = 0;
         DONE = 0;
       end
       CHECK: begin
         INIT = 0;
-        DV0  = 0;
-        SH   = 0;
-        DEC  = 0;
-        loadA  = 0;
+        DV0 = 0;
+        SH = 0;
+        DEC = 0;
+        loadA = 0;
         DONE = 0;
       end
       ADD: begin
         INIT = 0;
-        DV0  = 0; 
-        SH   = 0;
-        DEC  = 0;
-        loadA  = 1;
+        DV0 = 0;
+        SH = 0;
+        DEC = 0;
+        loadA = 1;
         DONE = 0;
       end
       END1: begin
         INIT = 0;
-        DV0  = 1;
-        SH   = 0;
-        DEC  = 0;
-        loadA  = 0;
+        DV0 = 1;
+        SH = 0;
+        DEC = 0;
+        loadA = 0;
         DONE = 1;
       end
       default: begin
         INIT = 1;
-        DV0  = 0;
-        SH   = 0;
-        DEC  = 0;
-        loadA  = 0;
+        DV0 = 0;
+        SH = 0;
+        DEC = 0;
+        loadA = 0;
         DONE = 0;
       end
     endcase
