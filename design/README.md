@@ -130,6 +130,7 @@ Diagramas
 
 
 #### Periférico División
+No divide entre 2
 Código
 - [Periferico](./rtl/peripheral_implementation/divider_perip/)
 - [Modulo](./rtl/raw_implementation/divider_ASM/)
