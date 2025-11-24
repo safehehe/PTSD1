@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Mon Oct 20 02:00:13 2025
+[*] Sat Nov 22 13:22:59 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/post_synth/peripheral_BCD_TB.vcd"
-[dumpfile_mtime] "Mon Oct 20 01:58:56 2025"
-[dumpfile_size] 178605
+[dumpfile_mtime] "Sat Nov 22 13:22:31 2025"
+[dumpfile_size] 209959
 [savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/BCD_perip/simulation/post_synth/signals.gtkw"
-[timestart] 554000
-[size] 826 845
-[pos] -1 -1
-*-18.009371 810000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 0
+[size] 1592 845
+[pos] -26 -24
+*-18.009371 281000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] peripheral_BCD_TB.
 [treeopen] peripheral_BCD_TB.uut.
 [treeopen] peripheral_BCD_TB.uut.bcd1.
@@ -30,9 +30,9 @@ peripheral_BCD_TB.uut.cs
 -Entradas
 @28
 peripheral_BCD_TB.uut.wr
-@22
-peripheral_BCD_TB.uut.d_in[15:0]
 @24
+peripheral_BCD_TB.uut.d_in[15:0]
+@29
 peripheral_BCD_TB.uut.\bcd1.in_BIN[8:0]
 @28
 peripheral_BCD_TB.uut.\bcd1.init

@@ -23,7 +23,7 @@ module BIN_TO_BCD_TB;
       .out_DONE(DONE)
   );
 
-  parameter PERIOD = 20;
+  parameter PERIOD = 40;
   parameter real DUTY_CYCLE = 0.5;
   parameter OFFSET = 0;
   reg [20:0] i;
@@ -44,7 +44,7 @@ module BIN_TO_BCD_TB;
     clk   = 0;
     //rst = 1;
     start = 0;
-    BIN   = 9'b111111111;
+    BIN   = 9'd299;
   end
   initial begin  //Process for clk
     #OFFSET;

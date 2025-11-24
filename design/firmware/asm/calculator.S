@@ -21,8 +21,8 @@ calculator:
     call putstring
 
 loopM:
-    li a0, '\n\r'
-    call putchar
+    la a0, endl
+    call putstring
     #Receive operator
     call getchar
     call putchar
@@ -123,3 +123,5 @@ format:
 	.asciz "\n\r - op n1 [n2] - \n\r"
 result:
 	.asciz "\n\rResult = "
+endl : 
+	.asciz "\n\r"
