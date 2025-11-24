@@ -31,7 +31,7 @@ module control_mult (
 
   reg [2:0] state;
   reg [4:0] timer_done;
-  parameter ST_TIMER_DONE = 5'd20;
+  parameter ST_TIMER_DONE = 5'd24;
 
   initial begin
     done = 0;

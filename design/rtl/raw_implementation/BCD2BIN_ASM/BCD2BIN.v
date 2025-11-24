@@ -21,7 +21,7 @@ module BCD2BIN (
 
   multiplexor2x1 #(
       .IN_WIDTH(4)
-  ) u_mux_und (
+  ) u_mux_n (
       .IN1    (4'd4),
       .IN0    (4'd3),
       .SELECT (w_LOAD),

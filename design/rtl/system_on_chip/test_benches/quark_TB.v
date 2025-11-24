@@ -94,11 +94,11 @@ module quark_TB ();
     */
     #(tck * 250000) UART_WRITE_BYTE(8'h2A); //Operador *
     #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
-    #(tck * 500) UART_WRITE_BYTE(8'h39);  //Numero 9
-    #(tck * 500) UART_WRITE_BYTE(8'h39);  //Numero 9
+    #(tck * 500) UART_WRITE_BYTE(8'h31);  //Numero 0
+    #(tck * 500) UART_WRITE_BYTE(8'h30);  //Numero 5
     #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
-    #(tck * 500) UART_WRITE_BYTE(8'h30);  //Numero 0
-    #(tck * 500) UART_WRITE_BYTE(8'h33);  //Numero 3
+    #(tck * 500) UART_WRITE_BYTE(8'h30);  //Numero 1
+    #(tck * 500) UART_WRITE_BYTE(8'h35);  //Numero 0
     #(tck * 100000) UART_WRITE_BYTE(8'h2F); //Operador /
     #(tck * 500) UART_WRITE_BYTE(8'h20); //Caracter ' '(espacio)
     #(tck * 500) UART_WRITE_BYTE(8'h38);  //Numero 8
