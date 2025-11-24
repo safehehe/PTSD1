@@ -218,7 +218,7 @@ Tambien se simula el sistema completo de la siguiente manera :
 [system_on_chip] make sim_quark
 ```
 Resultado en consola de la simulación de el sistema:
-<img height="100" alt="sim_quark_SOC" src="./Imagenes/TerminalCalculadora.png">
+<img height="300" alt="sim_quark_SOC" src="./Imagenes/TerminalCalculadora.png">
 
 #### Implementación en FPGA
 
