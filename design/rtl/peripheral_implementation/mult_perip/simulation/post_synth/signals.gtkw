@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Sat Nov 22 12:51:35 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/mult_perip/simulation/post_synth/peripheral_mult_TB.vcd"
+[dumpfile_mtime] "Sat Nov 22 12:49:32 2025"
+[dumpfile_size] 320042
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/peripheral_implementation/mult_perip/simulation/post_synth/signals.gtkw"
+[timestart] 0
+[size] 714 845
+[pos] -24 -22
+*-18.262543 780000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 290
+[signals_width] 354
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+peripheral_mult_TB.clk
+peripheral_mult_TB.rst
+peripheral_mult_TB.cs
+peripheral_mult_TB.wr
+@22
+peripheral_mult_TB.addr[4:0]
+@24
+peripheral_mult_TB.d_in[15:0]
+@28
+peripheral_mult_TB.rd
+@24
+peripheral_mult_TB.d_out[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

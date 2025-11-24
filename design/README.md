@@ -1,14 +1,14 @@
-🧮 Calculadora Digital en Verilog
+# Calculadora Digital en Verilog
 
-Universidad Nacional De Colombia - Electrónica Digital I
+## Universidad Nacional De Colombia - Electrónica Digital I
 
-👨‍💻 Autores
+## Autores
 
-Samuel Hernández - ...
+ *Samuel Felipe Hernández Herreño - 102740044*
 
-Steven Sebastian Osorio Castro - 1022922007
+*Steven Sebastian Osorio Castro - 1022922007*
 
-Daniel Puentes - ...
+*Daniel Santiango Puentes Villabona - 1052378730*
 
 
 Este proyecto implementa una calculadora digital basada en un SoC, desarrollada en Verilog y probada en FPGA. 
@@ -16,72 +16,80 @@ La calculadora ejecuta una operación seleccionada y finalmente transforma el re
 
 Las operaciones implementadas son:
 
-✖️ Multiplicación binaria
+- Multiplicación binaria
 
-➗ División binaria
+- División binaria
 
-√ Raíz cuadrada binaria
+- Raíz cuadrada binaria
 
-🔄 Conversión Binario → BCD (decimal)
+- Conversión Binario → BCD (Decimal Codificado Binario)
 
 Las cuatro operaciones fueron construidas siguiendo la metodología del curso:
 
 - Diagrama de flujo del algoritmo
 
-- Diagrama ASM (máquina de estados)
+- Diagrama máquina de estados
 
-- Camino de datos
-
-- Unidad de control
+- Camino de datos y unidad de control
 
 - Interconexión como periféricos en un SoC
 
-- Simulación en GTKWave
+- Simulación con Iverilog y GTKWave
 
 - Implementación final en FPGA
 
-📁 Estructura Abreviada del Proyecto
+#### Estructura Abreviada del Proyecto
 
 ```Bash
-/design
+\design
   \firmware
+    \asm
+      ...
+      calculator.S
   \rtl
     \peripheral_implementation
-      \BCD_perip
+      \*_perip
         \diagrams
         \simulation
-        \test_bench
+        \test_benches
         Makefile
-        Readme.,d
-        peripheral_BCD.v
-      \diagrams
-      \divider_perip
-      \mult_perip
-      \raiz_perip
-      \uart_perip
+        peripheral_*.v
     \raw_implementation
+      \*_ASM
+        \diagrams
+        \simulation
+        \test_benches
+        Makefile
+        *.v
     \system_on_chip
-  README.md
-/docs
-.gitignore
-LISCENSE
-README.md
+      ...
+      SOC.v
 ```
 Los módulos principales pueden consultarse aquí:
 
-🔗 [Periferico Multiplicador](rtl/peripheral_implementation/mult_perip/test_benches/peripheral_mult_TB.v)
-
-🔗 [Periferico Divisor](rtl/peripheral_implementation/divider_perip/test_benches/peripheral_div_TB.v)
-
-🔗 [Periferico Raiz Cuadrada](rtl/peripheral_implementation/raiz_perip/test_benches/peripheral_raiz_TB.v)
-
-🔗 [Periferico BCD](rtl/peripheral_implementation/BCD_perip/test_benches/peripheral_BCD_TB.v)
-
-🔗 [Periferico uart](rtl/peripheral_implementation/uart_perip/peripehral_uart.v)
-
-🔗 [system on chip SOC](rtl/system_on_chip/SOC.v)
-
-🧩 Arquitectura General
+- Multiplicador
+  - [Periferico](./rtl/peripheral_implementation/mult_perip/peripheral_mult.v)
+  - [Modulo](./rtl/raw_implementation/mult_ASM/mult_32.v)
+  - [Driver](./firmware/asm/mult.S)
+- Divisor
+  - [Periferico](./rtl/peripheral_implementation/divider_perip/peripheral_div.v)
+  - [Modulo](./rtl/raw_implementation/divider_ASM/div_16.v)
+  - [Driver](./firmware/asm/div.S)
+- Raiz Cuadrada
+  - [Periferico](./rtl/peripheral_implementation/raiz_perip/peripheral_raiz.v)
+  - [Modulo](./rtl/raw_implementation/raiz_ASM/raiz_16.v)
+  - [Driver](./firmware/asm/sqrt.S)
+- Binary to BCD
+  - [Periferico](./rtl/peripheral_implementation/BCD_perip/peripheral_BCD.v)
+  - [Modulo](./rtl/raw_implementation/BCD_ASM/BIN_TO_BCD.v)
+  - [Driver](./firmware/asm/bin_to_bcd.S)
+- UART
+  - [Periferico](./rtl/peripheral_implementation/uart_perip/peripehral_uart.v)
+  - [Modulo](./rtl/raw_implementation/uart/uart.v)
+  - [Driver](./firmware/asm/getchar.S)
+- [Sistema en Silicio](./rtl/system_on_chip/SOC.v)
+  -[Firmware](./firmware/asm/calculator.S)
+#### Arquitectura General
 
 El sistema está basado en un procesador conectado a cuatro periféricos dedicados.
 El Address Decoder asigna un rango de direcciones a cada uno:
@@ -96,76 +104,124 @@ El Address Decoder asigna un rango de direcciones a cada uno:
 
 A continuación se muestra la arquitectura final del SoC:
 
-<img width="981" height="1044" alt="structure" src="https://github.com/user-attachments/assets/ae8ba115-437f-4c17-b5ba-5e52e8ebaa5b" />
+<img width="981" height="1044" alt="structure" src="./rtl/peripheral_implementation/diagrams/structure.png" />
 
-🧮 Periférico Raíz Cuadrada
+#### Periférico Raíz Cuadrada
+Código
+- [Periferico](./rtl/peripheral_implementation/raiz_perip)
+- [Modulo](./rtl/raw_implementation/raiz_ASM)
 
-📌 Direcciones asignadas
+Direcciones asignadas
 
-| Registro | Dirección   |
-| -------- | ----------- |
-| RR       | `0xXXXXX1`  |
-| init     | `0xXXXXX10` |
-| R        | `0xXXX100`  |
-| Q        | `0xXX1000`  |
-| done     | `0xX10000`  |
-
-
-📌 Diagramas
-
-<img width="1491" height="842" alt="raiz" src="https://github.com/user-attachments/assets/d6a4893a-ddfb-4a35-b869-e46d52146d98" />
-
-<img width="1220" height="514" alt="diagrama_raiz" src="https://github.com/user-attachments/assets/e49955e7-5548-4584-bd24-3675601278fc" />
-
-
-
-➗ Periférico División
+| Registro | Dirección   | Descripción |
+| -------- | ----------- | ----------- |
+| RR       | `0x410004`  | Radicando|  
+| init     | `0x410008`  | Iniciar|
+| R        | `0x41000C`  | Raiz|
+| Q        | `0x410010`  | Resto|
+| done     | `0x410014`  | Terminado|
 
 Diagramas
 
-<img width="1220" height="514" alt="diagrama_divider" src="https://github.com/user-attachments/assets/74a8145a-c958-473b-a676-06605a645dd8" />
+<img width="1491" height="842" alt="raiz" src="./rtl/raw_implementation/raiz_ASM/diagrams/diagrama_raiz.png" />
+
+<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/raiz_perip/diagrams/diagrama_perip_raiz.png"/>
 
 
 
-✖️ Periférico Multiplicación
+#### Periférico División
+Código
+- [Periferico](./rtl/peripheral_implementation/divider_perip/)
+- [Modulo](./rtl/raw_implementation/divider_ASM/)
 
-Diagramas
+Direcciones asignadas
 
-<img width="1220" height="514" alt="diagrama_mult" src="https://github.com/user-attachments/assets/57fb741d-6465-406d-961f-a9fa99610485" />
-
-
-
-🔄 Conversión BIN → BCD
-
-📌 Direcciones:
-
-| Registro | Dirección  |
-| -------- | ---------- |
-| BIN      | `0xXXXX04` |
-| init     | `0xXXXX08` |
-| UND      | `0xXXXX0C` |
-| DEC      | `0xXXXX10` |
-| CEN      | `0xXXXX14` |
-| DONE     | `0xXXXX18` |
+| Registro | Dirección   | Descripción |
+| -------- | ----------- | ----------- |
+| A        | `0x430004`  | Dividendo   |  
+| B        | `0x430008`  | Divisor     |
+| init     | `0x43000C`  | Iniciar     |
+| R        | `0x430010`  | Cociente   |
+| done     | `0x430014`  | Terminado   |
 
 Diagramas
 
-<img width="1848" height="832" alt="bcd" src="https://github.com/user-attachments/assets/b201b3f1-e8d5-4c7f-ad97-d2d28a16153e" />
+<img width="1220" height="514" alt="diagrama_divider" src="./rtl/raw_implementation/divider_ASM/diagrams/divisor.png" />
+
+<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/divider_perip/diagrams/diagrama_divider_perip.png"/>
+
+#### Periférico Multiplicación
+Código
+- [Periferico](./rtl/peripheral_implementation/divider_perip/)
+- [Modulo](./rtl/raw_implementation/divider_ASM/)
+
+Direcciones asignadas
+
+| Registro | Dirección   | Descripción  |
+| -------- | ----------- | -----------  |
+| A        | `0x420004`  | Multiplicando|  
+| B        | `0x420008`  | Multiplicador|
+| init     | `0x42000C`  | Iniciar      |
+| R        | `0x420010`  | Producto     |
+| done     | `0x420014`  | Terminado    |
+
+Diagramas
+
+<img width="1220" height="514" alt="diagrama_mult" src="./rtl/raw_implementation/mult_ASM/diagrams/multiplicador.png" />
+
+<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/mult_perip/diagrams/diagrama_mult_perip.png"/>
 
 
-<img width="1260" height="594" alt="diagrama_BCD" src="https://github.com/user-attachments/assets/cf29261b-6b31-46ed-9950-717b4215094c" />
+
+#### Conversión BIN → BCD
+
+Direcciones:
+
+| Registro | Dirección  | Descripción |
+| -------- | ---------- | ----------- |
+| BIN      | `0x440004` | Representacion binaria |
+| init     | `0x440008` | Iniciar     |
+| UND      | `0x44000C` | Unidades    |
+| DEC      | `0x440010` | Decenas     |
+| CEN      | `0x440014` | Centenas    |
+| DONE     | `0x440018` | Terminado   |
+
+Diagramas
+
+<img width="1848" height="832" alt="bcd" src="./rtl/raw_implementation/BCD_ASM/diagrams/diagrams_bcd.png" />
+
+<img width="1260" height="594" alt="diagrama_perip_BCD" src="./rtl/peripheral_implementation/BCD_perip/diagrams/diagrama_perip_BCD.png" />
 
 
 
-🧪 Simulación
+#### Simulación
+Para cada modulo y su periferico se puede obtener una simulación simple y una simulación luego de sintetizar a la FPGA objetivo.
 
-Cada periférico fue comprobado mediante Makefile para compilar con iverilog
+Se utiliza `iverilog` para compilar los archivos fuente en Verilog y `gtkwave` para visualizar los resultados. 
 
-🛠️ Implementación en FPGA
+
+Ejemplo simulación simple:
+```bash
+[raiz_ASM] $ make simple_sim
+```
+<img width="1200" height="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png>
+
+Ejemplo simulación luego de síntesis:
+```bash
+[raiz_ASM] $ make sim_post_synth
+```
+<img width="1200" height="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png>
+
+
+Tambien se simula el sistema completo de la siguiente manera :
+```bash
+[system_on_chip] make sim_quark
+```
+#### Implementación en FPGA
 
 Luego de la simulación, el sistema completo fue cargado en una FPGA
 
-📚 Referencia del curso
+#### Referencia del curso
 
 El diseño sigue la metodología del texto Diseño de Sistemas Digitales — Carlos Iván Camargo
 (Adjuntado por el profesor y usado como guía conceptual). Además, se utiliza como referencia el repositorio "digital_UN"

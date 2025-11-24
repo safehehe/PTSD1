@@ -1,19 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 21 18:48:25 2025
+[*] Fri Nov 21 21:04:12 2025
 [*]
-[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Fri Nov 21 18:46:54 2025"
-[dumpfile_size] 24767898
+[dumpfile] "(null)"
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1592 845
-[pos] -1 -1
-*-20.574007 3387000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -26 -24
+*-20.574007 3280000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [sst_width] 290
-[signals_width] 368
+[signals_width] 354
 [sst_expanded] 1
 [sst_vpaned_height] 242
 @28
@@ -21,7 +19,7 @@ GPU_TB.clk
 GPU_TB.rst_n
 @200
 -Salidas
-@800200
+@c00200
 -Salidas
 @28
 GPU_TB.screen_CLK
@@ -41,11 +39,11 @@ GPU_TB.screen_LATCH
 GPU_TB.screen_nOE
 @820
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
-@1000200
+@1401200
 -Salidas
 @200
 -HUB75
-@800200
+@c00200
 -HUB75
 @28
 GPU_TB.u_GPU.u_HUB75.in_INIT
@@ -59,11 +57,11 @@ GPU_TB.u_GPU.u_HUB75.w_nOE
 GPU_TB.u_GPU.u_HUB75.state[2:0]
 @820
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
-@1000200
+@1401200
 -HUB75
 @200
 -Screen Control
-@800200
+@c00200
 -Screen Control
 @28
 GPU_TB.u_GPU.u_SCREEN_CONTROL.in_signal_HUB75_ITER
@@ -108,7 +106,6 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.acc_TIMER.plus
 GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.state_name[320:1]
 @1401200
 -BCM
-@1000200
 -Screen Control
 @200
 -Memory Management
@@ -121,6 +118,7 @@ GPU_TB.u_GPU.u_memory_management.in_CACHE
 GPU_TB.u_GPU.u_memory_management.rst
 GPU_TB.u_GPU.u_memory_management.reg_row_cached
 GPU_TB.u_GPU.u_memory_management.out_PLANE_READY
+GPU_TB.u_GPU.u_memory_management.out_VRAM_AVAILABLE
 @820
 GPU_TB.u_GPU.u_memory_management.state_name[320:1]
 @1000200
@@ -148,15 +146,16 @@ GPU_TB.u_GPU.u_planes_cache.in_LOAD1
 GPU_TB.u_GPU.u_planes_cache.in_SHIFT
 @1401200
 -Planes Cache
-@201
+@200
 -Image Select
 @28
-GPU_TB.u_GPU.u_image_select.out_reg_RST
 GPU_TB.u_GPU.u_image_select.reg_TIMER_PLUS
 @24
 GPU_TB.u_GPU.u_image_select.in_ADDR[5:0]
 @28
 GPU_TB.u_GPU.u_image_select.in_rd
+@29
+GPU_TB.u_GPU.u_image_select.in_VRAM_AVAILABLE
 @22
 GPU_TB.u_GPU.u_image_select.out_data[511:0]
 @28
