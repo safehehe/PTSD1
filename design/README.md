@@ -88,7 +88,7 @@ Los módulos principales pueden consultarse aquí:
   - [Modulo](./rtl/raw_implementation/uart/uart.v)
   - [Driver](./firmware/asm/getchar.S)
 - [Sistema en Silicio](./rtl/system_on_chip/SOC.v)
-  -[Firmware](./firmware/asm/calculator.S)
+  - [Firmware](./firmware/asm/calculator.S)
 #### Arquitectura General
 
 El sistema está basado en un procesador conectado a cuatro periféricos dedicados.
