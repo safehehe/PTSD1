@@ -1,4 +1,15 @@
 # Retro Paint
+
+## Universidad Nacional De Colombia - Electrónica Digital I
+
+## Autores
+
+*Samuel Felipe Hernández Herreño - 102740044*
+
+*Steven Sebastian Osorio Castro - 1022922007*
+
+*Daniel Santiango Puentes Villabona - 1052378730*
+
 <img title="Retro Paint con IA" alt="Imagen de Retro Paint generada con IA" src="./diagrams/aigen.png" height="200">
 
 ## Dibuje y Visualice Pixel Art 64x64
