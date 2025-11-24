@@ -1,5 +1,5 @@
 module quark_TB ();
-  // Testbench uses a 10 MHz clock
+  // Testbench uses a 25 MHz clock
   // Want to interface to 115200 baud UART
   // 25000000 / 115200 = 217 Clocks Per Bit.
   parameter tck = 40;
