@@ -1,6 +1,16 @@
 # Retro Paint
 <img title="Retro Paint con IA" alt="Imagen de Retro Paint generada con IA" src="./diagrams/aigen.png" height="200">
 
+## Universidad Nacional De Colombia - Electrónica Digital I
+
+## Autores
+
+*Samuel Felipe Hernández Herreño - 102740044*
+
+*Steven Sebastian Osorio Castro - 1022922007*
+
+*Daniel Santiango Puentes Villabona - 1052378730*
+
 ## Dibuje y Visualice Pixel Art 64x64
 Mediante el uso de un control y software dibuje en un lienzo de 64x64 pixeles con una profundidad de 8 bits por canal. Controle un teclado inalambrico y fluya a traves de la pantalla.
 
