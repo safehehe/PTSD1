@@ -234,8 +234,7 @@ Se utiliza `openFPGALoader` para cargar el bistream a la FPGA mediante un modulo
 
 Para conectar la FPGA utilizada al computador mediante el modulo FT232RL se conectan los pines Rx-Tx del modulo a los C4-F3 respectivamente los cuales se pueden ubicar como se encuentra en el siguiente [Diagrama de Pines](https://github.com/johnnycubides/digital-electronic-1-101/blob/f01aeb042ac882030756aee752e0c0446ef51f91/fpga-example/colorlight-5a-75e/recursos/colorlight-5a-75e-v8.2.drawio.pdf).
 
-## Rubrica de Coevaluación y Heteroevaluación
-Ubicada en la carpeta 
+## [Rubrica de Coevaluación y Heteroevaluación](./Coevaluaciones-Autoevaluaciones/)
 
 #### Referencia del curso
 El diseño sigue la metodología del texto Diseño de Sistemas Digitales — Carlos Iván Camargo
