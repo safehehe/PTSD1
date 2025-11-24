@@ -104,7 +104,7 @@ El Address Decoder asigna un rango de direcciones a cada uno:
 
 A continuación se muestra la arquitectura final del SoC:
 
-<img width="981" height="1044" alt="structure" src="./rtl/peripheral_implementation/diagrams/structure.png" />
+<img width="900" alt="structure" src="./rtl/peripheral_implementation/diagrams/structure.png" />
 
 #### Periférico Raíz Cuadrada
 Código
@@ -123,9 +123,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="1491" height="842" alt="raiz" src="./rtl/raw_implementation/raiz_ASM/diagrams/diagrama_raiz.png" />
+<img width="900" alt="raiz" src="./rtl/raw_implementation/raiz_ASM/diagrams/diagrama_raiz.png" />
 
-<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/raiz_perip/diagrams/diagrama_perip_raiz.png"/>
+<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/raiz_perip/diagrams/diagrama_perip_raiz.png"/>
 
 
 
@@ -146,9 +146,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="1220" height="514" alt="diagrama_divider" src="./rtl/raw_implementation/divider_ASM/diagrams/divisor.png" />
+<img width="900" alt="diagrama_divider" src="./rtl/raw_implementation/divider_ASM/diagrams/divisor.png" />
 
-<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/divider_perip/diagrams/diagrama_divider_perip.png"/>
+<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/divider_perip/diagrams/diagrama_divider_perip.png"/>
 
 #### Periférico Multiplicación
 Código
@@ -167,9 +167,9 @@ Direcciones asignadas
 
 Diagramas
 
-<img width="1220" height="514" alt="diagrama_mult" src="./rtl/raw_implementation/mult_ASM/diagrams/multiplicador.png" />
+<img width="900" alt="diagrama_mult" src="./rtl/raw_implementation/mult_ASM/diagrams/multiplicador.png" />
 
-<img width="1220" height="514" alt="periferico_raiz" src="./rtl/peripheral_implementation/mult_perip/diagrams/diagrama_mult_perip.png"/>
+<img width="900" alt="periferico_raiz" src="./rtl/peripheral_implementation/mult_perip/diagrams/diagrama_mult_perip.png"/>
 
 
 
@@ -188,9 +188,9 @@ Direcciones:
 
 Diagramas
 
-<img width="1848" height="832" alt="bcd" src="./rtl/raw_implementation/BCD_ASM/diagrams/diagrams_bcd.png" />
+<img width="900" alt="bcd" src="./rtl/raw_implementation/BCD_ASM/diagrams/diagrams_bcd.png" />
 
-<img width="1260" height="594" alt="diagrama_perip_BCD" src="./rtl/peripheral_implementation/BCD_perip/diagrams/diagrama_perip_BCD.png" />
+<img width="900" alt="diagrama_perip_BCD" src="./rtl/peripheral_implementation/BCD_perip/diagrams/diagrama_perip_BCD.png" />
 
 
 
@@ -204,22 +204,31 @@ Ejemplo simulación simple:
 ```bash
 [raiz_ASM] $ make simple_sim
 ```
-<img width="1200" height="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png>
+<img width="900" alt="simple_sim_raiz" src="./Imagenes/RaizSimple.png>
 
 Ejemplo simulación luego de síntesis:
 ```bash
 [raiz_ASM] $ make sim_post_synth
 ```
-<img width="1200" height="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png>
+<img width="900" alt="sim_post_synth_raiz" src="./Imagenes/RaizPostSynth.png>
 
 
 Tambien se simula el sistema completo de la siguiente manera :
 ```bash
 [system_on_chip] make sim_quark
 ```
+Resultado en consola de la simulación de el sistema:
+<img width="900" alt="sim_quark_SOC" src="./Imagenes/TerminalCalculadora.png">
+
 #### Implementación en FPGA
 
-Luego de la simulación, el sistema completo fue cargado en una FPGA
+Luego de la simulación, el sistema completo fue cargado en una FPGA Lattice ECP5 incluida en la targeta [Colorlight 5A-75E](../docs/hardware_V6.0.md) utilizando `yosys` para la síntesis, `nextpnr-ecp5` para el ruteo y `ecppack` para la generación de de el bitstream.
+
+Se utiliza `openFPGALoader` para cargar el bistream a la FPGA mediante un modulo ft232RL.
+
+```bash
+[system_on_chip]$ make configure_lattice
+```
 
 #### Referencia del curso
 
