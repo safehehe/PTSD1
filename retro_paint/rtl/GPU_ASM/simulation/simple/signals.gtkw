@@ -1,28 +1,43 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Fri Nov 21 21:04:12 2025
+[*] Thu Nov 27 08:38:53 2025
 [*]
-[dumpfile] "(null)"
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
+[dumpfile_mtime] "Thu Nov 27 08:33:40 2025"
+[dumpfile_size] 26740958
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1592 845
-[pos] -26 -24
-*-20.574007 3280000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-17.574007 540000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
+[treeopen] GPU_TB.u_GPU.u_VRAM_IMAGE.
 [sst_width] 290
 [signals_width] 354
 [sst_expanded] 1
-[sst_vpaned_height] 242
+[sst_vpaned_height] 241
 @28
 GPU_TB.clk
 GPU_TB.rst_n
 @200
+-Entradas
+@28
+GPU_TB.u_GPU.write
+@22
+GPU_TB.u_GPU.px_data[7:0]
+GPU_TB.u_GPU.column[5:0]
+GPU_TB.u_GPU.row[5:0]
+@28
+GPU_TB.u_GPU.image_palette
+GPU_TB.u_GPU.image_overlay
+@200
 -Salidas
-@c00200
+@800200
 -Salidas
 @28
 GPU_TB.screen_CLK
+GPU_TB.u_GPU.write_available
 @24
 GPU_TB.screen_ABCDE[4:0]
 @c00028
@@ -39,8 +54,24 @@ GPU_TB.screen_LATCH
 GPU_TB.screen_nOE
 @820
 GPU_TB.u_GPU.u_HUB75.state_name[320:1]
-@1401200
+@1000200
 -Salidas
+@200
+-Command Decoder
+@800200
+-Command Decoder
+@28
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_write
+@22
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_px_data[7:0]
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_column[5:0]
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_row[5:0]
+@28
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_image_palette
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_image_overlay
+GPU_TB.u_GPU.u_COMMAND_DECODER.in_VRAM_available
+@1000200
+-Command Decoder
 @200
 -HUB75
 @c00200
@@ -108,8 +139,8 @@ GPU_TB.u_GPU.u_SCREEN_CONTROL.u_BCM.state_name[320:1]
 -BCM
 -Screen Control
 @200
--Memory Management
-@800200
+-Read Memory Management
+@c00200
 -Memory Management
 @24
 GPU_TB.u_GPU.u_memory_management.in_PLANE_SELECT[1:0]
@@ -121,7 +152,7 @@ GPU_TB.u_GPU.u_memory_management.out_PLANE_READY
 GPU_TB.u_GPU.u_memory_management.out_VRAM_AVAILABLE
 @820
 GPU_TB.u_GPU.u_memory_management.state_name[320:1]
-@1000200
+@1401200
 -Memory Management
 @200
 -Planes Cache
@@ -147,18 +178,41 @@ GPU_TB.u_GPU.u_planes_cache.in_SHIFT
 @1401200
 -Planes Cache
 @200
--Image Select
+-Write Memory Management
+@800200
+-Write Memory Management
 @28
-GPU_TB.u_GPU.u_image_select.reg_TIMER_PLUS
-@24
-GPU_TB.u_GPU.u_image_select.in_ADDR[5:0]
-@28
-GPU_TB.u_GPU.u_image_select.in_rd
-@29
-GPU_TB.u_GPU.u_image_select.in_VRAM_AVAILABLE
+GPU_TB.u_GPU.u_write_memory_management.in_rst
+GPU_TB.u_GPU.u_write_memory_management.in_write
 @22
-GPU_TB.u_GPU.u_image_select.out_data[511:0]
+GPU_TB.u_GPU.u_write_memory_management.in_px_data[7:0]
 @28
-GPU_TB.u_GPU.u_image_select.out_VRAM_SIGNAL
+GPU_TB.u_GPU.u_write_memory_management.in_image_or_overlay
+@22
+GPU_TB.u_GPU.u_write_memory_management.in_addr[11:0]
+@29
+GPU_TB.u_GPU.u_write_memory_management.out_synced_rst
+@28
+GPU_TB.u_GPU.u_write_memory_management.out_synced_write_image
+GPU_TB.u_GPU.u_write_memory_management.out_synced_write_overlay
+@22
+GPU_TB.u_GPU.u_write_memory_management.out_synced_px_data[7:0]
+GPU_TB.u_GPU.u_write_memory_management.out_synced_addr[11:0]
+@1000200
+-Write Memory Management
+@200
+-VRAM Image
+@28
+GPU_TB.u_GPU.u_VRAM_IMAGE.wr
+@22
+GPU_TB.u_GPU.u_VRAM_IMAGE.wr_addr[11:0]
+GPU_TB.u_GPU.u_VRAM_IMAGE.in_data[7:0]
+@28
+GPU_TB.u_GPU.u_VRAM_IMAGE.rd
+@22
+GPU_TB.u_GPU.u_VRAM_IMAGE.rd_addr[5:0]
+GPU_TB.u_GPU.u_VRAM_IMAGE.out_data[511:0]
+@28
+GPU_TB.u_GPU.u_VRAM_IMAGE.out_charged
 [pattern_trace] 1
 [pattern_trace] 0

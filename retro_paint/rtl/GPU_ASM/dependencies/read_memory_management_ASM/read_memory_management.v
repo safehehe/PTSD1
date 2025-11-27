@@ -1,4 +1,4 @@
-module memory_management (
+module read_memory_management (
     input clk,
     input rst,
     input in_CACHE,
@@ -79,7 +79,7 @@ module memory_management (
     end else
       case (state)
         START: begin
-          if (in_SHIFT_PLANE) begin
+          if (in_SHIFT_PLANE & reg_row_cached) begin
             out_RD = 0;
             out_PLANE_SHIFT = 1;
             out_PLANE_LOAD0 = 0;
@@ -264,10 +264,11 @@ module memory_management (
               out_PLANE_LOAD0 = 1;
               out_PLANE_LOAD1 = 0;
               out_PLANE_READY = 0;
-              reg_row_cached = 0;
+              reg_row_cached = reg_row_cached;
               reg_SIDE = 0;
               out_ROW_LOAD0 = 0;
               out_ROW_LOAD1 = 0;
+              out_VRAM_AVAILABLE = out_VRAM_AVAILABLE;
               state = S_LOAD0;
             end else begin
               out_RD = 1;

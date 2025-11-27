@@ -60,7 +60,7 @@ module VRAM #(
             reg_inter_read_addr = 12'b0;
             reg_ACC_RST = 0;
             reg_COUNTER_P = 0;
-            out_charged = 0;
+            out_charged = out_charged;
             state = IDLE;
           end
         end
