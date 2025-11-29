@@ -7,7 +7,7 @@ module image_select (
     output wire [511:0] out_data,
     output wire out_VRAM_SIGNAL
 );
-  wire [23:0] w_TIMER_VALUE;
+  wire [22:0] w_TIMER_VALUE;
   assign out_VRAM_SIGNAL = VRAM0_SIGNAL | VRAM1_SIGNAL;
   wire VRAM0_SIGNAL;
   wire VRAM1_SIGNAL;

@@ -75,7 +75,7 @@ module read_memory_management (
       reg_SIDE = 0;
       out_ROW_LOAD0 = 0;
       out_ROW_LOAD1 = 0;
-      out_VRAM_AVAILABLE = 1;
+      out_VRAM_AVAILABLE = 0;
     end else
       case (state)
         START: begin

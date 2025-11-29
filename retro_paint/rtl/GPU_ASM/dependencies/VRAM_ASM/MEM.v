@@ -11,7 +11,7 @@ module MEM #(
 );
 
 
-  (* ram_style = "block" *)
+  (* ram_style = "block" *) (* no_rw_check *)
   reg [7:0] mem[0:4095];  //4096 cells 8bits wide
 
   initial begin

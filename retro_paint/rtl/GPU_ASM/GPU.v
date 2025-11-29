@@ -125,7 +125,7 @@ module GPU (
       .out_ROW                 (w_ROW)
   );
 
-  read_memory_management u_memory_management (
+  read_memory_management u_read_memory_management (
       .clk               (clk),
       .rst               (w_HUB75_RST),
       .in_CACHE          (w_CONTROL_CACHE),
@@ -209,7 +209,7 @@ module GPU (
   );
 
   VRAM #(
-      .HEX_FILE("./test_benches/ceros.hex")
+      .HEX_FILE("./test_benches/overlay.hex")
   ) u_VRAM_OVERLAY (
       .clk        (clk),
       .rst        (w_VRAM_RST),
@@ -223,7 +223,7 @@ module GPU (
   );
 
   VRAM #(
-      .HEX_FILE("./test_benches/paleta256.hex")
+      .HEX_FILE("./test_benches/frame1.hex")
   ) u_VROM_PALETTE (
       .clk        (clk),
       .rst        (w_VRAM_RST),

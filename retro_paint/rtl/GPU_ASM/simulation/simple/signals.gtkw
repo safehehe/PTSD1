@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Thu Nov 27 08:38:53 2025
+[*] Fri Nov 28 11:27:54 2025
 [*]
 [dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/GPU_TB.vcd"
-[dumpfile_mtime] "Thu Nov 27 08:33:40 2025"
-[dumpfile_size] 26740958
+[dumpfile_mtime] "Fri Nov 28 10:19:56 2025"
+[dumpfile_size] 26658702
 [savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/GPU_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
 [size] 1592 845
-[pos] -1 -1
-*-17.574007 540000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -24 -22
+*-24.574007 3340000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] GPU_TB.
 [treeopen] GPU_TB.u_GPU.
 [treeopen] GPU_TB.u_GPU.u_VRAM_IMAGE.
 [sst_width] 290
 [signals_width] 354
 [sst_expanded] 1
-[sst_vpaned_height] 241
+[sst_vpaned_height] 242
 @28
 GPU_TB.clk
 GPU_TB.rst_n
