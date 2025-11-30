@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="hAq-f28a2Qm508aeXnqJ" name="Page-1">
-        <mxGraphModel dx="507" dy="414" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A9ABAA" math="0" shadow="0">
+        <mxGraphModel dx="573" dy="288" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A9ABAA" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -28,12 +28,13 @@
                 <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=28;fontColor=#1FF8FF;fillColor=#FFCABF;" parent="26" vertex="1">
                     <mxGeometry width="300" height="340" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.3;exitY=1.01;exitDx=0;exitDy=0;exitPerimeter=0;" parent="26" source="9" target="19" edge="1">
+                <mxCell id="61" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.3;exitY=1.01;exitDx=0;exitDy=0;exitPerimeter=0;" parent="26" source="9" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="110" y="180" as="sourcePoint"/>
+                        <mxPoint x="105" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="9" value="CPU(running Retro Paint)" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#6E81FF;" parent="26" vertex="1">
+                <mxCell id="9" value="Circuito Retro Paint" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#6E81FF;" parent="26" vertex="1">
                     <mxGeometry x="40" y="30" width="220" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="&quot;GPU&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#96FFA4;" parent="26" vertex="1">
@@ -47,15 +48,6 @@
                 </mxCell>
                 <mxCell id="17" value="SOC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#7A2E1B;" parent="26" vertex="1">
                     <mxGeometry width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="18" value="&lt;font color=&quot;#222020&quot;&gt;SPI&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#7A2E1B;fillColor=#20C2E3;direction=west;" parent="26" vertex="1">
-                    <mxGeometry x="190" y="200" width="70" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="62" style="edgeStyle=none;html=1;" parent="26" source="19" target="10" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="19" value="RAM" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#E3667F;" parent="26" vertex="1">
-                    <mxGeometry x="40" y="200" width="130" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="POWER" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="26" vertex="1">
                     <mxGeometry x="195" y="310" width="60" height="30" as="geometry"/>
@@ -71,7 +63,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="45" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="1080" y="290" width="150" height="80" as="geometry"/>
+                    <mxGeometry x="1080" y="280" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="Bluethooth&lt;div&gt;Receptor&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#2759E3;" parent="45" vertex="1">
                     <mxGeometry width="150" height="80" as="geometry"/>
@@ -97,7 +89,7 @@
                 <mxCell id="54" value="Control Remoto(HMI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;" parent="57" vertex="1">
                     <mxGeometry width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="&lt;font color=&quot;#222020&quot;&gt;Arduino&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;fillColor=#5BADE3;" parent="57" vertex="1">
+                <mxCell id="55" value="&lt;font color=&quot;#222020&quot;&gt;Arduino/ESP32&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;fillColor=#5BADE3;" parent="57" vertex="1">
                     <mxGeometry x="50" y="35" width="160" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="Teclado 4x4" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#FF91BA;" parent="57" vertex="1">
