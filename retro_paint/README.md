@@ -20,8 +20,6 @@ Mediante el uso de un control y software dibuje en un lienzo de 64x64 pixeles co
 - Matriz LED 64x64 @60Hz 8bits RGB
 - Teclado 4x4 conectado mediante Bluetooth
 - Programa de Dibujado
-- Programa de Galeria
-- Guardado permanente
 - No portable
 
 ### Diagrama de bloques
