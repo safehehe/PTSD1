@@ -291,6 +291,16 @@
                 <mxCell id="281" value="Coordenadas y Color" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="880" y="1040" width="140" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="284" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="283" target="259">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="470" y="1260"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="283" value="Recepción Caracter por caracter" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="1310" width="140" height="90" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
