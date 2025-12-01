@@ -32,7 +32,7 @@
   int x = 0;
   int y = 0;
 
-  // Límites de pantalla (Se deben ajustar) ////
+  // Límites de pantalla  ////
   const int MAX_X = 63;
   const int MAX_Y = 63;
 
