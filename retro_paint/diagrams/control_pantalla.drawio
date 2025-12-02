@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vQkUoYN8rUcwGy-w1si4" name="Page-1">
-        <mxGraphModel dx="2182" dy="490" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A694FF" math="0" shadow="0">
+        <mxGraphModel dx="2834" dy="593" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A694FF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -235,9 +235,6 @@
                 <mxCell id="93" value="ADDR" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-40" y="490" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="94" value="IMAGE_SELECT" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-60" y="620" width="60" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="95" value="VRAM_OVERLAY" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="50" y="634" width="210" height="210" as="geometry"/>
                 </mxCell>
@@ -280,27 +277,6 @@
                 </mxCell>
                 <mxCell id="110" value="VRAM_AVAILABLE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="110" y="325" width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="111" value="" style="endArrow=classic;html=1;entryX=0.62;entryY=0.065;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="112" edge="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="-80" y="630" as="sourcePoint"/>
-                        <mxPoint x="20" y="630" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="112" value="" style="externalPins=0;recursiveResize=0;shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=mux;drawPins=0;left=4;right=1;bottom=0;top=0;" parent="1" vertex="1">
-                    <mxGeometry x="-45" y="670" width="30" height="100" as="geometry"/>
-                </mxCell>
-                <mxCell id="116" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=40;entryPerimeter=0;" parent="1" source="113" target="112" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="113" value="IMAGE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-150" y="674.5" width="60" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="117" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=60;entryPerimeter=0;" parent="1" source="115" target="112" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="115" value="COLOR_SELECTOR" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-210" y="730" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="136" style="edgeStyle=none;html=1;entryX=0.424;entryY=1.024;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="118" target="71" edge="1">
                     <mxGeometry relative="1" as="geometry">

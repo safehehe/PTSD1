@@ -11,13 +11,13 @@ module MEM #(
 );
 
 
-  (* ram_style = "block" *) (* no_rw_check *)
+  (* ram_style = "block" *)
   reg [7:0] mem[0:4095];  //4096 cells 8bits wide
 
   initial begin
     $readmemh(HEX_FILE, mem);
   end
-
+//https://yosyshq.readthedocs.io/projects/yosys/en/0.40/using_yosys/synthesis/memory.html#synchronous-sdp-read-first
   always @(negedge clk) begin
     if (wr) mem[wr_addr] <= in_data;
     if (rd) begin
