@@ -1,9 +1,11 @@
+// Receptor UART, sincroniza y reconstruye bytes desde la línea RX.
 module uart_rx #(
-    parameter CLK_FREQ = 50000000,
+    parameter CLK_FREQ  = 50000000,
     parameter BAUD_RATE = 9600
 )(
     input  wire clk,
     input  wire rx,
+
     output reg  [7:0] data_out,
     output reg        data_valid
 );
@@ -16,31 +18,30 @@ module uart_rx #(
     reg        busy      = 0;
 
     always @(posedge clk) begin
+        data_valid <= 0;
+
         if (!busy) begin
             if (rx == 0) begin
                 busy <= 1;
                 clk_count <= CLKS_PER_BIT/2;
                 bit_index <= 0;
             end
-        end
-        else begin
+        end else begin
             if (clk_count == CLKS_PER_BIT) begin
                 clk_count <= 0;
 
                 if (bit_index < 8) begin
                     rx_shift[bit_index] <= rx;
                     bit_index <= bit_index + 1;
-                end
-                else begin
+                end else begin
                     data_out   <= rx_shift;
                     data_valid <= 1;
                     busy       <= 0;
                 end
-            end
-            else begin
+            end else begin
                 clk_count <= clk_count + 1;
-                data_valid <= 0;
             end
         end
     end
 endmodule
+

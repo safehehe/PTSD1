@@ -1,3 +1,4 @@
+// testbench que envía bytes por la línea rx con tiempos correctos para probar
 `timescale 1ns/1ps
 
 module tb_teclado_rx();
@@ -42,19 +43,17 @@ module tb_teclado_rx();
         uart_send_byte("2");
         uart_send_byte(",");
         uart_send_byte("4");
-        uart_send_byte(8'h0A);
-        uart_send_byte(8'h0D);   // CR (\r)
-        art_send_byte(8'h0A);   // LF (\n)
-
+        uart_send_byte(8'h0A); // LF
 
         #5_000_000;
 
         $finish;
     end
+
     initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars(0, tb_teclado_rx);       // señales del testbench
-    $dumpvars(1, tb_teclado_rx.dut);   // señales internas del DUT
-end
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_teclado_rx);
+        $dumpvars(1, tb_teclado_rx.dut);
+    end
 
 endmodule

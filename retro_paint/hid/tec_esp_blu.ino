@@ -1,3 +1,4 @@
+// firmware ESP32: lee teclado y envía comandos por UART/Bluetooth
 #include <Keypad.h>
 
 // ------------------------------------
@@ -23,7 +24,7 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 // BLUETOOTH (UART Serial2)
 // ------------------------------------
 
-HardwareSerial BT(2);
+HardwareSerial BT(2); // UART2 on ESP32 (TX2=17, RX2=16 by default)
 
 // ------------------------------------
 // POSICIÓN DEL CURSOR (DRAW MODE)
@@ -41,8 +42,8 @@ const int MAX_Y = 63;
 bool enPaleta = false;
 int px = 0;
 int py = 0;
-const int MAX_PX = 7;   // ejemplo paleta 8x8
-const int MAX_PY = 7;
+const int MAX_PX = 15;   // paleta 16x16
+const int MAX_PY = 15;
 
 int saved_x = 0;
 int saved_y = 0;
@@ -51,19 +52,26 @@ int saved_y = 0;
 // FUNCION PARA ENVIAR COMANDOS
 // ------------------------------------
 
-void enviar(String cmd, int a, int b) {
+void enviar(const char *cmd, int a, int b) {
   BT.print(cmd);
   BT.print(",");
   BT.print(a);
   BT.print(",");
-  BT.println(b);
+  BT.print(b);
+  BT.print('\n'); // enviar solo LF como terminador
 
   Serial.print("TX => ");
   Serial.print(cmd);
   Serial.print(" (");
   Serial.print(a);
   Serial.print(",");
-  Serial.println(b);
+  Serial.print(b);
+  Serial.println(")");
+}
+
+// Overload para C++ string convenience
+void enviar(String cmd, int a, int b) {
+  enviar(cmd.c_str(), a, b);
 }
 
 // ------------------------------------
@@ -72,8 +80,7 @@ void enviar(String cmd, int a, int b) {
 
 void setup() {
   Serial.begin(115200);
-  BT.begin(9600);
-
+  BT.begin(9600); // velocidad típica HC-05 HC-06
   Serial.println("ESP32 LISTA.");
 }
 

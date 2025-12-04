@@ -1,9 +1,4 @@
-// -----------------------------------------------------------------------------
-// command_decoder.v
-// Decodifica mensajes ASCII tipo:  CMD,XX,YY\n
-// Ejemplo:  UP,12,4
-// -----------------------------------------------------------------------------
-
+// parsea la línea ASCII y emite cmd_valid, cmd_id, x, y
 module command_decoder(
     input  wire clk,
     input  wire [127:0] line,
@@ -15,7 +10,6 @@ module command_decoder(
     output reg [6:0]  y
 );
 
-    // Extraer primeros caracteres como string
     wire [7:0] c0 = line[7:0];
     wire [7:0] c1 = line[15:8];
     wire [7:0] c2 = line[23:16];
@@ -23,21 +17,9 @@ module command_decoder(
     wire [7:0] c4 = line[39:32];
     wire [7:0] c5 = line[47:40];
 
-    // Señales internas
-    reg [31:0] num1, num2;
+    wire [7:0] d0 = line[55:48];
+    wire [7:0] d1 = line[63:56];
 
-    // Conversión ASCII decimal → número
-    function automatic [31:0] atoi;
-        input [7:0] a, b;
-        begin
-            if (b >= "0" && b <= "9")
-                atoi = (a - "0")*10 + (b - "0");
-            else
-                atoi = (a - "0");
-        end
-    endfunction
-
-    // HASH simple para comandos
     function automatic [3:0] cmd_hash;
         input [7:0] a, b, c;
         begin
@@ -49,28 +31,29 @@ module command_decoder(
                 {"E","N","T"} : cmd_hash = 4'd5;
                 {"C","O","L"} : cmd_hash = 4'd6;
                 {"P","A","L"} : cmd_hash = 4'd7;
-                default       : cmd_hash = 4'd0;
+                default        : cmd_hash = 4'd0;
             endcase
         end
     endfunction
 
-    // Lógica principal
+    function automatic [6:0] ascii_to_num;
+        input [7:0] a, b;
+        reg [7:0] tens, ones;
+        begin
+            tens = (a >= "0" && a <= "9") ? a - "0" : 0;
+            ones = (b >= "0" && b <= "9") ? b - "0" : 0;
+            ascii_to_num = tens*10 + ones;
+        end
+    endfunction
+
     always @(posedge clk) begin
         cmd_valid <= 0;
-
         if (line_ready) begin
-            // Identificar comando
             cmd_id <= cmd_hash(c0,c1,c2);
-
-            // Extraer números: formato "CMD,XY,ZZ"
-            num1 = atoi(c4, c5);
-            num2 = atoi(line[55:48], line[63:56]);
-
-            x <= num1[6:0];
-            y <= num2[6:0];
-
+            x <= ascii_to_num(c4, c5);
+            y <= ascii_to_num(d0, d1);
             cmd_valid <= 1;
         end
     end
-
 endmodule
+

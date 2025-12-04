@@ -1,8 +1,9 @@
+// integra los tres módulos y expone las salidas paralelas (lo que se conectará a la lógica de pantalla)
 module top_teclado_rx(
     input wire clk,
     input wire rx_bluetooth,
 
-    output wire cmd_valid,
+    output wire       cmd_valid,
     output wire [3:0] cmd_id,
     output wire [6:0] x,
     output wire [6:0] y
@@ -40,3 +41,4 @@ module top_teclado_rx(
     );
 
 endmodule
+
