@@ -11,17 +11,17 @@ module DEMO_GPU (
 );
   parameter CENTER_X = 6'd15;
   parameter CENTER_Y = 6'd0;
-  reg [22:0] frame_timer;
+  reg [23:0] frame_timer;
   reg frame;
   reg [1:0] state;
   wire w_write_available;
-  assign LED = frame_timer[22];
+  assign LED = frame;
   always @(negedge clk) begin
     if (!rstn) begin
       frame_timer = 0;
       frame = 0;
       state = 0;
-    end else if (frame_timer[22]) begin
+    end else if (frame_timer[23]) begin
       if (state == 2'b11) begin
         frame = ~frame;
         state = 0;
@@ -33,7 +33,7 @@ module DEMO_GPU (
   always @(*) begin
     to_gpu_column = CENTER_X + state[0];
     to_gpu_row = CENTER_Y + state[1];
-    to_gpu_write = w_write_available & frame_timer[22];
+    to_gpu_write = frame_timer[23];
     to_gpu_px_data = frame ? 8'h00 : 8'h01;
   end
 

@@ -84,8 +84,6 @@ module GPU (
       .in_row              (row),
       .in_image_palette    (image_palette),
       .in_image_overlay    (image_overlay),
-      .in_VRAM_available   (w_VRAM_AVAILABLE),
-      .out_write_available (write_available),
       .out_write           (w_CMD_WRITE),
       .out_addr            (w_CMD_WR_ADDR),
       .out_px_data         (w_CMD_PX_DATA),
@@ -148,8 +146,7 @@ module GPU (
       .out_G             (w_PLANES_CACHE_GREEN),
       .out_B             (w_PLANES_CACHE_BLUE),
       .out_ADDR          (w_MEM_MANG_ADDR),
-      .out_RD            (w_MEM_MANG_RD),
-      .out_VRAM_AVAILABLE(w_VRAM_AVAILABLE)
+      .out_RD            (w_MEM_MANG_RD)
   );
   HUB75 u_HUB75 (
       .clk              (clk),

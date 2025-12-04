@@ -35,20 +35,12 @@ module VRAM #(
       reg_COUNTER_P = 0;
       out_charged = 0;
       state = IDLE;
-    end else
+    end else begin
+      reg_inter_write = wr;
       case (state)
         IDLE: begin
-          if (wr) begin
-            reg_inter_read = 0;
-            reg_inter_write = 1;
-            reg_inter_read_addr = 12'b0;
-            reg_ACC_RST = 0;
-            reg_COUNTER_P = 0;
-            out_charged = 0;
-            state = IDLE;
-          end else if (rd) begin
+          if (rd) begin
             reg_inter_read = 1;
-            reg_inter_write = 0;
             reg_inter_read_addr = {rd_addr, w_COUNTER_V[3:0]};
             reg_ACC_RST = 0;
             reg_COUNTER_P = 0;
@@ -56,7 +48,6 @@ module VRAM #(
             state = READING;
           end else begin
             reg_inter_read = 0;
-            reg_inter_write = 0;
             reg_inter_read_addr = 12'b0;
             reg_ACC_RST = 0;
             reg_COUNTER_P = 0;
@@ -67,7 +58,6 @@ module VRAM #(
         READING: begin
           if (w_COUNTER_V[4]) begin
             reg_inter_read = 0;
-            reg_inter_write = 0;
             reg_inter_read_addr = 12'b0;
             reg_ACC_RST = 1;
             reg_COUNTER_P = 0;
@@ -75,7 +65,6 @@ module VRAM #(
             state = IDLE;
           end else begin
             reg_inter_read = 0;
-            reg_inter_write = 0;
             reg_inter_read_addr = 12'b0;
             reg_ACC_RST = 0;
             reg_COUNTER_P = 1;
@@ -85,7 +74,6 @@ module VRAM #(
         end
         SHIFTING: begin
           reg_inter_read = 1;
-          reg_inter_write = 0;
           reg_inter_read_addr = {rd_addr, w_COUNTER_V[3:0]};
           reg_ACC_RST = 0;
           reg_COUNTER_P = 0;
@@ -94,7 +82,6 @@ module VRAM #(
         end
         default: begin
           reg_inter_read = 0;
-          reg_inter_write = 0;
           reg_inter_read_addr = 12'b0;
           reg_ACC_RST = 1;
           reg_COUNTER_P = 0;
@@ -102,6 +89,7 @@ module VRAM #(
           state = IDLE;
         end
       endcase
+    end
   end
 
   acumulador #(

@@ -41,7 +41,7 @@ module DEMO_GPU_TB;
     repeat (5) @(posedge clk);
     rst_n <= 1;
     @(posedge clk);
-    repeat (5_000_000) @(posedge clk);
+    repeat (10_000) @(posedge clk);
     $finish(2);
   end
 

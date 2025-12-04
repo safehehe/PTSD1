@@ -22,9 +22,7 @@ module read_memory_management (
     output [63:0] out_G,
     output [63:0] out_B,
     output [5:0] out_ADDR,
-    output reg out_RD,
-
-    output reg out_VRAM_AVAILABLE
+    output reg out_RD
 );
   reg reg_SIDE;
 
@@ -75,7 +73,6 @@ module read_memory_management (
       reg_SIDE = 0;
       out_ROW_LOAD0 = 0;
       out_ROW_LOAD1 = 0;
-      out_VRAM_AVAILABLE = 0;
     end else
       case (state)
         START: begin
@@ -89,7 +86,6 @@ module read_memory_management (
             out_ROW_LOAD0 = 0;
             out_ROW_LOAD1 = 0;
             reg_SIDE = 0;
-            out_VRAM_AVAILABLE = out_VRAM_AVAILABLE;
             state = SHIFT_P;
           end else if (in_CACHE) begin
             if (reg_row_cached) begin
@@ -102,7 +98,6 @@ module read_memory_management (
               reg_SIDE = 0;
               out_ROW_LOAD0 = 0;
               out_ROW_LOAD1 = 0;
-              out_VRAM_AVAILABLE = out_VRAM_AVAILABLE;
               state = S_LOAD0;
             end else begin
               out_RD = 1;
@@ -114,7 +109,6 @@ module read_memory_management (
               reg_SIDE = 0;
               out_ROW_LOAD0 = 0;
               out_ROW_LOAD1 = 0;
-              out_VRAM_AVAILABLE = 0;
               state = S_CACHE_ROW0;
             end
           end
@@ -242,7 +236,6 @@ module read_memory_management (
           reg_row_cached = 1;
           out_ROW_LOAD0 = 0;
           out_ROW_LOAD1 = 0;
-          out_VRAM_AVAILABLE = 1;
           state = S_LOAD0;
         end
         default: begin
@@ -268,7 +261,6 @@ module read_memory_management (
               reg_SIDE = 0;
               out_ROW_LOAD0 = 0;
               out_ROW_LOAD1 = 0;
-              out_VRAM_AVAILABLE = out_VRAM_AVAILABLE;
               state = S_LOAD0;
             end else begin
               out_RD = 1;
@@ -280,7 +272,6 @@ module read_memory_management (
               reg_SIDE = 0;
               out_ROW_LOAD0 = 0;
               out_ROW_LOAD1 = 0;
-              out_VRAM_AVAILABLE = 0;
               state = S_CACHE_ROW0;
             end
           end
