@@ -1,14 +1,12 @@
 module paint (
-    input wire clk,
-    input wire rst,
+    input clk,
+    input rst,
+    input init,
     
     input wire [5:0] x_in,      
     input wire [5:0] y_in,     
-    input wire [7:0] button_keyboard,  
+    input wire [7:0] button_keyboard,        
     
-    input wire VRAM_AVAILABLE,        
-    
-
     output reg paleta,                 // Señal para pintar paleta de colores
     output reg [5:0] x_out,            // Coordenada X 
     output reg [5:0] y_out,            // Coordenada Y 
@@ -25,41 +23,47 @@ module paint (
     reg [7:0] button;
 
 
-    wire w_VRAM;
     wire w_C;
-    wire w_OS;
+    wire w_Enter
 
-
-
-    check #(
-        .WIDTH(1)
-    ) checkVRAM(
-        .data_in(VRAM_AVAILABLE),
-        .comparador(1'b0),
-        .checkout(w_VRAM)
-    );
 
     check #(
         .WIDTH(8)
-    ) checkC(
+    ) checkC( 
         .data_in(button),
         .comparador(8'h43),
         .checkout(w_C)
     );
     
 
-    overlay_selector overlay_selector(
-        .C(w_C),
-        .OS(OS)
+    check #(
+        .WIDTH(8)
+    ) checkEnter(
+        .data_in(button),
+        .comparador(8'h3D),
+        .checkout(w_Enter)
     );
 
-    check #(
-        .WIDTH(1)
-    ) checkOS(
-        .data_in(OS),
-        .comparador(1'b0),
-        .checkout(w_OS)
+    CONTAR_BLANCO CONTAR_BLANCO(
+
     );
+
+
+    control_paint control_paint(
+        .clk(clk),
+        .rst(rst),
+        .in_init(rst),
+        .w_C(w_C),
+        .w_Enter(w_Enter)
+    )
+
+
+
+
+
+
+
+
 
     
 
