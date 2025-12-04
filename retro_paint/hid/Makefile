@@ -4,7 +4,8 @@ SRC = \
     top_teclado_rx.v \
     uart_rx.v \
     line_buffer.v \
-    command_decoder.v
+    command_decoder.v \
+    draw_engine.v
 
 sim:
 	iverilog -g2012 -o sim.out $(SRC)
@@ -16,4 +17,4 @@ view:
 	gtkwave dump.vcd &
 
 clean:
-	rm -f sim.out dump.vcd
+	rm -f sim.out dump.vcd *.o
