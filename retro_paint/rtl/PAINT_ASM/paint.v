@@ -35,6 +35,7 @@ module paint (
         .checkout(w_C)
     );
     
+    acumulador 
 
     check #(
         .WIDTH(8)
