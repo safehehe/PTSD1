@@ -1,10 +1,6 @@
-// Receptor UART, sincroniza y reconstruye bytes desde la línea RX.
-// UART Receiver 115200 baudios @50 MHz
-// Compatible con HC-05, HC-06, ESP32-BT
-
 module uart_rx #(
     parameter CLK_FREQ = 50000000,
-    parameter BAUD_RATE = 115200
+    parameter BAUD_RATE = 9600 // OJO: Debe coincidir con ESP32
 )(
     input  wire clk,
     input  wire reset,
@@ -12,64 +8,58 @@ module uart_rx #(
     output reg  rx_valid,
     output reg [7:0] rx_byte
 );
-
-    localparam integer BAUD_CNT_MAX = CLK_FREQ / BAUD_RATE;
-    localparam integer MID_SAMPLE   = BAUD_CNT_MAX / 2;
-
-    reg [15:0] baud_cnt = 0;
-    reg [3:0]  bit_idx  = 0;
-
-    reg [7:0] byte_shift = 8'd0;
-    reg       rx_sync1, rx_sync2;
-    reg       receiving = 0;
-
-    // Sincroniza la señal rx
+    localparam CLKS_PER_BIT = CLK_FREQ / BAUD_RATE;
+    localparam IDLE=0, START=1, DATA=2, STOP=3;
+    
+    reg [2:0] state = IDLE;
+    reg [15:0] clk_count = 0;
+    reg [2:0] bit_index = 0;
+    reg [7:0] shift_reg = 0;
+    
+    // Sincronizar RX para evitar metaestabilidad
+    reg rx_sync1, rx_sync;
     always @(posedge clk) begin
         rx_sync1 <= rx;
-        rx_sync2 <= rx_sync1;
+        rx_sync <= rx_sync1;
     end
 
     always @(posedge clk) begin
         if (reset) begin
-            rx_valid   <= 0;
-            receiving  <= 0;
-            bit_idx    <= 0;
-            baud_cnt   <= 0;
+            state <= IDLE;
+            rx_valid <= 0;
+            rx_byte <= 0;
         end else begin
             rx_valid <= 0;
-
-            if (!receiving) begin
-                if (rx_sync2 == 0) begin
-                    receiving <= 1;
-                    baud_cnt  <= 0;
-                    bit_idx   <= 0;
+            case (state)
+                IDLE: begin
+                    clk_count <= 0;
+                    bit_index <= 0;
+                    if (rx_sync == 0) state <= START; // Start bit detected
                 end
-
-            end else begin
-                baud_cnt <= baud_cnt + 1;
-
-                // Mid sample para bits
-                if (baud_cnt == MID_SAMPLE) begin
-                    
-                    if (bit_idx < 8) begin
-                        byte_shift[bit_idx] <= rx_sync2;
-                        bit_idx <= bit_idx + 1;
-                    end
-
+                START: begin
+                    if (clk_count == (CLKS_PER_BIT/2)) begin
+                        if (rx_sync == 0) begin
+                            clk_count <= 0;
+                            state <= DATA;
+                        end else state <= IDLE; // Falso start
+                    end else clk_count <= clk_count + 1;
                 end
-
-                // Final de bit
-                if (baud_cnt >= BAUD_CNT_MAX) begin
-                    baud_cnt <= 0;
-
-                    if (bit_idx == 8) begin
-                        rx_byte  <= byte_shift;
-                        rx_valid <= 1;
-                        receiving <= 0;
-                    end
+                DATA: begin
+                    if (clk_count == CLKS_PER_BIT) begin
+                        clk_count <= 0;
+                        shift_reg[bit_index] <= rx_sync;
+                        if (bit_index == 7) state <= STOP;
+                        else bit_index <= bit_index + 1;
+                    end else clk_count <= clk_count + 1;
                 end
-            end
-        end 
+                STOP: begin
+                    if (clk_count == CLKS_PER_BIT) begin
+                        state <= IDLE;
+                        rx_valid <= 1; // Byte completo recibido
+                        rx_byte <= shift_reg;
+                    end else clk_count <= clk_count + 1;
+                end
+            endcase
+        end
     end
-
 endmodule

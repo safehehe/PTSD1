@@ -1,20 +1,27 @@
-# compila y simula con Icarus y abre GTKWave.
+# Makefile actualizado para el sistema Binario
+
+# Lista de archivos nuevos
 SRC = \
-    tb_teclado_rx.sv \
-    top_teclado_rx.v \
-    uart_rx.v \
-    line_buffer.v \
-    command_decoder.v \
-    draw_engine.v
+    tb_sistema.sv \
+    top_fpga.v \
+    bt_decoder.v \
+    uart_rx.v
 
+# Nombre del archivo de salida de la simulación
+OUT = sim.out
+
+# Regla para compilar
 sim:
-	iverilog -g2012 -o sim.out $(SRC)
+	iverilog -g2012 -o $(OUT) $(SRC)
 
-run:
-	vvp sim.out
+# Regla para ejecutar
+run: sim
+	vvp $(OUT)
 
+# Regla para ver las ondas (asume que tu testbench genera simulacion.vcd)
 view:
-	gtkwave dump.vcd &
+	gtkwave simulacion.vcd &
 
+# Limpieza
 clean:
-	rm -f sim.out dump.vcd *.o
+	rm -f $(OUT) simulacion.vcd *.o
