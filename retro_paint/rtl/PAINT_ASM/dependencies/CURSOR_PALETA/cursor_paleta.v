@@ -4,7 +4,11 @@ module cursor_paleta(
     init,
     cursor_paleta_done,
     paint,
-    px_data
+    px_data,
+    in_x,
+    in_y,
+    out_x,
+    out_y
 );
     input clk;
     input rst;
@@ -12,7 +16,7 @@ module cursor_paleta(
 
     output cursor_paleta_done;
     output paint;
-    output px_data;
+    output [7:0] px_data;
 
     wire Contar_Blanco_S;
     wire Contar_Negro_S;
@@ -23,30 +27,32 @@ module cursor_paleta(
     wire Change_Y;
     wire sum;
     wire plus;
+    wire out_rst;
     wire rst_cont;
-    wire cambiar_color_cursor;
 
     control_cursor_paleta control_cursor_paleta(
         .clk(clk),
         .init(init),
         .rst(rst),
         .CB(CB),
+        .CN(CN),
         .C(C),
+        .px_data(px_data),
         .plus(plus),
         .paint(paint),
         .Change_X(Change_X),
         .Change_Y(Change_Y),
         .sum(sum),
-        .out_rst(rst_cont),
+        .out_rst(out_rst),
+        .rst_cont(rst_cont),
         .cursor_paleta_done(cursor_paleta_done),
-        .cambiar_color_cursor(cambiar_color_cursor),
         .Contar_Blanco_S(Contar_Blanco_S),
         .Contar_Negro_S(Contar_Negro_S)
     );
 
     CONTAR_BLANCO CONTAR_BLANCO(
         .clk(clk),
-        .rst(rst),
+        .rst(out_rst),
         .init(Contar_Blanco_S),
         .CB(CB)
     );
@@ -54,12 +60,42 @@ module cursor_paleta(
     CONTAR_NEGRO CONTAR_NEGRO(
         .clk(clk),
         .init(Contar_Negro_S),
-        .rst(rst),
+        .rst(out_rst),
         .CN(CN)
     );
 
+    CAMBIAR_X CAMBIAR_X(
+        .clk(clk),
+        .rst(out_rst),
+        .in_x(in_x),
+        .out_x(out_x),
+        .plus(Change_X),
+        .sum(sum),
+        .C(C)
+    );
+
+    CAMBIAR_Y CAMBIAR_Y(
+        .clk(clk),
+        .rst(out_rst),
+        .in_y(in_y),
+        .out_y(out_y),
+        .plus(Change_Y),
+        .sum(sum),
+        .C(C)
+    );
+
+    acumulador #(
+        .WIDTH(3),
+        .RST_VALUE(0),
+        .PLUS_VALUE(1),
+        .POS_EDGE(1)
+    ) C(
+        .clk(clk),
+        .rst(rst_cont),
+        .plus(plus),
+        .value(C)
+    );
     
 
-    
 
 endmodule

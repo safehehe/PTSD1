@@ -3,15 +3,17 @@ module control_cursor_paleta(
     init,
     rst,
     CB,
+    CN,
     C,
+    px_data,
     plus,
     paint,
     Change_X,
     Change_Y,
     sum,
     out_rst,
+    rst_cont,
     cursor_paleta_done,
-    cambiar_color_cursor,
     Contar_Blanco_S,
     Contar_Negro_S
 );
@@ -20,20 +22,21 @@ module control_cursor_paleta(
     input init;
     input rst;
     input CB;
+    input CN;
     input [2:0] C;
 
     output reg Contar_Blanco_S;
     output reg Contar_Negro_S;
     output reg cursor_paleta_done;
     output reg out_rst;
+    output reg rst_cont;
     output reg plus;
     output reg paint;
+    output reg [7:0] px_data;
     
-    output reg cambiar_color_cursor;
     output reg sum;
     output reg Change_X;
     output reg Change_Y;
-    reg Change_Color;
 
     parameter START = 4'b0000;
     parameter X_DERECHA = 4'b0001;
@@ -56,50 +59,49 @@ module control_cursor_paleta(
     
     always @(posedge clk) begin
         if (rst) begin
-            cambiar_color_cursor = 0;
             state = START;
             ST_TIMER_DONE = timer;
         end else begin
-            if (CB) begin
-                cambiar_color_cursor = 1;
-            end
+
             case (state) 
                 START: begin
+                    px_data = 8'b11111111;
                     ST_TIMER_DONE = timer;
                     state = init ? X_DERECHA : START;
                 end
                 X_DERECHA: begin
-                    state = RST_CONT_1;
+                    state = C == 3'b100 ? RST_CONT_1 : X_DERECHA;
                 end 
                 RST_CONT_1: begin
                     state = Y_ABAJO;
                 end
                 Y_ABAJO: begin
-                    state = RST_CONT_2;
+                    state = C == 3'b100 ? RST_CONT_2 : Y_ABAJO;
                 end 
                 RST_CONT_2: begin
                     state = X_IZQ;
                 end
                 X_IZQ: begin
-                    state = RST_CONT_3;
+                    state = C == 3'b100 ? RST_CONT_3 : X_IZQ;
                 end 
                 RST_CONT_3: begin
                     state = Y_ARRIBA;
                 end
                 Y_ARRIBA: begin
-                    state = RST_CONT_4;
+                    state = C == 3'b100 ? RST_CONT_4 : Y_ARRIBA;
                 end 
                 RST_CONT_4: begin
-                    state = cambiar_color_cursor ? CONTAR_NEGRO : CONTAR_BLANCO;
+                    state = CB ? CONTAR_NEGRO : CONTAR_BLANCO;
                 end
                 CONTAR_BLANCO: begin
-                    state = CHANGE_COLOR;
+                    state = CB ? CHANGE_COLOR : CONTAR_BLANCO;
                 end
                 CHANGE_COLOR: begin
+                    px_data = 8'b0;
                     state = X_DERECHA;
                 end 
                 CONTAR_NEGRO: begin
-                    state = DONE;
+                    state = CN? DONE : CONTAR_NEGRO;
                 end
                 DONE: begin
                     if (ST_TIMER_DONE == 0) begin
@@ -117,6 +119,7 @@ module control_cursor_paleta(
         case (state) 
             START: begin
                 out_rst = 1;
+                rst_cont = 1;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -129,6 +132,7 @@ module control_cursor_paleta(
             end
             X_DERECHA: begin
                 out_rst = 0;
+                rst_cont = 0;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -140,7 +144,8 @@ module control_cursor_paleta(
                 paint = 1;
             end 
             RST_CONT_1: begin
-                out_rst = 1;
+                out_rst = 0;
+                rst_cont = 1;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -153,6 +158,7 @@ module control_cursor_paleta(
             end 
             Y_ABAJO: begin
                 out_rst = 0;
+                rst_cont = 0;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -164,7 +170,8 @@ module control_cursor_paleta(
                 paint = 1;
             end 
             RST_CONT_2: begin
-                out_rst = 1;
+                out_rst = 0;
+                rst_cont = 1;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -177,6 +184,7 @@ module control_cursor_paleta(
             end 
             X_IZQ: begin
                 out_rst = 0;
+                rst_cont = 0;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -188,7 +196,8 @@ module control_cursor_paleta(
                 paint = 1;
             end 
             RST_CONT_3: begin
-                out_rst = 1;
+                out_rst = 0;
+                rst_cont = 1;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -201,6 +210,7 @@ module control_cursor_paleta(
             end 
             Y_ARRIBA: begin
                 out_rst = 0;
+                rst_cont = 0;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
@@ -212,7 +222,8 @@ module control_cursor_paleta(
                 paint = 1;
             end 
             RST_CONT_4: begin
-                out_rst = 1;
+                out_rst = 0;
+                rst_cont = 1;
                 Contar_Blanco_S = 0;
                 Contar_Negro_S = 0;
                 Change_Color = 0;
