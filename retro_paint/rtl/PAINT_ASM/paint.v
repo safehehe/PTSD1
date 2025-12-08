@@ -1,23 +1,32 @@
 module paint (
+    clk, 
+    rst, 
+    init,
+    in_button,
+    in_x,
+    in_y,
+    out_x,
+    out_y,
+    paint,
+    px_data,
+    paleta,
+    selector
+);
     input clk,
     input rst,
     input init,
-    
-    input wire [5:0] x_in,      
-    input wire [5:0] y_in,     
-    input wire [7:0] button_keyboard,        
-    
-    output reg paleta,                 // Señal para pintar paleta de colores
-    output reg [5:0] x_out,            // Coordenada X 
-    output reg [5:0] y_out,            // Coordenada Y 
-    output reg [7:0] pixel_data,       // Color RGB de salida
-    output reg paint,                  // Señal de escritura 
-    output reg selector                // Selector de pantalla (0 o 1)
-);
+    input [5:0] in_x;
+    input [5:0] in_y;
+
+    wire out_x;
+    wire out_y;
+    output paint;
+    output paleta;
+    output selector;
+    output reg [5:0] px_data;
     
     reg [7:0] color;
     reg [23:0] cont_cursor;
-    wire OS;
     reg [5:0] x;
     reg [5:0] y;
     reg [7:0] button;
@@ -25,12 +34,14 @@ module paint (
 
     wire w_C;
     wire w_Enter
+    wire rst_check;
 
 
     check #(
         .WIDTH(8)
     ) checkC( 
-        .data_in(button),
+        .data_in(in_button),
+        .rst(rst_check),
         .comparador(8'h43),
         .checkout(w_C)
     );
@@ -40,7 +51,8 @@ module paint (
     check #(
         .WIDTH(8)
     ) checkEnter(
-        .data_in(button),
+        .data_in(in_button),
+        .rst(rst_check),
         .comparador(8'h3D),
         .checkout(w_Enter)
     );
@@ -56,7 +68,7 @@ module paint (
         .in_init(rst),
         .w_C(w_C),
         .w_Enter(w_Enter)
-    )
+    );
 
 
 

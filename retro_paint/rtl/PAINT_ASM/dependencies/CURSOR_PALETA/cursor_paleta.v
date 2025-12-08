@@ -13,7 +13,11 @@ module cursor_paleta(
     input clk;
     input rst;
     input init;
-
+    input [5:0] in_x;
+    input [5:0] in_y;
+    output [8:0] out_x;
+    output [8:0] out_y;
+ 
     output cursor_paleta_done;
     output paint;
     output [7:0] px_data;

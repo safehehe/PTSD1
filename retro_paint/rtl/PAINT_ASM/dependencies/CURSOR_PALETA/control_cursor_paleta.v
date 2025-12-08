@@ -109,6 +109,7 @@ module control_cursor_paleta(
                     end
                     else begin
                         ST_TIMER_DONE = ST_TIMER_DONE - 1;
+                        state = DONE;
                     end
                 end
             endcase
