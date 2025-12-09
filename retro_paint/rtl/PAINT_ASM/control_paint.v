@@ -232,7 +232,6 @@ module control_paint(
                 compPal = 0;
                 rst_check = 0;
                 paleta = 0;
-                out_rst = 1;
             end
         endcase
     end

@@ -222,12 +222,12 @@ Control de pantalla:
 
 Distribución:
 
-<img width="1130" height="281" alt="distribucion" src="https://github.com/user-attachments/assets/501ce59c-3d13-4b92-8721-6a4c7de98222" />
+<img width="1130" height="281" alt="distribucion" src="./diagrams/distribucion.png" />
 
 
 Paint General:
 
-<img width="2809" height="4769" alt="paint" src="https://github.com/user-attachments/assets/0a6ba81c-6fdb-4872-9c2d-e2cb2bbc1620" />
+<img width="2809" height="4769" alt="paint" src="./rtl/PAINT_ASM/diagrams/paint.png" />
 
 
 Lectura y envío de datos desde el teclado hacia la FPGA
