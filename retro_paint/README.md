@@ -94,7 +94,7 @@ Funciones:
 
 - Recibe eventos desde el módulo Bluetooth.
 
-- Convierte las teclas a comandos ASCII.
+- Convierte las teclas a señales binarias.
 
 - Los transmite a la FPGA mediante UART a 115200 baudios.
 
@@ -111,7 +111,9 @@ Envía:
 
 - rx_valid
 
-- rx_byte (ASCII)
+- rx_byte
+  
+- ry_byte
 
 
 ### 4. Line Buffer
@@ -229,7 +231,8 @@ Paint General:
 
 
 Lectura y envío de datos desde el teclado hacia la FPGA
-<img width="871" height="1006" alt="read_teclado" src="https://github.com/user-attachments/assets/3687e71b-86ee-4eae-8cc5-6d417c9380ac" />
+
+<img width="871" height="1006" alt="read_teclado" src="https://github.com/user-attachments/assets/858aa325-cbf4-47eb-9943-ceef7761c321" />
 
 
 ## Estructura del Repositorio
@@ -246,15 +249,13 @@ Lectura y envío de datos desde el teclado hacia la FPGA
     read_teclado.drawio
   \hid
     Makefile
-    command_decoder.v
-    draw_engine.v
-    line_buffer.v
+    bt_decoder.v
     read_teclado.png
     sim.out
-    tb_teclado_rx.sv
+    simulación.png
+    tb_sistema.sv
     tec_esp_blu.ino
-    top_full_DISABLED.v
-    top_teclado_rx.v
+    top_fpga.v
     uart_rx.v
   \images
     paleta256.png
@@ -352,7 +353,7 @@ Pasos:
 4. Cargarlo (openFPGALoader).
 
 
-## [Rubrica de Coevaluación y Heteroevaluación](./Coevaluaciones-Autoevaluaciones/)
+## [Rubrica de Coevaluación y Heteroevaluación](./Coevaluaciones-Autoevaluaciones)
 
 
 #### Referencia del curso
