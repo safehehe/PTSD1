@@ -20,7 +20,7 @@ char keys[ROWS][COLS] = {
   { '7', 'v', '9', 'C' }, 
   { '*', '0', '#', 'D' }
 };
-// Ajusta estos pines a tu hardware real
+// PInes
 uint8_t colPins[COLS] = { 4, 0, 2, 15 };
 uint8_t rowPins[ROWS] = { 18, 5, 17, 16 }; 
 
