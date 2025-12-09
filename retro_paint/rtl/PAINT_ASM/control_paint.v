@@ -69,7 +69,6 @@ module control_paint(
     always @(negedge clk) begin
         if (rst) begin
             px_data = 8'b0;
-            button = 3'b0;
             color = 8'b0;
             out_x = 8'b0;
             out_y = 8'b0;
@@ -87,7 +86,6 @@ module control_paint(
                 INICIALIZACION: begin
                     out_x = in_x;
                     out_y = in_y;
-                    button = in_button;
                     state = CHECK_C;
                 end
 
