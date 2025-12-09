@@ -64,6 +64,7 @@ module control_paint (
 
   reg [3:0] state;
 
+<<<<<<< HEAD
   always @(negedge clk) begin
     if (rst) begin
       px_data = 8'b0;
@@ -78,6 +79,63 @@ module control_paint (
           px_data = 8'b0;
           color   = 8'b0;
           state   = init ? INICIALIZACION : START;
+=======
+    always @(negedge clk) begin
+        if (rst) begin
+            px_data = 8'b0;
+            color = 8'b0;
+            out_x = 8'b0;
+            out_y = 8'b0;
+            ST_TIMER_DONE = timer;
+            state = START;
+        end else begin
+            case (state)
+                
+                START: begin
+                    px_data = 8'b0;
+                    color = 8'b0;
+                    state = init ? INICIALIZACION : START;
+                end
+
+                INICIALIZACION: begin
+                    out_x = in_x;
+                    out_y = in_y;
+                    state = CHECK_C;
+                end
+
+                CHECK_C: begin
+                    state = w_C ? CURSOR_PALETA : CHECK_ENTER;
+                end
+
+                CHECK_ENTER: begin
+                    state = w_Enter ?  PAINT : DRAW_CURSOR;
+                end
+
+                PAINT: begin 
+                    out_x = in_x;
+                    out_y = in_y;
+                    px_data = color;
+                    state = INICIALIZACION;
+                end
+
+                DRAW_CURSOR: begin
+                    state = cursor_done ? INICIALIZACION : DRAW_CURSOR;
+                end
+
+                CURSOR_PALETA: begin
+                    state = cursor_paleta_done ?  CHECK_ENTER_PALETA : CURSOR_PALETA;
+                end
+
+                CHECK_ENTER_PALETA: begin
+                    state = w_Enter_Paleta ? CHANGE_COLOR : CURSOR_PALETA;
+                end
+
+                CHANGE_COLOR: begin
+                    color = {in_y[3:0], in_x[3:0]};
+                    state = INICIALIZACION;
+                end
+            endcase
+>>>>>>> fb01b0faa0a667ad1a482772832e15b7aa1357d2
         end
 
         INICIALIZACION: begin
