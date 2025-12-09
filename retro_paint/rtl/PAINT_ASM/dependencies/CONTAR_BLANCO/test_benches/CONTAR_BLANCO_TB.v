@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
-module contar_blanco_TB;
+module CONTAR_BLANCO_TB;
   reg  clk;
   reg  rst;
   reg  reg_init = 0;
   wire CB;
 
-  contar_blanco u_contar_blanco (
+  CONTAR_BLANCO u_CONTAR_BLANCO (
       .clk (clk),
       .rst (rst),
       .init(reg_init),
@@ -17,8 +17,8 @@ module contar_blanco_TB;
   always #(CLK_PERIOD / 2) clk = ~clk;
 
   initial begin
-    $dumpfile("contar_blanco_TB.vcd");
-    $dumpvars(0, contar_blanco_TB);
+    $dumpfile("CONTAR_BLANCO_TB.vcd");
+    $dumpvars(0, CONTAR_BLANCO_TB);
   end
 
   initial begin
@@ -34,7 +34,7 @@ module contar_blanco_TB;
     reg_init = 1;
     @(negedge clk);
     reg_init = 0;
-    repeat (25_000_000) @(negedge clk);
+    repeat (6_000_000) @(negedge clk);
     $finish(2);
   end
 

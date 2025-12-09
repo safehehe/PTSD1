@@ -9,9 +9,9 @@ DIAGRAMS_DIR = diagrams
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 
-DESIGN = CONTAR_BLANCO
-TOP = CONTAR_BLANCO
-TARGET = CONTAR_BLANCO
+DESIGN = CONTAR_NEGRO
+TOP = CONTAR_NEGRO
+TARGET = CONTAR_NEGRO
 OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
 
 
