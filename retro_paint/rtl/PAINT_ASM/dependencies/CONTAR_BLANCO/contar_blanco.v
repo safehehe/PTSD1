@@ -1,4 +1,4 @@
-module CONTAR_BLANCO(
+module contar_blanco(
     clk,
     rst,
     init,
