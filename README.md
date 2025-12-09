@@ -11,6 +11,10 @@
 *Daniel Santiango Puentes Villabona - 1052378730*
 
 ## [Calculadora (clic aquí)](./design/README.md)
+
+## [Proyecto - Retro Paint](./retro_paint/README.md)
+
+
 ## Herramientas
 ```bash
 iverilog
