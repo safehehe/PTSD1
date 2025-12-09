@@ -119,7 +119,7 @@ module control_paint(
                 end
 
                 CHANGE_COLOR: begin
-                    color = {in_x[3:0], in_y[3:0]};
+                    color = {in_y[3:0], in_x[3:0]};
                     state = INICIALIZACION;
                 end
             endcase
