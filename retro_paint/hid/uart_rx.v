@@ -1,6 +1,6 @@
 module uart_rx #(
     parameter CLK_FREQ = 50000000,
-    parameter BAUD_RATE = 9600 // OJO: Debe coincidir con ESP32
+    parameter BAUD_RATE = 9600 // Debe coincidir con ESP32
 )(
     input  wire clk,
     input  wire reset,

@@ -18,7 +18,7 @@ sim:
 run: sim
 	vvp $(OUT)
 
-# Regla para ver las ondas (asume que tu testbench genera simulacion.vcd)
+# Regla para ver las ondas (se asume que testbench genera simulacion.vcd)
 view:
 	gtkwave simulacion.vcd &
 

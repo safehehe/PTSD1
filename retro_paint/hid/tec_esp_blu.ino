@@ -63,7 +63,7 @@ void loop() {
     modoPaleta = true;
     cursor_x = 0; // Reset cursor para paleta
     cursor_y = 0;
-    // Avisamos a FPGA que estamos en paleta (opcional) o solo movemos
+    // Avisamos a FPGA que estamos en paleta y movemos
     enviarPaquete(CMD_PAL_MODE, cursor_x, cursor_y); 
     Serial.println("Modo Paleta Activado");
     return;

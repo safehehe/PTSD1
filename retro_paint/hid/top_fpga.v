@@ -7,7 +7,7 @@ module top_fpga (
     output wire [2:0] cmd_to_screen,
     output wire [5:0] x_to_screen,
     output wire [5:0] y_to_screen,
-    output wire       valid_pulse    // Tu compañero usa esto para saber cuándo leer
+    output wire       valid_pulse    
 );
 
     wire rx_valid_signal;
