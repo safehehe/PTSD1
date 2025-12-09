@@ -94,7 +94,7 @@ Funciones:
 
 - Recibe eventos desde el módulo Bluetooth.
 
-- Convierte las teclas a comandos ASCII.
+- Convierte las teclas a señales binarias.
 
 - Los transmite a la FPGA mediante UART a 115200 baudios.
 
@@ -111,7 +111,9 @@ Envía:
 
 - rx_valid
 
-- rx_byte (ASCII)
+- rx_byte
+  
+- ry_byte
 
 
 ### 4. Line Buffer
