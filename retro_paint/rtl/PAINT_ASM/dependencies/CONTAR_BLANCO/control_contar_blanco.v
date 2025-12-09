@@ -22,19 +22,14 @@ module control_contar_blanco(
     parameter DONE = 2'b11;
 
     reg [3:0] state;
-    reg [4:0] ST_TIMER_DONE;
-
-    parameter timer = 5'd24;
 
     always @(posedge clk) begin
         if (rst) begin
             state = START;
-            ST_TIMER_DONE = timer;
         end else begin
             case (state)
 
                 START: begin
-                    ST_TIMER_DONE = timer;
                     state = init ? ACC : START;
                 end  
 
@@ -46,13 +41,7 @@ module control_contar_blanco(
                 end
 
                 DONE: begin
-                    if (ST_TIMER_DONE == 0) begin
-                        state = START;
-                    end
-                    else begin
-                        ST_TIMER_DONE = ST_TIMER_DONE - 1;
-                        state = DONE;
-                    end
+                    state = START;
                 end
 
                 default: state = START;
