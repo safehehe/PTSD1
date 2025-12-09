@@ -67,13 +67,16 @@ Desarrollar un editor de Pixel Art 64×64 con control inalámbrico, capaz de dib
 - No portable
 
 ## Diagrama de Bloques General
-<img title="Diagrama de bloques" src="./diagrams/bloques.png" height=400>
+<img title="Diagrama de bloques" src="./diagrams/bloques.png" width="400">
 
 ## Arquitectura del Sistema
+
+<img width="400" alt="distribucion" src="https://github.com/user-attachments/assets/501ce59c-3d13-4b92-8721-6a4c7de98222" />
 
 El sistema está dividido en los siguientes subsistemas:
 
 ### 1. Teclado Inalámbrico (4×4)
+<img width="400" alt="read_teclado" src="./hid/read_teclado.png" />
 
 - El teclado entrega un código hexadecimal (0–F) por cada tecla.
 
@@ -146,9 +149,9 @@ Y convertirlas a señales:
 
 - cmd_data
 
-### 6. Motor de Dibujo
+### 6. [Motor de Dibujo](./rtl/PAINT_ASM/)
 
-Módulo draw_engine.v.
+<img width="400" alt="paint" src="./rtl/PAINT_ASM/diagrams/paint.png" />
 
 Controla:
 
@@ -174,72 +177,26 @@ Funciones soportadas:
 
 Salida del motor:
 
-- write_strobe
+- Columna
+- Fila
+- Pintar
+- Datos de pixel
+- Seleccionar paleta
+- Selecionar Overlay
 
-- write_x
+### 7. [GPU](./rtl/GPU_ASM/)
 
-- write_y
+Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, expone una interfaz para escribir los datos en memoria.
 
-- write_color[23:0]
+<img width="400" alt="comandos" src="./rtl/GPU_ASM/dependencies/COMMAND_DECODER_ASM/diagrams/commands.png" />
 
-- cursor_x
+<img width="400" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
 
-- cursor_y
-
-- current_color
-
-## 7. Framebuffer / Pantalla
-
-Memoria 64×64:
-
-```Bash
-64 x 64 x 24 bits = 98304 bits = 12.2 KB
-```
-
-Necesario:
-
-- BRAM o SRAM
-
-- Driver de matriz LED, 60 Hz.
-
-
-## Máquina de Estados General
-
-Todo el sistema sigue una cadena:
-```Bash
-UART → Buffer → Decoder → DrawEngine → Framebuffer → Render
-```
-
-FSM 1 — UART Receiver
-FSM 2 — Line Buffer
-FSM 3 — Command Decoder
-FSM 4 — Motor de Dibujo
-FSM 5 — Refresh 60 Hz
-
-Control de pantalla:
-
-<img width="1871" height="1553" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
-
-Distribución:
-
-<img width="1130" height="281" alt="distribucion" src="https://github.com/user-attachments/assets/501ce59c-3d13-4b92-8721-6a4c7de98222" />
-
-
-Paint General:
-
-<img width="2809" height="4769" alt="paint" src="https://github.com/user-attachments/assets/0a6ba81c-6fdb-4872-9c2d-e2cb2bbc1620" />
-
-
-Lectura y envío de datos desde el teclado hacia la FPGA
-
-<img width="871" height="1006" alt="read_teclado" src="https://github.com/user-attachments/assets/858aa325-cbf4-47eb-9943-ceef7761c321" />
 
 
 ## Estructura del Repositorio
 ```Bash
 \retro_paint
-  \data
-    Paleta 256.gpl
   \diagrams
     aigen.png
     bloques.drawio
@@ -257,100 +214,34 @@ Lectura y envío de datos desde el teclado hacia la FPGA
     tec_esp_blu.ino
     top_fpga.v
     uart_rx.v
-  \images
-    paleta256.png
   \rtl
     \GPU_ASM
+    \HID_ASM
+    \PAINT_ASM
     \raw_implementation
       \building_blocks
-        LSR.v
-        MultipleRSR.v
-        RSR.v
-        acumulador.v
-        acumulador_restando.v
-        multiplexor2x1.v
-        sumador.v
-      \retro_paint_ASM
-        check.v
-        color_select.v
-        paint.v
-    \scripts
-      \2_frames
-      \4_frames
-      \_pycache
   \scripts
-  README.md
-
-.gitignore
-License
-README.md
 
 ```
-
-## Simulación
-
-```
-# Compilar
-
-make
-
-
-# Correr
-
-make run
-
-
-# Ver la forma de onda
-
-make view
-
-```
-
-Señales visibles en la simulación:
-
-- rx_byte
-
-- rx_valid
-
-- line_ready
-
-- cmd_id
-
-- cursor_x, cursor_y
-
-- write_strobe
 
 ## Implementación en la FPGA
+Conecte módulo UART a el JTAG de la targeta.
 
-La FPGA recibe:
+Para experimentar una demostración vaya a la carpeta ```GPU_ASM``` y realice las conexiones segpun el archivo de asignación de pines[aqui](./rtl/GPU_ASM/pin_assignment.lpf) se encuentran las conexiones necesarias para el lado de la pantalla.
 
-- write_x
+Para verficar las conexiones a JTAG use :
+```
+make detect
+```
 
-- write_y
+Para cargar la demostración utilice :
+```
+make configure_lattice
+```
 
-- write_color[23:0]
+Presione el botón de reset y disfrute.
 
-Y actualiza un framebuffer interno. Luego, un driver externo refresca la matriz RGB 64×64 a 60 Hz.
 
-Pasos:
-\retro_paint
-  \data
-    Paleta 256.gpl
-  \diagrams
-    aigen.png
-    bloques.drawio
-    control_pantalla.drawio
-    distribucion.drawio
-    paint.drawio
-    read_teclado.drawio
-  
-1. Síntesis (yosys).
-
-2. PnR (nextpnr).
-
-3. Generar bitstream (ecppack).
-
-4. Cargarlo (openFPGALoader).
 
 
 ## [Rubrica de Coevaluación y Heteroevaluación](./Coevaluaciones-Autoevaluaciones)

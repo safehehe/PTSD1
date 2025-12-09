@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Tue Dec  9 11:38:29 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/paint_TB.vcd"
+[dumpfile_mtime] "Tue Dec  9 11:37:18 2025"
+[dumpfile_size] 13565
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/signals.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -1 -1
+*-7.843546 277 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] paint_TB.
+[treeopen] paint_TB.u_paint.
+[treeopen] paint_TB.u_paint.DRAW_CURSOR.
+[sst_width] 290
+[signals_width] 176
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+paint_TB.clk
+paint_TB.rst_n
+@24
+paint_TB.in_button[2:0]
+paint_TB.in_x[5:0]
+paint_TB.in_y[5:0]
+@22
+paint_TB.out_x[5:0]
+paint_TB.out_y[5:0]
+@28
+paint_TB.paint
+paint_TB.paleta
+@22
+paint_TB.px_data[7:0]
+@28
+paint_TB.selector
+paint_TB.u_paint.DRAW_CURSOR.paint
+paint_TB.u_paint.DRAW_CURSOR.control_cursor.state[2:0]
+paint_TB.u_paint.control_paint.paint
+paint_TB.u_paint.cursor_paleta.paint
+@22
+paint_TB.u_paint.control_paint.state[3:0]
+@29
+paint_TB.u_paint.control_paint.out_rst
+[pattern_trace] 1
+[pattern_trace] 0

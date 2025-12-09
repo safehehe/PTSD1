@@ -1,4 +1,8 @@
-module GPU (
+module GPU #(
+    parameter IMAGE_FILE   = "./test_benches/frame0.hex",
+    parameter OVERLAY_FILE = "./test_benches/overlay.hex",
+    parameter PALETTE_FILE = "./test_benches/frame1.hex"
+) (
     input clk,
     input rstn,
     input write,
@@ -7,7 +11,6 @@ module GPU (
     input [5:0] row,
     input image_palette,
     input image_overlay,
-    output write_available,
 
     output [2:0] to_screen_RGB0,
     output [2:0] to_screen_RGB1,
@@ -124,29 +127,29 @@ module GPU (
   );
 
   read_memory_management u_read_memory_management (
-      .clk               (clk),
-      .rst               (w_HUB75_RST),
-      .in_CACHE          (w_CONTROL_CACHE),
-      .in_ROW            (w_ROW),
-      .in_PLANE_SELECT   (w_CONTROL_PLANE_SELECT),
-      .in_SHIFT_PLANE    (w_CONTROL_SHIFT_PLANE),
-      .in_RGB01          (w_PLANES_CACHE_RGB01),
-      .in_ROW0_DATA      (w_ROW0_DATA),
-      .in_ROW1_DATA      (w_ROW1_DATA),
-      .in_VRAM_DONE_READ (w_VRAM_SIGNAL),
-      .out_PLANE_READY   (w_CONTROL_PLANE_READY),
-      .out_PLANE_LOAD0   (w_PLANES_CACHE_LOAD0),
-      .out_PLANE_LOAD1   (w_PLANES_CACHE_LOAD1),
-      .out_PLANE_SHIFT   (w_PLANES_CACHE_SHIFT),
-      .out_ROW_LOAD0     (w_ROW_CACHE_ROW_LOAD0),
-      .out_ROW_LOAD1     (w_ROW_CACHE_ROW_LOAD1),
-      .out_RGB0          (w_HUB75_RGB0),
-      .out_RGB1          (w_HUB75_RGB1),
-      .out_R             (w_PLANES_CACHE_RED),
-      .out_G             (w_PLANES_CACHE_GREEN),
-      .out_B             (w_PLANES_CACHE_BLUE),
-      .out_ADDR          (w_MEM_MANG_ADDR),
-      .out_RD            (w_MEM_MANG_RD)
+      .clk              (clk),
+      .rst              (w_HUB75_RST),
+      .in_CACHE         (w_CONTROL_CACHE),
+      .in_ROW           (w_ROW),
+      .in_PLANE_SELECT  (w_CONTROL_PLANE_SELECT),
+      .in_SHIFT_PLANE   (w_CONTROL_SHIFT_PLANE),
+      .in_RGB01         (w_PLANES_CACHE_RGB01),
+      .in_ROW0_DATA     (w_ROW0_DATA),
+      .in_ROW1_DATA     (w_ROW1_DATA),
+      .in_VRAM_DONE_READ(w_VRAM_SIGNAL),
+      .out_PLANE_READY  (w_CONTROL_PLANE_READY),
+      .out_PLANE_LOAD0  (w_PLANES_CACHE_LOAD0),
+      .out_PLANE_LOAD1  (w_PLANES_CACHE_LOAD1),
+      .out_PLANE_SHIFT  (w_PLANES_CACHE_SHIFT),
+      .out_ROW_LOAD0    (w_ROW_CACHE_ROW_LOAD0),
+      .out_ROW_LOAD1    (w_ROW_CACHE_ROW_LOAD1),
+      .out_RGB0         (w_HUB75_RGB0),
+      .out_RGB1         (w_HUB75_RGB1),
+      .out_R            (w_PLANES_CACHE_RED),
+      .out_G            (w_PLANES_CACHE_GREEN),
+      .out_B            (w_PLANES_CACHE_BLUE),
+      .out_ADDR         (w_MEM_MANG_ADDR),
+      .out_RD           (w_MEM_MANG_RD)
   );
   HUB75 u_HUB75 (
       .clk              (clk),
@@ -192,7 +195,7 @@ module GPU (
   );
 
   VRAM #(
-      .HEX_FILE("./test_benches/frame0.hex")
+      .HEX_FILE(IMAGE_FILE)
   ) u_VRAM_IMAGE (
       .clk        (clk),
       .rst        (w_VRAM_RST),
@@ -206,7 +209,7 @@ module GPU (
   );
 
   VRAM #(
-      .HEX_FILE("./test_benches/overlay.hex")
+      .HEX_FILE(OVERLAY_FILE)
   ) u_VRAM_OVERLAY (
       .clk        (clk),
       .rst        (w_VRAM_RST),
@@ -220,7 +223,7 @@ module GPU (
   );
 
   VRAM #(
-      .HEX_FILE("./test_benches/frame1.hex")
+      .HEX_FILE(PALETTE_FILE)
   ) u_VROM_PALETTE (
       .clk        (clk),
       .rst        (w_VRAM_RST),
