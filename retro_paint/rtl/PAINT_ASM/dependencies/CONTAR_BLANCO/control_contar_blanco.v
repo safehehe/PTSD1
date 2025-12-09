@@ -13,8 +13,8 @@ module control_contar_blanco(
     input init;
     input [23:0] cont_cursor;
 
-    output wire plus;
-    output wire out_rst;
+    output reg plus;
+    output reg out_rst;
     output reg CB;
 
     parameter START = 2'b00;

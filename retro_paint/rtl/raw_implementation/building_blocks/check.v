@@ -1,19 +1,21 @@
-module comparator #(
+module check #(
     parameter WIDTH = 8
-)(
-    input  [WIDTH-1:0] data_in,
-    input rst;
-    input comparar;
-    input  [WIDTH-1:0] comparador,
-    output wire checkout
+) (
+    input [WIDTH-1:0] data_in,
+    input rst,
+    input comparar,
+    input [WIDTH-1:0] comparador,
+    output reg checkout
 );
 
+  always @(*) begin
     if (rst) begin
-        assign checkout = 0;
+      checkout = 0;
     end else begin
-        if (comparar) begin
-            assign checkout = (data_in == comparador);
-        end 
+      if (comparar) begin
+        checkout = (data_in == comparador);
+      end
     end
+  end
 
 endmodule

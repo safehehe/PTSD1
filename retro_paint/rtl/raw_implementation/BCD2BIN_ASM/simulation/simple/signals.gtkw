@@ -1,0 +1,77 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Thu Dec  4 17:37:59 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/design/rtl/raw_implementation/BCD2BIN_ASM/simulation/simple/BCD2BIN_TB.vcd"
+[dumpfile_mtime] "Thu Dec  4 17:37:16 2025"
+[dumpfile_size] 6564
+[savefile] "/home/samuel/Repositories/PTSD1/design/rtl/raw_implementation/BCD2BIN_ASM/simulation/simple/signals.gtkw"
+[timestart] 236000
+[size] 1592 845
+[pos] -1 -1
+*-18.386408 1620000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BCD2BIN_TB.
+[treeopen] BCD2BIN_TB.u_BCD2BIN.
+[sst_width] 290
+[signals_width] 354
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+BCD2BIN_TB.clk
+BCD2BIN_TB.rst_n
+@22
+BCD2BIN_TB.UND[3:0]
+BCD2BIN_TB.DEC[3:0]
+@28
+BCD2BIN_TB.INIT
+@24
+BCD2BIN_TB.BIN[7:0]
+@28
+BCD2BIN_TB.DONE
+@200
+-BCD2BIN
+-Inputs
+@22
+BCD2BIN_TB.u_BCD2BIN.in_UND[3:0]
+BCD2BIN_TB.u_BCD2BIN.in_DEC[3:0]
+@28
+BCD2BIN_TB.u_BCD2BIN.in_INIT
+@200
+-Control
+@28
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.in_K
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.in_UND[3:0]
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.in_init
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.out_RST
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.out_SHIFT
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.out_LOAD
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.out_LESS
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.out_DONE
+@22
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.state[3:0]
+@820
+BCD2BIN_TB.u_BCD2BIN.u_control_BCD2BIN.state_name[320:1]
+@200
+-RSR
+@28
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.rst
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.in_DEC[3:0]
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.in_UND[3:0]
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.in_LOAD_UND
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.in_SHIFT
+@24
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.out_UND[3:0]
+@28
+BCD2BIN_TB.u_BCD2BIN.u_rsr_DEC_UND_BIN.out_BIN[7:0]
+@200
+-ACC
+@24
+BCD2BIN_TB.u_BCD2BIN.u_acumulador_restando.N[2:0]
+@200
+-SUM
+@22
+BCD2BIN_TB.u_BCD2BIN.u_sumador.A[3:0]
+BCD2BIN_TB.u_BCD2BIN.u_sumador.B[3:0]
+BCD2BIN_TB.u_BCD2BIN.u_sumador.out_SUM[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
