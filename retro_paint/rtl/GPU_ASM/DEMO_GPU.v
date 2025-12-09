@@ -14,7 +14,6 @@ module DEMO_GPU (
   reg [23:0] frame_timer;
   reg frame;
   reg [1:0] state;
-  wire w_write_available;
   assign LED = frame;
   always @(negedge clk) begin
     if (!rstn) begin
@@ -51,7 +50,6 @@ module DEMO_GPU (
       .row            (to_gpu_row),
       .image_palette  (frame),
       .image_overlay  (1'b1),
-      .write_available(w_write_available),
       .to_screen_RGB0 (wire_to_screen_RGB0),
       .to_screen_RGB1 (wire_to_screen_RGB1),
       .to_screen_CLK  (wire_to_screen_CLK),

@@ -1,75 +1,42 @@
 `timescale 1ns / 1ps
-`define SIMULATION
-
 module contar_blanco_TB;
-    reg clk;
-    reg rst;
-    reg init;
-    wire CB;
+  reg  clk;
+  reg  rst;
+  reg  reg_init = 0;
+  wire CB;
 
-
-
-    contar_blanco uut(
+  contar_blanco u_contar_blanco (
       .clk (clk),
       .rst (rst),
-      .init(init),
+      .init(reg_init),
       .CB  (CB)
-    );
+  );
 
-    parameter PERIOD = 20;
-    parameter real DUTY_CYCLE = 0.5;
-    parameter OFFSET = 0;
-    reg [20:0] i;
-    event reset_trigger;
-    event reset_done_trigger;
 
-    initial begin
-        forever begin
-            @(reset_trigger);
-            @(negedge clk);
-            rst = 1;
-            repeat (2) @(negedge clk);
-            rst = 0;
-            ->reset_done_trigger;
-        end
-    end
+  localparam CLK_PERIOD = 40;
+  always #(CLK_PERIOD / 2) clk = ~clk;
 
-    initial begin
-        clk = 0;
-        rst = 1;
-        init = 0;
-    end
+  initial begin
+    $dumpfile("contar_blanco_TB.vcd");
+    $dumpvars(0, contar_blanco_TB);
+  end
 
-    initial begin
-        #OFFSET;
-        forever begin
-        clk = 1'b0;
-        #(PERIOD - (PERIOD * DUTY_CYCLE)) clk = 1'b1;
-        #(PERIOD*DUTY_CYCLE);
-        end
-    end 
-
-    initial begin
-        #10 -> reset_trigger;
-        @ (reset_done_trigger);
-        @ (posedge clk);
-        init = 0;
-        @ (posedge clk);
-        init = 1;
-
-        repeat (2) @(posedge clk);
-        init = 0;
-
-        for (i = 0;i<17; i=i+1) begin
-        @ (posedge clk);
-        end
-    end
-
-    initial begin : TEST_CASE
-        $dumpfile("contar_blanco_TB.vcd");
-        $dumpvars(-1, uut);
-        #((PERIOD*DUTY_CYCLE)*120) $finish;
-    end
-
+  initial begin
+    #1 rst <= 1'bx;
+    clk <= 1'bx;
+    #(CLK_PERIOD * 3) rst <= 0;
+    #(CLK_PERIOD * 3) rst <= 1;
+    clk <= 0;
+    repeat (5) @(posedge clk);
+    rst <= 0;
+    @(posedge clk);
+    repeat (2) @(negedge clk);
+    reg_init = 1;
+    @(negedge clk);
+    reg_init = 0;
+    repeat (25_000_000) @(negedge clk);
+    $finish(2);
+  end
 
 endmodule
+`default_nettype wire

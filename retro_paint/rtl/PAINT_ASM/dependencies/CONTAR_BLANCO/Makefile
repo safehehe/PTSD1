@@ -1,4 +1,4 @@
-DESIGN = contar_blanco
+
 BUILD_DIR = build
 SIM_DIR = simulation
 SIMPLE_SIM_DIR = $(SIM_DIR)/simple
@@ -10,7 +10,7 @@ DIAGRAMS_DIR = diagrams
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
 
 
-
+DESIGN = contar_blanco
 TOP = contar_blanco
 TARGET = contar_blanco
 OBJS = $(wildcard *.v) $(wildcard $(BUILDING_BLOCKS_DIR)/*.v)
@@ -23,7 +23,7 @@ simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y l
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
-	gtkwave $(SIMPLE_SIM_DIR) &
+	gtkwave $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/signals_$(TARGET).gtkw &
 
 re_simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta y los archivos de simulación
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
@@ -41,7 +41,7 @@ sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
 	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
-	gtkwave $(POST_SYNTH_SIM_DIR)/signals.gtkw &
+	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/signals_$(TARGET).gtkw &
 re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
 	iverilog -o $(POST_SYNTH_SIM_DIR)/$@_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 	vvp $(POST_SYNTH_SIM_DIR)/$@_PS.vvp
