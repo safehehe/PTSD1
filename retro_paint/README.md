@@ -218,7 +218,7 @@ FSM 5 — Refresh 60 Hz
 
 Control de pantalla:
 
-<img width="1871" height="1553" alt="control_pantalla" src="https://github.com/user-attachments/assets/4d60c459-f59d-4dd4-982b-d4ca5bac7ac7" />
+<img width="1871" height="1553" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
 
 Distribución:
 
