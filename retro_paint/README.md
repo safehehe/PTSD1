@@ -188,9 +188,9 @@ Salida del motor:
 
 Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, expone una interfaz para escribir los datos en memoria.
 
-<img width="400" alt="comandos" src="./rtl/GPU_ASM/dependencies/COMMAND_DECODER_ASM/diagrams/commands.png" />
+<img width="300" alt="comandos" src="./rtl/GPU_ASM/dependencies/COMMAND_DECODER_ASM/diagrams/commands.png" />
 
-<img width="400" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
+<img width="600" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
 
 
 

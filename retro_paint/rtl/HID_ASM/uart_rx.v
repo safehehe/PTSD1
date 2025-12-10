@@ -1,5 +1,5 @@
 module uart_rx #(
-    parameter CLK_FREQ = 50000000,
+    parameter CLK_FREQ = 25_000_000,
     parameter BAUD_RATE = 9600  // Debe coincidir con ESP32
 ) (
     input wire clk,
@@ -18,12 +18,12 @@ module uart_rx #(
 
   // Sincronizar RX para evitar metaestabilidad
   reg rx_sync1, rx_sync;
-  always @(posedge clk) begin
+  always @(negedge clk) begin
     rx_sync1 <= rx;
     rx_sync  <= rx_sync1;
   end
 
-  always @(posedge clk) begin
+  always @(negedge clk) begin
     if (reset) begin
       state <= IDLE;
       rx_valid <= 0;
@@ -62,4 +62,17 @@ module uart_rx #(
       endcase
     end
   end
+
+
+`ifdef BENCH
+  reg [8*40:1] state_name;
+  always @(*) begin
+    case (state)
+      IDLE:      state_name = "IDLE";
+      START: state_name = "START";
+      DATA:       state_name = "DATA";
+      STOP:       state_name = "STOP";
+    endcase
+  end
+`endif
 endmodule

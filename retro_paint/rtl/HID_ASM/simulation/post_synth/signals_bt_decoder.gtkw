@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Wed Dec 10 18:16:48 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/post_synth/bt_decoder_TB.vcd"
+[dumpfile_mtime] "Wed Dec 10 18:16:09 2025"
+[dumpfile_size] 48996
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/post_synth/signals_bt_decoder.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -26 -24
+*-18.495070 805000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 290
+[signals_width] 213
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+bt_decoder_TB.clk
+bt_decoder_TB.rst_n
+@22
+bt_decoder_TB.rx_byte[7:0]
+@28
+bt_decoder_TB.rx_valid
+bt_decoder_TB.command_id[2:0]
+@22
+bt_decoder_TB.x_out[5:0]
+bt_decoder_TB.y_out[5:0]
+@28
+bt_decoder_TB.data_ready
+[pattern_trace] 1
+[pattern_trace] 0

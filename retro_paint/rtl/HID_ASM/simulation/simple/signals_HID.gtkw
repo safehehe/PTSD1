@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Wed Dec 10 18:49:25 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/simple/HID_TB.vcd"
+[dumpfile_mtime] "Wed Dec 10 18:47:41 2025"
+[dumpfile_size] 3515991
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/simple/signals_HID.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -1 -1
+*-29.643484 125000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] HID_TB.
+[sst_width] 290
+[signals_width] 325
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+HID_TB.clk
+HID_TB.rst_n
+@22
+HID_TB.data_byte[7:0]
+@28
+HID_TB.to_uart_rx
+HID_TB.out_data_ready
+HID_TB.out_command_id[2:0]
+@22
+HID_TB.out_x_out[5:0]
+HID_TB.out_y_out[5:0]
+@200
+-UART_RX
+@28
+HID_TB.u_uart_rx.rx
+@22
+HID_TB.u_uart_rx.rx_byte[7:0]
+@28
+HID_TB.u_uart_rx.rx_valid
+@22
+HID_TB.u_uart_rx.shift_reg[7:0]
+@820
+HID_TB.u_uart_rx.state_name[320:1]
+@22
+HID_TB.u_uart_rx.clk_count[15:0]
+@200
+-BT_DECODER
+@820
+HID_TB.u_bt_decoder.state_name[320:1]
+[pattern_trace] 1
+[pattern_trace] 0

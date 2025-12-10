@@ -67,8 +67,32 @@ module bt_decoder (
               state      <= S_WAIT_HEADER;
             end
           end
-        endcase
+          default : begin
+            // Buscamos byte que empiece con 11 (0xC0 mask)
+            if (rx_byte[7:6] == 2'b11) begin
+              temp_cmd <= rx_byte[2:0];  // Guardamos comando
+              state <= S_WAIT_X;
+            end
+          end
+          endcase
       end
     end
   end
+`ifdef BENCH
+  reg [8*40:1] state_name;
+  reg [8*40:1] command_name;
+  always @(*) begin
+    case (state)
+      S_WAIT_HEADER:      state_name = "S_WAIT_HEADER";
+      S_WAIT_X: state_name = "S_WAIT_X";
+      S_WAIT_Y:       state_name = "S_WAIT_Y";
+    endcase
+    case (command_id)
+      3'b001 :   command_name = "MOVE";
+      3'b010 : command_name = "DRAW";
+      3'b011 : command_name = "PICK COLOR";
+      default: command_name = "NO CMD";
+    endcase
+  end
+`endif
 endmodule

@@ -1,7 +1,7 @@
 module retro_paint (
     input clk,
     input rstn,
-    input bt_tx,
+    input bluetooth_tx,
     output LED,
     output [2:0] wire_to_screen_RGB0,
     output [2:0] wire_to_screen_RGB1,
@@ -16,12 +16,12 @@ module retro_paint (
 
   HID u_HID (
       .clk          (clk),
-      .rx_pin       (bt_tx),
-      .reset_btn    (rstn),
+      .rx_pin       (bluetooth_tx),
+      .reset        (!rstn),
       .cmd_to_screen(w_to_paint_cmd),
       .x_to_screen  (w_to_paint_x),
       .y_to_screen  (w_to_paint_y),
-      .valid_pulse  (valid_pulse)
+      .valid_pulse  ()
   );
 
 

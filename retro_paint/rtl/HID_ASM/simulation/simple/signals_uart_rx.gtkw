@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Wed Dec 10 18:46:09 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/simple/uart_rx_TB.vcd"
+[dumpfile_mtime] "Wed Dec 10 18:42:25 2025"
+[dumpfile_size] 1083367
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/HID_ASM/simulation/simple/signals_uart_rx.gtkw"
+[timestart] 0
+[size] 1592 845
+[pos] -1 -1
+*-18.265171 520000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] uart_rx_TB.
+[sst_width] 290
+[signals_width] 354
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+uart_rx_TB.clk
+uart_rx_TB.rst_n
+uart_rx_TB.tx
+@22
+uart_rx_TB.rx_byte[7:0]
+@28
+uart_rx_TB.rx_valid
+@200
+-UART_RX
+@820
+uart_rx_TB.u_uart_rx.state_name[320:1]
+@28
+uart_rx_TB.u_uart_rx.shift_reg[7:0]
+@24
+uart_rx_TB.u_uart_rx.clk_count[15:0]
+uart_rx_TB.u_uart_rx.bit_index[2:0]
+@420
+uart_rx_TB.u_uart_rx.CLKS_PER_BIT
+[pattern_trace] 1
+[pattern_trace] 0

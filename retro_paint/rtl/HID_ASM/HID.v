@@ -1,7 +1,7 @@
 module HID (
-    input wire clk,       // 50MHz
+    input wire clk,       // 25MHz
     input wire rx_pin,    // Pin conectado al TX del módulo BT
-    input wire reset_btn, // Botón de reset
+    input wire reset, // Botón de reset
 
     // CABLES HACIA EL MÓDULO DE TU COMPAÑERO
     output wire [2:0] cmd_to_screen,
@@ -14,15 +14,14 @@ module HID (
   wire [7:0] rx_byte_signal;
 
   // Invertir reset si el botón es activo bajo
-  wire rst = ~reset_btn;
 
   // 1. Instancia UART RX
   uart_rx #(
-      .CLK_FREQ(50000000),
+      .CLK_FREQ(25_000_000),
       .BAUD_RATE(9600)     // Igual al ESP32
   ) uart_inst (
       .clk(clk),
-      .reset(rst),
+      .reset(reset),
       .rx(rx_pin),
       .rx_valid(rx_valid_signal),
       .rx_byte(rx_byte_signal)
@@ -31,7 +30,7 @@ module HID (
   // 2. Instancia Decodificador
   bt_decoder decoder_inst (
       .clk(clk),
-      .reset(rst),
+      .reset(reset),
       .rx_valid(rx_valid_signal),
       .rx_byte(rx_byte_signal),
 
