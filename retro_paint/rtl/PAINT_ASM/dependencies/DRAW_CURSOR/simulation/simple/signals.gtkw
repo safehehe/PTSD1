@@ -1,0 +1,50 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Wed Dec 10 09:51:51 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/DRAW_CURSOR/simulation/simple/DRAW_CURSOR_TB.vcd"
+[dumpfile_mtime] "Wed Dec 10 09:50:56 2025"
+[dumpfile_size] 2513786474
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/DRAW_CURSOR/simulation/simple/signals.gtkw"
+[timestart] 0
+[size] 1366 651
+[pos] -1 -1
+*-37.272179 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] DRAW_CURSOR_TB.
+[treeopen] DRAW_CURSOR_TB.u_draw_cursor.
+[treeopen] DRAW_CURSOR_TB.u_draw_cursor.CONTAR_BLANCO.
+[treeopen] DRAW_CURSOR_TB.u_draw_cursor.CONTAR_NEGRO.
+[sst_width] 216
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@200
+-Entrada
+@28
+DRAW_CURSOR_TB.u_draw_cursor.control_cursor.init
+@22
+DRAW_CURSOR_TB.in_x[5:0]
+DRAW_CURSOR_TB.in_y[5:0]
+@200
+-Salida
+@23
+DRAW_CURSOR_TB.u_draw_cursor.control_cursor.px_data[7:0]
+@22
+DRAW_CURSOR_TB.out_x[7:0]
+DRAW_CURSOR_TB.out_y[7:0]
+@200
+-Control
+@28
+DRAW_CURSOR_TB.u_draw_cursor.control_cursor.state[2:0]
+@200
+-Contar_blanco
+@28
+DRAW_CURSOR_TB.u_draw_cursor.CONTAR_BLANCO.control_contar_blanco.init
+DRAW_CURSOR_TB.u_draw_cursor.CONTAR_BLANCO.control_contar_blanco.CB
+@200
+-Contar_negro
+@28
+DRAW_CURSOR_TB.u_draw_cursor.CONTAR_NEGRO.control_contar_negro.init
+DRAW_CURSOR_TB.u_draw_cursor.CONTAR_NEGRO.control_contar_negro.CN
+[pattern_trace] 1
+[pattern_trace] 0

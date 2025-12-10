@@ -23,7 +23,7 @@ module control_contar_blanco(
 
     reg [3:0] state;
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if (rst) begin
             state = START;
         end else begin
@@ -41,7 +41,11 @@ module control_contar_blanco(
                 end
 
                 DONE: begin
-                    state = START;
+                    if (rst) begin
+                        state = START;
+                    end else begin
+                        state = DONE;
+                    end
                 end
 
                 default: state = START;

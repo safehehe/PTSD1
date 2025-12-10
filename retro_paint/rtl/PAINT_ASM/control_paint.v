@@ -12,6 +12,8 @@ module control_paint (
     out_rst,
     rst_check,
     px_data,
+    px_data_cursor,
+    px_data_cursor_paleta,
     cursor_done,
     cursor_paleta_done,
     Cursor_S,
@@ -33,6 +35,8 @@ module control_paint (
   input [7:0] in_x;
   input [7:0] in_y;
   input cursor_done;
+  input [7:0] px_data_cursor;
+  input [7:0] px_data_cursor_paleta;
   input cursor_paleta_done;
 
   output reg [7:0] out_x;
@@ -102,10 +106,12 @@ module control_paint (
         end
 
         DRAW_CURSOR: begin
+          assign px_data = px_data_cursor;
           state = cursor_done ? INICIALIZACION : DRAW_CURSOR;
         end
 
         CURSOR_PALETA: begin
+          assign px_data = px_data_cursor_paleta;
           state = cursor_paleta_done ? CHECK_ENTER_PALETA : CURSOR_PALETA;
         end
 
@@ -145,6 +151,7 @@ module control_paint (
         compEnt = 0;
         compPal = 0;
         rst_check = 0;
+        out_rst = 1;
         paleta = 0;
       end
 
@@ -156,7 +163,8 @@ module control_paint (
         compC = 1;
         compEnt = 0;
         compPal = 0;
-        rst_check = 1;
+        rst_check = 0;
+        out_rst = 0;
         paleta = 0;
       end
 
@@ -168,7 +176,8 @@ module control_paint (
         compC = 0;
         compEnt = 1;
         compPal = 0;
-        rst_check = 1;
+        rst_check = 0;
+        out_rst = 0;
         paleta = 0;
       end
 
@@ -181,6 +190,7 @@ module control_paint (
         compEnt = 0;
         compPal = 0;
         rst_check = 0;
+        out_rst = 0;
         paleta = 1;
       end
 
@@ -193,6 +203,7 @@ module control_paint (
         compEnt = 0;
         compPal = 1;
         rst_check = 0;
+        out_rst = 0;
         paleta = 0;
       end
 
@@ -205,6 +216,7 @@ module control_paint (
         compEnt = 0;
         compPal = 0;
         rst_check = 1;
+        out_rst = 0;
         paleta = 0;
       end
 
@@ -217,6 +229,7 @@ module control_paint (
                 compEnt = 0;
                 compPal = 0;
                 rst_check = 0;
+                out_rst = 0;
                 paleta = 0;
             end
             
@@ -228,7 +241,7 @@ module control_paint (
                 compC = 0;
                 compEnt = 0;
                 compPal = 0;
-                rst_check = 0;
+                rst_check = 1;
                 paleta = 0;
                 out_rst = 1;
             end

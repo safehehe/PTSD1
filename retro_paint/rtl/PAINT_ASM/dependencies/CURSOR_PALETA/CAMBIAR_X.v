@@ -20,7 +20,7 @@ module CAMBIAR_X(
             out_x = 0;
         end else begin
             if (plus) begin
-                out_x = sum ? 4*in_x + C : 4*in_x - C;
+                out_x = sum ? 4*in_x + C : 4*in_x + 3 - C;
             end 
         end
     end

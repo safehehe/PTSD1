@@ -1,0 +1,75 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Tue Dec  9 23:19:11 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CURSOR_PALETA/simulation/simple/cursor_paleta_TB.vcd"
+[dumpfile_mtime] "Tue Dec  9 23:14:21 2025"
+[dumpfile_size] 123254834
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CURSOR_PALETA/simulation/simple/signals.gtkw"
+[timestart] 827400
+[size] 1366 651
+[pos] -1 -1
+*-17.550255 560000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] cursor_paleta_TB.
+[treeopen] cursor_paleta_TB.u_cursor_paleta.
+[sst_width] 234
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@28
+cursor_paleta_TB.clk
+cursor_paleta_TB.rst
+cursor_paleta_TB.reg_init
+@c00024
+cursor_paleta_TB.in_x[5:0]
+@28
+(0)cursor_paleta_TB.in_x[5:0]
+(1)cursor_paleta_TB.in_x[5:0]
+(2)cursor_paleta_TB.in_x[5:0]
+(3)cursor_paleta_TB.in_x[5:0]
+(4)cursor_paleta_TB.in_x[5:0]
+(5)cursor_paleta_TB.in_x[5:0]
+@1401200
+-group_end
+@22
+cursor_paleta_TB.in_y[5:0]
+@24
+cursor_paleta_TB.out_x[7:0]
+@22
+cursor_paleta_TB.out_y[7:0]
+@28
+cursor_paleta_TB.paint
+@22
+cursor_paleta_TB.px_data[7:0]
+@200
+-Control
+@24
+cursor_paleta_TB.u_cursor_paleta.control_cursor_paleta.state[4:0]
+@200
+-Acc
+@28
+cursor_paleta_TB.u_cursor_paleta.acc.rst
+cursor_paleta_TB.u_cursor_paleta.acc.plus
+cursor_paleta_TB.u_cursor_paleta.acc.value[2:0]
+@200
+-Cambiar X
+@24
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_X.in_x[5:0]
+@28
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_X.C[2:0]
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_X.plus
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_X.sum
+@24
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_X.out_x[8:0]
+@200
+-Cambiar Y
+@25
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_Y.in_y[5:0]
+@28
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_Y.C[2:0]
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_Y.plus
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_Y.sum
+@24
+cursor_paleta_TB.u_cursor_paleta.CAMBIAR_Y.out_y[8:0]
+[pattern_trace] 1
+[pattern_trace] 0

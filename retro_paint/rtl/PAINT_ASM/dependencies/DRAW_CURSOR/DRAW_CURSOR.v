@@ -16,8 +16,8 @@ module DRAW_CURSOR (
   input init;
   input [5:0] in_x;
   input [5:0] in_y;
-  output wire out_x;
-  output wire out_y;
+  output wire [5:0] out_x;
+  output wire [5:0] out_y;
 
   output cursor_done;
   output paint;

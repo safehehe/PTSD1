@@ -12,9 +12,9 @@ module check #(
     if (rst) begin
       checkout = 0;
     end else begin
-      if (comparar) begin
+      if (comparar && !checkout) begin
         checkout = (data_in == comparador);
-      end
+      end 
     end
   end
 

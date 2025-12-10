@@ -34,6 +34,8 @@ module paint (
 
   wire w_C;
   wire w_Enter;
+  wire [7:0] px_data_cursor;
+  wire [7:0] px_data_cursor_paleta;
   wire w_Enter_Paleta;
   wire rst_check;
   wire out_rst;
@@ -51,7 +53,7 @@ module paint (
   ) checkC (
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(compC),
+      .comparar(1),
       .comparador(3'b100),
       .checkout(w_C)
   );
@@ -62,7 +64,7 @@ module paint (
   ) checkEnter (
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(compEnt),
+      .comparar(1),
       .comparador(3'b010),
       .checkout(w_Enter)
   );
@@ -72,7 +74,7 @@ module paint (
   ) checkEnterPaleta (
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(compPal),
+      .comparar(1),
       .comparador(3'b011),
       .checkout(w_Enter_Paleta)
   );
@@ -86,7 +88,7 @@ module paint (
       .out_x(out_x),
       .out_y(out_y),
       .paint(s_paint[0]),
-      .px_data(px_data),
+      .px_data(px_data_cursor),
       .cursor_done(cursor_done)
   );
 
@@ -96,7 +98,7 @@ module paint (
       .init(Cursor_Paleta_S),
       .cursor_paleta_done(cursor_paleta_done),
       .paint(s_paint[1]),
-      .px_data(px_data),
+      .px_data(px_data_cursor_paleta),
       .in_x(in_x),
       .in_y(in_y),
       .out_x(out_x),
@@ -120,6 +122,8 @@ module paint (
       .out_rst(out_rst),
       .rst_check(rst_check),
       .px_data(px_data),
+      .px_data_cursor(px_data_cursor),
+      .px_data_cursor_paleta(px_data_cursor_paleta),
       .cursor_done(cursor_done),
       .cursor_paleta_done(cursor_paleta_done),
       .Cursor_S(Cursor_S),

@@ -24,16 +24,9 @@ module control_cursor (
   input [5:0] in_x;
   input [5:0] in_y;
 
-    output wire [5:0] out_x;
-    output wire [5:0] out_y;
-    
-    output reg Contar_Blanco_S;
-    output reg Contar_Negro_S;
-    output reg out_rst;
-    output reg cursor_done;
-    output reg [7:0] px_data;
-    output reg paint;
-
+  output reg [5:0] out_x;
+  output reg [5:0] out_y;
+  
   output reg Contar_Blanco_S;
   output reg Contar_Negro_S;
   output reg out_rst;
@@ -50,15 +43,11 @@ module control_cursor (
 
   reg [2:0] state;
 
-  parameter [4:0] ST_TIMER_DONE = 5'd24;
-  reg [4:0] timer_done;
-
   always @(posedge clk) begin
     if (rst) begin
       out_x = in_x;
       out_y = in_y;
       state = START;
-      timer_done = ST_TIMER_DONE;
     end else begin
 
       case (state)
@@ -67,7 +56,6 @@ module control_cursor (
           out_x = in_x;
           out_y = in_y;
           px_data = 8'b11111111;
-          timer_done = ST_TIMER_DONE;
           state = init ? PAINT_W : START;
         end
 
@@ -90,13 +78,8 @@ module control_cursor (
         end
 
         DONE: begin
-          if (timer_done == 0) begin
-            state = START;
-          end else begin
-            timer_done = timer_done - 1;
-            state = DONE;
+          state = START;
           end
-        end
       endcase
     end
   end

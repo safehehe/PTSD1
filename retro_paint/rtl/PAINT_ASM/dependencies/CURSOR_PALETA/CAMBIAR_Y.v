@@ -20,7 +20,7 @@ module CAMBIAR_Y(
             out_y = 0;
         end else begin
             if (plus) begin
-                out_y = sum ? 4*in_y + C : 4*in_y - C;
+                out_y = sum ? 4*in_y + C : 4*in_y  + 3 - C;
             end 
         end
     end

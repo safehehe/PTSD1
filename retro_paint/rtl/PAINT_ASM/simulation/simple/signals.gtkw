@@ -1,46 +1,75 @@
 [*]
-[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
-[*] Tue Dec  9 11:38:29 2025
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Wed Dec 10 16:52:28 2025
 [*]
-[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/paint_TB.vcd"
-[dumpfile_mtime] "Tue Dec  9 11:37:18 2025"
-[dumpfile_size] 13565
-[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/signals.gtkw"
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/paint_TB.vcd"
+[dumpfile_mtime] "Wed Dec 10 16:42:41 2025"
+[dumpfile_size] 5485527040
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/simple/signals.gtkw"
 [timestart] 0
-[size] 1592 845
+[size] 1366 651
 [pos] -1 -1
-*-7.843546 277 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-28.516937 1400003880 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] paint_TB.
 [treeopen] paint_TB.u_paint.
-[treeopen] paint_TB.u_paint.DRAW_CURSOR.
 [sst_width] 290
 [signals_width] 176
 [sst_expanded] 1
 [sst_vpaned_height] 242
-@28
-paint_TB.clk
-paint_TB.rst_n
-@24
-paint_TB.in_button[2:0]
-paint_TB.in_x[5:0]
-paint_TB.in_y[5:0]
-@22
-paint_TB.out_x[5:0]
-paint_TB.out_y[5:0]
-@28
-paint_TB.paint
-paint_TB.paleta
-@22
-paint_TB.px_data[7:0]
-@28
-paint_TB.selector
-paint_TB.u_paint.DRAW_CURSOR.paint
-paint_TB.u_paint.DRAW_CURSOR.control_cursor.state[2:0]
-paint_TB.u_paint.control_paint.paint
-paint_TB.u_paint.cursor_paleta.paint
-@22
-paint_TB.u_paint.control_paint.state[3:0]
+@200
+-Entradas
 @29
-paint_TB.u_paint.control_paint.out_rst
+paint_TB.u_paint.in_x[5:0]
+@28
+paint_TB.u_paint.in_y[5:0]
+paint_TB.u_paint.init
+paint_TB.u_paint.clk
+paint_TB.u_paint.in_button[2:0]
+@200
+-Salidas
+@28
+paint_TB.u_paint.out_x
+paint_TB.u_paint.out_y
+paint_TB.u_paint.paint
+paint_TB.u_paint.px_data[5:0]
+paint_TB.u_paint.control_paint.color[7:0]
+paint_TB.u_paint.paleta
+@200
+-Control
+@28
+paint_TB.u_paint.control_paint.state[3:0]
+@200
+-Cursor
+@28
+paint_TB.u_paint.DRAW_CURSOR.init
+@22
+paint_TB.u_paint.DRAW_CURSOR.out_x[5:0]
+paint_TB.u_paint.DRAW_CURSOR.out_y[5:0]
+paint_TB.u_paint.DRAW_CURSOR.px_data[7:0]
+@28
+paint_TB.u_paint.DRAW_CURSOR.rst
+@200
+-CheckC
+@28
+paint_TB.u_paint.checkC.data_in[7:0]
+paint_TB.u_paint.checkC.rst
+paint_TB.u_paint.w_C
+paint_TB.u_paint.checkC.checkout
+@200
+-CheckEnter
+@22
+paint_TB.u_paint.checkEnter.data_in[7:0]
+@28
+paint_TB.u_paint.w_Enter
+paint_TB.u_paint.checkEnter.checkout
+paint_TB.u_paint.checkEnter.rst
+@200
+-CheckEnterPaleta
+@22
+paint_TB.u_paint.checkEnterPaleta.data_in[7:0]
+@28
+paint_TB.u_paint.w_Enter_Paleta
+paint_TB.u_paint.checkEnterPaleta.checkout
+paint_TB.u_paint.checkEnterPaleta.rst
 [pattern_trace] 1
 [pattern_trace] 0

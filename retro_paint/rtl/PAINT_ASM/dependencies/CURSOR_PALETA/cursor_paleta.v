@@ -92,7 +92,7 @@ module cursor_paleta (
       .WIDTH(3),
       .RST_VALUE(0),
       .PLUS_VALUE(1),
-      .POS_EDGE(1)
+      .POS_EDGE(0)
   ) acc (
       .clk  (clk),
       .rst  (rst_cont),
