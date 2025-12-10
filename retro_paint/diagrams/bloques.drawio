@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="hAq-f28a2Qm508aeXnqJ" name="Page-1">
-        <mxGraphModel dx="573" dy="288" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A9ABAA" math="0" shadow="0">
+        <mxGraphModel dx="286" dy="237" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#A9ABAA" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -19,43 +19,13 @@
                 <mxCell id="4" value="HUB75" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#A2A9BA;direction=east;" parent="6" vertex="1">
                     <mxGeometry x="140" y="190" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="POWER" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="6" vertex="1">
-                    <mxGeometry x="20" y="190" width="60" height="30" as="geometry"/>
+                <mxCell id="5" value="POWER(5V)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="6" vertex="1">
+                    <mxGeometry x="20" y="190" width="75" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="750" y="259" width="300" height="350" as="geometry"/>
-                </mxCell>
-                <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=28;fontColor=#1FF8FF;fillColor=#FFCABF;" parent="26" vertex="1">
-                    <mxGeometry width="300" height="340" as="geometry"/>
-                </mxCell>
-                <mxCell id="61" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.3;exitY=1.01;exitDx=0;exitDy=0;exitPerimeter=0;" parent="26" source="9" target="10" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="110" y="180" as="sourcePoint"/>
-                        <mxPoint x="105" y="200" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="9" value="Circuito Retro Paint" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#6E81FF;" parent="26" vertex="1">
-                    <mxGeometry x="40" y="30" width="220" height="150" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="&quot;GPU&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#96FFA4;" parent="26" vertex="1">
-                    <mxGeometry x="40" y="265" width="130" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="15" value="HUB75" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#A2A9BA;direction=east;rotation=-90;" parent="26" vertex="1">
-                    <mxGeometry x="-10" y="275" width="60" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="16" value="UART" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#8B77BA;direction=east;rotation=-90;" parent="26" vertex="1">
-                    <mxGeometry x="250" y="40" width="60" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="17" value="SOC" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#7A2E1B;" parent="26" vertex="1">
-                    <mxGeometry width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="22" value="POWER" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="26" vertex="1">
-                    <mxGeometry x="195" y="310" width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=4;strokeColor=#FCFCFC;" parent="1" source="24" target="16" edge="1">
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=3;strokeColor=#DB625A;" parent="1" source="24" target="16" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=4;strokeColor=#FFFFFF;rounded=0;curved=0;" parent="1" source="15" target="4" edge="1">
+                <mxCell id="29" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=4;strokeColor=#FFCC80;rounded=0;curved=0;" parent="1" source="15" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="590" y="554"/>
@@ -63,7 +33,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="45" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="1080" y="280" width="150" height="80" as="geometry"/>
+                    <mxGeometry x="1110" y="270" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="Bluethooth&lt;div&gt;Receptor&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#2759E3;" parent="45" vertex="1">
                     <mxGeometry width="150" height="80" as="geometry"/>
@@ -72,38 +42,89 @@
                     <mxGeometry x="-10" y="20" width="60" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="57" value="" style="group" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="410" y="650" width="360" height="290" as="geometry"/>
+                    <mxGeometry x="410" y="650" width="360" height="300" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#CEE388;" parent="57" vertex="1">
-                    <mxGeometry width="360" height="290" as="geometry"/>
+                    <mxGeometry width="360" height="300" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" value="" style="group" parent="57" vertex="1" connectable="0">
-                    <mxGeometry x="210" y="40" width="150" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="52" value="Bluethooth&lt;div&gt;Emisor&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#2759E3;" parent="51" vertex="1">
-                    <mxGeometry width="150" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="53" value="UART" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#8B77BA;direction=east;rotation=-90;" parent="51" vertex="1">
-                    <mxGeometry x="-10" y="20" width="60" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="54" value="Control Remoto(HMI)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;" parent="57" vertex="1">
+                <mxCell id="54" value="Control Remoto(HID)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;" parent="57" vertex="1">
                     <mxGeometry width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="&lt;font color=&quot;#222020&quot;&gt;Arduino/ESP32&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;fillColor=#5BADE3;" parent="57" vertex="1">
-                    <mxGeometry x="50" y="35" width="160" height="90" as="geometry"/>
+                <mxCell id="55" value="&lt;font color=&quot;#222020&quot;&gt;ESP32&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#314F8C;fillColor=#5BADE3;" parent="57" vertex="1">
+                    <mxGeometry x="40" y="40" width="220" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="Teclado 4x4" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#FF91BA;" parent="57" vertex="1">
-                    <mxGeometry x="40" y="125" width="180" height="145" as="geometry"/>
+                    <mxGeometry x="60" y="140" width="180" height="145" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="POWER" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="57" vertex="1">
-                    <mxGeometry x="270" y="260" width="60" height="30" as="geometry"/>
+                <mxCell id="58" value="POWER(5V)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="57" vertex="1">
+                    <mxGeometry x="270" y="270" width="75" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="59" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=4;strokeColor=#F7F7F7;" parent="1" source="52" target="23" edge="1">
+                <mxCell id="51" value="" style="group" parent="57" vertex="1" connectable="0">
+                    <mxGeometry x="160" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Bluethooth&lt;div&gt;Emisor&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#2759E3;" parent="51" vertex="1">
+                    <mxGeometry width="100.00000000000001" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;fontColor=#222020;strokeWidth=4;strokeColor=#B9F7F1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" parent="1" source="52" target="23" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1155" y="730"/>
+                            <mxPoint x="1180" y="710"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="62" value="RGB0,RGB1,CLK,LATCH,nOE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#FFCC80;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="555" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="X,Y,CMD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;fontColor=#B9F7F1;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="710" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="RX&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;TX" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#DB625A;" vertex="1" parent="1">
+                    <mxGeometry x="1050" y="280" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=28;fontColor=#1FF8FF;fillColor=#FFCABF;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="259" width="300" height="340" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Paint" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#6E81FF;" parent="1" vertex="1">
+                    <mxGeometry x="760" y="370" width="220" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&quot;GPU&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=none;strokeWidth=4;fontSize=12;fontColor=#222020;fillColor=#96FFA4;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="524" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.434;exitY=1.003;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#EA9AF0;strokeWidth=2;" parent="1" source="9" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="860" y="439" as="sourcePoint"/>
+                        <mxPoint x="855" y="459" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="HUB75" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#A2A9BA;direction=east;rotation=-90;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="534" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="SOC(FPGA Lattice ECP5)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;strokeWidth=4;fontSize=12;fontColor=#7A2E1B;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="259" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="POWER(5V)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#BA4E55;direction=east;" parent="1" vertex="1">
+                    <mxGeometry x="945" y="569" width="75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="HID" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#222020;fillColor=#91C9FA;gradientColor=none;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="930" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="UART_RX" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;strokeWidth=4;fontColor=#222020;fillColor=#8B77BA;direction=east;rotation=-90;" parent="1" vertex="1">
+                    <mxGeometry x="1005" y="295" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=2;strokeColor=#B07A5F;" edge="1" parent="1" source="68" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="810" y="330" as="sourcePoint"/>
+                        <mxPoint x="860" y="280" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="870" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="75" value="X,Y,CMD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#B07A5F;" vertex="1" parent="1">
+                    <mxGeometry x="867" y="289" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="ROW, COLUMN, PX_DATA, IMAGE/OVERLAY, IMAGE/PALLETE, WRITE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#EA9AF0;" vertex="1" parent="1">
+                    <mxGeometry x="860" y="444" width="110" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

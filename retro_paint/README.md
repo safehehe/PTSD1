@@ -71,7 +71,7 @@ Desarrollar un editor de Pixel Art 64×64 con control inalámbrico, capaz de dib
 
 ## Arquitectura del Sistema
 
-<img width="400" alt="distribucion" src="https://github.com/user-attachments/assets/501ce59c-3d13-4b92-8721-6a4c7de98222" />
+<img width="400" alt="distribucion" src="./diagrams/distribucion.png />
 
 El sistema está dividido en los siguientes subsistemas:
 
@@ -192,58 +192,6 @@ Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, ex
 
 <img width="400" alt="control_pantalla" src="./rtl/GPU_ASM/diagrams/gpu_bloques.png" />
 
-<<<<<<< HEAD
-- cursor_y
-
-- current_color
-
-## 7. Framebuffer / Pantalla
-
-Memoria 64×64:
-
-```Bash
-64 x 64 x 24 bits = 98304 bits = 12.2 KB
-```
-
-Necesario:
-
-- BRAM o SRAM
-
-- Driver de matriz LED, 60 Hz.
-
-
-## Máquina de Estados General
-
-Todo el sistema sigue una cadena:
-```Bash
-UART → Buffer → Decoder → DrawEngine → Framebuffer → Render
-```
-
-FSM 1 — UART Receiver
-FSM 2 — Line Buffer
-FSM 3 — Command Decoder
-FSM 4 — Motor de Dibujo
-FSM 5 — Refresh 60 Hz
-
-Control de pantalla:
-
-<img width="1871" height="1553" alt="control_pantalla" src="https://github.com/user-attachments/assets/4d60c459-f59d-4dd4-982b-d4ca5bac7ac7" />
-
-Distribución:
-
-<img width="1130" height="281" alt="distribucion" src="./diagrams/distribucion.png" />
-
-
-Paint General:
-
-<img width="2809" height="4769" alt="paint" src="./rtl/PAINT_ASM/diagrams/paint.png" />
-
-
-Lectura y envío de datos desde el teclado hacia la FPGA
-
-<img width="871" height="1006" alt="read_teclado" src="https://github.com/user-attachments/assets/858aa325-cbf4-47eb-9943-ceef7761c321" />
-=======
->>>>>>> 28a85c313d44aa32356823332d3990f99d60c390
 
 
 ## Estructura del Repositorio
