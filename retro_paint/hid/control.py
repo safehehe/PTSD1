@@ -3,13 +3,10 @@ import time
 import os
 from enum import IntEnum
 
-# --- CONFIGURACIÓN BLUETOOTH Y MAC ---
-# IMPORTANTE: 
-# 1. Reemplaza '00:1A:7D:XX:XX:XX' con la DIRECCIÓN MAC del módulo Bluetooth receptor (HC-05/HC-06).
-TARGET_MAC_ADDRESS = '05:4E:04:05:7A:A7' # <-- AJUSTAR ESTO
+# CONFIGURACIÓN BLUETOOTH Y MAC 
+TARGET_MAC_ADDRESS = '05:4E:04:05:7A:A7'
 
-
-# --- DEFINICIONES DE COMANDOS (IGUAL QUE EN EL ESP32) ---
+# DEFINICIONES DE COMANDOS (IGUAL QUE EN EL ESP32)
 class CMD(IntEnum):
     """Comandos binarios acordados con la FPGA."""
     NOP = 0
@@ -18,7 +15,7 @@ class CMD(IntEnum):
     GET_COLOR = 3
     PAL_MODE = 4
 
-# --- ESTADOS Y VARIABLES ---
+# ESTADOS Y VARIABLES
 MAX_SCREEN = 63
 MAX_PAL_X = 15
 MAX_PAL_Y = 15
@@ -29,7 +26,7 @@ cursor_y = 0
 saved_x = 0
 saved_y = 0
 
-# --- MAPEO DE TECLAS (SIMULACIÓN DEL TECLADO FÍSICO) ---
+# MAPEO DE TECLAS (SIMULACIÓN DEL TECLADO FÍSICO)
 TECLAS_MOVIMIENTO = {
     'w': '^',  # Arriba
     's': 'v',  # Abajo
@@ -39,9 +36,8 @@ TECLAS_MOVIMIENTO = {
     'e': '=',  # Acción (Dibujar / Seleccionar Color)
 }
 
-# ----------------------------------------------------
+
 # 1. FUNCIÓN DE ENLACE BINARIO
-# ----------------------------------------------------
 def enviar_paquete(sock, cmd: CMD, x: int, y: int):
     """
     Codifica el comando y las coordenadas en la trama binaria de 3 bytes
@@ -57,15 +53,13 @@ def enviar_paquete(sock, cmd: CMD, x: int, y: int):
     # Creamos el paquete de 3 bytes
     paquete_bytes = bytes([header, data_x, data_y])
     
-    sock.send(paquete_bytes) # Envío Inalámbrico Real
+    sock.send(paquete_bytes) # Envío Inalámbrico
 
     print(f"\n[TX BLUETOOTH] CMD={cmd.name} ({cmd.value}), X={x}, Y={y}")
     print(f"   Bytes enviados: {list(paquete_bytes)} (Decimal)")
     print(f"   RAW Binario: {bin(header)[2:].zfill(8)} {bin(data_x)[2:].zfill(8)} {bin(data_y)[2:].zfill(8)}")
 
-# ----------------------------------------------------
-# 2. LÓGICA DEL PROGRAMA (LOOP PRINCIPAL)
-# ----------------------------------------------------
+# LOOP PRINCIPAL
 def main():
     """Bucle principal que simula la lógica del ESP32."""
     global modo_paleta, cursor_x, cursor_y, saved_x, saved_y
@@ -87,7 +81,7 @@ def main():
         port = first_match["port"]
         host = first_match["host"]
 
-        # 2. Crear y conectar el socket Bluetooth
+        # Crear y conectar el socket Bluetooth
         sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         sock.connect((host, port))
         
@@ -117,7 +111,7 @@ def main():
             print("========================================")
             print("Comandos: w/a/s/d (Movimiento), e (Acción), c (Paleta), q (Salir)")
             
-            # 3. Leer la entrada del usuario (simulando la pulsación de tecla)
+            # Leer la entrada del usuario (simulando la pulsación de tecla)
             key_input = input("-> Ingrese tecla y presione Enter: ").lower()
             
             if key_input == 'q':
@@ -129,7 +123,7 @@ def main():
 
             key = TECLAS_MOVIMIENTO[key_input]
 
-            # --- LÓGICA DE CONTROL ---
+            #LÓGICA DE CONTROL
             
             # 1. TECLA PARA ABRIR PALETA ('C')
             if key == 'C' and not modo_paleta:
