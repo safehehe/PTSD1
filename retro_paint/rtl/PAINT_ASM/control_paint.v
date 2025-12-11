@@ -107,12 +107,12 @@ module control_paint (
 
         DRAW_CURSOR: begin
           px_data = px_data_cursor;
-          state = cursor_done ? INICIALIZACION : DRAW_CURSOR;
+          state   = cursor_done ? INICIALIZACION : DRAW_CURSOR;
         end
 
         CURSOR_PALETA: begin
           px_data = px_data_cursor_paleta;
-          state = cursor_paleta_done ? CHECK_ENTER_PALETA : CURSOR_PALETA;
+          state   = cursor_paleta_done ? CHECK_ENTER_PALETA : CURSOR_PALETA;
         end
 
         CHECK_ENTER_PALETA: begin
@@ -122,6 +122,12 @@ module control_paint (
         CHANGE_COLOR: begin
           color = {in_x[3:0], in_y[3:0]};
           state = INICIALIZACION;
+        end
+        default: begin
+          px_data = 8'b0;
+          color   = 8'b0;
+          state   = init ? INICIALIZACION : START;
+
         end
       endcase
     end
@@ -220,33 +226,33 @@ module control_paint (
         paleta = 0;
       end
 
-            DRAW_CURSOR: begin
-                paint = 0;
-                Cursor_S = 1;
-                Cursor_Paleta_S = 0;
-                selector = 0;
-                compC = 0;
-                compEnt = 0;
-                compPal = 0;
-                rst_check = 0;
-                out_rst = 0;
-                paleta = 0;
-            end
-            
-            CHANGE_COLOR: begin
-                paint = 0;
-                Cursor_S = 0;
-                Cursor_Paleta_S = 0;
-                selector = 0;
-                compC = 0;
-                compEnt = 0;
-                compPal = 0;
-                rst_check = 1;
-                paleta = 0;
-                out_rst = 1;
-            end
-        endcase
-    end
+      DRAW_CURSOR: begin
+        paint = 0;
+        Cursor_S = 1;
+        Cursor_Paleta_S = 0;
+        selector = 0;
+        compC = 0;
+        compEnt = 0;
+        compPal = 0;
+        rst_check = 0;
+        out_rst = 0;
+        paleta = 0;
+      end
+
+      CHANGE_COLOR: begin
+        paint = 0;
+        Cursor_S = 0;
+        Cursor_Paleta_S = 0;
+        selector = 0;
+        compC = 0;
+        compEnt = 0;
+        compPal = 0;
+        rst_check = 1;
+        paleta = 0;
+        out_rst = 1;
+      end
+    endcase
+  end
 
 
 

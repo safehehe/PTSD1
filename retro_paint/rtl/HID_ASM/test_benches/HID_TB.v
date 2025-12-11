@@ -76,7 +76,7 @@ module HID_TB;
     to_uart_rx = 1;
     @(posedge clk);
     repeat (CLKS_PER_BIT) @(posedge clk);
-    data_byte  = 8'h32;  //x = 50
+    data_byte  = 8'h32;  //y = 50
     to_uart_rx = 0;
     repeat (CLKS_PER_BIT) @(posedge clk);
     for (i = 0; i < 8; i = i + 1) begin

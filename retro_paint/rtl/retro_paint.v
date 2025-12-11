@@ -12,10 +12,11 @@ module retro_paint (
     output wire bluetooth_energy
 );
   assign bluetooth_energy = 1'b1;
-
-  wire w_to_paint_cmd;
-  wire w_to_paint_x;
-  wire w_to_paint_y;
+  assign LED = ~nLED;
+  wire nLED;
+  wire [2:0] w_to_paint_cmd;
+  wire [5:0] w_to_paint_x;
+  wire [5:0] w_to_paint_y;
 
   HID u_HID (
       .clk          (clk),
@@ -24,12 +25,12 @@ module retro_paint (
       .cmd_to_screen(w_to_paint_cmd),
       .x_to_screen  (w_to_paint_x),
       .y_to_screen  (w_to_paint_y),
-      .valid_pulse  (LED)
+      .valid_pulse  (nLED)
   );
 
 
-  wire w_to_gpu_x;
-  wire w_to_gpu_y;
+  wire [5:0] w_to_gpu_x;
+  wire [5:0] w_to_gpu_y;
   wire w_to_gpu_write;
   wire w_to_gpu_image_overlay;
   wire w_to_gpu_image_palette;

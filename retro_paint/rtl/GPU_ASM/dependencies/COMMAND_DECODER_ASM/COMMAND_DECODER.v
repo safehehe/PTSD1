@@ -16,7 +16,6 @@ module COMMAND_DECODER (
 );
   always @(posedge clk) begin
     if (rst) begin
-      out_write_available = 0;
       out_write = 0;
       out_addr = 0;
       out_px_data = 0;

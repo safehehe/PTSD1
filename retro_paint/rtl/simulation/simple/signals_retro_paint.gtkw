@@ -1,0 +1,117 @@
+[*]
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Thu Dec 11 05:33:22 2025
+[*]
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/simulation/simple/retro_paint_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 05:31:32 2025"
+[dumpfile_size] 29289625
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/simulation/simple/signals_retro_paint.gtkw"
+[timestart] 3186565000
+[size] 1592 845
+[pos] -1 -1
+*-18.041945 3186682000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] retro_paint_TB.
+[treeopen] retro_paint_TB.u_retro_paint.
+[treeopen] retro_paint_TB.u_retro_paint.u_GPU.
+[treeopen] retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.
+[sst_width] 290
+[signals_width] 456
+[sst_expanded] 1
+[sst_vpaned_height] 242
+@28
+retro_paint_TB.clk
+retro_paint_TB.rst_n
+@200
+-Entradas
+@28
+retro_paint_TB.wireless_bt_tx
+@200
+-Salidas
+@28
+retro_paint_TB.bluetooth_energy
+retro_paint_TB.LED
+@22
+retro_paint_TB.wire_to_screen_ABCDE[4:0]
+@28
+retro_paint_TB.wire_to_screen_CLK
+retro_paint_TB.wire_to_screen_LATCH
+retro_paint_TB.wire_to_screen_RGB0[2:0]
+retro_paint_TB.wire_to_screen_RGB1[2:0]
+retro_paint_TB.wire_to_screen_nOE
+@200
+-HID
+@c00200
+-HID
+@200
+-Entradas
+@28
+retro_paint_TB.u_retro_paint.u_HID.reset
+retro_paint_TB.u_retro_paint.u_HID.rx_pin
+@200
+-Salidas
+@28
+retro_paint_TB.u_retro_paint.u_HID.cmd_to_screen[2:0]
+@24
+retro_paint_TB.u_retro_paint.u_HID.x_to_screen[5:0]
+retro_paint_TB.u_retro_paint.u_HID.y_to_screen[5:0]
+@28
+retro_paint_TB.u_retro_paint.u_HID.valid_pulse
+@200
+-UART_RX
+-Salidas
+@28
+retro_paint_TB.u_retro_paint.u_HID.uart_inst.rx_valid
+@22
+retro_paint_TB.u_retro_paint.u_HID.uart_inst.rx_byte[7:0]
+@200
+-Estado
+@22
+retro_paint_TB.u_retro_paint.u_HID.uart_inst.shift_reg[7:0]
+@820
+retro_paint_TB.u_retro_paint.u_HID.uart_inst.state_name[320:1]
+@1401200
+-HID
+@200
+-PAINT
+@c00200
+-PAINT
+@24
+retro_paint_TB.u_retro_paint.u_paint.in_x[5:0]
+retro_paint_TB.u_retro_paint.u_paint.in_y[5:0]
+retro_paint_TB.u_retro_paint.u_paint.out_x[5:0]
+retro_paint_TB.u_retro_paint.u_paint.out_y[5:0]
+@28
+retro_paint_TB.u_retro_paint.u_paint.in_button[2:0]
+retro_paint_TB.u_retro_paint.u_paint.cursor_done
+retro_paint_TB.u_retro_paint.u_paint.cursor_paleta_done
+retro_paint_TB.u_retro_paint.u_paint.paint
+@1401200
+-PAINT
+@200
+-GPU
+@28
+retro_paint_TB.u_retro_paint.u_GPU.write
+@22
+retro_paint_TB.u_retro_paint.u_GPU.row[5:0]
+@24
+retro_paint_TB.u_retro_paint.u_GPU.column[5:0]
+@28
+retro_paint_TB.u_retro_paint.u_GPU.image_overlay
+retro_paint_TB.u_retro_paint.u_GPU.image_palette
+@200
+-VRAM_OVERLAY
+@23
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.in_data[7:0]
+@28
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.wr
+@24
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.wr_addr[11:0]
+@28
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.rd
+@22
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.rd_addr[5:0]
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.u_output_reg.out_data[511:0]
+@820
+retro_paint_TB.u_retro_paint.u_GPU.u_VRAM_OVERLAY.state_name[320:1]
+[pattern_trace] 1
+[pattern_trace] 0

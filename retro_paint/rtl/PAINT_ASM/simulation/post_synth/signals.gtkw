@@ -1,32 +1,33 @@
 [*]
-[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
-[*] Thu Dec 11 03:59:25 2025
+[*] GTKWave Analyzer v3.3.125 (w)1999-2025 BSI
+[*] Thu Dec 11 04:39:07 2025
 [*]
-[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/paint_TB.vcd"
-[dumpfile_mtime] "Thu Dec 11 03:24:57 2025"
-[dumpfile_size] 211785284
-[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/signals.gtkw"
-[timestart] 1371000
-[size] 1366 651
+[dumpfile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/paint_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 04:35:41 2025"
+[dumpfile_size] 225114435
+[savefile] "/home/samuel/Repositories/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/signals.gtkw"
+[timestart] 1232000
+[size] 1592 845
 [pos] -1 -1
-*-15.499932 1440000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-18.499931 1361000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] paint_TB.
 [treeopen] paint_TB.u_paint.
-[sst_width] 453
-[signals_width] 270
+[sst_width] 436
+[signals_width] 369
 [sst_expanded] 1
-[sst_vpaned_height] 168
+[sst_vpaned_height] 233
 @28
 paint_TB.clk
 paint_TB.rst_n
 @200
 -Control
-@23
-paint_TB.u_paint.\control_paint.in_x[5:0]
 @22
+paint_TB.u_paint.\control_paint.in_x[5:0]
+paint_TB.u_paint.\control_paint.in_y[5:0]
 paint_TB.u_paint.\control_paint.out_x[5:0]
-@28
+@24
 paint_TB.u_paint.\control_paint.out_y[5:0]
+@28
 paint_TB.u_paint.\control_paint.state[8:0]
 @200
 -Entradas
@@ -56,6 +57,7 @@ paint_TB.u_paint.\DRAW_CURSOR.paint
 paint_TB.u_paint.\DRAW_CURSOR.cursor_done
 @22
 paint_TB.u_paint.\DRAW_CURSOR.out_x[5:0]
+paint_TB.u_paint.\DRAW_CURSOR.out_y[5:0]
 @28
 paint_TB.u_paint.\DRAW_CURSOR.px_data[7:0]
 paint_TB.u_paint.\DRAW_CURSOR.rst
@@ -66,6 +68,8 @@ paint_TB.u_paint.\cursor_paleta.init
 paint_TB.u_paint.\cursor_paleta.paint
 @24
 paint_TB.u_paint.\cursor_paleta.out_x[5:0]
+@25
+paint_TB.u_paint.\cursor_paleta.out_y[5:0]
 @22
 paint_TB.u_paint.\cursor_paleta.px_data[7:0]
 @28

@@ -1,4 +1,4 @@
-module control_contar_blanco(
+module control_contar_blanco (
     clk,
     rst,
     init,
@@ -8,86 +8,86 @@ module control_contar_blanco(
     out_rst
 );
 
-    input clk;
-    input rst;
-    input init;
-    input [23:0] cont_cursor;
+  input clk;
+  input rst;
+  input init;
+  input [23:0] cont_cursor;
 
-    output reg plus;
-    output reg out_rst;
-    output reg CB;
+  output reg plus;
+  output reg out_rst;
+  output reg CB;
 
-    parameter START = 2'b00;
-    parameter ACC = 2'b01;
-    parameter DONE = 2'b11;
+  parameter START = 2'b00;
+  parameter ACC = 2'b01;
+  parameter DONE = 2'b11;
 
-    reg [3:0] state;
+  reg [3:0] state;
 
-    always @(negedge clk) begin
-        if (rst) begin
-            state = START;
-        end else begin
-            case (state)
+  always @(negedge clk) begin
+    if (rst) begin
+      state = START;
+    end else begin
+      case (state)
 
-                START: begin
-                    state = init ? ACC : START;
-                end  
-
-                ACC: begin
-                    if (cont_cursor == 24'b000000000000000000000100) begin
-                        state = DONE;
-                    end
-                    else state = ACC;
-                end
-
-                DONE: begin
-                    if (rst) begin
-                        state = START;
-                    end else begin
-                        state = DONE;
-                    end
-                end
-
-                default: state = START;
-
-            endcase
+        START: begin
+          state = init ? ACC : START;
         end
-        
+
+        ACC: begin
+          if (cont_cursor == 24'b000000000000000000000100) begin
+            //24'b010011000100101101000000
+            state = DONE;
+          end else state = ACC;
+        end
+
+        DONE: begin
+          if (rst) begin
+            state = START;
+          end else begin
+            state = DONE;
+          end
+        end
+
+        default: state = START;
+
+      endcase
     end
 
-    always @(*) begin
-        case (state)
-            START: begin
-                plus = 0;
-                CB = 0;
-                out_rst = 1;
-            end
-            
-            ACC: begin
-                plus = 1;
-                CB = 0;
-                out_rst = 0;
-            end
+  end
 
-            DONE: begin
-                plus = 0;
-                CB = 1;
-                out_rst = 0;
-            end
+  always @(*) begin
+    case (state)
+      START: begin
+        plus = 0;
+        CB = 0;
+        out_rst = 1;
+      end
 
-        endcase 
-    end 
+      ACC: begin
+        plus = 1;
+        CB = 0;
+        out_rst = 0;
+      end
 
-    `ifdef BENCH
-        reg [8*40:1] state_name;
-        always @(*) begin
-            case (state)
-            START:   state_name    = "START";
-            ACC:   state_name    = "ACC";
-            DONE:    state_name    = "DONE";
-            endcase
+      DONE: begin
+        plus = 0;
+        CB = 1;
+        out_rst = 0;
+      end
 
-        end
-    `endif
+    endcase
+  end
+
+`ifdef BENCH
+  reg [8*40:1] state_name;
+  always @(*) begin
+    case (state)
+      START: state_name = "START";
+      ACC:   state_name = "ACC";
+      DONE:  state_name = "DONE";
+    endcase
+
+  end
+`endif
 
 endmodule

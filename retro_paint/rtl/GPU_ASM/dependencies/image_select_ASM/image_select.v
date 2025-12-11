@@ -99,7 +99,7 @@ module image_select (
   );
 
   acumulador #(
-      .WIDTH(24)
+      .WIDTH(23)
   ) u_frame_switch_counter (
       .clk  (clk),
       .rst  (reg_RST),

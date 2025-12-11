@@ -23,27 +23,27 @@ OBJS += $(wildcard $(HID_DIR)/*.v)
 .PHONY : configure_lattice detect cp_monochrome cp_palette
 all : simple_sim
 
-#simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y lanza GTKwave
+simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta, los archivos de simulación y lanza GTKwave
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
 	gtkwave $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/signals_$(TARGET).gtkw &
-#re_simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta y los archivos de simulación
+re_simple_sim : $(SIMPLE_SIM_DIR) #Crea la carpeta y los archivos de simulación
 	iverilog -o $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=27 -DCPU_FREQ=27 $(TESTBENCH_DIR)/$(TARGET)_TB.v $(OBJS)
 	vvp $(SIMPLE_SIM_DIR)/$(TARGET)_TB.vvp
 	mv $(TARGET)_TB.vcd $(SIMPLE_SIM_DIR)/
 
 #sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
-	iverilog -o $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
+#	iverilog -o $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
 #	iverilog -o $@_PS.vpp                       -s $(TOP)_TB $(TARGET)_TB.v                  $(TOP)_synth.v              $(ECP5_SIM_CELLS) 
 
-	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
-	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
-	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/signals_$(TARGET).gtkw &
+#	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
+#	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
+#	gtkwave $(POST_SYNTH_SIM_DIR)/$(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/signals_$(TARGET).gtkw &
 #re_sim_post_synth : build/$(TOP).json $(OBJS) $(POST_SYNTH_SIM_DIR)
-	iverilog -o $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
-	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
-	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
+#	iverilog -o $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp -s $(TOP)_TB $(TESTBENCH_DIR)/$(TARGET)_TB.v $(BUILD_DIR)/$(TOP)_synth.v $(ECP5_SIM_CELLS)
+#	vvp $(POST_SYNTH_SIM_DIR)/sim_post_synth_PS.vvp
+#	mv $(TOP)_TB.vcd $(POST_SYNTH_SIM_DIR)/
 
 
 
