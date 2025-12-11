@@ -246,6 +246,7 @@ Para cargar retro paint use:
 rtl$ make detect
 ```
 
+## [Video](https://drive.google.com/file/d/1pAH-Dsxqx6S8uKra5OuQa2to97K48745/view?usp=sharing)
 
 
 ## [Rubrica de Coevaluación y Heteroevaluación](./Coevaluaciones-Autoevaluaciones)
