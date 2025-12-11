@@ -46,7 +46,7 @@ module retro_paint_TB;
     repeat (5) @(posedge clk);
     rst_n <= 1;
     @(posedge clk);
-    repeat (1_000) @(posedge clk);
+    repeat (100_000) @(posedge clk);
     repeat (2) @(posedge clk);
     air_byte = 8'h00;
     wireless_bt_tx = 1;
@@ -84,7 +84,7 @@ module retro_paint_TB;
     wireless_bt_tx = 1;
     repeat (CLKS_PER_BIT) @(posedge clk);
 
-    repeat (2 * CLKS_PER_BIT) @(posedge clk);
+    repeat (10_000_000) @(posedge clk);
     $finish(2);
   end
 

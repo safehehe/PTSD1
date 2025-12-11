@@ -251,6 +251,18 @@ module control_paint (
         paleta = 0;
         out_rst = 1;
       end
+      default: begin
+        paint = 0;
+        Cursor_S = 0;
+        Cursor_Paleta_S = 0;
+        selector = 0;
+        compC = 0;
+        compEnt = 0;
+        compPal = 0;
+        rst_check = 1;
+        out_rst = 1;
+        paleta = 0;
+      end
     endcase
   end
 

@@ -26,7 +26,7 @@ module control_cursor (
 
   output reg [5:0] out_x;
   output reg [5:0] out_y;
-  
+
   output reg Contar_Blanco_S;
   output reg Contar_Negro_S;
   output reg out_rst;
@@ -53,10 +53,10 @@ module control_cursor (
       case (state)
 
         START: begin
-          out_x = in_x;
-          out_y = in_y;
+          out_x   = in_x;
+          out_y   = in_y;
           px_data = 8'b11111111;
-          state = init ? PAINT_W : START;
+          state   = init ? PAINT_W : START;
         end
 
         PAINT_W: begin
@@ -79,7 +79,7 @@ module control_cursor (
 
         DONE: begin
           state = START;
-          end
+        end
       endcase
     end
   end
@@ -133,6 +133,13 @@ module control_cursor (
         Contar_Negro_S = 0;
         paint = 0;
         cursor_done = 1;
+      end
+      default: begin
+        out_rst = 1;
+        Contar_Blanco_S = 0;
+        Contar_Negro_S = 0;
+        paint = 0;
+        cursor_done = 0;
       end
     endcase
   end

@@ -74,7 +74,11 @@ module control_contar_negro (
         CN = 1;
         out_rst = 0;
       end
-
+      default: begin
+        plus = 0;
+        CN = 0;
+        out_rst = 1;
+      end
     endcase
   end
 
