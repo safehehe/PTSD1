@@ -116,7 +116,7 @@ module control_paint (
         end
 
         CHECK_ENTER_PALETA: begin
-          state = w_Enter_Paleta ? CHANGE_COLOR : CURSOR_PALETA;
+          state = w_Enter_Paleta ? CHANGE_COLOR : INICIALIZACION;
         end
 
         CHANGE_COLOR: begin
