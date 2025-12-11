@@ -34,7 +34,7 @@ module CONTAR_NEGRO_TB;
     reg_init = 1;
     @(negedge clk);
     reg_init = 0;
-    repeat (14_000_000) @(negedge clk);
+    repeat (100_000) @(negedge clk);
     $finish(2);
   end
 

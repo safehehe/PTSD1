@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Thu Dec 11 04:04:12 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CONTAR_NEGRO/simulation/post_synth/CONTAR_NEGRO_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 04:03:11 2025"
+[dumpfile_size] 25807937
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CONTAR_NEGRO/simulation/post_synth/signals_.gtkw"
+[timestart] 0
+[size] 1366 651
+[pos] -51 -51
+*-18.640545 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] CONTAR_NEGRO_TB.
+[sst_width] 216
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@28
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.CN
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.\contador.clk
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.\contador.rst
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.\contador.plus
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.init
+@29
+CONTAR_NEGRO_TB.u_CONTAR_NEGRO.cont_cursor[23:0]
+[pattern_trace] 1
+[pattern_trace] 0

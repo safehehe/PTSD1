@@ -62,7 +62,6 @@ module control_cursor_paleta (
     if (rst) begin
       state = START;
     end else begin
-
       case (state)
         START: begin
           px_data = 8'b11111111;
@@ -127,6 +126,7 @@ module control_cursor_paleta (
         DONE: begin
           state = START;
         end
+        default : state = START;
       endcase
     end
   end

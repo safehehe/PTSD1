@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Thu Dec 11 04:26:47 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/DRAW_CURSOR/simulation/post_synth/DRAW_CURSOR_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 04:20:16 2025"
+[dumpfile_size] 65706370
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/DRAW_CURSOR/simulation/post_synth/signals_.gtkw"
+[timestart] 0
+[size] 1366 651
+[pos] -1 -1
+*-21.616598 1420000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] DRAW_CURSOR_TB.
+[sst_width] 216
+[signals_width] 238
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@24
+DRAW_CURSOR_TB.in_x[5:0]
+DRAW_CURSOR_TB.in_y[5:0]
+@28
+DRAW_CURSOR_TB.cursor_done
+DRAW_CURSOR_TB.clk
+@24
+DRAW_CURSOR_TB.out_x[5:0]
+DRAW_CURSOR_TB.out_y[5:0]
+@28
+DRAW_CURSOR_TB.paint
+@29
+DRAW_CURSOR_TB.px_data[7:0]
+@28
+DRAW_CURSOR_TB.rst
+DRAW_CURSOR_TB.reg_init
+@22
+DRAW_CURSOR_TB.u_draw_cursor.\control_cursor.state[5:0]
+[pattern_trace] 1
+[pattern_trace] 0

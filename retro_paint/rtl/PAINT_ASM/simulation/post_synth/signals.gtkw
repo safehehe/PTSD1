@@ -1,0 +1,96 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Thu Dec 11 03:59:25 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/paint_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 03:24:57 2025"
+[dumpfile_size] 211785284
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/simulation/post_synth/signals.gtkw"
+[timestart] 1371000
+[size] 1366 651
+[pos] -1 -1
+*-15.499932 1440000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] paint_TB.
+[treeopen] paint_TB.u_paint.
+[sst_width] 453
+[signals_width] 270
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@28
+paint_TB.clk
+paint_TB.rst_n
+@200
+-Control
+@23
+paint_TB.u_paint.\control_paint.in_x[5:0]
+@22
+paint_TB.u_paint.\control_paint.out_x[5:0]
+@28
+paint_TB.u_paint.\control_paint.out_y[5:0]
+paint_TB.u_paint.\control_paint.state[8:0]
+@200
+-Entradas
+@24
+paint_TB.in_x[5:0]
+paint_TB.in_y[5:0]
+@28
+paint_TB.in_button[2:0]
+paint_TB.u_paint.init
+@200
+-Salidas
+@24
+paint_TB.out_x[5:0]
+@28
+paint_TB.out_y[5:0]
+paint_TB.paint
+paint_TB.paleta
+paint_TB.u_paint.selector
+@22
+paint_TB.px_data[7:0]
+paint_TB.u_paint.\control_paint.color[7:0]
+@200
+-Cursor
+@28
+paint_TB.u_paint.\DRAW_CURSOR.init
+paint_TB.u_paint.\DRAW_CURSOR.paint
+paint_TB.u_paint.\DRAW_CURSOR.cursor_done
+@22
+paint_TB.u_paint.\DRAW_CURSOR.out_x[5:0]
+@28
+paint_TB.u_paint.\DRAW_CURSOR.px_data[7:0]
+paint_TB.u_paint.\DRAW_CURSOR.rst
+@200
+-Cursor_Paleta
+@28
+paint_TB.u_paint.\cursor_paleta.init
+paint_TB.u_paint.\cursor_paleta.paint
+@24
+paint_TB.u_paint.\cursor_paleta.out_x[5:0]
+@22
+paint_TB.u_paint.\cursor_paleta.px_data[7:0]
+@28
+paint_TB.u_paint.\cursor_paleta.rst
+@200
+-Check_c
+@28
+paint_TB.u_paint.\checkC.data_in[2:0]
+paint_TB.u_paint.\checkC.comparar
+paint_TB.u_paint.\checkC.rst
+paint_TB.u_paint.w_C
+paint_TB.u_paint.\checkC.checkout
+@200
+-Check_Enter
+@28
+paint_TB.u_paint.\checkEnter.data_in[2:0]
+paint_TB.u_paint.\checkEnter.rst
+paint_TB.u_paint.\checkEnter.checkout
+paint_TB.u_paint.w_Enter
+@200
+-Check_Enter_Paleta
+@28
+paint_TB.u_paint.\checkEnterPaleta.data_in[2:0]
+paint_TB.u_paint.\checkEnterPaleta.rst
+paint_TB.u_paint.\checkEnterPaleta.checkout
+paint_TB.u_paint.w_Enter_Paleta
+[pattern_trace] 1
+[pattern_trace] 0

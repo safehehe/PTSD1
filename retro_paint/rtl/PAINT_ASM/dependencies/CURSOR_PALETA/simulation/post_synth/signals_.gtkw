@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.117 (w)1999-2023 BSI
+[*] Thu Dec 11 04:18:44 2025
+[*]
+[dumpfile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CURSOR_PALETA/simulation/post_synth/cursor_paleta_TB.vcd"
+[dumpfile_mtime] "Thu Dec 11 04:08:53 2025"
+[dumpfile_size] 77323655
+[savefile] "/home/daniel-puentes/Documentos/Repositorios/PTSD1/retro_paint/rtl/PAINT_ASM/dependencies/CURSOR_PALETA/simulation/post_synth/signals_.gtkw"
+[timestart] 4061600
+[size] 1366 651
+[pos] -1 -1
+*-16.593044 4260000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] cursor_paleta_TB.
+[treeopen] cursor_paleta_TB.u_cursor_paleta.
+[sst_width] 329
+[signals_width] 294
+[sst_expanded] 1
+[sst_vpaned_height] 168
+@24
+cursor_paleta_TB.in_x[5:0]
+cursor_paleta_TB.in_y[5:0]
+cursor_paleta_TB.out_x[5:0]
+cursor_paleta_TB.out_y[5:0]
+@28
+cursor_paleta_TB.paint
+cursor_paleta_TB.px_data[7:0]
+cursor_paleta_TB.cursor_paleta_done
+cursor_paleta_TB.rst
+cursor_paleta_TB.u_cursor_paleta.\control_cursor_paleta.state[4:0]
+cursor_paleta_TB.u_cursor_paleta.\control_cursor_paleta.clk
+@29
+cursor_paleta_TB.u_cursor_paleta.\control_cursor_paleta.out_rst
+[pattern_trace] 1
+[pattern_trace] 0

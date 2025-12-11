@@ -127,7 +127,7 @@ module paint (
       .in_x(in_x),
       .in_y(in_y),
       .out_x(out_x_control_paint),
-      .out_y(out_x_control_paint),
+      .out_y(out_y_control_paint),
       .w_C(w_C),
       .w_Enter(w_Enter),
       .w_Enter_Paleta(w_Enter_Paleta),

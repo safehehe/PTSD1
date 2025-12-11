@@ -6,8 +6,8 @@ module DRAW_CURSOR_TB;
   wire cursor_done;
   reg [5:0] in_x = 0;
   reg [5:0] in_y = 0;
-  wire [7:0] out_x;
-  wire [7:0] out_y;
+  wire [5:0] out_x;
+  wire [5:0] out_y;
   wire paint;
   wire [7:0] px_data;
 
@@ -48,7 +48,7 @@ module DRAW_CURSOR_TB;
     reg_init = 1;
     @(negedge clk);
     reg_init = 0;
-    repeat (20_000_000) @(negedge clk);
+    repeat (100_000) @(negedge clk);
     $finish(2);
   end
 

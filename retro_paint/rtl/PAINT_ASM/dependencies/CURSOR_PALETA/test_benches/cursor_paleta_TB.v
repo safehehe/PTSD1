@@ -6,8 +6,8 @@ module cursor_paleta_TB;
   wire cursor_paleta_done;
   reg [5:0] in_x = 0;
   reg [5:0] in_y = 0;
-  wire [7:0] out_x;
-  wire [7:0] out_y;
+  wire [5:0] out_x;
+  wire [5:0] out_y;
   wire paint;
   wire [7:0] px_data;
 
@@ -44,11 +44,11 @@ module cursor_paleta_TB;
     @(posedge clk);
     repeat (2) @(negedge clk);
     in_x = 10;
-    in_y = 20;
+    in_y = 15;
     reg_init = 1;
     @(negedge clk);
     reg_init = 0;
-    repeat (20_000_000) @(negedge clk);
+    repeat (100_000) @(negedge clk);
     $finish(2);
   end
 

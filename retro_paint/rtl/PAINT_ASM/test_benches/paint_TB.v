@@ -56,7 +56,7 @@ module paint_TB;
     in_y = 7;
     repeat (5) @(posedge clk);
     in_button = 3;
-    repeat (50_000_000) @(posedge clk);
+    repeat (100_000) @(posedge clk);
     $finish(2);
   end
 
