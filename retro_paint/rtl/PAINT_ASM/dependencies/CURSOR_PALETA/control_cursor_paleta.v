@@ -50,6 +50,7 @@ module control_cursor_paleta (
   parameter CONTAR_NEGRO = 5'b01001;
   parameter CONTAR_BLANCO = 5'b01010;
   parameter CHANGE_COLOR = 5'b01011;
+  parameter CHECK_CONT = 5'b10001;
   parameter DONE = 5'b01100;
   parameter ACC_1 = 5'b01101;
   parameter ACC_2 = 5'b01110;
@@ -57,17 +58,23 @@ module control_cursor_paleta (
   parameter ACC_4 = 5'b10000;
 
   reg [4:0] state;
+  reg cont;
 
   always @(posedge clk) begin
     if (rst) begin
+      cont = 0;
       state = START;
     end else begin
       case (state)
         START: begin
+          cont = 0;
           px_data = 8'b11111111;
           state = init ? X_DERECHA : START;
         end
         X_DERECHA: begin
+          if (cont) begin
+            px_data = 8'b0
+          end
           state = ACC_1;
         end
 
@@ -120,8 +127,17 @@ module control_cursor_paleta (
           px_data = 8'b0;
           state   = X_DERECHA;
         end
-        CONTAR_NEGRO: begin
-          state = CN ? DONE : CONTAR_NEGRO;
+        CONTAR_NEGRO: begin 
+          state = CN ? CHECK_CONT : CONTAR_NEGRO;
+        end
+        CHECK_CONT : begin
+          if (cont) begin
+            state = DONE;
+          end else begin
+            cont = 1;
+            px_data = 8'b0;
+            state = X_DERECHA;
+          end
         end
         DONE: begin
           state = START;
@@ -318,6 +334,18 @@ module control_cursor_paleta (
         rst_cont = 0;
         Contar_Blanco_S = 0;
         Contar_Negro_S = 1;
+        cursor_paleta_done = 0;
+        plus = 0;
+        sum = 0;
+        Change_X = 0;
+        Change_Y = 0;
+        paint = 0;
+      end
+      CHECK_CONT : begin
+        out_rst = 0;
+        rst_cont = 0;
+        Contar_Blanco_S = 0;
+        Contar_Negro_S = 0;
         cursor_paleta_done = 0;
         plus = 0;
         sum = 0;
