@@ -2,14 +2,17 @@ module retro_paint (
     input clk,
     input rstn,
     input bluetooth_tx,
-    output LED,
+    output wire LED,
     output [2:0] wire_to_screen_RGB0,
     output [2:0] wire_to_screen_RGB1,
     output wire_to_screen_CLK,
     output [4:0] wire_to_screen_ABCDE,
     output wire_to_screen_LATCH,
-    output wire_to_screen_nOE
+    output wire_to_screen_nOE,
+    output wire bluetooth_energy
 );
+  assign bluetooth_energy = 1'b1;
+
   wire w_to_paint_cmd;
   wire w_to_paint_x;
   wire w_to_paint_y;
@@ -21,7 +24,7 @@ module retro_paint (
       .cmd_to_screen(w_to_paint_cmd),
       .x_to_screen  (w_to_paint_x),
       .y_to_screen  (w_to_paint_y),
-      .valid_pulse  ()
+      .valid_pulse  (LED)
   );
 
 

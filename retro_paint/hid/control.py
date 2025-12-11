@@ -6,10 +6,8 @@ from enum import IntEnum
 # --- CONFIGURACIÓN BLUETOOTH Y MAC ---
 # IMPORTANTE: 
 # 1. Reemplaza '00:1A:7D:XX:XX:XX' con la DIRECCIÓN MAC del módulo Bluetooth receptor (HC-05/HC-06).
-# 2. Reemplaza '00001101-0000-1000-8000-00805F9B34FB' con el UUID SPP si tu sistema lo requiere.
 TARGET_MAC_ADDRESS = '05:4E:04:05:7A:A7' # <-- AJUSTAR ESTO
-# El UUID estándar para Serial Port Profile (SPP)
-UUID = "00001101-0000-1000-8000-00805F9B34FB" 
+
 
 # --- DEFINICIONES DE COMANDOS (IGUAL QUE EN EL ESP32) ---
 class CMD(IntEnum):
@@ -78,7 +76,7 @@ def main():
 
     try:
         # 1. Encontrar el puerto SPP del dispositivo
-        service_matches = bluetooth.find_service(uuid=UUID, address=TARGET_MAC_ADDRESS)
+        service_matches = bluetooth.find_service(address=TARGET_MAC_ADDRESS)
 
         if len(service_matches) == 0:
             print("ERROR: No se encontró el servicio SPP en el dispositivo objetivo.")
@@ -108,7 +106,7 @@ def main():
     while True:
         try:
             # Limpiar la pantalla para una mejor visualización
-            os.system('cls' if os.name == 'nt' else 'clear')
+            #os.system('cls' if os.name == 'nt' else 'clear')
 
             # Mostrar estado actual
             estado = "PALETA" if modo_paleta else "DIBUJO"

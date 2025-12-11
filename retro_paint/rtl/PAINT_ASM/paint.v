@@ -18,14 +18,23 @@ module paint (
   input [5:0] in_x;
   input [5:0] in_y;
   input [2:0] in_button;
-  output wire out_x;
-  output wire out_y;
+  output wire [5:0] out_x;
+  output wire [5:0] out_y;
   output wire paint;
   output wire paleta;
   output wire selector;
-  output wire [5:0] px_data;
+  output wire [7:0] px_data;
   assign paint = |s_paint;
   wire [2:0] s_paint;
+
+  assign out_x = out_x_draw_cursor | out_x_cursor_paleta | out_x_control_paint;
+  wire out_x_draw_cursor;
+  wire out_x_cursor_paleta;
+  wire out_x_control_paint;
+  assign out_y = out_y_draw_cursor | out_y_cursor_paleta | out_y_control_paint;
+  wire out_y_draw_cursor;
+  wire out_y_cursor_paleta;
+  wire out_y_control_paint;
   reg [7:0] color;
   reg [23:0] cont_cursor;
   reg [5:0] x;
@@ -51,6 +60,7 @@ module paint (
   check #(
       .WIDTH(8)
   ) checkC (
+      .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
       .comparar(1),
@@ -62,6 +72,7 @@ module paint (
   check #(
       .WIDTH(8)
   ) checkEnter (
+      .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
       .comparar(1),
@@ -72,6 +83,7 @@ module paint (
   check #(
       .WIDTH(8)
   ) checkEnterPaleta (
+      .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
       .comparar(1),
@@ -85,8 +97,8 @@ module paint (
       .init(Cursor_S),
       .in_x(in_x),
       .in_y(in_y),
-      .out_x(out_x),
-      .out_y(out_y),
+      .out_x(out_x_draw_cursor),
+      .out_y(out_y_draw_cursor),
       .paint(s_paint[0]),
       .px_data(px_data_cursor),
       .cursor_done(cursor_done)
@@ -101,8 +113,8 @@ module paint (
       .px_data(px_data_cursor_paleta),
       .in_x(in_x),
       .in_y(in_y),
-      .out_x(out_x),
-      .out_y(out_y)
+      .out_x(out_x_cursor_paleta),
+      .out_y(out_y_cursor_paleta)
   );
 
 
@@ -114,8 +126,8 @@ module paint (
       .init(init),
       .in_x(in_x),
       .in_y(in_y),
-      .out_x(out_x),
-      .out_y(out_y),
+      .out_x(out_x_control_paint),
+      .out_y(out_x_control_paint),
       .w_C(w_C),
       .w_Enter(w_Enter),
       .w_Enter_Paleta(w_Enter_Paleta),

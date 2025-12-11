@@ -106,12 +106,12 @@ module control_paint (
         end
 
         DRAW_CURSOR: begin
-          assign px_data = px_data_cursor;
+          px_data = px_data_cursor;
           state = cursor_done ? INICIALIZACION : DRAW_CURSOR;
         end
 
         CURSOR_PALETA: begin
-          assign px_data = px_data_cursor_paleta;
+          px_data = px_data_cursor_paleta;
           state = cursor_paleta_done ? CHECK_ENTER_PALETA : CURSOR_PALETA;
         end
 
