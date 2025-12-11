@@ -33,6 +33,8 @@ module cursor_paleta (
   wire plus;
   wire out_rst;
   wire rst_cont;
+  wire loadx;
+  wire loady;
 
   control_cursor_paleta control_cursor_paleta (
       .clk(clk),
@@ -46,6 +48,8 @@ module cursor_paleta (
       .paint(paint),
       .Change_X(Change_X),
       .Change_Y(Change_Y),
+      .loadx(loadx),
+      .loady(loady),
       .sum(sum),
       .out_rst(out_rst),
       .rst_cont(rst_cont),
@@ -72,6 +76,7 @@ module cursor_paleta (
       .clk(clk),
       .rst(out_rst),
       .in_x(in_x),
+      .loadx(loadx),
       .out_x(out_x),
       .plus(Change_X),
       .sum(sum),
@@ -82,6 +87,7 @@ module cursor_paleta (
       .clk(clk),
       .rst(out_rst),
       .in_y(in_y),
+      .loady(loady),
       .out_y(out_y),
       .plus(Change_Y),
       .sum(sum),

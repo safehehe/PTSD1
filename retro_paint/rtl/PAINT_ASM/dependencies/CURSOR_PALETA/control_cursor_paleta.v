@@ -10,6 +10,8 @@ module control_cursor_paleta (
     paint,
     Change_X,
     Change_Y,
+    loadx,
+    loady,
     sum,
     out_rst,
     rst_cont,
@@ -32,6 +34,8 @@ module control_cursor_paleta (
   output reg rst_cont;
   output reg plus;
   output reg paint;
+  output reg loadx;
+  output reg loady;
   output reg [7:0] px_data;
 
   output reg sum;
@@ -158,6 +162,8 @@ module control_cursor_paleta (
         plus = 0;
         sum = 0;
         Change_X = 0;
+        loadx = 1;
+        loady = 1;
         Change_Y = 0;
         paint = 0;
       end
@@ -171,6 +177,8 @@ module control_cursor_paleta (
         sum = 1;
         Change_X = 1;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 1;
       end
       RST_CONT_1: begin
@@ -183,6 +191,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       ACC_1 : begin
@@ -195,6 +205,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       ACC_2 : begin
@@ -207,6 +219,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       ACC_3 : begin
@@ -219,6 +233,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       ACC_4 : begin
@@ -231,6 +247,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       Y_ABAJO: begin
@@ -243,6 +261,8 @@ module control_cursor_paleta (
         sum = 1;
         Change_X = 0;
         Change_Y = 1;
+        loadx = 0;
+        loady = 0;
         paint = 1;
       end
       RST_CONT_2: begin
@@ -255,6 +275,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       X_IZQ: begin
@@ -267,6 +289,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 1;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 1;
       end
       RST_CONT_3: begin
@@ -279,6 +303,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       Y_ARRIBA: begin
@@ -291,6 +317,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 1;
+        loadx = 0;
+        loady = 0;
         paint = 1;
       end
       RST_CONT_4: begin
@@ -303,6 +331,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       CONTAR_BLANCO: begin
@@ -315,6 +345,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       CHANGE_COLOR: begin
@@ -327,6 +359,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       CONTAR_NEGRO: begin
@@ -339,6 +373,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       CHECK_CONT : begin
@@ -351,6 +387,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       DONE: begin
@@ -363,6 +401,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
       default: begin
@@ -375,6 +415,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
+        loadx = 0;
+        loady = 0;
         paint = 0;
       end
     endcase
