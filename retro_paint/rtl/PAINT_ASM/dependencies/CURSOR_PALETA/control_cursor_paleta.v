@@ -415,8 +415,8 @@ module control_cursor_paleta (
         sum = 0;
         Change_X = 0;
         Change_Y = 0;
-        loadx = 0;
-        loady = 0;
+        loadx = 1;
+        loady = 1;
         paint = 0;
       end
     endcase

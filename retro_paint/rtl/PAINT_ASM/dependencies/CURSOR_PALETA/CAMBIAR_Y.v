@@ -12,6 +12,7 @@ module CAMBIAR_Y(
     input rst;
     input plus;
     input sum;
+    input loady;
     input [2:0] C;
     input [5:0] in_y;
     output reg [5:0] out_y;

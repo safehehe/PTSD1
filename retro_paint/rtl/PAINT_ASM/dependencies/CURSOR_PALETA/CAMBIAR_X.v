@@ -12,6 +12,7 @@ module CAMBIAR_X(
     input rst;
     input plus;
     input sum;
+    input loadx;
     input [2:0] C;
     input [5:0] in_x;
     output reg [5:0] out_x;
