@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module paint_TB;
   reg clk;
   reg rst_n;
