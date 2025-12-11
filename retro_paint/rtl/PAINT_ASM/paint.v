@@ -28,13 +28,13 @@ module paint (
   wire [2:0] s_paint;
 
   assign out_x = out_x_draw_cursor | out_x_cursor_paleta | out_x_control_paint;
-  wire out_x_draw_cursor;
-  wire out_x_cursor_paleta;
-  wire out_x_control_paint;
+  wire [5:0] out_x_draw_cursor;
+  wire [5:0] out_x_cursor_paleta;
+  wire [5:0] out_x_control_paint;
   assign out_y = out_y_draw_cursor | out_y_cursor_paleta | out_y_control_paint;
-  wire out_y_draw_cursor;
-  wire out_y_cursor_paleta;
-  wire out_y_control_paint;
+  wire [5:0] out_y_draw_cursor;
+  wire [5:0] out_y_cursor_paleta;
+  wire [5:0] out_y_control_paint;
   reg [7:0] color;
   reg [23:0] cont_cursor;
   reg [5:0] x;
@@ -58,35 +58,35 @@ module paint (
 
 
   check #(
-      .WIDTH(8)
+      .WIDTH(3)
   ) checkC (
       .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(1),
+      .comparar(1'b1),
       .comparador(3'b100),
       .checkout(w_C)
   );
 
 
   check #(
-      .WIDTH(8)
+      .WIDTH(3)
   ) checkEnter (
       .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(1),
+      .comparar(1'b1),
       .comparador(3'b010),
       .checkout(w_Enter)
   );
 
   check #(
-      .WIDTH(8)
+      .WIDTH(3)
   ) checkEnterPaleta (
       .clk(clk),
       .data_in(in_button),
       .rst(rst_check),
-      .comparar(1),
+      .comparar(1'b1),
       .comparador(3'b011),
       .checkout(w_Enter_Paleta)
   );

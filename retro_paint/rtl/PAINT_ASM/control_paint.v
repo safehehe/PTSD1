@@ -32,15 +32,15 @@ module control_paint (
   input w_C;
   input w_Enter;
   input w_Enter_Paleta;
-  input [7:0] in_x;
-  input [7:0] in_y;
+  input [5:0] in_x;
+  input [5:0] in_y;
   input cursor_done;
   input [7:0] px_data_cursor;
   input [7:0] px_data_cursor_paleta;
   input cursor_paleta_done;
 
-  output reg [7:0] out_x;
-  output reg [7:0] out_y;
+  output reg [5:0] out_x;
+  output reg [5:0] out_y;
   output reg [7:0] px_data;
   output reg rst_check;
   output reg out_rst;

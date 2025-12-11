@@ -13,7 +13,7 @@ module CAMBIAR_X(
     input sum;
     input [2:0] C;
     input [5:0] in_x;
-    output reg [8:0] out_x;
+    output reg [5:0] out_x;
 
     always @(negedge clk) begin
         if (rst) begin

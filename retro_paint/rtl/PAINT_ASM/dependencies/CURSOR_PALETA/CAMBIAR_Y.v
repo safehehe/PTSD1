@@ -13,7 +13,7 @@ module CAMBIAR_Y(
     input sum;
     input [2:0] C;
     input [5:0] in_y;
-    output reg [8:0] out_y;
+    output reg [5:0] out_y;
 
     always @(negedge clk) begin
         if (rst) begin
