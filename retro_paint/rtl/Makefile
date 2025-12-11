@@ -4,13 +4,15 @@ SIMPLE_SIM_DIR = $(SIM_DIR)/simple
 POST_SYNTH_SIM_DIR = $(SIM_DIR)/post_synth
 TESTBENCH_DIR = test_benches
 ECP5_SIM_CELLS=$(shell yosys-config --datdir/ecp5/cells_sim.v)
-BIT_DIR = bitstream
-BIT_NAME = DEMO_GPU
+
 
 PAINT_DIR = ./PAINT_ASM
 GPU_DIR = ./GPU_ASM
 HID_DIR = ./HID_ASM
 BUILDING_BLOCKS_DIR = ./raw_implementation/building_blocks
+
+BIT_DIR = bitstream
+BIT_NAME = retro_paint
 
 DESIGN = retro_paint
 TOP = retro_paint

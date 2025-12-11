@@ -20,8 +20,8 @@ class CMD(IntEnum):
 
 # --- ESTADOS Y VARIABLES ---
 MAX_SCREEN = 63
-MAX_PAL_X = 3
-MAX_PAL_Y = 3
+MAX_PAL_X = 15
+MAX_PAL_Y = 15
 
 modo_paleta = False
 cursor_x = 0

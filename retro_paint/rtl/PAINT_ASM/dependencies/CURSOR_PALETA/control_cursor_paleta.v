@@ -73,7 +73,7 @@ module control_cursor_paleta (
         end
         X_DERECHA: begin
           if (cont) begin
-            px_data = 8'b0
+            px_data = 8'b0;
           end
           state = ACC_1;
         end

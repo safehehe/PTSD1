@@ -57,7 +57,7 @@ module retro_paint (
 
   GPU #(
       .IMAGE_FILE  ("./data/frame0.hex"),
-      .OVERLAY_FILE("./data/overlay.hex"),
+      .OVERLAY_FILE("./data/ceros.hex"),
       .PALETTE_FILE("./data/paleta256.hex")
   ) u_GPU (
       .clk            (clk),
