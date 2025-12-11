@@ -34,7 +34,7 @@ module control_contar_blanco (
         end
 
         ACC: begin
-          if (cont_cursor == 24'b000000000000000000000100) begin
+          if (cont_cursor == 24'b010011000100101101000000) begin
             //24'b010011000100101101000000
             state = DONE;
           end else state = ACC;
