@@ -115,23 +115,8 @@ Envía:
 - rx_valid
 
 - rx_byte
-  
-- ry_byte
 
-
-### 4. Line Buffer
-
-Módulo line_buffer.v:
-
-- Convierte el stream de bytes a una línea completa terminada en \n.
-
-Entrega:
-
-- line_ready
-
-- line_str[]
-
-### 5. Command Decoder
+### 4. Command Decoder
 
 Módulo command_decoder.v
 
@@ -149,7 +134,7 @@ Y convertirlas a señales:
 
 - cmd_data
 
-### 6. [Motor de Dibujo](./rtl/PAINT_ASM/)
+### 5. [Motor de Dibujo](./rtl/PAINT_ASM/)
 
 <img width="400" alt="paint" src="./rtl/PAINT_ASM/diagrams/paint.png" />
 
@@ -184,7 +169,7 @@ Salida del motor:
 - Seleccionar paleta
 - Selecionar Overlay
 
-### 7. [GPU](./rtl/GPU_ASM/)
+### 6. [GPU](./rtl/GPU_ASM/)
 
 Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, expone una interfaz para escribir los datos en memoria.
 
@@ -206,14 +191,9 @@ Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, ex
     read_teclado.drawio
   \hid
     Makefile
-    bt_decoder.v
     read_teclado.png
-    sim.out
     simulación.png
-    tb_sistema.sv
     tec_esp_blu.ino
-    top_fpga.v
-    uart_rx.v
   \rtl
     \GPU_ASM
     \HID_ASM
@@ -221,26 +201,50 @@ Se encarga de cargar en la pantalla los datos almacenados en la memoria BRAM, ex
     \raw_implementation
       \building_blocks
   \scripts
-
+```
+## Simulación
+Para simular los modulos ubíquese en la carpeta asociada y siga el ejemplo :
+```bash
+#Para una simulación simple
+HID_ASM$ make simple_sim
+#Para una simulació despues de síntesis
+HID_ASM$ make sim_post_synth
+``` 
+Algunos modulos(por ejemplo HID_ASM) comparten el Makefile para la simulación de sus componentes, para simular todo el contenido modifique las variables ```TOP``` y ```TARGET``` en el archivo Makefile:
+```bash
+...
+TOP = HID/bt_decoder/uart_rx
+TARGET = HID/bt_decoder/uart_rx
+...
 ```
 
-## Implementación en la FPGA
-Conecte módulo UART a el JTAG de la targeta.
 
-Para experimentar una demostración vaya a la carpeta ```GPU_ASM``` y realice las conexiones segpun el archivo de asignación de pines[aqui](./rtl/GPU_ASM/pin_assignment.lpf) se encuentran las conexiones necesarias para el lado de la pantalla.
+## Implementación en la FPGA
+### DEMO_GPU
+Conecte módulo UART a el JTAG de la tarjeta.
+
+Para experimentar una demostración vaya a la carpeta ```GPU_ASM``` y realice las conexiones según el [archivo de asignación de pines](./rtl/GPU_ASM/pin_assignment.lpf) se encuentran las conexiones necesarias para el lado de la pantalla.[Diagrama de Pines](https://github.com/johnnycubides/digital-electronic-1-101/blob/f01aeb042ac882030756aee752e0c0446ef51f91/fpga-example/colorlight-5a-75e/recursos/colorlight-5a-75e-v8.2.drawio.pdf).
 
 Para verficar las conexiones a JTAG use :
 ```
-make detect
+GPU_ASM$ make detect
 ```
-
 Para cargar la demostración utilice :
 ```
-make configure_lattice
+GPU_ASM$ make configure_lattice
 ```
-
 Presione el botón de reset y disfrute.
-
+### Retro Paint
+Conecte módulo UART a el JTAG de la tarjeta.
+Vaya a la carpeta ```rtl``` y realice las conexiones según el [archivo de asignación de pines](./rtl/pin_assignment.lpf) para la pantalla y el receptor bluetooth.[Diagrama de Pines](https://github.com/johnnycubides/digital-electronic-1-101/blob/f01aeb042ac882030756aee752e0c0446ef51f91/fpga-example/colorlight-5a-75e/recursos/colorlight-5a-75e-v8.2.drawio.pdf).
+Para verficar las conexiones a JTAG use :
+```bash
+rtl$ make detect
+```
+Para cargar retro paint use:
+```bash
+rtl$ make detect
+```
 
 
 
