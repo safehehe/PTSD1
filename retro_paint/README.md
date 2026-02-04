@@ -8,7 +8,7 @@
 
 *Steven Sebastian Osorio Castro - 1022922007*
 
-*Daniel Santiango Puentes Villabona - 1052378730*
+*Daniel Santiago Puentes Villabona - 1052378730*
 
 <img title="Retro Paint con IA" alt="Imagen de Retro Paint generada con IA" src="./diagrams/aigen.png" height="200">
 
